@@ -1,3 +1,3 @@
-# OpenRTX docs
+# OpenRTX Documentation
 
-> Something.
+Welcome to OpenRTX documentation
