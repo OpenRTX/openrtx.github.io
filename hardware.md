@@ -8,10 +8,10 @@ For OpenRTX we use the following definition for device **family**, **platform** 
 ## Hardware components matrix
 Platform|MCU|DMR baseband|RF chip|Display|Flash|GPS|
 ---     |:---:|:---:|:---:|:---:|:---:|:---:|
-[MD3x0](https://openrtx.github.io/#/md3x0)|STM32F4xx|HR-C5000| |HX83XX | | |
-[MD-UV3x0](https://openrtx.github.io/#/md3x0)|STM32F4xx|HR-C6000|AT1846S|HX83XX| | |
-[GD77](https://openrtx.github.io/#/md3x0)|NXP MK22|HR-C6000|AT1846S|UC1701| | |
-[MD-9600](https://openrtx.github.io/#/md3x0)|STM32F4xx|HR-C6000|AT1846S| | | |
+[MD3x0](md3x0.md)|STM32F4xx|HR-C5000| |HX83XX | | |
+[MD-UV3x0](mduv3x0.md)|STM32F4xx|HR-C6000|AT1846S|HX83XX| | |
+[GD77](gd77.md)|NXP MK22|HR-C6000|AT1846S|UC1701| | |
+[MD-9600](md9600.md)|STM32F4xx|HR-C6000|AT1846S| | | |
 
 ## Device models
 ### MDx family
