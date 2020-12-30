@@ -37,7 +37,7 @@ Platform|MCU|DMR baseband|RF chip|Display|Flash|GPS|
 
 ### GDx family
 
-## GD77 Platform
+#### GD77 Platform
 * Radioddity GD77, target `gd77`
 * Baofeng DM-1801, target `gd77`
 
