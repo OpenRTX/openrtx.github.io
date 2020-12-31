@@ -4,3 +4,4 @@
     * [MD3x0](md3x0.md)
     * [MD-UV3x0](mduv3x0.md)
     * [GD77](gd77.md)
+    * [MD-9600](md9600.md)
