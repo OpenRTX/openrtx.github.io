@@ -1,4 +1,4 @@
-# MD3x0 platform
+# MD-3x0 platform
  
 ## Specifications
 ### Frequency range

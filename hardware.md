@@ -8,14 +8,14 @@ For OpenRTX we use the following definition for device **family**, **platform** 
 ## Hardware components matrix
 Platform|MCU|DMR baseband|RF chip|Display controller|Non volatile memory|GPS|
 ---     |:---:|:---:|:---:|:---:|:---:|:---:|
-[MD3x0](md3x0.md)     | STM32F405VG | HR-C5000 | SKY73210 | HX8302A | 25Q128FV SPI flash | |
+[MD-3x0](md3x0.md)     | STM32F405VG | HR-C5000 | SKY73210 | HX8302A | 25Q128FV SPI flash | |
 [MD-UV3x0](mduv3x0.md)| STM32F405VG | HR-C6000 | AT1846S  | HX8302A | 25Qx SPI flash     | |
-[GD77](gd77.md)       | MK22FN512   | HR-C6000 | AT1846S  | UC1701  | 25Q80BV SPI flash +<br> AT24C512 I2C EEPROM | |
+[GD-77](gd77.md)       | MK22FN512   | HR-C6000 | AT1846S  | UC1701  | 25Q80BV SPI flash +<br> AT24C512 I2C EEPROM | |
 [MD-9600](md9600.md)  | STM32F405VG | HR-C6000 | AT1846S  |         |                    | |
 
 ## Device models
 ### MDx family
-#### MD3x0 Platform
+#### MD-3x0 Platform
 * Tytera MD380, target `md380`
 * Retevis RT3, target `md380`
 * Tytera MD380G, target `md380g`
@@ -37,7 +37,7 @@ Platform|MCU|DMR baseband|RF chip|Display controller|Non volatile memory|GPS|
 
 ### GDx family
 
-#### GD77 Platform
+#### GD-77 Platform
 * Radioddity GD77, target `gd77`
 * Baofeng DM-1801, target `gd77`
 
