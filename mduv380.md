@@ -6,5 +6,7 @@
 * UHF: 400.000-480.000
 
 ## Hardware components
- 
+### Clock tree configuration
+To be found
+
 ## Memory mapping
