@@ -1,4 +1,4 @@
-# MD-3x0 platform
+# MD-UV380
  
 ## Specifications
 ### Frequency range
