@@ -11,7 +11,7 @@ Platform|MCU|DMR baseband|RF chip|Display controller|Non volatile memory|GPS|
 MD-3x0   | STM32F405VG | HR-C5000 | SKY73210 | HX8302A | 25Q128FV SPI flash | JS-M710 |
 MD-UV3x0 | STM32F405VG | HR-C6000 | AT1846S  | HX8302A | 25Qx SPI flash     | JS-H210 |
 GD-77    | MK22FN512   | HR-C6000 | AT1846S  | UC1701  | 25Q80BV SPI flash +<br>AT24C512 I2C EEPROM | - |
-MD-9600  | STM32F405VG | HR-C6000 | AT1846S  |         | 25Q128FV SPI flash | JS-M710 |
+MD-9600  | STM32F405VG | HR-C6000 | AT1846S  | ST7567  | 25Q128FV SPI flash | JS-M710 |
 
 ## Device models
 ### MDx family
