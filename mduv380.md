@@ -152,6 +152,11 @@ Functions identified:
 * 0x0807079c - function for reading an AT1846S register
 
 ## Memory mapping
+There are two Linux tools for writing the codeplug that can be used as a reference
+- [dmrconfig uc380.c](https://github.com/sergev/dmrconfig/blob/master/uv380.c): Some addresses seems
+  to be incorrect
+- [qdmr uv390_codeplug.hh](https://github.com/hmatuschek/qdmr/blob/master/lib/uv390_codeplug.hh):
+  Detailed UV380 codeplug reverse engineering
 
 ### Flash - other functions not listed in the above blocks
 * 0x0806B96A: function activating AT1846S RX
