@@ -20,6 +20,11 @@ __Model variants__
 To be found
 
 ## Memory mapping
+There are two Linux tools for writing the codeplug that can be used as a reference
+- [dmrconfig uc380.c](https://github.com/sergev/dmrconfig/blob/master/uv380.c): Some addresses seems
+  to be incorrect
+- [qdmr uv390_codeplug.hh](https://github.com/hmatuschek/qdmr/blob/master/lib/uv390_codeplug.hh):
+  Detailed UV380 codeplug reverse engineering
 
 ### SPI Flash layout
 Start  | End    | Section
