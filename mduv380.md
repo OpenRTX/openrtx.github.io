@@ -47,13 +47,13 @@ GPIO  | Mode   | Function             | Notes
  PB0  |        |                      |
  PB1  |        |                      |
  PB2  |        |                      |
- PB3  | AF     | SPI1_SCK             | extarnal flash
- PB4  | AF     | SPI1_MISO            | extarnal flash
- PB5  | AF     | SPI1_MOSI            | extarnal flash
+ PB3  | AF     | SPI1_SCK             | external flash
+ PB4  | AF     | SPI1_MISO            | external flash
+ PB5  | AF     | SPI1_MOSI            | external flash
  PB6  |        |                      |
  PB7  |        |                      |
- PB8  |        |                      |
- PB9  |        |                      |
+ PB8  | output | speaker mute         | to be confirmed
+ PB9  | output | audio amp. power     | to be confirmed
  PB10 |        |                      |
  PB11 | input  | channel selector     |
  PB12 |        |                      |
@@ -71,8 +71,8 @@ GPIO  | Mode          | Function          | Notes
  PC4  | output        | RF_APC_SW         | not confirmed
  PC5  | output        | 5TC - TX power en | not confirmed
  PC6  |               |                   |
- PC7  |               |                   |
- PC8  |               |                   |
+ PC7  | alternate     | CTC/DCS output    | TIM8_CH2, to be confirmed
+ PC8  | alternate     | 2T/5T/DTMF - beep | TIM8_CH3, to be confirmed
  PC9  | bidirectional | AT1846S SDA       |
  PC10 |               |                   |
  PC11 |               |                   |
