@@ -17,7 +17,7 @@
 
 ##### 0x0A
  bit | function                          |            notes
- --- |   ---                             |
+ --- |   ---                             |   --- 
  5:0 |  PA bias voltage                  | 000000: 1.01V<br>000001:1.05V<br>000010:1.09V<br>000100: 1.18V<br>001000: 1.34V<br>010000: 1.68V<br>100000: 2.45V<br>1111111:3.13V
 
 
@@ -29,15 +29,14 @@
 ##### 0x1F
  bit  | function                          |            notes
  ---  |   ---                             |   --- 
-14:15 |  GPIO0 mode                       | 00 = hi-z<br> 01 = vox<br> 10 = low<br> 11 = high
-13:12 |  GPIO0 mode                       | 00 = hi-z<br> 01 = squelch or squelch & CTC/DCS when sq_out_sel = 1<br> 10 = low<br> 11 = high
-11:10 |  GPIO0 mode                       | 00 = hi-z<br> 01 = txon_rf<br> 10 = low<br> 11 = high
- 9:8  |  GPIO0 mode                       | 00 = hi-z<br> 01 = rxon_rf<br> 10 = low<br> 11 = high
- 7:6  |  GPIO0 mode                       | 00 = hi-z<br> 01 = sdo<br> 10 = low<br> 11 = high
- 5:4  |  GPIO0 mode                       | 00 = hi-z<br> 01 = int<br> 10 = low<br> 11 = high
- 3:2  |  GPIO0 mode                       | 00 = hi-z<br> 01 = code_out/code_in<br> 10 = low<br> 11 = high
+14:15 |  GPIO7 mode                       | 00 = hi-z<br> 01 = vox<br> 10 = low<br> 11 = high
+13:12 |  GPIO6 mode                       | 00 = hi-z<br> 01 = squelch or squelch & CTC/DCS when sq_out_sel = 1<br> 10 = low<br> 11 = high
+11:10 |  GPIO5 mode                       | 00 = hi-z<br> 01 = txon_rf<br> 10 = low<br> 11 = high
+ 9:8  |  GPIO4 mode                       | 00 = hi-z<br> 01 = rxon_rf<br> 10 = low<br> 11 = high
+ 7:6  |  GPIO3 mode                       | 00 = hi-z<br> 01 = sdo<br> 10 = low<br> 11 = high
+ 5:4  |  GPIO2 mode                       | 00 = hi-z<br> 01 = int<br> 10 = low<br> 11 = high
+ 3:2  |  GPIO1 mode                       | 00 = hi-z<br> 01 = code_out/code_in<br> 10 = low<br> 11 = high
  1:0  |  GPIO0 mode                       | 00 = hi-z<br> 01 = css_out/css_in/css_cmp<br> 10 = low<br> 11 = high
-
 
 ##### 0x29
  bit | function                          |            notes
@@ -56,7 +55,7 @@
 
 ##### 0x2C
  bit | function                          |            notes
- --- |   ---                             |
+ --- |   ---                             |  --- 
 15:0 |  ADC clock frequency in kHz       | 12\~14MHz: crystal freq1000 <br> 24\~ 28MHz: (crystal freq/2)1000
 
 ##### 0x2D
