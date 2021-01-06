@@ -1,4 +1,5 @@
 * [OpenRTX](/)
+* [User Guide](guide.md)
 * [Software Documentation](software.md)
 * [Supported Platforms](platforms.md)
 * [Hardware Documentation](hardware.md)
