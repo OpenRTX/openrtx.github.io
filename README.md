@@ -11,4 +11,4 @@ Currently OpenRTX is being actively developed for the following radios:
 * Baofeng DM-1801
 
 If you want to know how to run OpenRTX on your device, look at the [users' guide](users_guide.md).
-Alternatively, if you want to experiment with OpenRTX or just take a peek under the hood, go to the [hackers' page](developers_guide.md).
+Alternatively, if you want to experiment with OpenRTX or just take a peek under the hood, go to the [developers' page](developers_guide.md).
