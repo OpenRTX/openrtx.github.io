@@ -1,3 +1,14 @@
-# OpenRTX Documentation
+# The OpenRTX project
 
-Welcome to OpenRTX documentation
+OpenRTX is a free and open source firmware for digital ham radios, top-down designed with modularity, flexibility and performance in mind.
+
+Currently OpenRTX is being actively developed for the following radios:
+
+* Tytera MD-380/390 **UHF versions only**
+* Tytera MD-UV380/390
+* Tytera TYT MD-9600
+* Radioddity GD-77
+* Baofeng DM-1801
+
+If you want to know how to run OpenRTX on your device, look at the [users' guide](users_guide.md).
+Alternatively, if you want to experiment with OpenRTX or just take a peek under the hood, go to the [hackers' page](developers_guide.md).
