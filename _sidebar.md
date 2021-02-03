@@ -1,7 +1,7 @@
 * [OpenRTX](/)
 * [Supported Platforms](platforms.md)
 * [Users' Guide](user_guide.md)
-* [Hackers' Guide](developers_guide)
+* [Hackers' Guide](developers_guide.md)
     * [Software Documentation](software.md)
     * [Hardware Documentation](hardware.md)
         * [MD-380](md380.md)

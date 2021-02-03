@@ -1,9 +1,7 @@
 # Hardware Documentation
 
-[MD-380](md380.md)
+The pages below collect all and only the information gathered through hardware and software reverse engineering.
 
-[MD-UV380](mduv380.md)
-
-[GD-77](gd77.md)
-
-[MD-9600](md9600.md)
+* [MD-380(G) and MD-390(G)](md380.md)
+* [MD-UV380(G)](mduv380.md)
+* [MD-9600 with and without GPS](md9600.md)

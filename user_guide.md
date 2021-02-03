@@ -11,18 +11,18 @@ However, contributions and testing are welcome and accepted.
 ## How to flash OpenRTX to your radio
 To flash the OpenRTX firmware on your radio, follow these steps:
 
-* _Backup your codeplug using your favourite codeplug editor._ Flashing OpenRTX will just replace your firmware without erasing your codeplug or other settings, however is safer to have a backup.
+* _**Backup your codeplug using your favourite codeplug editor.**_ Flashing OpenRTX will just replace your firmware without erasing your codeplug or other settings, however is safer to have a backup.
 
-* _Put your radio in DFU (bootloader) mode_. To do this you have to turn off the radio and turn it back on while pressing a combination of keys that depends on your specific model, the DFU mode will be indicated by the screen being off and a blinking or steady LED:
+* _**Put your radio in DFU (bootloader) mode**_. To do this you have to turn off the radio and turn it back on while pressing a combination of keys that depends on your specific model, the DFU mode will be indicated by the screen being off and a blinking or steady LED:
     * For MD3x0 radios you have to press the PTT button and the side button above it.
     * For GDx radios you have to press the two side buttons below it.
     
 
-* _Flash OpenRTX_
+* _**Flash OpenRTX**_
     * On Linux you can use [radio_tool](https://github.com/v0l/radio_tool).
     * On Windows you can use the radio's manufacturer firmware upgrade tool.
 
-* _Enjoy_
+* _**Enjoy**_
 
 To restore the original firmware, just flash it on the radio like you did for OpenRTX or the upgrades to the original firmware.
 
