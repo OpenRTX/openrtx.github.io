@@ -6,7 +6,7 @@ However, contributions and testing are welcome and accepted.
 
 ## Where to get OpenRTX
 * You can find pre-built OpenRTX binary images on our [GitHub releases page](https://github.com/OpenRTX/OpenRTX/releases)
-* Or you can compile OpenRTX from the sources by following [these instructions](https://github.com/OpenRTX/OpenRTX/wiki/How-to-compile)
+* Or you can compile OpenRTX from the sources by following [these instructions](compiling.md)
 
 ## How to flash OpenRTX to your radio
 To flash the OpenRTX firmware on your radio, follow these steps:
