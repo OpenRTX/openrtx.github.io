@@ -15,10 +15,7 @@ __Model variants__
     * VHF: 136.000-174.000
     * UHF: 400.000-480.000
 
-## Hardware components
-### Clock tree configuration
-To be found
-
+## Hardware configuration
 ### GPIO mapping
 
 ##### Port A
@@ -26,15 +23,15 @@ GPIO  | Mode   | Function         | Notes
 ---   | ---    |   ---            |  ---
  PA0  |        |                  |
  PA1  | analog | battery voltage  | ADC1_IN1, 1:3 voltage divider
- PA2  |        |                  |
+ PA2  | output | UHF LNA enable   | to be confirmed
  PA3  |        |                  |
  PA4  |        |                  |
- PA5  |        |                  |
+ PA5  | output | VHF LNA enable   | to be confirmed
  PA6  | output | keyboard row 1   |
  PA7  |        |                  |
  PA8  | output | AT1846S SCL      |
- PA9  |        |                  |
- PA10 |        |                  |
+ PA9  | output | GPS power enable | to be confirmed
+ PA10 |   AF   | GPS data RX      | to be confirmed - USART1 RX
  PA11 |        |                  |
  PA12 |        |                  |
  PA13 | output | mic power switch | not confirmed
@@ -52,8 +49,8 @@ GPIO  | Mode   | Function             | Notes
  PB5  | AF     | SPI1_MOSI            | external flash
  PB6  |        |                      |
  PB7  |        |                      |
- PB8  | output | speaker mute         | to be confirmed
- PB9  | output | audio amp. power     | to be confirmed
+ PB8  | output | speaker mute         |
+ PB9  | output | audio amp. power     |
  PB10 |        |                      |
  PB11 | input  | channel selector     |
  PB12 |        |                      |
@@ -68,9 +65,9 @@ GPIO  | Mode          | Function          | Notes
  PC1  |               |                   |
  PC2  |               |                   |
  PC3  |               |                   |
- PC4  | output        | RF_APC_SW         | not confirmed
- PC5  | output        | 5TC - TX power en | not confirmed
- PC6  |               |                   |
+ PC4  | output        | PA control        | to be confirmed
+ PC5  | output        | PA control        | to be confirmed
+ PC6  | output        | VHF/UHF PA switch | to be confirmed - low = VHF, high = UHF
  PC7  | alternate     | CTC/DCS output    | TIM8_CH2, to be confirmed
  PC8  | alternate     | 2T/5T/DTMF - beep | TIM8_CH3, to be confirmed
  PC9  | bidirectional | AT1846S SDA       |
