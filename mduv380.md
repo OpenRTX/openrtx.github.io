@@ -16,6 +16,13 @@ __Model variants__
     * UHF: 400.000-480.000
 
 ## Hardware configuration
+
+### Clock tree
+* 8MHz crystal as PLL reference
+* Sytem clock frequency: 72MHz
+* APB1 bus clock frequency: 36MHz
+* APB2 bus clock frequency: 72MHz
+
 ### GPIO mapping
 
 ##### Port A

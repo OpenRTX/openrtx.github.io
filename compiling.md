@@ -55,24 +55,14 @@ Where N is the number of cores that you want to allocate to the build process.
 #### Compiling the platform test suites
 
 OpenRTX comes with a set of test suites which can be used for testing and debugging the radio hardware and the relative low-level drivers. The sources of the test suites are located in the `tests/platform` folder inside the the repository's root directory. The majority of the test routines interact with user through the USB virtual serial port, which is automatically enabled on system boot.  
-Before compiling one of the test suites you have to increase the main task stack size, otherwise the test program will not run correctly. To do so, change the line 42 in the file `openrtx/src/bootstrap.c` to:
-
-```
-#define START_TSK_STKSIZE 2048/sizeof(CPU_STK)
-```
-
-Once you have modified the main task stack size, proceed by configuring the toolchain to compile the desired test suite. This is done with the following command:
+To compile a test suite, configure the toolchain with the following command:
 
 ```
 meson configure -Dtest=FILENAME build_arm
 ```
 
 Where `FILENAME` is the name of the test suite source file **without** the ".c" extension. Once the test suite source has been configured, you can obtain the binary image to be flashed on the radio by following the compilation procedure listed above.  
-To restore everything to a clean situation, delete the `build_arm` folder and restore the stack size in the `openrtx/src/bootstrap.c` to:
-
-```
-#define START_TSK_STKSIZE 512/sizeof(CPU_STK)
-```
+To restore everything to a clean situation, delete the `build_arm` folder.
 
 ## Flashing a compiled firmware to your radio
 

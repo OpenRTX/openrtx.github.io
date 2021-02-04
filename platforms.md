@@ -28,8 +28,8 @@ The OpenRTX code, especially the one dealing with hardware, is organised followi
         * Tytera MD-9600 (GPS), target `md9600g`
 
 * **GDx family**
-    * **GD-77 Platform**
-        * Radioddity GD77, target `gd77`
+    * **GDx Platform**
+        * Radioddity GD-77, target `gd77`
         * Baofeng DM-1801, target `md1801`
 
 ## Table of hardware
@@ -37,8 +37,8 @@ The OpenRTX code, especially the one dealing with hardware, is organised followi
 This table provides a glance on the underlying hardware of each of the supported platforms, for a detailed description see the [hardware page](hardware.md).
 
 Platform|MCU|DMR baseband|RF chip|Display controller|Non volatile memory|GPS|
----      |:---:|:---:|:---:|:---:|:---:|:---:|
-MD-3x0   | STM32F405VG | HR-C5000 | SKY73210 | HX8302A | 25Q128FV SPI flash | JS-M710 |
+---------|:---:|:---:|:---:|:---:|:---:|:---:|
+ MD-3x0  | STM32F405VG | HR-C5000 | SKY73210 | HX8302A | 25Q128FV SPI flash | JS-M710 |
 MD-UV3x0 | STM32F405VG | HR-C6000 | AT1846S  | HX8302A | 25Qx SPI flash     | JS-H210 |
-GD-77    | MK22FN512   | HR-C6000 | AT1846S  | UC1701  | 25Q80BV SPI flash +<br>AT24C512 I2C EEPROM | - |
-MD-9600  | STM32F405VG | HR-C6000 | AT1846S  | ST7567  | 25Q128FV SPI flash | JS-M710 |
+   GDx   | MK22FN512   | HR-C6000 | AT1846S  | UC1701  | 25Q80BV SPI flash +<br>AT24C512 I2C EEPROM | - |
+ MD-9600 | STM32F405VG | HR-C6000 | SKY73210 | ST7567  | 25Q128FV SPI flash | JS-M710 |
