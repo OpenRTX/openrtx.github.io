@@ -155,6 +155,68 @@ Functions identified:
 * 0x08070756 - function for writing an AT1846S register
 * 0x0807079c - function for reading an AT1846S register
 
+#### AT1846S initializazion sequence
+```
+void AT1846S_init_uv380()
+{
+    i2c_writeReg16(0x30, 0x0001);    // Soft reset
+    delayMs(50);
+
+    i2c_writeReg16(0x30, 0x0004);     // Init settings
+    i2c_writeReg16(0x04, 0x0FD0);
+    i2c_writeReg16(0x10, 0x7C20);
+    i2c_writeReg16(0x13, 0xA100);
+    i2c_writeReg16(0x1F, 0x1001);
+    i2c_writeReg16(0x31, 0x0031);
+    i2c_writeReg16(0x33, 0x44A5);
+    i2c_writeReg16(0x34, 0x2B89);
+    i2c_writeReg16(0x41, 0x4122);
+    i2c_writeReg16(0x42, 0x1052);
+    i2c_writeReg16(0x43, 0x0100);
+    i2c_writeReg16(0x44, 0x07FF);
+    i2c_writeReg16(0x3a, 0x00C3);
+    i2c_writeReg16(0x59, 0x0B90);
+    i2c_writeReg16(0x47, 0x7F2F);
+    i2c_writeReg16(0x4f, 0x2C62);
+    i2c_writeReg16(0x53, 0x0094);
+    i2c_writeReg16(0x54, 0x2A3C);
+    i2c_writeReg16(0x55, 0x0081);
+    i2c_writeReg16(0x56, 0x0B02);
+    i2c_writeReg16(0x57, 0x1C00);
+    i2c_writeReg16(0x58, 0x9CDD);
+    i2c_writeReg16(0x5A, 0x06DB);
+    i2c_writeReg16(0x63, 0x16AD);
+
+    i2c_writeReg16(0x67, 0x0628);
+    i2c_writeReg16(0x68, 0x05E5);
+    i2c_writeReg16(0x69, 0x0555);
+    i2c_writeReg16(0x6A, 0x04B8);
+    i2c_writeReg16(0x6B, 0x02FE);
+    i2c_writeReg16(0x6C, 0x01DD);
+    i2c_writeReg16(0x6D, 0x00B1);
+    i2c_writeReg16(0x6E, 0x0F82);
+    i2c_writeReg16(0x6F, 0x017A);
+    i2c_writeReg16(0x70, 0x004C);
+    i2c_writeReg16(0x71, 0x0F1D);
+    i2c_writeReg16(0x72, 0x0D91);
+    i2c_writeReg16(0x73, 0x0A3E);
+    i2c_writeReg16(0x74, 0x090F);
+    i2c_writeReg16(0x75, 0x0833);
+    i2c_writeReg16(0x76, 0x0806);
+
+    i2c_writeReg16(0x30, 0x40A4);
+    delayMs(50);
+
+    i2c_writeReg16(0x30, 0x40A6);    // cal start
+    delayMs(100);
+    i2c_writeReg16(0x30, 0x4006);    // cal end
+
+    delayMs(100);
+    i2c_writeReg16(0x40, 0x0031);
+    // Here 23 addresses and values are read from RAM address 0x806b9c4 and 0x806b9c0
+}
+```
+
 ## Memory mapping
 There are two Linux tools for writing the codeplug that can be used as a reference
 - [dmrconfig uc380.c](https://github.com/sergev/dmrconfig/blob/master/uv380.c): Some addresses seems
