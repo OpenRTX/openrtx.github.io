@@ -28,10 +28,10 @@ __Model variants__
 ##### Port A
 GPIO  | Mode   | Function         | Notes
 ---   | ---    |   ---            |  ---
- PA0  |        |                  |
+ PA0  | analog | volume level     | to be confirmed
  PA1  | analog | battery voltage  | ADC1_IN1, 1:3 voltage divider
  PA2  | output | UHF LNA enable   | to be confirmed
- PA3  |        |                  |
+ PA3  | analog | vox input        | to be confirmed
  PA4  |        |                  |
  PA5  | output | VHF LNA enable   | to be confirmed
  PA6  | output | keyboard row 1   |
@@ -41,7 +41,7 @@ GPIO  | Mode   | Function         | Notes
  PA10 |   AF   | GPS data RX      | to be confirmed - USART1 RX
  PA11 |        |                  |
  PA12 |        |                  |
- PA13 | output | mic power switch | not confirmed
+ PA13 | output | mic power switch |
  PA14 |        |                  |
  PA15 |        |                  |
 
@@ -49,8 +49,8 @@ GPIO  | Mode   | Function         | Notes
 GPIO  | Mode   | Function             | Notes
 ---   | ---    |   ---                |  ---
  PB0  |        |                      |
- PB1  |        |                      |
- PB2  |        |                      |
+ PB1  | analog | to be defined        | connected to AT1846S GPIO0
+ PB2  | input  | to be defined        | connected to AT1846S GPIO6
  PB3  | AF     | SPI1_SCK             | external flash
  PB4  | AF     | SPI1_MISO            | external flash
  PB5  | AF     | SPI1_MOSI            | external flash
@@ -97,7 +97,7 @@ GPIO  | Mode      | Function               | Notes
  PD6  | output    | LCD_CS                 |
  PD7  | output    | external flash CS      |
  PD8  | output    | LCD backlight          |
- PD9  |           |                        |
+ PD9  | output    | RX audio multiplexer   | to be confirmed
  PD10 |           |                        |
  PD11 |           |                        |
  PD12 | alternate | LCD_RS                 | FSMC
@@ -114,7 +114,7 @@ GPIO  | Mode     | Function             | Notes
  PE3  | output   | HR_C6000 SCK         |
  PE4  | output   | HR_C6000 SDO         | MCU  -> chip
  PE5  | output   | HR_C6000 SDI         | chip -> MCU
- PE6  |          |                      |
+ PE6  | output   | HR_C6000 power down  |
  PE7  | input/AF | LCD_D4 - keyboard    | FSMC
  PE8  | input/AF | LCD_D5 - keyboard    | FSMC
  PE9  | input/AF | LCD_D6 - keyboard    | FSMC
