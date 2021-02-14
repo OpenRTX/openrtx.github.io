@@ -35,7 +35,7 @@ GPIO  | Mode   | Function         | Notes
  PA4  |        |                  |
  PA5  | output | VHF LNA enable   | to be confirmed
  PA6  | output | keyboard row 1   |
- PA7  |        |                  |
+ PA7  | output | power gate       | if high keeps the radio on
  PA8  | output | AT1846S SCL      |
  PA9  | output | GPS power enable | to be confirmed
  PA10 |   AF   | GPS data RX      | to be confirmed - USART1 RX
