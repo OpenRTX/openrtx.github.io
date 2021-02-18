@@ -38,22 +38,3 @@ CPU_CRITICAL_EXIT();
 * SKY73210 and HR_C5000 share part of the SPI bus. SKY73210 provides ```SKY73210_spiInUse()``` function to allow high level modules determine if SPI bus is taken by PLL driver or not.
 
 ## Dependencies between modules
-
-## Hardware allocation table
-### MD-3x0
-* FSMC: memory-mapped display management.
-* DMA2, Stream 7: framebuffer transfer to display, low priority.
-* TIM8-CH1 (PC6): LCD backlight, Fpwm = 100kHz.
-* ADC1: periodic sampling of Vbat, RSSI, volume pot. and vox level. Free-running conversion.
-* DMA2, Stream 0: transfer of ADC samples, middle priority.
-
-### MD-UV3x0
-* FSMC: memory-mapped display management.
-* DMA2, Stream 7: framebuffer transfer to display, low priority.
-* TIM11: software PWM for LCD backlight dimming.
-* ADC1: periodic sampling of Vbat, RSSI, volume pot. and vox level. Free-running conversion.
-* DMA2, Stream 0: transfer of ADC samples, middle priority.
-
-### GDx hardware allocation table
-* ADC0: Vbat and vox level, sampling on API call.
-* FTM0: backlight PWM, 58.5kHz, 8 bit

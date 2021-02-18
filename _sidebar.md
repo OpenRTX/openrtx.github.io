@@ -4,6 +4,7 @@
 * [Developers' Guide](developers_guide.md)
     * [Compilation instructions](compiling.md)
     * [Software Documentation](software.md)
+        * [Peripheral allocation table](peripheral_table.md)
     * [Hardware Documentation](hardware.md)
         * [MD-380](md380.md)
         * [MD-UV380](mduv380.md)
