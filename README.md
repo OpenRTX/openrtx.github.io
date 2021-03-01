@@ -12,7 +12,9 @@ Currently OpenRTX is being actively developed for the following radios:
 
 If you want to know how to run OpenRTX on your device, look at the [users' guide](users_guide.md).
 
-Alternatively, if you want to experiment with OpenRTX or just take a peek under the hood, go to the [developers' page](developers_guide.md).
+if you want to experiment with OpenRTX or just take a peek under the hood, go to the [developers' page](developers_guide.md).
+
+Or if you just want to take a look at the code, go to the [GitHub repository](https://github.com/OpenRTX/OpenRTX).
 
 <br>
 OpenRTX was created by:
