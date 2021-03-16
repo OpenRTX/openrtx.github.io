@@ -1,4 +1,4 @@
-# Supported Hardware
+# Supported Platforms
 
 The OpenRTX code, especially the one dealing with hardware, is organised following a hierarchical structure composed of **device family**, **platform** and **model**:
 * **Device family**: group of devices which have similar features.
@@ -31,6 +31,31 @@ The OpenRTX code, especially the one dealing with hardware, is organised followi
     * **GDx Platform**
         * Radioddity GD-77, target `gd77`
         * Baofeng DM-1801, target `md1801`
+
+## Supported Features Matrix
+
+### Legend
+- 🔴 Not supported
+- 🟡 In development
+- 🟢 Supported
+
+### Basic Functions
+
+| Radio model                    | Boot  | Display | Keyboard | CPS   | RTC   | Persistence | GPS   |
+| ---                            | :---: | :---:   | :---:    | :---: | :---: | :---:       | :---: |
+| Tytera MD-380 / MD-390         | 🟢    | 🟢       | 🟢       | 🟢    | 🟢     | 🟡          | 🟢     |
+| Tytera MD-UV380 / Retevis RT3s | 🟢    | 🟢       | 🟢       | 🟢    | 🟢     | 🟡          | 🟢     |
+| Radioddity GD-77 / DM-1801     | 🟢    | 🟢       | 🟢       | 🟢    | N/A    | 🟡          | N/A   |
+| Tytera MD-9600                 | 🟢    | 🔴       | 🔴       | 🔴    | 🔴     | 🔴          | 🔴     |
+
+### Modes
+
+| Radio model                    | FM RX | FM TX | M17 RX | M17 TX | APRS RX | APRS TX | DMR RX | DMR TX | DMR SMS |
+| ---                            | :---: | :---: | :---:  | :---:  | :---:   | :---:   | :---:  | :---:  | :---:   |
+| Tytera MD-380 / MD-390         | 🟢    | 🟢     | 🔴     | 🟡     | 🔴      | 🔴      | 🔴     | 🔴     | 🔴      |
+| Tytera MD-UV380 / Retevis RT3s | 🟡    | 🟡     | 🔴     | 🔴     | 🔴      | 🔴      | 🔴     | 🔴     | 🔴      |
+| Radioddity GD-77 / DM-1801     | 🟢    | 🟡     | 🔴     | 🔴     | 🔴      | 🔴      | 🔴     | 🔴     | 🔴      |
+| Tytera MD-9600                 | 🔴    | 🔴     | 🔴     | 🔴     | 🔴      | 🔴      | 🔴     | 🔴     | 🔴      |
 
 ## Table of hardware
 
