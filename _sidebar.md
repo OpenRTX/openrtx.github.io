@@ -3,6 +3,7 @@
 * [Users' Guide](user_guide.md)
 * [Developers' Guide](developers_guide.md)
     * [Compilation instructions](compiling.md)
+    * [Tests and Demos](tests.md)
     * [Software Documentation](software.md)
         * [Peripheral allocation table](peripheral_table.md)
     * [Hardware Documentation](hardware.md)
