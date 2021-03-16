@@ -28,7 +28,7 @@ __Model variants__
 ##### Port A
 GPIO  | Mode   | Function         | Notes
 ---   | ---    |   ---            |  ---
- PA0  | analog | volume level     | to be confirmed
+ PA0  | analog | volume level     | ADC1_IN0, measured range 0 - 1600mV
  PA1  | analog | battery voltage  | ADC1_IN1, 1:3 voltage divider
  PA2  | output | UHF LNA enable   |
  PA3  | analog | vox input        | to be confirmed
@@ -72,11 +72,11 @@ GPIO  | Mode          | Function          | Notes
  PC1  |               |                   |
  PC2  |               |                   |
  PC3  |               |                   |
- PC4  | output        | PA control        | to be confirmed
- PC5  | output        | PA control        | to be confirmed
- PC6  | output        | VHF/UHF PA switch | to be confirmed - low = VHF, high = UHF
+ PC4  | output        | PA control        |
+ PC5  | output        | PA control        |
+ PC6  | output        | VHF/UHF PA switch | low = VHF, high = UHF
  PC7  | alternate     | CTC/DCS output    | TIM8_CH2, to be confirmed
- PC8  | alternate     | 2T/5T/DTMF - beep | TIM8_CH3, to be confirmed
+ PC8  | alternate     | 2T/5T/DTMF - beep | TIM8_CH3
  PC9  | bidirectional | AT1846S SDA       |
  PC10 |               |                   |
  PC11 |               |                   |
@@ -97,7 +97,7 @@ GPIO  | Mode      | Function               | Notes
  PD6  | output    | LCD_CS                 |
  PD7  | output    | external flash CS      |
  PD8  | output    | LCD backlight          |
- PD9  | output    | RX audio multiplexer   | to be confirmed
+ PD9  | output    | RX audio multiplexer   |
  PD10 |           |                        |
  PD11 |           |                        |
  PD12 | alternate | LCD_RS                 | FSMC
@@ -188,7 +188,7 @@ Start  | End    | Section
 0xfec000 | 0xffffff | DMR ID database
 
 #### CPS timestamp
-0x00|0x01|0x2|0x3|0x4|0x5|0x6|0x7|0x8|0x9|0xA|0xB|0xC|0xD|0xE|0xF| 
+0x00|0x01|0x2|0x3|0x4|0x5|0x6|0x7|0x8|0x9|0xA|0xB|0xC|0xD|0xE|0xF|
 ---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 FF|year(first two digits)|year(last two digits)|month|date|hour|minute|seconds|00|01|01|02|FF|FF|FF|FF
 
@@ -206,9 +206,9 @@ GPS coordinate message header: `0xc2 0xd2 0x21 0x02`
 ## System tasks
 
 ##### "RF PLL" task
-Body address | Stack address | ID  | Priority
-     ---     |      ---      | --- |   ---
- 0x0806B05C  |  0x200186CC   |  6  |   6
+Body address | Stack address | ID  | Priority |
+     ---     |      ---      | --- |   ---    |
+ 0x0806B05C  |  0x200186CC   |  6  |    6     |
 
 This task controls is in charge of managing the AT1846S baseband chip, setting the TX and RX frequencies and other functionalities to be discovered. Upon startup, the task calls the function at 0x0806B05C to perform the initial configuration of the AT1846S registers. Then it enters in an infinite loop which waits for new data on the mailbox at address 0x2001EFAC; this data is the processed in the function at 0x0804B5D4.
 
