@@ -79,7 +79,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -178,13 +178,15 @@
          id="path825"
          inkscape:connector-curvature="0" />
     </g>
-    <text
-       xml:space="preserve"
+    <g
+       aria-label="+"
+       transform="translate(72.28647,84.669619)"
        id="text156"
-       style="font-style:normal;font-weight:normal;font-size:50.8px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect158);fill:#c8c8c8;fill-opacity:1;stroke:none;"
-       transform="translate(72.28647,84.669619)"><tspan
-         x="121.10742"
-         y="69.574999"><tspan
-           style="shape-inside:url(#rect158)">+</tspan></tspan></text>
+       style="font-style:normal;font-weight:normal;font-size:50.8px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect158);fill:#c8c8c8;fill-opacity:1;stroke:none">
+      <path
+         d="m 144.47344,37.725781 v 13.816211 h 13.81621 v 4.216797 h -13.81621 v 13.81621 h -4.16719 v -13.81621 h -13.81621 v -4.216797 h 13.81621 V 37.725781 Z"
+         style="shape-inside:url(#rect158)"
+         id="path856" />
+    </g>
   </g>
 </svg>
