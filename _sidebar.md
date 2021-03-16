@@ -11,4 +11,5 @@
         * [MD-UV380](mduv380.md)
         * [GD-77](gd77.md)
         * [MD-9600](md9600.md)
+* [M17](m17.md)
 * [Documentation repository](https://github.com/OpenRTX/OpenRTX-external-docs)
