@@ -10,6 +10,6 @@ Top-down designed with modularity, flexibility and performance in mind.
 
 [GitHub](https://github.com/OpenRTX/OpenRTX/)
 [Get Started](#the-openrtx-project)
-[Donate](https://liberapay.com/OpenRTX)
+[Donate](https://liberapay.com/OpenRTX/donate)
 
 ![color](#000000)
