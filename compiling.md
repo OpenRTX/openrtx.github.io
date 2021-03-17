@@ -1,34 +1,41 @@
 # Compilation instructions
 
-The first thing to do if you want to compile the OpenRTX firmware, is to obtain the source files by cloning the github repository. This can be done with the following command:
+To obtain the OpenRTX source code, clone the github repository with the following command:
+
+```
+git clone --recursive https://github.com/OpenRTX/OpenRTX
+```
+This command also ensures that all the submodules providing the dependencies for the main codebase are correctly fetched from their sources. Alternatively, you can use the following sequence of commands:
 
 ```
 git clone https://github.com/OpenRTX/OpenRTX
+cd OpenRTX
+git submodule init
+git submodule update
 ```
 
-Then, the toolchain software and the libraries required for the compilation process depend on whether you want to obtain a binary image to be flashed on a DMR radio or for the execution on an x86/x64 Linux machine.
+The firmware can be executed either on one of the supported devices or on an x86/x64 Linux machine but, in this case, without radio support.
 
 ## Compiling for DMR radios
 
-To build the firmware binary you need to have the ARM GCC toolchain and the _meson_ tool installed on your computer.__
-Their installation depends on which package manager you have: for example, on an Ubuntu machine the command is:
+#### Toolchain installation
+
+The tools required to compile the sources and obtain a flashable binary image are _meson_ build system and the GCC toolchain for the miosix kernel.
+
+If you're running a 64-bit operating system, the miosix toolchain requires to have the 32 bit compatibility libraries installed. To do so, issue the following command:
 
 ```
-sudo apt install meson gcc-arm-none-eabi 
+sudo apt-get install libstdc++6:i386 # Install 32bit compatibility libraries for Ubuntu/Debian
+sudo pacman -S lib32-libstdc++5      # Install 32bit compatibility libraries for Arch Linux
 ```
 
-while on Fedora it becomes:
+Then, to install the toolchain, download the installer and run it: the installer will ask for your root password to copy the compiler to the `/opt/arm-miosix-eabi` directory, and put symlinks to `/usr/bin`.
 
 ```
-sudo dnf install meson arm-none-eabi-gcc-cs
+wget https://miosix.org/toolchain/MiosixToolchainInstaller.run
+sh MiosixToolchainInstaller.run
 ```
-
-An important aspect to keep in mind is that with some package managers installing the ARM GCC package does not automatically installs the _newlib_ library, providing a lightweight implementation of the standard C library. A symptom revealing that the newlib is not installed is having the compiler generating error messages relative to a not found `stdio.h` or similar headers.
-
-In this case, you have to install newlib separately. For example, on Ubuntu, with:
-```
-sudo apt install libnewlib-arm-none-eabi
-```
+The toolchain also provides an uninstall script, which can be found in the installation directory. Finally, the _meson_ build system can be installed through your distribution's package manager.
 
 Once you have set up the toolchain, you can build the firmware binary using the following commands:
 
@@ -54,14 +61,14 @@ Where N is the number of cores that you want to allocate to the build process.
 
 #### Compiling the platform test suites
 
-OpenRTX comes with a set of test suites which can be used for testing and debugging the radio hardware and the relative low-level drivers. The sources of the test suites are located in the `tests/platform` folder inside the the repository's root directory. The majority of the test routines interact with user through the USB virtual serial port, which is automatically enabled on system boot.  
+OpenRTX comes with a set of test suites which can be used for testing and debugging the radio hardware and the relative low-level drivers. The sources of the test suites are located in the `tests/platform` folder inside the the repository's root directory. The majority of the test routines interact with user through the USB virtual serial port, which is automatically enabled on system boot.
 To compile a test suite, configure the toolchain with the following command:
 
 ```
 meson configure -Dtest=FILENAME build_arm
 ```
 
-Where `FILENAME` is the name of the test suite source file **without** the ".c" extension. Once the test suite source has been configured, you can obtain the binary image to be flashed on the radio by following the compilation procedure listed above.  
+Where `FILENAME` is the name of the test suite source file **without** the ".c" extension. Once the test suite source has been configured, you can obtain the binary image to be flashed on the radio by following the compilation procedure listed above.
 To restore everything to a clean situation, delete the `build_arm` folder.
 
 ## Flashing a compiled firmware to your radio
@@ -100,7 +107,7 @@ Substituting `new_firmware` with the name of the binary image you want to flash.
 
 #### GD-77 and DM-1801
 
-Currently, the Radioddity GD77 and Baofeng DM1801 devices are not supported by `radio_tool`, thus you need to have the OpenGD77 wrapping and flashing tools in your `PATH`.  
+Currently, the Radioddity GD77 and Baofeng DM1801 devices are not supported by `radio_tool`, thus you need to have the OpenGD77 wrapping and flashing tools in your `PATH`.
 To have so, you need to add the following paths from the OpenGD77 repository in your `PATH` environment variable:
 
 - `/OpenGD77/tools/Python/FirmwareLoader`
@@ -113,7 +120,7 @@ meson compile -C build_arm openrtx_MODEL_flash
 ```
 
 ## Compiling for Linux
-To compile the Linux OpenRTX version you need the following packages: GCC, _meson_ and _libSDL_.  
+To compile the Linux OpenRTX version you need the following packages: GCC, _meson_ and _libSDL_.
 Their installation depends on which package manager you have: for example, on an Ubuntu machine the command is:
 
 ```
@@ -155,11 +162,4 @@ Then follow the same compilation procedure for a plain build.
 
 ## Running on Linux
 
-To run OpenRTX on Linux you need to change a system configuration parameter to allow the correct execution of the uC/OS-III RTOS.  
-To do so, add the following line to `/etc/security/limits.conf` replacing `user` with your user name:
-```
-user - rtprio unlimited
-```
-Then, reboot your computer.
-
-Now you can execute the binary `build_linux/openrtx_linux` you compiled with the instructions above.
+To run OpenRTX on Linux you simply have to execute the binary `build_linux/openrtx_linux`, which was compiled with the instructions above.
