@@ -5,6 +5,7 @@ To obtain the OpenRTX source code, clone the github repository with the followin
 ```
 git clone --recursive https://github.com/OpenRTX/OpenRTX
 ```
+
 This command also ensures that all the submodules providing the dependencies for the main codebase are correctly fetched from their sources. Alternatively, you can use the following sequence of commands:
 
 ```
@@ -20,7 +21,7 @@ The firmware can be executed either on one of the supported devices or on an x86
 
 #### Toolchain installation
 
-The tools required to compile the sources and obtain a flashable binary image are _meson_ build system and the GCC toolchain for the miosix kernel.
+The tools required to compile the sources and obtain a flashable binary image are _meson_ build system, the GCC toolchain for the miosix kernel and the external tools for flashing the radio.
 
 If you're running a 64-bit operating system, the miosix toolchain requires to have the 32 bit compatibility libraries installed. To do so, issue the following command:
 
@@ -35,7 +36,25 @@ Then, to install the toolchain, download the installer and run it: the installer
 wget https://miosix.org/toolchain/MiosixToolchainInstaller.run
 sh MiosixToolchainInstaller.run
 ```
-The toolchain also provides an uninstall script, which can be found in the installation directory. Finally, the _meson_ build system can be installed through your distribution's package manager.
+
+The toolchain also provides an uninstall script, which can be found in the installation directory.
+
+Finally, an updated _meson_ tool can be installed through `pip3` package installer.
+
+```
+pip3 install meson --user
+```
+
+To flash the compiled binary on the radio, we will use `radio_tool`, which can be compiled from its GitHub repository:
+
+```
+git clone https://github.com/v0l/radio_tool
+cd radio_tool
+mkdir build && cd build
+cmake ..
+make -jN
+sudo make install
+```
 
 Once you have set up the toolchain, you can build the firmware binary using the following commands:
 
@@ -57,6 +76,7 @@ If you are using a version of Meson older than v0.55.0, the above command will f
 meson setup --cross-file cross_arm.txt build_arm
 ninja -C build_arm openrtx_MODEL -jN
 ```
+
 Where N is the number of cores that you want to allocate to the build process.
 
 #### Compiling the platform test suites
