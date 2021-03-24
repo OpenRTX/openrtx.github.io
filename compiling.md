@@ -107,7 +107,14 @@ sudo make install
 ```
 For more information on `radio_tool` visit its repository at: https://github.com/v0l/radio_tool
 
-To use `radio_tool` from your non-root Linux user, you need to provide the correct permissions for user-space USB access: to do so copy the [99-openrtx.rules](https://github.com/OpenRTX/OpenRTX/blob/master/99-openrtx.rules) udev rule file in `/etc/udev/rules.d/`, then disconnect and reconnect the radio if you already have it connected to the computer.
+To use `radio_tool` from your non-root Linux user, you need to provide the correct permissions for user-space USB access:
+
+```
+sudo cp 99-openrtx.rules /etc/udev/rules.d
+sudo udevadm control --reload-rules
+```
+
+then disconnect and reconnect the radio if you already have it connected to the computer.
 
 If the compilation terminated without errors, to flash the obtained binary image you first have to connect the radio to the computer using the USB programming cable and put it in DFU (or recovery) mode. Then, to flash the firmware, issue the following command:
 
