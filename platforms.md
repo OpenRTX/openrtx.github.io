@@ -52,7 +52,7 @@ The OpenRTX code, especially the one dealing with hardware, is organised followi
 
 | Radio model                    | FM RX | FM TX | M17 RX | M17 TX | APRS RX | APRS TX | DMR RX | DMR TX | DMR SMS |
 | ---                            | :---: | :---: | :---:  | :---:  | :---:   | :---:   | :---:  | :---:  | :---:   |
-| Tytera MD-380 / MD-390         | 🟢    | 🟢     | 🔴     | 🟡     | 🔴      | 🔴      | 🔴     | 🔴     | 🔴      |
+| Tytera MD-380 / MD-390         | 🟢    | 🟢     | 🟡     | 🟡     | 🔴      | 🔴      | 🔴     | 🔴     | 🔴      |
 | Tytera MD-UV380 / Retevis RT3s | 🟢    | 🟢     | 🔴     | 🔴     | 🔴      | 🔴      | 🔴     | 🔴     | 🔴      |
 | Radioddity GD-77 / DM-1801     | 🟢    | 🟢     | 🔴     | 🔴     | 🔴      | 🔴      | 🔴     | 🔴     | 🔴      |
 | Tytera MD-9600                 | 🔴    | 🔴     | 🔴     | 🔴     | 🔴      | 🔴      | 🔴     | 🔴     | 🔴      |
