@@ -36,35 +36,36 @@ MD-UV3x0 | STM32F405VG | HR-C6000 | AT1846S  | HX8302A | 25Q128FV SPI flash | JS
    GDx   | MK22FN512   | HR-C6000 | AT1846S  | UC1701  | 25Q80BV  SPI flash +<br>AT24C512 I2C EEPROM | - |
  MD-9600 | STM32F405VG | HR-C6000 | SKY73210 | ST7567  | 25Q128FV SPI flash | JS-M710 |
 
-## Device tree
+## Device Classification
 
 The OpenRTX code, especially the one dealing with hardware, is organised following a hierarchical structure composed of **device family**, **platform** and **model**:
 * **Device family**: group of devices which have similar features.
 * **Platform**: group of devices of the same family, employing the same low-level drivers.
 * **Model**: specific device of a given platform, with its own dedicated settings.
 
-* **MDx family**
-    * **MD-3x0 Platform**, compilation target `md3x0`
+* **MDx** family
+    * **MD-3x0** platform, target `md3x0`
         * Tytera MD380
         * Tytera MD380G
         * Tytera MD390
         * Tytera MD390G
         * Retevis RT3
 
-    * **MD-UV3x0 Platform**
-        * Tytera MD-UV380,    target `mduv380`
-        * Tytera MD-UV380G,   target `mduv380g`
-        * Tytera MD-UV390,    target `mduv390`
-        * Tytera MD-UV390G,   target `mduv390g`
-        * Baofeng DM-1701,    temporary target `mduv380`
-        * Retevis RT3s,       target `mduv380`
-        * Retevis RT3s (GPS), target `mduv380g`
+    * **MD-UV3x0** platform, target `mduv3x0`
+        * Tytera MD-UV380
+        * Tytera MD-UV380G
+        * Tytera MD-UV390
+        * Tytera MD-UV390G
+        * Retevis RT3s
+        * Retevis RT3s (GPS)
+        * Baofeng DM-1701 (not tested)
+        * Tytera MD-2017 (not tested)
 
-    * **MD-9600 Platform**
-        * Tytera MD-9600,       target `md9600`
-        * Tytera MD-9600 (GPS), target `md9600g`
+    * **MD-9600** Platform, target `md9600`
+        * Tytera MD-9600
+        * Tytera MD-9600 (GPS)
 
-* **GDx family**
+* **GDx** family
     * **GDx Platform**
         * Radioddity GD-77, target `gd77`
-        * Baofeng DM-1801, target `md1801`
+        * Baofeng DM-1801, target `dm1801`
