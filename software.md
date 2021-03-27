@@ -2,7 +2,34 @@
 
 OpenRTX software architecture documentation
 
-## Threads
+## Threading Model
+OpenRTX employs a **multi-threaded** architecture. \
+This allows to handle different concurrent operations while keeping the code complexity low, 
+because every self-contained operation is performed by a different thread.
+
+The current implementation uses 5 threads:
+- **UI Thread**: Draws the User Interface and handles button behaviour
+- **DEV Thread**: Checks device parameters (e.g. battery voltage) at a slow interval
+- **KBD Thread**: Read the keyboard status and sends keyboard events to the UI Thread
+- **RTX Thread**: Handles the RF part and executes requests of the UI Thread
+- **GPS Thread**: Provides current position when GPS is enabled
+
+The OpenRTX threads communicate between them by using _event queues_ and _shared state_ data structures.
+
+This diagram shows the interaction between threads, queues and shared states.
+
+![OpenRTX Thread Diagram](_media/thread_diagram.svg)
+
+Some OpenRTX threads are _event-based_, other are executed at _regular intervals_, see the
+following table for details
+
+|Thread|Interval   |Event         |
+|:-----|:----------|:-------------|
+|UI    |-          |KBD and DEV   |
+|DEV   |1Hz  (1s)  |-             |
+|KBD   |20Hz (50ms)|-             |
+|RTX   |33Hz (30ms)|-             |
+|GPS   |-          |NMEA sentence |
 
 ## Interfaces
 
