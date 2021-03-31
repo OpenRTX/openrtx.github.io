@@ -33,11 +33,12 @@ following table for details
 
 ## Interfaces Overview
 OpenRTX has the implicit goal of running on many different models of ham radios. \
-The strategy adopted to support different kinds of hardware is the following:
-We defined a set of **standard interfaces**, that describe in general terms what a given hardware component can do, and we developed drivers for every component, making sure that each _device-specific_ driver used the _general_ interface.
+The strategy adopted to support different kinds of hardware is the following: \
+We defined a set of **standard interfaces**, that describe in general terms what a given hardware component can do, \
+and we developed drivers for every component, making sure that each _device-specific_ driver used the _general_ interface.
 
 Here is a list of the interfaces files with a short description, \
-the full source files can be found in the OpenRTX source code, in the `openrtx/include/interfaces` path.
+the complete header files can be found in the OpenRTX source code, in the `openrtx/include/interfaces` path.
 - `delays.h`: Interface for adding time delays in the code
 - `gpio.h`: Interface for configuring and using GPIO pins
 - `graphics.h`: Interface for drawing and writing on a screen
