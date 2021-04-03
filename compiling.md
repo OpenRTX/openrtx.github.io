@@ -28,7 +28,6 @@ If you're running a 64-bit operating system, the miosix toolchain requires to ha
 ```
 sudo apt-get install libstdc++6:i386 # Install 32bit compatibility libraries for Ubuntu/Debian
 sudo pacman -S lib32-libstdc++5      # Install 32bit compatibility libraries for Arch Linux
-sudo apk add git meson build-base gcc-aarch64-none-elf sdl2-dev # Dependencies for Alpine on aarch64
 ```
 
 Then, to install the toolchain, download the installer and run it: the installer will ask for your root password to copy the compiler to the `/opt/arm-miosix-eabi` directory, and put symlinks to `/usr/bin`.
@@ -159,6 +158,11 @@ while on Fedora it becomes:
 
 ```
 sudo dnf install meson SDL2-devel
+```
+
+We tested the OpenRTX linux version also on a pinephone. In this case the command required for installing all the dependencies is:
+```
+sudo apk add git meson build-base gcc-aarch64-none-elf sdl2-dev
 ```
 
 The software can be compiled with:
