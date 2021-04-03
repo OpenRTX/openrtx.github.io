@@ -4,7 +4,7 @@ To do so we use the so called **platform tests** that can be used for example to
 This page shows how to compile and run platform tests on your radio.
 
 ## Requirements
-To run platform tests you need a working compiler toolchain installed, to do this follow the first section of the [How-to-compile](https://github.com/OpenRTX/OpenRTX/wiki/How-to-compile) guide.
+To run platform tests you need a working compiler toolchain installed, to do this follow the first section of the [compilation instructions](https://openrtx.org/#/compiling).
 
 ## Instructions
 * Choose the platform test you want to run among those available in [OpenRTX/tests/platform](https://github.com/OpenRTX/OpenRTX/tree/master/tests/platform).
@@ -22,8 +22,8 @@ For example to execute the `OpenRTX/tests/platform/mytestname.c` type:
 ```
 meson configure -Dtest=mytestname build_arm
 ```
-* Compile and flash the test you selected
-Note that you have to choose the target corresponding to your radio model as explained in [How-to-compile](https://github.com/OpenRTX/OpenRTX/wiki/How-to-compile)
+* Compile and flash the test you selected.
+Note that you have to choose the target corresponding to your radio model as explained in the [compilation instructions](https://openrtx.org/#/compiling)
 ```
 meson compile -C build_arm openrtx_mytarget_flash
 ```
