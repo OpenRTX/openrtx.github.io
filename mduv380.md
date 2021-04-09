@@ -98,8 +98,8 @@ GPIO  | Mode      | Function               | Notes
  PD7  | output    | external flash CS      |
  PD8  | output    | LCD backlight          |
  PD9  | output    | RX audio multiplexer   |
- PD10 |           | non connected          |
- PD11 |           | non connected          |
+ PD10 |           | not connected          |
+ PD11 |           | not connected          |
  PD12 | alternate | LCD_RS                 | FSMC
  PD13 | output    | LCD_RST                |
  PD14 | input/AF  | LCD_D0 - keyboard      | FSMC
