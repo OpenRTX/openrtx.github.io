@@ -160,9 +160,12 @@ while on Fedora it becomes:
 sudo dnf install meson SDL2-devel
 ```
 
-We tested the OpenRTX linux version also on a pinephone. In this case the command required for installing all the dependencies is:
+### Compiling on Alpine Linux / PostmarketOS
+We successfully compiled OpenRTX on a Pine64 PinePhone running PostmarketOS (based on Alpine Linux). \
+The same instructions should work on another device running PostmarketOS or Alpine Linux.
+You can install the build dependencies on PostmarketOS with:
 ```
-sudo apk add git meson build-base gcc-aarch64-none-elf sdl2-dev
+sudo apk add git meson build-base sdl2-dev
 ```
 
 The software can be compiled with:
