@@ -71,7 +71,7 @@ GPIO  | Mode          | Function          | Notes
  PC0  |               |                   |
  PC1  |               |                   |
  PC2  |               |                   |
- PC3  |               |                   |
+ PC3  | alternate     | not connected     | RF in for M17 mod
  PC4  | output        | PA control        |
  PC5  | output        | PA control        |
  PC6  | output        | VHF/UHF PA switch | low = VHF, high = UHF
@@ -81,7 +81,7 @@ GPIO  | Mode          | Function          | Notes
  PC10 |               |                   |
  PC11 |               |                   |
  PC12 |               |                   |
- PC13 |               |                   |
+ PC13 |               | not connected     |
  PC14 |               |                   |
  PC15 |               |                   |
 
@@ -98,8 +98,8 @@ GPIO  | Mode      | Function               | Notes
  PD7  | output    | external flash CS      |
  PD8  | output    | LCD backlight          |
  PD9  | output    | RX audio multiplexer   |
- PD10 |           |                        |
- PD11 |           |                        |
+ PD10 |           | non connected          |
+ PD11 |           | non connected          |
  PD12 | alternate | LCD_RS                 | FSMC
  PD13 | output    | LCD_RST                |
  PD14 | input/AF  | LCD_D0 - keyboard      | FSMC
