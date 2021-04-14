@@ -13,5 +13,6 @@
         * [GD-77](gd77.md)
         * [FT2D](ft2d.md)
 * [M17](m17.md)
+    * [Hardware Modding](m17_mods.md)
     * [Software Modes](software_modes.md)
 * [Documentation repository](https://github.com/OpenRTX/OpenRTX-external-docs)
