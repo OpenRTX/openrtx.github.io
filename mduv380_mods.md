@@ -48,6 +48,13 @@ the one which faces the heat sink.
 The antenna connector is fixed to the heat sink with two screws,
 removing them should NOT be necessary to perform the mod
 ![MD-UV380 antenna connector](_media/uv380_antenna.jpg)
+- Use a pair of tweezers or a spudger to gently pull the side button PCB out of the heat sink. \
+Be careful not to break the solder joints between the button PCB and the main PCB. \
+![MD-UV380 side tweezers](_media/uv380_side_tweezers.jpg)
+- Now carefully detach the heat sink from the PCB assembly, you should be able to see the RF side of
+  the PCB. \
+![MD-UV380 RF side before](_media/uv380_rf_before.jpg)
+
 
 ### Mic → MCU
 This modification is similar to the one required on the MD380, with the exception that the circuit
