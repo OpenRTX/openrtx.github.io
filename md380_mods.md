@@ -1,11 +1,3 @@
-# M17 Hardware Modding
-
-M17 support on OpenRTX requires a few simple __hardware modifications__ to be done on your HT,
-in this page we describe the modification required for the MD-380 and MD-UV380 and equivalent radios.
-
-__Proceed at your own risk__, if you don't feel comfortable modding your radio, you can ask
-a fellow ham to do the mod for you.
-
 ## M17 on the MD-380
 
 We are bringing experimental M17 support to the TYT MD-380 DMR radio. However, due to technical limitations of the underlying hardware, transmitting M17 audio on the radio requires two small hardware modifications.
@@ -43,22 +35,4 @@ This modification has a minor impact on the VOX functionality on any firmware di
 
 ### RF → MCU
 
-TODO
-
-## M17 on the MD-UV380
-The Tytera MD-UV380 uses a HR_C6000 DMR baseband, that cannot be repurposed to run M17.
-M17 can be encoded and decoded by using the radio MCU, to do so we need to ensure to have the
-necessary audio paths between MCU, RF part, speaker and microphone.
-
-There are two audio paths that require some hardware modifications:
-- MCU → Spk: Available
-- MCU → RF: Available
-- Mic → MCU: Requires hardware mod
-- RF → MCU: Requires hardware mod
-
-### Mic → MCU
-This modification is similar to the one required on the MD380, with the exception that the circuit
-to modify is on the RF of the PCB, the RF side can be accessed only by desoldering the antenna
-conntector.
-### RF → MCU
 TODO
