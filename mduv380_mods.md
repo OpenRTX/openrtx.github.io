@@ -17,6 +17,7 @@ To perform the Mic → MCU and RF → MCU mods you need:
   ([example](https://it.rs-online.com/web/p/resistori-montaggio-a-foro-passante/0149054/))
 - some 30AWG Kynar wire
 - A small tip soldering iron
+- A desoldering pump or solder wick
 - (optional but recommended) 20x stereoscope like [this](https://www.amazon.it/BRESSER-8852000-Stereomicroscopio-Bresser-Junior/dp/B001UJJGV4)
 - (optional but recommended) Hot glue gun to glue wires to PCB
 
@@ -29,7 +30,24 @@ To perform the Mic → MCU and RF → MCU mods you need:
 - Unscrew the two upper screws (Torx T8) on the back and remove the plastic part they hold
 - Unscrew the two lower screws (Torx T8) on the back
 - Use the spudger to remove the bottom part of the aluminum heat-sink from the outer case
+- Be careful when separating the heat sink from the outer case, the two are joined by the display
+  flat cable and the speaker wires, which you should remove first.
+- At this point you should have the internal radio assembly separated from the case\
+(Ignore the green and blue wires, they were used to sniff the AT1846S I2C bus)\
+![MD-UV380 internal assembly](_media/uv380_front_back.jpg)
 
+### Accessing the RF side PCB
+Both mods (Mic → MCU and RF → MCU) require accessing the RF side of the PCB, 
+the one which faces the heat sink.
+
+- Remove the 11 Philips #0 screws from the logic side of the PCB \
+![MD-UV380 back screws](_media/uv380_back_screws.jpg)
+- Remove the 2 Torx T6 screws from the side button PCB \
+![MD-UV380 side screws](_media/uv380_side_screws.jpg)
+- Desolder the antenna connector as shown in the picture \
+The antenna connector is fixed to the heat sink with two screws,
+removing them should NOT be necessary to perform the mod
+![MD-UV380 antenna connector](_media/uv380_antenna.jpg)
 
 ### Mic → MCU
 This modification is similar to the one required on the MD380, with the exception that the circuit
