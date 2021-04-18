@@ -57,8 +57,6 @@ Be careful not to break the solder joints between the button PCB and the main PC
 
 
 ### Mic → MCU
-This modification is similar to the one required on the MD380, with the exception that the circuit
-to modify is on the RF of the PCB, the RF side can be accessed only by desoldering the antenna
-conntector.
+TODO
 ### RF → MCU
 TODO
