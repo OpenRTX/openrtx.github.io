@@ -18,6 +18,7 @@ To perform the Mic → MCU and RF → MCU mods you need:
 - some 30AWG Kynar wire
 - A small tip soldering iron
 - A desoldering pump or solder wick
+- A file to create a small groove on the aluminum heat sink
 - (optional but recommended) 20x stereoscope like [this](https://www.amazon.it/BRESSER-8852000-Stereomicroscopio-Bresser-Junior/dp/B001UJJGV4)
 - (optional but recommended) Hot glue gun to glue wires to PCB
 
@@ -57,6 +58,70 @@ Be careful not to break the solder joints between the button PCB and the main PC
 
 
 ### Mic → MCU
-TODO
+The MD-UV380 like the MD380 has an audio path from the microphone to the MCU that is used for VOX
+functionality on the stock firmware.
+
+The Mic → MCU mod consists in bypassing/removing the peak detector diode and capacitor, and add a
+resistor to add a bias offset to the mic input.
+
+The mod is explained in the following picture \
+![MD-UV380 Mic mod](_media/uv380_mic_mod.jpg)
+
+Steps:
+- Remove the capacitor shown in the picture, you can use the hot air gun from a rework station or \
+  you can melt the solder in the two contacts and rotate slightly the capacitor to remove it.
+  Be careful to not damange the PCB tracks.
+- Prepare a short kynar wire, use some tweezers to bend it in a U shape and solder it on the diode \
+  to short the two pins. \
+  In alternative you can remove the diode (SOT-23) entirely but it will make more difficult
+  reverting the mod. \
+![MD-UV380 Mic mod diode short](_media/uv380_mic_short.jpg)
+- Trim one end of the resistor and bend it in a P shape \
+![MD-UV380 Mic mod bent resistor](_media/uv380_mic_resistor.jpg)
+- Insert the bent pin of the resistor into the left hole as shown in the picture, and solder it. \
+  Trim the other leg of the resistor so that it doesn't go over the golden section of the PCB \
+  (otherwise it will make contact with the aluminum heat sink wall. \
+- Trim the first leg of the PCB if it protrudes from the other side of the PCB. \
+- Check that the resistor does not go in the way of the aluminum heat sink.
+- The end result should look something like this, (or maybe better 😉). \
+![MD-UV380 Mix mod finished](_media/uv380_mic_after.jpg)
+
 ### RF → MCU
-TODO
+The MD-UV380 lacks a direct path from the demodulated RF signal coming from the AT1856S
+radio-on-a-chip to the STM32 MCU.
+We are going to create it by connecting the `ADC_IVINP` of the HR_C6000 baseband to the `PC13` pin
+of the STM32 which can be configured as an ADC input.
+
+An inconvenient of this mod is that the HR_C6000 and STM32 are on opposite sides of the PCB. \
+We will use an alignment notch on the PCB to pass the wire, usually this notch matches a pin on the
+aluminum heat sink.\
+
+Steps:
+- We need to file down the pin and create a small groove in place to avoid pinching the wire. \
+Note that on my radio for some reason the pin was removed at the factory, so you may have it or not. \
+![MD-UV380 Heat sink modified](_media/uv380_heat_sink.jpg)
+- Cut a section of 30AWG Kynar wire, strip and tin one end.
+- The `ADC_IVINP` is on the upper side of the HR_C6000, and the wire can be soldered on two \
+  pins of a resistor and capacitor that are connected together. This makes the soldering easier and \
+  gives it more mechanical strenght. \
+![MD-UV380 RF HR_C6000 wire](_media/uv380_rf_wire1.jpg)
+- Use the tweezers to bend the wire to route it towards the notch in the PCB. 
+  Make sure that the wire lays flat on the PCB. \
+![MD-UV380 RF wire bent bottom](_media/uv380_rf_wire2.jpg)
+- Bend the wire on the notch toward the logic side of the PCB. \
+![MD-UV380 RF wire bent top](_media/uv380_rf_wire3.jpg)
+- Use the tweezers to route the wire towards the left side of the STM32. \
+![MD-UV380 RF wire routed top](_media/uv380_rf_wire4.jpg)
+- Trim and tin the other end of the wire and solder it on pin 18 of the STM32. \
+![MD-UV380 RF wire soldered top](_media/uv380_rf_wire5.jpg)
+- Check that the wire does not get pinched by the heat sink, in case it does, file a deeper groove.
+
+### Results
+- The final results with both mods applied should look like this (ignore the green and blue wires).\
+![MD-UV380 after mic rf mod](_media/uv380_mod_after.jpg)
+- Close the heat sink over the PCB, paying attention to the side keys PCB.
+- Make sure that the antenna connector is screwed exactly perpendicular to the rest of the radio
+- Solder the antenna connector pin
+- Reassemble the radio by following the disassembly instructions backwards.
+- TIP: If you plan to disassemble the radio again shortly, reassemble it without the rubber gasket.\
+  It will make disassembling it again easier.
