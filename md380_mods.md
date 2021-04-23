@@ -17,7 +17,7 @@ This is the logic board of the TYT MD-380:
 
 We are going to remove EC151 and bridge D102, this is a picture of the two components before the modification:
 
-![MD-380 Before the Modification](_media/md380_mod_before.jpg)
+![MD-380 Before the Mic Modification](_media/md380_mod_before.jpg)
 
 After the modification:
 
@@ -29,10 +29,37 @@ We recommend to do so by applying a 200KΩ resistor between a 5V source and the
 
 Here is a picture of the applied modification:
 
-![MD-380 After the Modification](_media/md380_mod_resistor.jpg)
+![MD-380 After the Mic Modification](_media/md380_mod_resistor.jpg)
 
 This modification has a minor impact on the VOX functionality on any firmware different than OpenRTX. The VOX level 1 will be always open, higher VOX levels still work as expected. When VOX functionality will be implemented on OpenRTX, we'll take care to support both modified and unmodified MD-380 radios.
 
 ### RF → MCU
 
-TODO
+The MD380 already features a signal path from the FM demodulator to the MCU, marked on the schematic as 2T/5T, probably meant to be used for ZVEI Selcall, but never implemented in the original firmware.
+This audio path however has a very narrow pass-band filter, and cannot be used as-is to demodulate M17.
+
+We will break the original 2T/5T path by removing R150 and re-use the STM32 pin to create a new, unfiltered path, from the demodulator output, to one of the STM32 ADCs.
+
+In this second part of the mod we'll be working on the lower right portion of the logic side of the PCB, in this picture you can see the unmodified portion of the radio:
+
+![MD-380 Before the RTX Modification](_media/md380_rtx_detail_before.jpg)
+
+First we will desolder R150: put some flux, heat one side of the resistor, slide it away on one side, heat the other side and slide it away on the other side, heat the pads to clean them up.
+This is how the pads should look like after the resistor has been removed:
+
+![MD-380 After having desoldered R101](_media/md380_rtx_detail_desolder.jpg)
+
+Afterward we will bridge with some Kynar wire the left pad of the resistor (2T/5T) with pin 1 of U101, which is the demodulator output. Here is a picture of the finished modification:
+
+![MD-380 After the RTX Modification](_media/md380_rtx_detail_after.jpg)
+
+### Results
+
+The MD380 PCB with both mods applied should look like this:
+
+![MD-380 After Both Modifications](_media/md380_mod_complete.jpg)
+
+You can put some drops of hot glue to ensure that the resistor and the Kynar wire stay in place.
+
+Now your radio is ready to modulate M17 and other digital protocols, stay tuned on [Discord](https://discord.gg/jZ9t8XTbmd) and [Twitter](https://twitter.com/OpenRtx)
+to know when firmware support will be available!
