@@ -25,6 +25,7 @@ After the modification:
 
 Lastly, since STM32 ADCs can only measure positive voltages, to be able to capture the full audio signal we need to apply a DC bias to the microphone signal.
 We recommend to do so by applying a 200KΩ resistor between a 5V source and the microphone signal path, accessible on one of the pads of the EC151 capacitor we just removed.
+If you don't have a 200KΩ resistor, anything in the range [180-220]KΩ will work.
 5V will be sourced from the leftmost hole inside the white silkscreen circle, visible in the pictures.
 
 Here is a picture of the applied modification:
