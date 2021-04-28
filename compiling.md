@@ -66,7 +66,7 @@ meson compile -C build_arm openrtx_TARGET
 Where `TARGET` has to be replaced with the correct build target, depending on your radio model:
 
 - TYT MD-380, TYT MD-390, Retevis RT3, Retevis RT8 → `md3x0`
-- TYT MD-UV380, Retevis RT3s → `mduv380`
+- TYT MD-UV380, Retevis RT3s → `mduv3x0`
 - Radioddity GD-77 → `gd77`
 - Baofeng DM1801 → `dm1801`
 
