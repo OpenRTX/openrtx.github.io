@@ -78,7 +78,7 @@ Steps:
 ![MD-UV380 Mic mod diode short](_media/uv380_mic_short.jpg)
 - Trim one end of the resistor and bend it in a P shape \
 ![MD-UV380 Mic mod bent resistor](_media/uv380_mic_resistor.jpg)
-- Insert the bent pin of the resistor into the left hole as shown in the picture, and solder it. \
+- Insert the bent pin of the resistor into the right hole as shown in the picture, and solder it. \
   Trim the other leg of the resistor so that it doesn't go over the golden section of the PCB \
   (otherwise it will make contact with the aluminum heat sink wall. \
 - Trim the first leg of the PCB if it protrudes from the other side of the PCB. \
