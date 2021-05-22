@@ -23,12 +23,7 @@ The firmware can be executed either on one of the supported devices or on an x86
 
 The tools required to compile the sources and obtain a flashable binary image are _meson_ build system, the GCC toolchain for the miosix kernel and the external tools for flashing the radio.
 
-If you're running a 64-bit operating system, the miosix toolchain requires to have the 32 bit compatibility libraries installed. To do so, issue the following command:
-
-```
-sudo apt-get install libstdc++6:i386 # Install 32bit compatibility libraries for Ubuntu/Debian
-sudo pacman -S lib32-libstdc++5      # Install 32bit compatibility libraries for Arch Linux
-```
+WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!
 
 Then, to install the toolchain, download the installer and run it: the installer will ask for your root password to copy the compiler to the `/opt/arm-miosix-eabi` directory, and put symlinks to `/usr/bin`.
 
