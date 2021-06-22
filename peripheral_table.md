@@ -11,18 +11,18 @@ This page provides an overview on which harwdare peripherals are used by the Ope
 |  FSMC          | USED    | Memory-mapped display management |
 |  TIM1          |         |          |
 |  TIM2          |         |          |
-|  TIM3          | USED    | Tone generator: CH2 CTCSS, CH3 "beep" |
+|  TIM3          | USED    | PWM time base for tone generator: CH2 CTCSS, CH3 "beep", 109.375kHz |
 |  TIM4          |         |          |
 |  TIM5          |         |          |
 |  TIM6          |         |          |
-|  TIM7          |         |          |
+|  TIM7          | USED    | Tone generator time base for DMA transfers when in AFSK/audio mode |
 |  TIM8          | USED    | CH1 LCD backlight dimming, 100kHz, 8 bit |
 |  TIM9          |         |          |
 |  TIM10         |         |          |
 |  TIM11         |         |          |
 |  TIM12         |         |          |
 |  TIM13         |         |          |
-|  TIM14         |         |          |
+|  TIM14         | USED    | Tone generator time base for CTCSS/beep sinewave generation |
 |  USART1        |         |          |
 |  USART2        |         |          |
 |  USART3        | USED    | GPS data RX |
@@ -34,7 +34,7 @@ This page provides an overview on which harwdare peripherals are used by the Ope
 |  ADC3          |         |          |
 | DMA1, Stream 0 |         |          |
 | DMA1, Stream 1 |         |          |
-| DMA1, Stream 2 |         |          |
+| DMA1, Stream 2 | USED    | Transfer of audio samples to PWM in tone generator, very high priority |
 | DMA1, Stream 3 |         |          |
 | DMA1, Stream 4 |         |          |
 | DMA1, Stream 5 |         |          |
