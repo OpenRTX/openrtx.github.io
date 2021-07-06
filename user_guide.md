@@ -5,7 +5,14 @@ that not all functionalities you expect from your device are yet implemented. \
 However, contributions and testing are welcome and accepted.
 
 ## Where to get OpenRTX
-* You can find pre-built OpenRTX binary images on our [GitHub releases page](https://github.com/OpenRTX/OpenRTX/releases)
+### Stable builds
+**Stable builds** are recommended for general use, they are well tested and include only functionality considered complete.
+* You can find pre-built stable OpenRTX binary images on our [GitHub releases page](https://github.com/OpenRTX/OpenRTX/releases)
+
+### Unstable builds
+**Unstable builds** are not fully tested, use them only if you want to develop or try a feature not yet released.
+* You can find nightly OpenRTX builds [here](https://openrtx.schinken-radio.de/nightly/)
+(thanks to Phil DF5PMF for building and hosting them)
 * Or you can compile OpenRTX from the sources by following [these instructions](compiling.md)
 
 ## How to flash OpenRTX to your radio
