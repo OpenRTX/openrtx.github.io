@@ -46,7 +46,7 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
 ## Howto operate your OpenRTX radio
 ### MD380/UV380 (RT3/RT3s)
 
-Leftside buttons
-Rightside buttons
-Front buttons
+* Leftside buttons
+* Rightside buttons
+* Front buttons
 
