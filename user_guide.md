@@ -62,21 +62,21 @@ Keeping the 'M' button pressed, brings up the 'macro menu'. Within the 'macro me
 
 * Front buttons
     * 0 n/a
-    * Green boo
-    ** Zone
-    ** Channel
-    ** Contacts
-    ** GPS
-    ** Settings
-    ** Info
-    ** About
+    * Green book
+        * Zone
+        * Channel
+        * Contacts
+        * GPS
+        * Settings
+        * Info
+        * About
 
     * Red book
-    ** VFO / Memory selection
+        * VFO / Memory selection
     * Up arrow
-    ** step up in frequency (VFO mode) or up configured channel (memory mode)
+        * step up in frequency (VFO mode) or up configured channel (memory mode)
     * Down arrow
-    ** step down in frequency (VFO mode) or up configured channel (memory mode)
+        * step down in frequency (VFO mode) or up configured channel (memory mode)
     * */lock
     * #/up arrow
 
