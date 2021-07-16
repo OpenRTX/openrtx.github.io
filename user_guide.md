@@ -43,10 +43,10 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
 - [qdmr](https://github.com/hmatuschek/qdmr) 
 
 
-## Howto operate your OpenRTX radio
+## Operating your OpenRTX radio
 ### MD380/UV380 (RT3/RT3s)
 
-* Leftside buttons
+### Leftside buttons
 Keeping the 'M' button pressed, brings up the 'macro menu'. Within the 'macro menu' you can select the following functions which are under the following keys:
     * 1 CTCSS frequency
     * 2 CTCSS encode/decode/none
