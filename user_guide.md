@@ -47,7 +47,7 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
 ### MD380/UV380 (RT3/RT3s)
 
 ### Leftside buttons
-Keeping the 'M' button pressed, brings up the 'macro menu'. Within the 'macro menu' you can select the following functions which are under the following keys:
+* Keeping the 'M' button pressed, brings up the 'macro menu'. Within the 'macro menu' you can select the following functions which are under the following keys:
     * 1 CTCSS frequency
     * 2 CTCSS encode/decode/none
     * 3 Transmit power ( low / high )
@@ -58,9 +58,10 @@ Keeping the 'M' button pressed, brings up the 'macro menu'. Within the 'macro me
     * 8 B-
     * 9 Save settings ( not implemented yet )
 
-* Rightside buttons
+### Rightside buttons
 
-* Front buttons
+### Front buttons
+* By presssing the buttons, the following functions can be selected:
     * 0 n/a
     * Green book
         * Zone
