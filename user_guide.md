@@ -47,6 +47,36 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
 ### MD380/UV380 (RT3/RT3s)
 
 * Leftside buttons
+Keeping the 'M' button pressed, brings up the 'macro menu'. Within the 'macro menu' you can select the following functions which are under the following keys:
+    * 1 CTCSS frequency
+    * 2 CTCSS encode/decode/none
+    * 3 Transmit power ( low / high )
+    * 4 Frequency raster ( 12.5 / 20 / 25 Khz )
+    * 5 Modulation mode ( DMR / FM / M17 )
+    * 6 Lock
+    * 7 B+
+    * 8 B-
+    * 9 Save settings ( not implemented yet )
+
 * Rightside buttons
+
 * Front buttons
+    * 0 n/a
+    * Green boo
+    ** Zone
+    ** Channel
+    ** Contacts
+    ** GPS
+    ** Settings
+    ** Info
+    ** About
+
+    * Red book
+    ** VFO / Memory selection
+    * Up arrow
+    ** step up in frequency (VFO mode) or up configured channel (memory mode)
+    * Down arrow
+    ** step down in frequency (VFO mode) or up configured channel (memory mode)
+    * */lock
+    * #/up arrow
 
