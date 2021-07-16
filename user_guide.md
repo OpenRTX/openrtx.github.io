@@ -43,8 +43,9 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
 - [qdmr](https://github.com/hmatuschek/qdmr) 
 
 
+
 ## Operating your OpenRTX radio
-### MD380/UV380 (RT3/RT3s)
+### Tytera MD380/UV380 (Retevis RT3/RT3s)
 
 ### Left
 * Keeping the 'M' button pressed, brings up the 'macro menu'. Within the 'macro menu' you can select the following functions which are under the following keys:
@@ -83,7 +84,7 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
     * #/up arrow
 
 ### Top
-* The knobs on the top provide:
+* The knobs on top provide:
     * Channel/Frequency selection
     * Power/Volume
 
