@@ -47,22 +47,22 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
 ## Operating your OpenRTX radio
 ### Tytera MD380/UV380 (Retevis RT3/RT3s)
 
-### Left
+#### Left
 * Keeping the 'M' button pressed, brings up the 'macro menu'. Within the 'macro menu' you can select the following functions which are under the following keys:
     * 1 CTCSS frequency
     * 2 CTCSS encode/decode/off
     * 3 Transmit power ( low / high )
     * 4 Frequency raster ( 12.5 / 20 / 25 Khz )
-    * 5 Modulation mode ( DMR / FM / M17 )
+    * 5 Modulation mode ( DMR / FM / _M17_ )
     * 6 Lock
     * 7 B+
     * 8 B-
     * 9 Save settings ( not implemented yet )
 
-### Right
+#### Right
 * Programming/accessory input/output
 
-### Front
+#### Front
 * By presssing the buttons, the following functions can be selected:
     * 0 n/a
     * Green book
@@ -73,7 +73,6 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
         * Settings
         * Info
         * About
-
     * Red book
         * VFO / Memory selection
     * Up arrow
@@ -83,7 +82,7 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
     * */lock
     * #/up arrow
 
-### Top
+#### Top
 * The knobs on top provide:
     * Channel/Frequency selection
     * Power/Volume
