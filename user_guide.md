@@ -52,7 +52,7 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
     * 1 CTCSS frequency
     * 2 CTCSS encode/decode/off
     * 3 Transmit power ( low / high )
-    * 4 Frequency raster ( 12.5 / 20 / 25 Khz )
+    * 4 IF filter bandwidth ( 12.5 / 20 / 25 Khz )
     * 5 Modulation mode ( DMR / FM / _M17_ )
     * 6 Lock
     * 7 B+
