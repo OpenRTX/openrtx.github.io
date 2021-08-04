@@ -23,7 +23,7 @@ To flash the OpenRTX firmware on your radio, follow these steps:
 * _**Put your radio in DFU (bootloader) mode**_. To do this you have to turn off the radio and turn it back on while pressing a combination of keys that depends on your specific model, the DFU mode will be indicated by the screen being off and a blinking or steady LED:
     * For MD3x0 radios you have to press the PTT button and the side button above it.
     * For GDx radios you have to press the two side buttons below it.
-    
+
 
 * _**Flash OpenRTX**_
     * On Linux you can use [radio_tool](https://github.com/v0l/radio_tool).
@@ -40,13 +40,11 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
 
 - [dmrconfig](https://github.com/OpenRTX/dmrconfig)
 - [editcp](https://github.com/DaleFarnsworth-DMR/editcp)
-- [qdmr](https://github.com/hmatuschek/qdmr) 
+- [qdmr](https://github.com/hmatuschek/qdmr)
 
 
 
 ## Operating your OpenRTX radio
-### Tytera MD380/UV380 (Retevis RT3/RT3s)
-
 #### Left
 * Keeping the 'M' button pressed, brings up the 'macro menu'. Within the 'macro menu' you can select the following functions which are under the following keys:
     * 1 CTCSS frequency
@@ -79,11 +77,9 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
         * step up in frequency (VFO mode) or up configured channel (memory mode)
     * Down arrow
         * step down in frequency (VFO mode) or up configured channel (memory mode)
-    * */lock
-    * #/up arrow
+    * */lock n/a
+    * #/up arrow n/a
 
 #### Top
-* The knobs on top provide:
-    * Channel/Frequency selection
-    * Power/Volume
-
+* Power/Volume
+* Channel/Frequency knob, on Tytera MD380/UV380 (Retevis RT3/RT3s): works as up/down arrow keys. Rotation clockwise acts as one press of the up key per step, counterclockwise as one press of the down key per step.
