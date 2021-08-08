@@ -53,8 +53,8 @@ To put the radio in DFU mode look at the instructions for firmware flashing in t
     * 4 IF filter bandwidth ( 12.5 / 20 / 25 Khz )
     * 5 Modulation mode ( DMR / FM / _M17_ )
     * 6 Lock
-    * 7 B+
-    * 8 B-
+    * 7 B+ Display brightness increase
+    * 8 B- Display brightness decrease
     * 9 Save settings ( not implemented yet )
 
 #### Right
