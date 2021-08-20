@@ -1,6 +1,11 @@
+
 ## M17 on the MD-380
 
 We are bringing experimental M17 support to the TYT MD-380 DMR radio. However, due to technical limitations of the underlying hardware, transmitting M17 audio on the radio requires two small hardware modifications.
+
+# __WARNING__
+This guide is being updated, __do not perform the mod__ as long as this warning is here. \
+For questions join [our Discord server](https://discord.gg/jZ9t8XTbmd), or write us an [email](https://openrtx.org/#/?id=the-openrtx-project).
 
 ### Mic → MCU
 

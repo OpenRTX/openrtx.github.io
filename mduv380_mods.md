@@ -9,6 +9,10 @@ There are two audio paths that require some hardware modifications:
 - Mic → MCU: Requires hardware mod
 - RF → MCU: Requires hardware mod
 
+# __WARNING__
+This guide is being updated, __do not perform the mod__ as long as this warning is here. \
+For questions join [our Discord server](https://discord.gg/jZ9t8XTbmd), or write us an [email](https://openrtx.org/#/?id=the-openrtx-project).
+
 ### Equipment required
 To perform the Mic → MCU and RF → MCU mods you need:
 - Screwdrivers: Torx T6, Torx T8, Philips #0
