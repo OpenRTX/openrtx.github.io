@@ -40,16 +40,8 @@ Finally, an updated _meson_ tool can be installed through `pip3` package install
 pip3 install meson --user
 ```
 
-To flash the compiled binary on the radio, we will use `radio_tool`, which can be compiled from its GitHub repository:
-
-```
-git clone https://github.com/v0l/radio_tool
-cd radio_tool
-mkdir build && cd build
-cmake ..
-make -jN
-sudo make install
-```
+To flash the compiled binary on the radio, we will use `radio_tool`, but we are bundling that with the OpenRTX toolchain,
+so there is no need to install it by hand.
 
 Once you have set up the toolchain, you can build the firmware binary using the following commands:
 
