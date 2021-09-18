@@ -4,7 +4,9 @@
 We are bringing experimental M17 support to the TYT MD-380 DMR radio. However, due to technical limitations of the underlying hardware, transmitting M17 audio on the radio requires two small hardware modifications.
 
 # __WARNING__
-This guide is being updated, __do not perform the mod__ as long as this warning is here. \
+This guide has been updated on 18/09/2021, if you already performed the mod before the update, you will have to perform a small modification to update your mod! \
+The changes between the old and the new mod are **highlighted in yellow**, so check if they match the state of your hardware.
+What has changed between the old mod and the new mod is the value and position of the resistor, and the additional removal of a capacitor.
 For questions join [our Discord server](https://discord.gg/jZ9t8XTbmd), or write us an [email](https://openrtx.org/#/?id=the-openrtx-project).
 
 ### Mic → MCU
@@ -12,15 +14,16 @@ For questions join [our Discord server](https://discord.gg/jZ9t8XTbmd), or write
 The modification enables the MCU on the radio to directly access the audio signal coming from the microphone, bypassing the HR_C5000 normally used to sample microphone input.
 We cannot use the HR_C5000 ADCs, because those can be accessed only in DMR mode, and we are leveraging HR_C5000 analog FM mode to transmit M17 data.
 
-The MD-380 already has access to the microphone input, this is used for the VOX function in the original firmware, however this input is heavily filtered, which results in an analog bandwidth which is too narrow to be used for voice input.
+The MD-380 has already access to the microphone input, this is used for the VOX function in the original firmware, however this input is heavily filtered, which results in an analog bandwidth which is too narrow to be used for voice input.
+**Instead we pick up the signal from the MIC_OUT line, which is used for the voice input and feed it to the VOX line, so that it can be sampled by the MCU**.
 
-We alter the analog filtering of the VOX input. The modification itself is quite small, we need to remove the EC151 capacitor and to bridge the top and right pins of the D102 diode.
+The modification itself is quite small, we need to remove the EC151 capacitor and **remove the D102 diode**.
 
 This is the logic board of the TYT MD-380:
 
 ![MD-380](_media/md380.jpg)
 
-We are going to remove EC151 and bridge D102, this is a picture of the two components before the modification:
+We are going to remove EC151 and **remove D102**, this is a picture of the two components before the modification:
 
 ![MD-380 Before the Mic Modification](_media/md380_mod_before.jpg)
 
@@ -28,10 +31,10 @@ After the modification:
 
 ![MD-380 Half way there](_media/md380_mod_after.jpg)
 
-Lastly, since STM32 ADCs can only measure positive voltages, to be able to capture the full audio signal we need to apply a DC bias to the microphone signal.
-We recommend to do so by applying a 200KΩ resistor between a 5V source and the microphone signal path, accessible on one of the pads of the EC151 capacitor we just removed.
-If you don't have a 200KΩ resistor, anything in the range [180-220]KΩ will work.
-5V will be sourced from the leftmost hole inside the white silkscreen circle, visible in the pictures.
+Lastly, since STM32 ADCs can only measure positive voltages, to be able to capture the full audio signal we need **a DC biased microphone signal**.
+**We are going to take the microphone signal at R158 which is DC biased in the range 0-5V and bridge it to R118 where we want an input range of 0-3.3V.**
+We recommend to do so by applying a **50KΩ** resistor between *C161 or C162 or both* and the microphone signal path, accessible on one of the pads of the EC151 capacitor we just removed.
+If you don't have a **50KΩ** resistor, anything in the range **[40-60]KΩ** will work.
 
 Here is a picture of the applied modification:
 
