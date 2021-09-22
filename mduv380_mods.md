@@ -10,15 +10,16 @@ There are two audio paths that require some hardware modifications:
 - RF → MCU: Requires hardware mod
 
 # __WARNING__
-This guide is being updated, __do not perform the mod__ as long as this warning is here. \
+This guide has been updated on 18/09/2021, if you already performed the mod before the update, you will have to perform a small modification to update your mod! \
+The changes between the old and the new mod are **highlighted in yellow**, so check if they match the state of your hardware.
+What has changed between the old mod and the new mod is the value and position of the resistor, and the additional removal of a capacitor.
 For questions join [our Discord server](https://discord.gg/jZ9t8XTbmd), or write us an [email](https://openrtx.org/#/?id=the-openrtx-project).
 
 ### Equipment required
 To perform the Mic → MCU and RF → MCU mods you need:
 - Screwdrivers: Torx T6, Torx T8, Philips #0
 - Plastic spudger like [this](https://it.aliexpress.com/item/32834353313.html) or similar
-- 1x 200KΩ THT (through-hole) resistor with at least 1% tolerance and 1/8W rating
-  ([example](https://it.rs-online.com/web/p/resistori-montaggio-a-foro-passante/0149054/))
+- 1x **50KΩ SMD (Surface Mount Device)** resistor with at least 1% tolerance and 1/8W rating
 - some 30AWG Kynar wire
 - A small tip soldering iron
 - A desoldering pump or solder wick
@@ -65,30 +66,32 @@ Be careful not to break the solder joints between the button PCB and the main PC
 The MD-UV380 like the MD380 has an audio path from the microphone to the MCU that is used for VOX
 functionality on the stock firmware.
 
-The Mic → MCU mod consists in bypassing/removing the peak detector diode and capacitor, and add a
-resistor to add a bias offset to the mic input.
+The Mic → MCU mod consists in **breaking the original VOX audio path and connecting the VOX
+MCU input to the microphone preamplified audio signal, adding a resistor to adapt the
+signal voltage range from 0-5V to 0-3.3V**
 
-The mod is explained in the following picture \
+**Here is the mod, represented on the schematic of the radio:** \
+![MD-UV380 Schematic](_media/audio_mod_schematic.svg)
+
+**And here is a diagram showing how it appears on the radio:** \
 ![MD-UV380 Mic mod](_media/uv380_mic_mod.jpg)
 
 Steps:
 - Remove the capacitor shown in the picture, you can use the hot air gun from a rework station or \
   you can melt the solder in the two contacts and rotate slightly the capacitor to remove it.
   Be careful to not damange the PCB tracks.
-- Prepare a short kynar wire, use some tweezers to bend it in a U shape and solder it on the diode \
-  to short the two pins. \
-  In alternative you can remove the diode (SOT-23) entirely but it will make more difficult
-  reverting the mod. \
-![MD-UV380 Mic mod diode short](_media/uv380_mic_short.jpg)
-- Trim one end of the resistor and bend it in a P shape \
-![MD-UV380 Mic mod bent resistor](_media/uv380_mic_resistor.jpg)
-- Insert the bent pin of the resistor into the right hole as shown in the picture, and solder it. \
-  Trim the other leg of the resistor so that it doesn't go over the golden section of the PCB \
-  (otherwise it will make contact with the aluminum heat sink wall. \
-- Trim the first leg of the PCB if it protrudes from the other side of the PCB. \
-- Check that the resistor does not go in the way of the aluminum heat sink.
-- The end result should look something like this, (or maybe better 😉). \
-![MD-UV380 Mix mod finished](_media/uv380_mic_after.jpg)
+- **Remove the D102 diode (SOT-23) and capacitor EC151 entirely.** \
+![MD-UV380 Mic mod diode removal](_media/uv380_mic_diode_remove.jpg)
+- **Remove the C115 capacitor (SMD) entirely.** \
+![MD-UV380 Mic mod capacitor removal](_media/uv380_mic_cap_remove.jpg)
+- **Cover the PCB in Kaptop tape leaving the right pad of the first capacitor you removed accessible.** \
+![MD-UV380 Mic mod adding kapton](_media/uv380_mic_kapton.jpg)
+- **Solder the 50KΩ SMD resistor on the left pad of EC151.** \
+![MD-UV380 Mic mod soldering resistor](_media/uv380_mic_resistor.jpg)
+- **Solder a piece of Kynar wire from the right pad of the resistor you just soldered to C161 or C162 or both.** \
+![MD-UV380 Mix mod finished](_media/uv380_mic_wire.jpg)
+
+**The Mic → MCU mod is now complete, go share it on your favourite social network!**
 
 ### RF → MCU
 The MD-UV380 lacks a direct path from the demodulated RF signal coming from the AT1856S
@@ -103,6 +106,7 @@ aluminum heat sink.\
 Steps:
 - We need to file down the pin and create a small groove in place to avoid pinching the wire. \
 Note that on my radio for some reason the pin was removed at the factory, so you may have it or not. \
+
 ![MD-UV380 Heat sink modified](_media/uv380_heat_sink.jpg)
 - Cut a section of 30AWG Kynar wire, strip and tin one end.
 - The `ADC_IVINP` is on the upper side of the HR_C6000, and the wire can be soldered on two \
