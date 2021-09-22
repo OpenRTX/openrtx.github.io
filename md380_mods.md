@@ -89,10 +89,6 @@ Afterward we will bridge with some Kynar wire the left pad of the resistor (2T/5
 
 ### Results
 
-The MD380 PCB with both mods applied should look like this:
-
-![MD-380 After Both Modifications](_media/md380_mod_complete.jpg)
-
 You can put some drops of hot glue to ensure that the resistor and the Kynar wire stay in place.
 
 Now your radio is ready to modulate M17 and other digital protocols, stay tuned on [Discord](https://discord.gg/jZ9t8XTbmd) and [Twitter](https://twitter.com/OpenRtx)
