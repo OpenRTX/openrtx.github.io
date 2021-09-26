@@ -34,6 +34,12 @@ sh MiosixToolchainInstaller.run
 
 The toolchain also provides an uninstall script, which can be found in the installation directory.
 
+You also need to install _ninja_ build system:
+
+```
+sudo apt install ninja-build
+```
+
 Finally, an updated _meson_ tool can be installed through `pip3` package installer.
 
 ```
