@@ -44,6 +44,12 @@ sh MiosixToolchainInstaller.run
 
 The toolchain also provides an uninstall script, which can be found in the installation directory.
 
+On some distributions, before installing _meson_, you need to install the _ninja_ build system. Keep in mind that the package name depends on the OS you are using, for example on Debian/Ubuntu and derived distributions the installation command is:
+
+```
+sudo apt install ninja-build
+```
+
 Finally, an updated _meson_ tool can be installed through `pip3` package installer.
 
 ```
