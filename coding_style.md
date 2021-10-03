@@ -64,7 +64,7 @@ void foo(int d)
 
 ## Comments and documentation
 * All the function prototypes defined in header files must be documented using the following Doxygen syntax
-```C
+~~~C
 /**
  * Description...
  *
@@ -72,4 +72,4 @@ void foo(int d)
  * \return ...
  */
  int func(void *ptr);
-```
+~~~
