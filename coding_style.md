@@ -31,7 +31,6 @@ char secondVar = 'c';
 * Spaces must be put between variables and mathematical, bitwise, logical and assignment operators.
 ```
 int c = a + b;
-
 if((a == 0) || (c != 0))
 ```
 * Is preferable to break condition statements inside `if` and `while` body exceeding the 80 columns limit over multiple lines, dedicating each line to one condition
