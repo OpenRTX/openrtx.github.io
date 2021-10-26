@@ -21,7 +21,12 @@ The firmware can be executed either on one of the supported devices or on an x86
 
 #### Toolchain installation
 
-The tools required to compile the sources and obtain a flashable binary image are _meson_ build system, the GCC toolchain for the miosix kernel and the external tools for flashing the radio.
+The tools required to compile the sources and obtain a flashable binary image are _meson_ build system, the GCC toolchain for the miosix kernel and `cmake` for compiling the external tools for flashing the radio.
+
+Install `cmake` using the package manager provided with your linux distribution:
+```
+sudo apt update && sudo apt install cmake
+```
 
 WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!
 
@@ -42,6 +47,7 @@ pip3 install meson --user
 
 To flash the compiled binary on the radio, we will use `radio_tool`, but we are bundling that with the OpenRTX toolchain,
 so there is no need to install it by hand.
+If you have `radio_tool` installed in your system, make sure that it's version is greater or equal than v0.1.1.
 
 Once you have set up the toolchain, you can build the firmware binary using the following commands:
 
