@@ -23,12 +23,12 @@ The firmware can be executed either on one of the supported devices or on an x86
 
 The tools required to compile the sources and obtain a flashable binary image are _meson_ build system, the GCC toolchain for the miosix kernel and `cmake` for compiling the external tools for flashing the radio.
 
-Install `cmake` using the package manager provided with your linux distribution:
+Install `cmake` using the package manager provided with your linux distribution, e.g. on Debian/Ubuntu and derived distributions you can use:
 ```
 sudo apt update && sudo apt install cmake
 ```
 
-WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!
+**WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!**
 
 Then, to install the toolchain, download the installer and run it: the installer will ask for your root password to copy the compiler to the `/opt/arm-miosix-eabi` directory, and put symlinks to `/usr/bin`.
 
