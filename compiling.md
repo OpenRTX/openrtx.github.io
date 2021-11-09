@@ -15,11 +15,11 @@ git submodule init
 git submodule update
 ```
 
-The sources, then, can be compiled either for one of the supported radios or to be executed on an _x86_64_ or _aarch64_ machine. In those two latter cases, however,
-OpenRTX comes without radio support.
+The sources, then, can be compiled either for one of the supported radios or to be executed on a linux machine. In this latter case, however, OpenRTX comes without radio support.
 
-* [Compiling for a radio and flashing the binary](#Compiling-for-radios)
-* [Compiling in emulator mode on an _x86_64_ or _aarch64_ machine](#Compiling-for-Linux)
+* [Compiling for a radio](#Compiling-for-radios)
+* [Flashing a compiled firmware to a radio](#Flashing-a-compiled-firmware-to-your-radio)
+* [Compiling in emulator mode on a linux machine](#Compiling-for-Linux)
 
 
 ## Compiling for radios
@@ -77,17 +77,7 @@ ninja -C build_arm openrtx_MODEL -jN
 
 Where N is the number of cores that you want to allocate to the build process.
 
-#### Compiling the platform test suites
-
-OpenRTX comes with a set of test suites which can be used for testing and debugging the radio hardware and the relative low-level drivers. The sources of the test suites are located in the `tests/platform` folder inside the the repository's root directory. The majority of the test routines interact with user through the USB virtual serial port, which is automatically enabled on system boot.
-To compile a test suite, configure the toolchain with the following command:
-
-```
-meson configure -Dtest=FILENAME build_arm
-```
-
-Where `FILENAME` is the name of the test suite source file **without** the ".c" extension. Once the test suite source has been configured, you can obtain the binary image to be flashed on the radio by following the compilation procedure listed above.
-To restore everything to a clean situation, delete the `build_arm` folder.
+The firmware comes also with different testsuites: the instructions to compile a binary image starting from those, are available on a [dedicated page](tests.md).
 
 ## Flashing a compiled firmware to your radio
 
