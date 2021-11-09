@@ -15,9 +15,14 @@ git submodule init
 git submodule update
 ```
 
-The firmware can be executed either on one of the supported devices or on an x86/x64 Linux machine but, in this case, without radio support.
+The sources, then, can be compiled either for one of the supported radios or to be executed on an _x86_64_ or _aarch64_ machine. In those two latter cases, however,
+OpenRTX comes without radio support.
 
-## Compiling for DMR radios
+* [Compiling for a radio and flashing the binary](#Compiling-for-radios)
+* [Compiling in emulator mode on an _x86_64_ or _aarch64_ machine](#Compiling-for-Linux)
+
+
+## Compiling for radios
 
 #### Toolchain installation
 

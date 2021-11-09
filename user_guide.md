@@ -7,7 +7,7 @@ However, contributions and testing are welcome and accepted.
 ## Where to get OpenRTX
 ### Stable builds
 **Stable builds** are recommended for general use, they are well tested and include only functionality considered complete.
-* You can find pre-built stable OpenRTX binary images on our [GitHub releases page](https://github.com/OpenRTX/OpenRTX/releases)
+Pre-built stable OpenRTX binary images are available on our [GitHub releases page](https://github.com/OpenRTX/OpenRTX/releases)
 
 ### Unstable builds
 **Unstable builds** are not fully tested, use them only if you want to develop or try a feature not yet released.

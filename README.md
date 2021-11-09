@@ -10,9 +10,8 @@ Currently OpenRTX is being actively developed for the following radios:
 * Radioddity GD-77
 * Baofeng DM-1801
 
-[Current develoment status](platforms.md).
-
-<br><br>
+<br>
+A detail of the project's current development status is available in [this page](platforms.md).
 
 If you want to know how to run OpenRTX on your device, look at the [users' guide](user_guide.md).
 
