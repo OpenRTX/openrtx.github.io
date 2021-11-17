@@ -32,7 +32,7 @@ meson compile -C build_arm openrtx_mytarget_flash
 ## Switch from test to OpenRTX
 To go back to compiling standard OpenRTX instead of a platform test you can type this command
 ```
-meson configure -Dtest=main build_arm
+meson configure -Dtest= build_arm
 ```
 Or simply delete your build folder with
 ```
