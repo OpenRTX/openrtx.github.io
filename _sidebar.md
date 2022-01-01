@@ -12,6 +12,7 @@
         * [MD-9600](md9600.md)
         * [GD-77](gd77.md)
         * [FT2D](ft2d.md)
+        * [HD1](hd1.md)
 * [M17](m17.md)
     * [Software Modes](software_modes.md)
 * [Hardware Modifications](hw_mods.md)
