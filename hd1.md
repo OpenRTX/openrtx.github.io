@@ -2,20 +2,27 @@
 
 ## Specifications
 
+* MCU: NXP MK22FN512VLL12
+* Baseband: Hongrui HR_C6000
 * Display: 160x128 color TFT
 * Frequency ranges
     * VHF: 136.0000-174.0000
     * UHF: 400.0000-480.0000
 
-## Hardware configuration
+## Hardware Configuration
 
 The Ailunce HD1 is very similar to the Radioddity GD77 in its hardware
 configuration, schematics for this radio are public domain
 and [can be accessed here](https://github.com/OpenRTX/OpenRTX-external-docs/raw/main/Schematics/Ailunce_HD1_schematic.pdf).
 
-## Memory mapping
+## Memory Mapping
 
-TODO
+|            Name          | Start Address | Length     |
+|:------------------------:|---------------|------------|
+| Internal Flash           | 0x0           | 0x00080000 |
+| FlexBus                  | 0x08000000    | 0x08000000 |
+| SRAM                     | 0x1C000000    | 0x04100000 |
+| Program Flash (CPU only) | 0x30000000    | 0x04000000 |
 
 ## M17 Path
 
@@ -69,6 +76,8 @@ USB cable is a serial adaptor, this log appears even without radio.
 | 7    | 3v3      | 3v3           |
 | 8    | SWD_IO   | SWDIO         |
 
+![HD1 SWD Detail](_media/hd1_swd_detail.JPEG)
+
 ## CHORD U306
 
 This chip is the voice synthesize from the baofeng radio
@@ -83,7 +92,7 @@ This chip is the voice synthesize from the baofeng radio
 
 ## SWD
 
-MK22 is supported by a downstream openocp [patched by MIT](https://gitlab.cba.mit.edu/calischs/openocd_nrf52_patch).
+MK22 is supported by mainline OpenOCD, using `target/kx.cfg`.
 
 ## Bootloader
 
@@ -134,3 +143,21 @@ http://web.mit.edu/6.115/www/amulet/xmodem.htm
 The first xmodem chunk sent by the PC to the radio is a non-standard xmodem packet since it's packet counter is 00, while the xmodem standard states that the packet counter should start from 01.
 
 The first xmodem packet contains the name of the new firmware and the size in bytes
+
+## Pictures
+
+### Radio Cover
+
+![HD1 Cover](_media/hd1_cover.JPEG)
+
+### PCB Front
+
+![HD1 PCB Front](_media/hd1_front.JPEG)
+
+### PCB Back
+
+![HD1 PCB Back](_media/hd1_back.JPEG)
+
+## References
+
+- [MCU (NXP MK22FN512VLL12) Product Page](https://www.nxp.com/part/MK22FN512VLL12#/)
