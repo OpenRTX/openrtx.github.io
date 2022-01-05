@@ -15,6 +15,11 @@ The Ailunce HD1 is very similar to the Radioddity GD77 in its hardware
 configuration, schematics for this radio are public domain
 and [can be accessed here](https://github.com/OpenRTX/OpenRTX-external-docs/raw/main/Schematics/Ailunce_HD1_schematic.pdf).
 
+## Flashing
+
+Support for flashing the Ailunce HD1 is implemented in [this `radio_tool` fork](https://github.com/n1zzo/radio_tool), to be merged upstream.
+You can flash a raw binary as produced by objcopy, the bootloader will write it at offset `0x4000`.
+
 ## Memory Mapping
 
 |            Name          | Start Address | Length     |
@@ -137,12 +142,7 @@ socat /dev/ttyUSB0,b57600,raw,echo=0 \
 SYSTEM:'tee in.txt |socat - "PTY,link=/tmp/ttyV0,b57600,raw,echo=0,waitslave" |tee out.txt'
 ```
 
-The bootloader uses the xmodem protocol
-http://web.mit.edu/6.115/www/amulet/xmodem.htm
-
-The first xmodem chunk sent by the PC to the radio is a non-standard xmodem packet since it's packet counter is 00, while the xmodem standard states that the packet counter should start from 01.
-
-The first xmodem packet contains the name of the new firmware and the size in bytes
+The bootloader uses the [ymodem protocol](http://www.blunk-electronic.de/train-z/pdf/xymodem.pdf).
 
 ## Pictures
 
