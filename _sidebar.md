@@ -1,4 +1,5 @@
 * [OpenRTX](/)
+* [Get in touch](get_in_touch.md)
 * [Supported Platforms](platforms.md)
 * [Users' Guide](user_guide.md)
 * [Developers' Guide](developers_guide.md)

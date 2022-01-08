@@ -7,7 +7,7 @@ We are bringing experimental M17 support to the TYT MD-380 DMR radio. However, d
 This guide has been updated on 18/09/2021, if you already performed the mod before the update, you will have to perform a small modification to update your mod! \
 The changes between the old and the new mod are **highlighted in yellow**, so check if they match the state of your hardware.
 What has changed between the old mod and the new mod is the value and position of the resistor, and the additional removal of a capacitor.
-For questions join [our Discord server](https://discord.gg/jZ9t8XTbmd), or write us an [email](https://openrtx.org/#/?id=the-openrtx-project).
+For questions join our [community chat](get_in_touch.md), or write us an [email](https://openrtx.org/#/?id=the-openrtx-project).
 
 ### Equipment required
 To perform the Mic → MCU and RF → MCU mods you need:
@@ -91,5 +91,5 @@ Afterward we will bridge with some Kynar wire the left pad of the resistor (2T/5
 
 You can put some drops of hot glue to ensure that the resistor and the Kynar wire stay in place.
 
-Now your radio is ready to modulate M17 and other digital protocols, stay tuned on [Discord](https://discord.gg/jZ9t8XTbmd) and [Twitter](https://twitter.com/OpenRtx)
+Now your radio is ready to modulate M17 and other digital protocols, stay tuned on our [community chat](get_in_touch.md) and [Twitter](https://twitter.com/OpenRtx)
 to know when firmware support will be available!

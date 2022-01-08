@@ -13,7 +13,7 @@ There are two audio paths that require some hardware modifications:
 This guide has been updated on 18/09/2021, if you already performed the mod before the update, you will have to perform a small modification to update your mod! \
 The changes between the old and the new mod are **highlighted in yellow**, so check if they match the state of your hardware.
 What has changed between the old mod and the new mod is the value and position of the resistor, and the additional removal of a capacitor.
-For questions join [our Discord server](https://discord.gg/jZ9t8XTbmd), or write us an [email](https://openrtx.org/#/?id=the-openrtx-project).
+For questions join our [community chat](get_in_touch.md), or write us an [email](https://openrtx.org/#/?id=the-openrtx-project).
 
 ### Equipment required
 To perform the Mic → MCU and RF → MCU mods you need:
