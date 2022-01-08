@@ -21,16 +21,16 @@ The sources, then, can be compiled either for one of the supported radios or to 
 * [Flashing a compiled firmware to a radio](#Flashing-a-compiled-firmware-to-your-radio)
 * [Compiling in emulator mode on a linux machine](#Compiling-for-Linux)
 
-
 ## Compiling for radios
 
 #### Toolchain installation
 
-The tools required to compile the sources and obtain a flashable binary image are _meson_ build system, the GCC toolchain for the miosix kernel and `cmake` for compiling the external tools for flashing the radio.
+The tools required to compile the sources and obtain a flashable binary image are _meson_ build system, the GCC toolchain for the miosix kernel.
+`cmake` and `libusb` are required for compiling the external tools for flashing the radio.
 
-Install `cmake` using the package manager provided with your linux distribution, e.g. on Debian/Ubuntu and derived distributions you can use:
+Install `cmake` and `libusb` using the package manager provided with your linux distribution, e.g. on Debian/Ubuntu and derived distributions you can use:
 ```
-sudo apt update && sudo apt install cmake
+sudo apt update && sudo apt install cmake pkg-config libusb-1.0 libusb-dev build-essential
 ```
 
 **WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!**
