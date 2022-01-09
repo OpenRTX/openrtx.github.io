@@ -29,6 +29,24 @@ You can flash a raw binary as produced by objcopy, the bootloader will write it 
 | SRAM                     | 0x1C000000    | 0x04100000 |
 | Program Flash (CPU only) | 0x30000000    | 0x04000000 |
 
+## Pin Mapping
+|Pin|GPIO|Function|
+|---|---|---|
+|81|PTC09|PWR_CTRL|
+|82|PTC10|LCD_CS|
+|83|PTC11|LCD_WR|
+|84|PTC12|LCD_RST|
+|85|PTC13|LCD_RS|
+|86|PTC14|LCD_RD|
+|93|PTD0|LCD_D0KIN0|
+|94|PTD1|LCD_D0KIN1|
+|95|PTD2|LCD_D0KIN2|
+|96|PTD3|LCD_D0KIN3|
+|97|PTD4|LCD_D0KOUT0|
+|98|PTD5|LCD_D0KOUT1|
+|99|PTD6|LCD_D0KOUT2|
+|100|PTD7|LCD_D0KOUT3|
+
 ## M17 Path
 
 - MCU to RF:
