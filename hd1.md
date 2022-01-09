@@ -30,6 +30,7 @@ You can flash a raw binary as produced by objcopy, the bootloader will write it 
 | Program Flash (CPU only) | 0x30000000    | 0x04000000 |
 
 ## Pin Mapping
+
 |Pin|GPIO|Function|
 |---|---|---|
 |81|PTC09|PWR_CTRL|
@@ -64,6 +65,12 @@ You can flash a raw binary as produced by objcopy, the bootloader will write it 
 
 - MCU to spk:
     1) Use HR_C6000 sound playback functionality, it should not be painful.
+
+## Hardware Version Discovery
+
+On startup the application image calls a function at 0x3000 with its model
+string, which triggers a reset if it doesn't match. the models are either
+`IHDHD1GPS` for the GPS model, or `IHDUV8580` for the non-GPS model
 
 ## Disassembly
 
