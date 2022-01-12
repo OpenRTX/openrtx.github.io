@@ -51,6 +51,7 @@ You can flash a raw binary as produced by objcopy, the bootloader will write it 
 |36|PTA2|UART_TX|
 |37|PTA3|SWDIO
 |38|PTA4|EZP_CS|
+|39|PTA5|P_U/V|
 |42|PTA12|I2S_RX|
 |43|PTA13|KEYSTOKE1|
 |44|PTA14|I2S_CK|
