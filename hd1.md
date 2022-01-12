@@ -56,6 +56,7 @@ You can flash a raw binary as produced by objcopy, the bootloader will write it 
 |44|PTA14|I2S_CK|
 |45|PTA15|I2S_TX|
 |46|PTA16|I2S_FS|
+|47|PTA17|RF_ANT_SW|
 |50|PTA18|ARM_CLK|
 |53|PTB0|RING/1750HZ|
 |54|PTB1|KLED/BLED|
