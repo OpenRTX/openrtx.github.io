@@ -15,6 +15,33 @@ __Model variants__
     * VHF: 136.000-174.000
     * UHF: 400.000-480.000
 
+## Memory Layout
+The STM32F405 of the MD-UV380 has 128k SRAM, 64k CCM, and 1M FLASH.
+The stock bootloader resides at the first 48k of the FLASH therefore we only
+have 1M - 48k (0xC000) bytes of FLASH. The last 128k bytes in the FLASH are
+reserverd for storing the settings.
+
+Considering this the memory regions in the liker script looks like this:
+```
+MEMORY
+{
+ sram (rwx) : ORIGIN = 0x20000000, LENGTH = 128k
+ flash (rx) : ORIGIN = 0x0800C000, LENGTH = 1M - 48K - 128K /* 128k for settings */
+ ccm (rwx) : ORIGIN = 0x10000000, LENGTH = 64K
+}
+```
+
+When the stack pointer is defined it can only reside at the origin of the SRAM
+plus the length of the SRAM -4 or lower. This is because the stock bootloader
+has an off by one error when sanity checking the stack pointer.
+This means the stack can't be placed in the highest possible address in SRAM as
+is conventional, but rather it has to be at least one word down from the top.
+
+Linker script:
+```
+PROVIDE(_stack = ORIGIN(sram) + LENGTH(sram) - 4);
+```
+
 ## Hardware configuration
 
 ### Clock tree
