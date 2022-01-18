@@ -19,9 +19,9 @@ __Model variants__
 The STM32F405 of the MD-UV380 has 128k SRAM, 64k CCM, and 1M FLASH.
 The stock bootloader resides at the first 48k of the FLASH therefore we only
 have 1M - 48k (0xC000) bytes of FLASH. The last 128k bytes in the FLASH are
-reserverd for storing the settings.
+reserved for storing the settings.
 
-Considering this the memory regions in the liker script looks like this:
+Considering this, the memory regions in the linker script look like this:
 ```
 MEMORY
 {
@@ -31,11 +31,12 @@ MEMORY
 }
 ```
 
-When the stack pointer is defined it can only reside at the origin of the SRAM
-plus the length of the SRAM -4 or lower. This is because the stock bootloader
-has an off by one error when sanity checking the stack pointer.
-This means the stack can't be placed in the highest possible address in SRAM as
-is conventional, but rather it has to be at least one word down from the top.
+Usually, the stack pointer is defined to be one word past the addressable memory,
+so the first `push` instruction writes to the very last memory location.
+The stock bootloader performs a sanity check on the initial stack pointer, but
+contains an off-by-one error: in order to boot, the initial stack pointer must
+be *within* the SRAM region. Thus, the stack must be placed at least one word
+down from the top.
 
 Linker script:
 ```
