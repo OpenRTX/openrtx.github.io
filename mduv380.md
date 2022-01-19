@@ -18,15 +18,15 @@ __Model variants__
 ## Memory Layout
 The STM32F405 of the MD-UV380 has 128k SRAM, 64k CCM, and 1M FLASH.
 The stock bootloader resides at the first 48k of the FLASH therefore we only
-have 1M - 48k (0xC000) bytes of FLASH. The last 128k bytes in the FLASH are
-reserved for storing the settings.
+have 1M - 48k (0xC000) bytes of FLASH. In the OpenRTX project the last 128k 
+bytes in the FLASH are reserved for storing the settings.
 
 Considering this, the memory regions in the linker script look like this:
 ```
 MEMORY
 {
  sram (rwx) : ORIGIN = 0x20000000, LENGTH = 128k
- flash (rx) : ORIGIN = 0x0800C000, LENGTH = 1M - 48K - 128K /* 128k for settings */
+ flash (rx) : ORIGIN = 0x0800C000, LENGTH = 1M - 48K - 128K /* 128k used for settings in OpenRTX project*/
  ccm (rwx) : ORIGIN = 0x10000000, LENGTH = 64K
 }
 ```
