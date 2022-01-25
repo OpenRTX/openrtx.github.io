@@ -15,6 +15,34 @@ __Model variants__
     * VHF: 136.000-174.000
     * UHF: 400.000-480.000
 
+## Memory Layout
+The STM32F405 of the MD-UV380 has 128k SRAM, 64k CCM, and 1M FLASH.
+The stock bootloader resides at the first 48k of the FLASH therefore we only
+have 1M - 48k (0xC000) bytes of FLASH. In the OpenRTX project the last 128k 
+bytes in the FLASH are reserved for storing the settings.
+
+Considering this, the memory regions in the linker script look like this:
+```
+MEMORY
+{
+ sram (rwx) : ORIGIN = 0x20000000, LENGTH = 128k
+ flash (rx) : ORIGIN = 0x0800C000, LENGTH = 1M - 48K - 128K /* 128k used for settings in OpenRTX project*/
+ ccm (rwx) : ORIGIN = 0x10000000, LENGTH = 64K
+}
+```
+
+Usually, the stack pointer is defined to be one word past the addressable memory,
+so the first `push` instruction writes to the very last memory location.
+The stock bootloader performs a sanity check on the initial stack pointer, but
+contains an off-by-one error: in order to boot, the initial stack pointer must
+be *within* the SRAM region. Thus, the stack must be placed at least one word
+down from the top.
+
+Linker script:
+```
+PROVIDE(_stack = ORIGIN(sram) + LENGTH(sram) - 4);
+```
+
 ## Hardware configuration
 
 ### Clock tree
