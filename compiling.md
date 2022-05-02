@@ -1,4 +1,58 @@
-# Compilation instructions
+# Building OpenRTX from Source
+
+To build OpenRTX you first need to setup the toolchain, here are the instructions according to your Operating System:
+
+## Linux Toolchain Setup
+
+The tools required to compile a flashable binary image from source are: _git_, the _meson_ build system and the GCC toolchain for the miosix kernel.
+`cmake` and `libusb` are required for compiling the external tools for flashing the radio.
+
+Install `cmake` and `libusb` using the package manager provided with your linux distribution, e.g. on Debian/Ubuntu and derived distributions you can use:
+
+```
+sudo apt update && sudo apt install cmake pkg-config libusb-1.0 libusb-dev build-essential
+```
+
+**WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!**
+
+Then, to install the toolchain, download the installer and run it: the installer will ask for your root password to copy the compiler to the `/opt/arm-miosix-eabi` directory, and put symlinks to `/usr/bin`.
+
+```
+wget https://miosix.org/toolchain/MiosixToolchainInstaller.run
+sh MiosixToolchainInstaller.run
+```
+
+The toolchain also provides an uninstall script, which can be found in the installation directory.
+
+Install `meson` and `ninja` using pip:
+
+```
+pip3 install --user meson ninja
+```
+
+## Windows Toolchain Setup
+
+- Install git from [here](https://git-scm.com/download/win)
+- Install perl from [here](https://strawberryperl.com/)
+- Install python from [here]()
+- Install the Miosix Toolchain from [here](https://miosix.org/wiki/index.php?title=Miosix_Toolchain)
+
+To install radio `radio_tool`, download the windows archive from [here](https://github.com/v0l/radio_tool) and extract it in a path of your choice `RADIO_TOOL_PATH`.
+Add `radio_tool` to your `PATH` by running in a PowerShell:
+
+```
+ $env:PATH += ";C:\Users\Niccolò Izzo\Documents\radio_tool"
+ # Verify that radio_tool is in PATH, this should not return error
+ get-command radio_tool
+```
+
+To install `meson` and `ninja` using pip, run these commands in a PowerShell:
+
+```
+pip3 install --user meson ninja
+```
+
+## Compiling OpenRTX
 
 To obtain the OpenRTX source code, clone the github repository with the following command:
 
@@ -22,39 +76,6 @@ The sources, then, can be compiled either for one of the supported radios or to 
 * [Compiling in emulator mode on a linux machine](#Compiling-for-Linux)
 
 ## Compiling for radios
-
-#### Toolchain installation
-
-The tools required to compile the sources and obtain a flashable binary image are _meson_ build system, the GCC toolchain for the miosix kernel.
-`cmake` and `libusb` are required for compiling the external tools for flashing the radio.
-
-Install `cmake` and `libusb` using the package manager provided with your linux distribution, e.g. on Debian/Ubuntu and derived distributions you can use:
-```
-sudo apt update && sudo apt install cmake pkg-config libusb-1.0 libusb-dev build-essential
-```
-
-**WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!**
-
-Then, to install the toolchain, download the installer and run it: the installer will ask for your root password to copy the compiler to the `/opt/arm-miosix-eabi` directory, and put symlinks to `/usr/bin`.
-
-```
-wget https://miosix.org/toolchain/MiosixToolchainInstaller.run
-sh MiosixToolchainInstaller.run
-```
-
-The toolchain also provides an uninstall script, which can be found in the installation directory.
-
-On some distributions, before installing _meson_, you need to install the _ninja_ build system. Keep in mind that the package name depends on the OS you are using, for example on Debian/Ubuntu and derived distributions the installation command is:
-
-```
-sudo apt install ninja-build
-```
-
-Finally, an updated _meson_ tool can be installed through `pip3` package installer.
-
-```
-pip3 install meson --user
-```
 
 To flash the compiled binary on the radio, we will use `radio_tool`, but we are bundling that with the OpenRTX toolchain,
 so there is no need to install it by hand.
