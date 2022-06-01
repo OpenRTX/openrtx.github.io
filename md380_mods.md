@@ -1,10 +1,9 @@
 
 ## M17 on the MD-380
-
 We are bringing experimental M17 support to the TYT MD-380 DMR radio. However, due to technical limitations of the underlying hardware, transmitting M17 audio on the radio requires two small hardware modifications.
 
 # __WARNING__
-This guide has been updated on 18/09/2021, if you already performed the mod before the update, you will have to perform a small modification to update your mod! \
+This guide has been updated on **01/06/2022**, if you already performed the mod before the update, you will have to perform a small modification to update your mod! \
 The changes between the old and the new mod are **highlighted in yellow**, so check if they match the state of your hardware.
 What has changed between the old mod and the new mod is the value and position of the resistor, and the additional removal of a capacitor.
 For questions join our [community chat](get_in_touch.md), or write us an [email](https://openrtx.org/#/?id=the-openrtx-project).
@@ -33,22 +32,36 @@ To perform the Mic → MCU and RF → MCU mods you need:
   flat cable and the speaker wires, which you should remove first.
 - At this point you should have the internal radio assembly separated from the case
 
+### Accessing the RF side PCB
+The **RF → MCU mod requires also accessing the RF side of the PCB**,
+the one which faces the heat sink.
+
+- Remove the 11 Philips #0 screws from the logic side of the PCB \
+- Remove the 2 Torx T6 screws from the side button PCB \
+- Desolder the antenna connector \
+The antenna connector is fixed to the heat sink with two screws,
+removing them should NOT be necessary to perform the mod
+- Use a pair of tweezers or a spudger to gently pull the side button PCB out of the heat sink. \
+Be careful not to break the solder joints between the button PCB and the main PCB. \
+- Now carefully detach the heat sink from the PCB assembly, you should be able to see the RF side of
+  the PCB. \
+
 ### Mic → MCU
 The modification enables the MCU on the radio to directly access the audio signal coming from the microphone, bypassing the HR_C5000 normally used to sample microphone input.
 We cannot use the HR_C5000 ADCs, because those can be accessed only in DMR mode, and we are leveraging HR_C5000 analog FM mode to transmit M17 data.
 
 The MD-380 has already access to the microphone input, this is used for the VOX function in the original firmware, however this input is heavily filtered, which results in an analog bandwidth which is too narrow to be used for voice input.
-**Instead we pick up the signal from the MIC_OUT line, which is used for the voice input and feed it to the VOX line, so that it can be sampled by the MCU**.
+Instead we pick up the signal from the MIC_OUT line, which is used for the voice input and feed it to the VOX line, so that it can be sampled by the MCU.
 
-The modification itself is quite small, we need to remove the EC151 capacitor and **remove the D102 diode.
-Here is the mod, represented on the schematic of the radio:** \
+The modification itself is quite small, we need to remove the EC151 capacitor and remove the D102 diode. \
+Here is the mod, represented on the schematic of the radio: \
 ![MD-380 Schematic](_media/audio_mod_schematic.svg)
 
 This is the logic board of the TYT MD-380:
 
 ![MD-380](_media/md380.jpg)
 
-We are going to remove EC151 and **remove D102**, this is a picture of the two components before the modification:
+We are going to remove EC151 and remove D102, this is a picture of the two components before the modification:
 
 ![MD-380 Before the Mic Modification](_media/md380_mod_before.jpg)
 
@@ -56,11 +69,11 @@ After the modification:
 
 ![MD-380 Half way there](_media/md380_mod_after.jpg)
 
-Lastly, since STM32 ADCs can only measure positive voltages, to be able to capture the full audio signal we need **a DC biased microphone signal**.
-**We are going to take the microphone signal at R158 which is DC biased in the range 0-5V and bridge it to R118 where we want an input range of 0-3.3V.**
-We recommend to do so by applying a **50KΩ** resistor between *C161 or C162 or both* and the microphone signal path, accessible on one of the pads of the EC151 capacitor we just removed.
-If you don't have a **50KΩ** resistor, anything in the range **[40-60]KΩ** will work.
-**Finally, remove the C115 capacitor.**
+Lastly, since STM32 ADCs can only measure positive voltages, to be able to capture the full audio signal we need a DC biased microphone signal.
+We are going to take the microphone signal at R158 which is DC biased in the range 0-5V and bridge it to R118 where we want an input range of 0-3.3V.
+We recommend to do so by applying a 50KΩ resistor between *C161 or C162 or both* and the microphone signal path, accessible on one of the pads of the EC151 capacitor we just removed.
+If you don't have a 50KΩ resistor, anything in the range [40-60]KΩ will work.
+Finally, remove the C115 capacitor.
 
 Here is a picture of the applied modification:
 
@@ -86,6 +99,11 @@ This is how the pads should look like after the resistor has been removed:
 Afterward we will bridge with some Kynar wire the left pad of the resistor (2T/5T) with pin 1 of U101, which is the demodulator output. Here is a picture of the finished modification:
 
 ![MD-380 After the RTX Modification](_media/md380_rtx_detail_after.jpg)
+
+The path from the FM demodulator to the MCU includes a low-pass filter, this filter needs to be removed to be able to demodulate M17. \
+The filter can be removed by **desoldering the C556 capacitor from the RF side PCB.**
+
+![MD-380 Position of C556 capacitor](_media/md380_mod_c556.jpg)
 
 ### Results
 
