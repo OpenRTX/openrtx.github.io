@@ -10,7 +10,7 @@ The tools required to compile a flashable binary image from source are: _git_, t
 Install `cmake` and `libusb` using the package manager provided with your linux distribution, e.g. on Debian/Ubuntu and derived distributions you can use:
 
 ```
-sudo apt update && sudo apt install cmake pkg-config libusb-1.0 libusb-dev build-essential
+sudo apt update && sudo apt install git cmake pkg-config libusb-1.0-0 libusb-1.0-0-dev build-essential
 ```
 
 **WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!**
@@ -27,7 +27,25 @@ The toolchain also provides an uninstall script, which can be found in the insta
 Install `meson` and `ninja` using pip:
 
 ```
+sudo apt install python-pip3
 pip3 install --user meson ninja
+```
+
+Alternatively, you can use `apt`:
+
+```
+sudo apt install meson
+```
+
+`dfu-util` is also needed. Install it from source:
+
+```
+sudo apt install autoconf
+git clone git://git.code.sf.net/p/dfu-util/dfu-util
+./autogen.sh
+./configure
+make
+make install
 ```
 
 ## Windows Toolchain Setup
