@@ -68,7 +68,7 @@ The OpenRTX code, especially the one dealing with hardware, is organised followi
         * Tytera MD-9600
         * Tytera MD-9600 (GPS)
 
-* **GDx** family
+* **GDx** family **Note: GDx radios are temporarily not maintained, we will continue to provide updated builds for these radios, but some features might not be available.**
     * **GDx Platform**
         * Radioddity GD-77, target `gd77`
         * Baofeng DM-1801, target `dm1801`
