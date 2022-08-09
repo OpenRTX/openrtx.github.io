@@ -1,43 +1,79 @@
-# Building OpenRTX from Source
+# Building OpenRTX from sources
 
-To build OpenRTX you first need to setup the toolchain, here are the instructions according to your Operating System:
+* [Toolchain setup under Linux](#Linux-toolchain-setup)
+* [Toolchain setup under Windows](#Windows-toolchain-setup)
+* [Downloading the source code](#Getting-the-source-code)
+* [Building an image for a radio](#Compiling-for-radios)
+* [Building the linux emulator](#Compiling-for-Linux)
+* [Flashing a binary image on a radio](#Flashing-the-firmware-to-a-radio)
+* [Running the linux emulator](#Running-on-Linux)
 
-## Linux Toolchain Setup
+## Linux toolchain setup
 
-The tools required to compile a flashable binary image from source are: _git_, the _meson_ build system and the GCC toolchain for the miosix kernel.
-`cmake` and `libusb` are required for compiling the external tools for flashing the radio.
+The basic tools required to compile OpenRTX from the sources are _git_ and the _meson_ build system. If building only the emulator version, the compiler shipped with your distribution is sufficient. On the other hand, if you're building the firmware for one of the radio targets, you'll require also the GCC toolchain for the miosix kernel. In this latter case, also _cmake_ and _libusb_ are required for compiling the external tools for flashing the radio.
 
-Install `cmake` and `libusb` using the package manager provided with your linux distribution, e.g. on Debian/Ubuntu and derived distributions you can use:
+#### Installing the basic tools
+
+To install the basic tools required to compile both the linux emulator and the firmware images, you can use the package manager provided with your linux distribution. E.g. on Debian/Ubuntu and derived distributions you can use:
 
 ```
-sudo apt update && sudo apt install git cmake pkg-config libusb-1.0-0 libusb-1.0-0-dev build-essential
+sudo apt update && sudo apt install git pkg-config build-essential
 ```
 
-**WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!**
-
-Then, to install the toolchain, download the installer and run it: the installer will ask for your root password to copy the compiler to the `/opt/arm-miosix-eabi` directory, and put symlinks to `/usr/bin`.
-
-```
-wget https://miosix.org/toolchain/MiosixToolchainInstaller.run
-sh MiosixToolchainInstaller.run
-```
-
-The toolchain also provides an uninstall script, which can be found in the installation directory.
-
-Install `meson` and `ninja` using pip:
+Then, install `meson` and `ninja` using pip:
 
 ```
 sudo apt install python-pip3
 pip3 install --user meson ninja
 ```
 
-Alternatively, you can use `apt`:
+Alternatively, you can use the package manager of your distribution. For example:
 
 ```
 sudo apt install meson
 ```
 
-`dfu-util` is also needed. Install it from source:
+#### Additional requirements only for linux emulator
+
+When compiling the linux emulator version, the following additional packages are required:
+* SDL2 development package
+* Codec2 development package
+* _readline_ package
+
+The package names depend on the package manager you use. On Debian/Ubuntu and derived distributions the command is:
+
+```
+sudo apt install libsdl2-dev codec2-dev readline
+```
+
+#### Tools required for firmware images
+
+To build the firmware images ready to be flashed on the radios, the miosix kernel GCC toolchain is required, as well as some additional tools used to encrypt and flash the binary files obtained at the end of the compilation process.
+
+**WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!**
+
+To install the toolchain, download the installer and run it: the installer will ask for your root password to copy the compiler to the `/opt/arm-miosix-eabi` directory, and put symlinks to `/usr/bin`.
+
+```
+wget https://miosix.org/toolchain/MiosixToolchainInstaller.run
+sh MiosixToolchainInstaller.run
+```
+The toolchain also provides an uninstall script, which can be found in the installation directory.
+
+The tool used to encrypt and flash the binary executables is called [radio_tool](https://github.com/v0l/radio_tool). The compilation script will automatically detect if _radio\_tool_ is already installed in the system and, if this is not the case, it will download the sources and compile automatically a local copy of the program. For the compilation process to succeed _cmake_ and _libusb_ must be present in the system: to install them, use the system package manager. On Debian/Ubuntu and derived distributions the command is:
+
+```
+sudo apt install cmake libusb-1.0-0 libusb-1.0-0-dev
+```
+
+Finally, if you are targeting the *Module 17* platform, _dfu-util_ is required to flash the binary image on the microcontroller's flash memory. This tool can be installed using the system package manager:
+
+
+```
+sudo apt install dfu-util
+```
+
+Alternatively, it can be compiled from source with the following commands:
 
 ```
 sudo apt install autoconf
@@ -48,29 +84,38 @@ make
 make install
 ```
 
-## Windows Toolchain Setup
+---
 
-- Install git from [here](https://git-scm.com/download/win)
-- Install perl from [here](https://strawberryperl.com/)
-- Install python from [here]()
+## Windows toolchain setup
+
+On Windows is possible only to compile the binary images for the radios, the linux emulator will not work. To set up the toolchain follow these steps:
+
+- Install _git_ from [here](https://git-scm.com/download/win)
+- Install _perl_ from [here](https://strawberryperl.com/)
+- Install _python_ from [here](https://www.python.org/downloads/)
 - Install the Miosix Toolchain from [here](https://miosix.org/wiki/index.php?title=Miosix_Toolchain)
 
-To install radio `radio_tool`, download the windows archive from [here](https://github.com/v0l/radio_tool) and extract it in a path of your choice `RADIO_TOOL_PATH`.
-Add `radio_tool` to your `PATH` by running in a PowerShell:
-
-```
- $env:PATH += ";C:\Users\Niccolò Izzo\Documents\radio_tool"
- # Verify that radio_tool is in PATH, this should not return error
- get-command radio_tool
-```
-
-To install `meson` and `ninja` using pip, run these commands in a PowerShell:
+Install _meson_ and _ninja_ using _pip_, run these commands in a PowerShell:
 
 ```
 pip3 install --user meson ninja
 ```
 
-## Compiling OpenRTX
+Finally, install radio _radio\_tool_: download the windows archive from [here](https://github.com/v0l/radio_tool) and extract it in a folder of your choice. Add _radio\_tool_ to your _PATH_ environment variable by running the following command in a PowerShell:
+
+```
+ $env:PATH += ";path-to-radio_tool"
+```
+
+To verify that radio_tool is in PATH, this should not return an error
+
+```
+ get-command radio_tool
+```
+
+---
+
+## Getting the source code
 
 To obtain the OpenRTX source code, clone the github repository with the following command:
 
@@ -87,19 +132,11 @@ git submodule init
 git submodule update
 ```
 
-The sources, then, can be compiled either for one of the supported radios or to be executed on a linux machine. In this latter case, however, OpenRTX comes without radio support.
-
-* [Compiling for a radio](#Compiling-for-radios)
-* [Flashing a compiled firmware to a radio](#Flashing-a-compiled-firmware-to-your-radio)
-* [Compiling in emulator mode on a linux machine](#Compiling-for-Linux)
+---
 
 ## Compiling for radios
 
-To flash the compiled binary on the radio, we will use `radio_tool`, but we are bundling that with the OpenRTX toolchain,
-so there is no need to install it by hand.
-If you have `radio_tool` installed in your system, make sure that it's version is greater or equal than v0.1.1.
-
-Once you have set up the toolchain, you can build the firmware binary using the following commands:
+To build the firmware binary issue the following commands:
 
 ```
 meson setup --cross-file cross_arm.txt build_arm
@@ -108,12 +145,14 @@ meson compile -C build_arm openrtx_TARGET
 
 Where `TARGET` has to be replaced with the correct build target, depending on your radio model:
 
-- TYT MD-380, TYT MD-390, Retevis RT3, Retevis RT8 → `md3x0`
-- TYT MD-UV380, Retevis RT3s → `mduv3x0`
+- TYT MD-380, MD-390, Retevis RT3, Retevis RT8 → `md3x0`
+- TYT MD-UV380, MD-UV390, Retevis RT3s → `mduv3x0`
+- TYT MD-9600 → `md9600`
 - Radioddity GD-77 → `gd77`
 - Baofeng DM1801 → `dm1801`
+- Module17 → `mod17`
 
-If you are using a version of Meson older than v0.55.0, the above command will fail. To compile, use:
+**NOTE: if you are using a version of Meson older than v0.55.0, the above command will fail. To compile, use the following command:**
 
 ```
 meson setup --cross-file cross_arm.txt build_arm
@@ -122,53 +161,73 @@ ninja -C build_arm openrtx_MODEL -jN
 
 Where N is the number of cores that you want to allocate to the build process.
 
-The firmware comes also with different testsuites: the instructions to compile a binary image starting from those, are available on a [dedicated page](tests.md).
+---
 
-## Flashing a compiled firmware to your radio
+## Compiling for Linux
+
+The software can be compiled with:
+
+```
+meson setup build_linux
+meson compile -C build_linux openrtx_linux
+```
+
+**NOTE: if you are using a version of Meson older than v0.55.0, the above command will fail. To compile, use the following command:**
+
+```
+meson setup build_linux
+ninja -C build_linux openrtx_linux -jN
+```
+
+Where N is the number of cores that you want to allocate to the build process.
+
+#### Compiling with address sanitizer
+During development it may be helpful to turn on the address sanitizer: the _asan_ tool can help you spot buffer overflow by printing extra info after crashes. Keep in mind that asan produces a slower build of OpenRTX and thus should be used only during development and testing.
+
+To compile with _asan_ delete the current _build_linux_ directory and issue the following command:
+```
+meson setup build_linux -Dasan=true
+```
+Then follow the same compilation procedure listed above for a plain build.
+
+#### Compiling on Alpine Linux / PostmarketOS
+We successfully compiled OpenRTX on a Pine64 PinePhone running PostmarketOS (based on Alpine Linux). To install the build dependencies on PostmarketOS run the following command:
+```
+sudo apk add git meson build-base sdl2-dev
+```
+---
+
+## Flashing the firmware to a radio
 
 #### Tytera and Retevis radios
-You can flash either the locally compiled firmware or a pre-build image to your radio by using the [radio_tool](https://github.com/v0l/radio_tool) software.
-
-First of all, compile and install `radio_tool` using the following commands:
-```
-git clone https://github.com/v0l/radio_tool
-cd radio_tool
-mkdir build && cd build
-cmake ..
-make -j4
-sudo make install
-```
-For more information on `radio_tool` visit its repository at: https://github.com/v0l/radio_tool
-
-To use `radio_tool` from your non-root Linux user, you need to provide the correct permissions for user-space USB access:
+To flash either a locally compiled firmware or a pre-build image to a Tytera or Retevis radio, the _radio\_tool_ program is used. To use it from your non-root Linux user, you need to provide the correct permissions for user-space USB access:
 
 ```
 sudo cp 99-openrtx.rules /etc/udev/rules.d
 sudo udevadm control --reload-rules
 ```
-
 then disconnect and reconnect the radio if you already have it connected to the computer.
 
-If the compilation terminated without errors, to flash the obtained binary image you first have to connect the radio to the computer using the USB programming cable and put it in DFU (or recovery) mode. Then, to flash the firmware, issue the following command:
+If the compilation terminated without errors, to flash the obtained binary image you first have to connect the radio to the computer using the USB programming cable and put it in firmware upgrade mode. Then, to flash the firmware, issue the following command:
 
 ```
 meson compile -C build_arm openrtx_MODEL_flash
 ```
 
-Once the flashing process terminated without errors, you can power cycle your radio and enjoy the new breath of freedom!
+Once the flashing process terminated without errors, you can power cycle your radio and enjoy the OpenRTX firmware!
 
-You can also use `radio_tool` to flash a pre-built binary, for example the ones available on the repository's [releases page](https://github.com/OpenRTX/OpenRTX/releases). To do so, issue the following command:
+You can also use _radio\_tool_ to flash a pre-built binary, for example the ones available on the repository's [releases page](https://github.com/OpenRTX/OpenRTX/releases). To do so, issue the following command:
 
 ```
 radio_tool -d 0 -f -i new_firmware.bin
 ```
 
-Substituting `new_firmware` with the name of the binary image you want to flash.
+Substituting _new\_firmware_ with the name of the binary image you want to flash.
 
 #### GD-77 and DM-1801
 
-Currently, the Radioddity GD77 and Baofeng DM1801 devices are not supported by `radio_tool`, thus you need to have the OpenGD77 wrapping and flashing tools in your `PATH`.
-To have so, you need to add the following paths from the OpenGD77 repository in your `PATH` environment variable:
+Currently, the Radioddity GD77 and Baofeng DM1801 devices are not supported by _radio\_tool_, thus you need to have the OpenGD77 wrapping and flashing tools in your _PATH_.
+To have so, you need to add the following paths from the OpenGD77 repository in your _PATH_ environment variable:
 
 - `/OpenGD77/tools/Python/FirmwareLoader`
 - `/OpenGD77/firmware/tools`
@@ -179,54 +238,7 @@ Then, you can simply use the following command to compile and flash OpenRTX to y
 meson compile -C build_arm openrtx_MODEL_flash
 ```
 
-## Compiling for Linux
-To compile the Linux OpenRTX version you need the following packages: GCC, _meson_ and _libSDL_.
-Their installation depends on which package manager you have: for example, on an Ubuntu machine the command is:
-
-```
-sudo apt install meson gcc pkg-config libsdl2-dev
-```
-
-while on Fedora it becomes:
-
-```
-sudo dnf install meson SDL2-devel
-```
-
-### Compiling on Alpine Linux / PostmarketOS
-We successfully compiled OpenRTX on a Pine64 PinePhone running PostmarketOS (based on Alpine Linux). \
-The same instructions should work on another device running PostmarketOS or Alpine Linux.
-You can install the build dependencies on PostmarketOS with:
-```
-sudo apk add git meson build-base sdl2-dev
-```
-
-The software can be compiled with:
-
-```
-meson setup build_linux
-meson compile -C build_linux openrtx_linux
-```
-
-If you are using a version of Meson older than v0.55.0, the above command will fail. To compile, use:
-
-```
-meson setup build_linux
-ninja -C build_linux openrtx_linux -jN
-```
-
-Where N is the number of cores that you want to allocate to the build process.
-
-#### Compiling with address sanitizer
-During development it may be helpful to turn on the address sanitizer: the *asan* tool can help you spot buffer overflow by printing extra info after crashes.
-
-Keep in mind that asan produces a slower build of OpenRTX and thus should be used only during development and testing.
-
-To compile with asan delete the current `build_linux` directory and issue the following command:
-```
-meson setup build_linux -Dasan=true
-```
-Then follow the same compilation procedure for a plain build.
+---
 
 ## Running on Linux
 

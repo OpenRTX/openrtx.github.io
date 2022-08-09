@@ -1,42 +1,41 @@
-# User Guide
+# Users guide
 
-> NOTICE: this firmware is highly experimental and in an alpha stage, this means \
-that not all functionalities you expect from your device are yet implemented. \
-However, contributions and testing are welcome and accepted.
+> NOTICE: this firmware is still under significant development, this means that not all functionalities you expect from your device are yet implemented. However, contributions and testing are welcome and accepted.
 
-## Where to get OpenRTX
-### Stable builds
+## Getting OpenRTX
+
 **Stable builds** are recommended for general use, they are well tested and include only functionality considered complete.
 Pre-built stable OpenRTX binary images are available on our [GitHub releases page](https://github.com/OpenRTX/OpenRTX/releases)
 
-### Unstable builds
-**Unstable builds** are not fully tested, use them only if you want to develop or try a feature not yet released.
-* You can find nightly OpenRTX builds [here](https://openrtx.schinken-radio.de/nightly/)
-(thanks to Phil DF5PMF for building and hosting them)
-* Or you can compile OpenRTX from the sources by following [these instructions](compiling.md)
+**Nightly builds** are pre-build images obtained every day by compiling the latest commits on the master branch. By their nature, they are not fully tested and may contain bugs or regressions: use them only if you want to develop or try a feature not yet released.\
+OpenRTX nightly builds are available at these places:
+* at Phil DF5PMF's [page](https://openrtx.schinken-radio.de/nightly/) (thanks for building and hosting them!);
+* on OpenRTX [page](https://files.openrtx.org/nightly/).
 
-## How to flash OpenRTX to your radio
+Finally, you can compile OpenRTX from the sources by following [these instructions](compiling.md).
+
+## Flashing OpenRTX to your radio
 To flash the OpenRTX firmware on your radio, follow these steps:
 
-* _**Backup your codeplug using your favourite codeplug editor.**_ Flashing OpenRTX will just replace your firmware without erasing your codeplug or other settings, however is safer to have a backup.
+* **Backup your codeplug using your favourite codeplug editor.** Flashing OpenRTX will just replace your firmware without erasing your codeplug or other settings, however is safer to have a backup.
 
-* _**Put your radio in DFU (bootloader) mode**_. To do this you have to turn off the radio and turn it back on while pressing a combination of keys that depends on your specific model, the DFU mode will be indicated by the screen being off and a blinking or steady LED:
+* **Put the radio in firmware upgrade mode**. To do this you have to turn off the radio and turn it back on while pressing a combination of keys that depends on your specific model, the firmware upgrade mode will be indicated by the screen being off and a blinking or steady LED:
     * For MD3x0 radios you have to press the PTT button and the side button above it.
     * For GDx radios you have to press the two side buttons below it.
 
 
-* _**Flash OpenRTX**_
+* **Flash OpenRTX**
     * On Linux you can use [radio_tool](https://github.com/v0l/radio_tool).
     * On Windows you can use the radio's manufacturer firmware upgrade tool.
 
-* _**Enjoy**_
+* **Enjoy**
 
 To restore the original firmware, just flash it on the radio like you did for OpenRTX or the upgrades to the original firmware.
 
-## How to update your codeplug from OpenRTX
-At the moment the only means to update the codeplug on a radio flashed with OpenRTX is using the manufacturer's DFU protocol: to update the codeplug, then, you have to put the radio in DFU mode and use your favourite codeplug editor to read or write the codeplug.
+## Updating the codeplug
+Currently the only means to update the codeplug on a radio flashed with OpenRTX is using the manufacturer codeplug update mechanism. If the radio supports codeplug update when in firmware upgrade mode, power it on in this mode and update the codeplug. If this is not the case, to update the codeplug you have to flash back the original firmware and then read/write the codeplug while the radio is running it. Once you finished, you can re-flash an OpenRTX image.
 
-To put the radio in DFU mode look at the instructions for firmware flashing in the above section, while for writing the codeplug you can use either the radio manufacturer's tool or use one of the following editors (currently only for Linux):
+To put the radio in bootloader mode look at the instructions for firmware flashing in the above section, while for writing the codeplug you can use either the radio manufacturer's tool or use one of the following editors (currently only for Linux):
 
 - [dmrconfig](https://github.com/OpenRTX/dmrconfig)
 - [editcp](https://github.com/DaleFarnsworth-DMR/editcp)

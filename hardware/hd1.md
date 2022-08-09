@@ -166,13 +166,13 @@ USB cable is a serial adaptor, this log appears even without radio.
 
 This chip is the voice synthesize from the baofeng radio
 
-86 -> "Channel Mode"
-85 -> "Frequency Mode"
-60 -> "Zero"
-62 -> "Two"
-...
-69 -> "Nine"
-?  -> "Cancel"
+86 -> "Channel Mode"  
+85 -> "Frequency Mode"  
+60 -> "Zero"  
+62 -> "Two"  
+...  
+69 -> "Nine"  
+?  -> "Cancel"  
 
 ## SWD
 
@@ -227,15 +227,15 @@ The bootloader uses the [ymodem protocol](http://www.blunk-electronic.de/train-z
 
 ### Radio Cover
 
-![HD1 Cover](_media/hd1_cover.JPEG)
+![HD1 Cover](../_media/hd1_cover.JPEG)
 
 ### PCB Front
 
-![HD1 PCB Front](_media/hd1_front.JPEG)
+![HD1 PCB Front](../_media/hd1_front.JPEG)
 
 ### PCB Back
 
-![HD1 PCB Back](_media/hd1_back.JPEG)
+![HD1 PCB Back](../_media/hd1_back.JPEG)
 
 ## References
 

@@ -2,17 +2,45 @@
 
 OpenRTX software architecture documentation
 
+## Device taxonomy
+
+* **MDx** family
+    * **MD-3x0** platform, compilation target `md3x0`
+        * Tytera MD380
+        * Tytera MD380G
+        * Tytera MD390
+        * Tytera MD390G
+        * Retevis RT3
+
+    * **MD-UV3x0** platform, compilation target `mduv3x0`
+        * Tytera MD-UV380
+        * Tytera MD-UV380G
+        * Tytera MD-UV390
+        * Tytera MD-UV390G
+        * Retevis RT3s (with or without GPS)
+        * Baofeng DM-1701 (not tested)
+        * Tytera MD-2017 (not tested)
+
+    * **MD-9600** platform, compilation target `md9600`
+        * Tytera MD-9600 (with or without GPS)
+
+* **GDx** family
+    * **GDx Platform**
+        * Radioddity GD-77, compilation target `gd77`
+        * Baofeng DM-1801,  compilation target `dm1801`
+
+* **Module17** platform, compilation target `hd1`
+   * Module17 board
+
 ## Threading Model
 OpenRTX employs a **multi-threaded** architecture. \
 This allows to handle different concurrent operations while keeping the code complexity low,
 because every self-contained operation is performed by a different thread.
 
-The current implementation uses 5 threads:
+The current implementation uses three threads:
 - **UI Thread**: Draws the User Interface and handles button behaviour
-- **DEV Thread**: Checks device parameters (e.g. battery voltage) at a slow interval
-- **KBD Thread**: Read the keyboard status and sends keyboard events to the UI Thread
-- **RTX Thread**: Handles the RF part and executes requests of the UI Thread
-- **GPS Thread**: Provides current position when GPS is enabled
+- **DEV Thread**: Updates the device parameters (e.g. battery voltage) and handles parsing of GPS sentences
+- **RTX Thread**: Controls the RF section and handles the protocol management, executing requests from the UI Thread
 
 The OpenRTX threads communicate between them by using _event queues_ and _shared state_ data structures.
 
@@ -25,13 +53,11 @@ following table for details
 
 |Thread|Interval   |Event         |Stack size|
 |:-----|:----------|:-------------|:---------|
-|UI    |-          |KBD and DEV   |4kB       |
-|DEV   |1Hz  (1s)  |-             |512B      |
-|KBD   |20Hz (50ms)|-             |512B      |
+|UI    |40Hz (25ms)|KBD and DEV   |2kB       |
+|DEV   |200Hz (5ms)|-             |2kB       |
 |RTX   |33Hz (30ms)|-             |512B      |
-|GPS   |-          |NMEA sentence |2kB       |
 
-The thread stack sizes are defined in the `openrtx/include/threads.h` file, **except for the UI one**. The UI taks is currently run in the ```main()``` function, whose stack size depends on a configuration parameter of the miosix kernel and is thus non modifiable. The only way to effectively change the stack size for the ```main()``` function is to recompile the miosix kernel and change the file `lib/miosix-kernel/libmiosix.a`.
+The thread stack sizes are defined in the `openrtx/include/threads.h` file, **except for the DEV one**. The DEV taks is currently run in the ```main()``` function, whose stack size depends on a configuration parameter of the miosix kernel and is thus non modifiable. The only way to effectively change the stack size for the ```main()``` function is to recompile the miosix kernel and change the file `lib/miosix-kernel/libmiosix.a`.
 
 ## Interfaces Overview
 The OpenRTX firmware has been designed also with the goal of being able to be run on many different models of ham radios. To allow for this interoperability, we defined a set of **standard interfaces** providing a well-defined decoupling point between the common code (like the one for UI management) and the platform-specific one, most notably the device drivers.
@@ -48,8 +74,6 @@ Below is provided a list of the interfaces files with a short description: the c
 - `keyboard.h`: Interface for reading keypads and buttons
 - `platform.h`: Interface for _device-specific_ hardware not managed in other interfaces
 - `rtc.h`: Interface for real-time clock devices
-
-## UI Finite State Machine
 
 ## Code guidelines and notes
 ### General considerations about thread safety
@@ -100,5 +124,3 @@ As an example, take the TIM3 interrupt handler: its function name is ```TIM3_IRQ
 
 #### GD-77 and DM-1801
 * The EEPROM memory module and the AT1846S chip share the same I2C bus. The I2C0 driver module provides an API to get exclusive access to the bus by locking a dedicated mutex, however application code has to explicitly call the ```i2c0_lockDevice()```/ ```i2c0_lockDeviceBlocking()``` and ```i2c0_releaseDevice()``` functions, respectively before and after committing a transaction on the I2C bus.
-
-## Dependencies between modules

@@ -1,6 +1,4 @@
-# Supported Platforms
-
-## Status of development
+# Development status
 
 ### Legend
 - ❌ Not supported

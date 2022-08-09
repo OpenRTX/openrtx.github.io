@@ -18,15 +18,14 @@ __Model variants__
 ## Memory Layout
 The STM32F405 of the MD-UV380 has 128k SRAM, 64k CCM, and 1M FLASH.
 The stock bootloader resides at the first 48k of the FLASH therefore we only
-have 1M - 48k (0xC000) bytes of FLASH. In the OpenRTX project the last 128k 
-bytes in the FLASH are reserved for storing the settings.
+have 1M - 48k (0xC000) bytes of FLASH.
 
 Considering this, the memory regions in the linker script look like this:
 ```
 MEMORY
 {
  sram (rwx) : ORIGIN = 0x20000000, LENGTH = 128k
- flash (rx) : ORIGIN = 0x0800C000, LENGTH = 1M - 48K - 128K /* 128k used for settings in OpenRTX project*/
+ flash (rx) : ORIGIN = 0x0800C000, LENGTH = 1M - 48K
  ccm (rwx) : ORIGIN = 0x10000000, LENGTH = 64K
 }
 ```
@@ -234,8 +233,9 @@ GPS coordinate message header: `0xc2 0xd2 0x21 0x02`
 ## System tasks
 
 ##### "RF PLL" task
+
 Body address | Stack address | ID  | Priority |
-     ---     |      ---      | --- |   ---    |
+-------------|:-------------:|:---:|:--------:|
  0x0806B05C  |  0x200186CC   |  6  |    6     |
 
 This task controls is in charge of managing the AT1846S baseband chip, setting the TX and RX frequencies and other functionalities to be discovered. Upon startup, the task calls the function at 0x0806B05C to perform the initial configuration of the AT1846S registers. Then it enters in an infinite loop which waits for new data on the mailbox at address 0x2001EFAC; this data is the processed in the function at 0x0804B5D4.

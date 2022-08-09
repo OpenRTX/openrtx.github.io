@@ -55,19 +55,19 @@ Instead we pick up the signal from the MIC_OUT line, which is used for the voice
 
 The modification itself is quite small, we need to remove the EC151 capacitor and remove the D102 diode. \
 Here is the mod, represented on the schematic of the radio: \
-![MD-380 Schematic](_media/audio_mod_schematic.svg)
+![MD-380 Schematic](../_media/audio_mod_schematic.svg)
 
 This is the logic board of the TYT MD-380:
 
-![MD-380](_media/md380.jpg)
+![MD-380](../_media/md380.jpg)
 
 We are going to remove EC151 and remove D102, this is a picture of the two components before the modification:
 
-![MD-380 Before the Mic Modification](_media/md380_mod_before.jpg)
+![MD-380 Before the Mic Modification](../_media/md380_mod_before.jpg)
 
 After the modification:
 
-![MD-380 Half way there](_media/md380_mod_after.jpg)
+![MD-380 Half way there](../_media/md380_mod_after.jpg)
 
 Lastly, since STM32 ADCs can only measure positive voltages, to be able to capture the full audio signal we need a DC biased microphone signal.
 We are going to take the microphone signal at R158 which is DC biased in the range 0-5V and bridge it to R118 where we want an input range of 0-3.3V.
@@ -77,7 +77,7 @@ Finally, remove the C115 capacitor.
 
 Here is a picture of the applied modification:
 
-![MD-380 After the Mic Modification](_media/md380_mod_resistor.jpg)
+![MD-380 After the Mic Modification](../_media/md380_mod_resistor.jpg)
 
 This modification has a minor impact on the VOX functionality on any firmware different than OpenRTX. The VOX level 1 will be always open, higher VOX levels still work as expected. When VOX functionality will be implemented on OpenRTX, we'll take care to support both modified and unmodified MD-380 radios.
 
@@ -89,21 +89,21 @@ We will break the original 2T/5T path by removing R150 and re-use the STM32 pin 
 
 In this second part of the mod we'll be working on the lower right portion of the logic side of the PCB, in this picture you can see the unmodified portion of the radio:
 
-![MD-380 Before the RTX Modification](_media/md380_rtx_detail_before.jpg)
+![MD-380 Before the RTX Modification](../_media/md380_rtx_detail_before.jpg)
 
 First we will desolder R150: put some flux, heat one side of the resistor, slide it away on one side, heat the other side and slide it away on the other side, heat the pads to clean them up.
 This is how the pads should look like after the resistor has been removed:
 
-![MD-380 After having desoldered R101](_media/md380_rtx_detail_desolder.jpg)
+![MD-380 After having desoldered R101](../_media/md380_rtx_detail_desolder.jpg)
 
 Afterward we will bridge with some Kynar wire the left pad of the resistor (2T/5T) with pin 1 of U101, which is the demodulator output. Here is a picture of the finished modification:
 
-![MD-380 After the RTX Modification](_media/md380_rtx_detail_after.jpg)
+![MD-380 After the RTX Modification](../_media/md380_rtx_detail_after.jpg)
 
 The path from the FM demodulator to the MCU includes a low-pass filter, this filter needs to be removed to be able to demodulate M17. \
 The filter can be removed by **desoldering the C556 capacitor from the RF side PCB.**
 
-![MD-380 Position of C556 capacitor](_media/md380_mod_c556.jpg)
+![MD-380 Position of C556 capacitor](../_media/md380_mod_c556.jpg)
 
 ### Results
 

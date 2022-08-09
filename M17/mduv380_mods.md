@@ -40,26 +40,26 @@ To perform the Mic → MCU and RF → MCU mods you need:
   flat cable and the speaker wires, which you should remove first.
 - At this point you should have the internal radio assembly separated from the case\
 (Ignore the green and blue wires, they were used to sniff the AT1846S I2C bus)\
-![MD-UV380 internal assembly](_media/uv380_front_back.jpg)
+![MD-UV380 internal assembly](../_media/uv380_front_back.jpg)
 
 ### Accessing the RF side PCB
 Both mods (Mic → MCU and RF → MCU) require accessing the RF side of the PCB, 
 the one which faces the heat sink.
 
 - Remove the 11 Philips #0 screws from the logic side of the PCB \
-![MD-UV380 back screws](_media/uv380_back_screws.jpg)
+![MD-UV380 back screws](../_media/uv380_back_screws.jpg)
 - Remove the 2 Torx T6 screws from the side button PCB \
-![MD-UV380 side screws](_media/uv380_side_screws.jpg)
+![MD-UV380 side screws](../_media/uv380_side_screws.jpg)
 - Desolder the antenna connector as shown in the picture \
 The antenna connector is fixed to the heat sink with two screws,
 removing them should NOT be necessary to perform the mod
-![MD-UV380 antenna connector](_media/uv380_antenna.jpg)
+![MD-UV380 antenna connector](../_media/uv380_antenna.jpg)
 - Use a pair of tweezers or a spudger to gently pull the side button PCB out of the heat sink. \
 Be careful not to break the solder joints between the button PCB and the main PCB. \
-![MD-UV380 side tweezers](_media/uv380_side_tweezers.jpg)
+![MD-UV380 side tweezers](../_media/uv380_side_tweezers.jpg)
 - Now carefully detach the heat sink from the PCB assembly, you should be able to see the RF side of
   the PCB. \
-![MD-UV380 RF side before](_media/uv380_rf_before.jpg)
+![MD-UV380 RF side before](../_media/uv380_rf_before.jpg)
 
 
 ### Mic → MCU
@@ -71,25 +71,25 @@ MCU input to the microphone preamplified audio signal, adding a resistor to adap
 signal voltage range from 0-5V to 0-3.3V**
 
 **Here is the mod, represented on the schematic of the radio:** \
-![MD-UV380 Schematic](_media/audio_mod_schematic.svg)
+![MD-UV380 Schematic](../_media/audio_mod_schematic.svg)
 
 **And here is a diagram showing how it appears on the radio:** \
-![MD-UV380 Mic mod](_media/uv380_mic_mod.jpg)
+![MD-UV380 Mic mod](../_media/uv380_mic_mod.jpg)
 
 Steps:
 - Remove the capacitor shown in the picture, you can use the hot air gun from a rework station or \
   you can melt the solder in the two contacts and rotate slightly the capacitor to remove it.
   Be careful to not damange the PCB tracks.
 - **Remove the D102 diode (SOT-23) and capacitor EC151 entirely.** \
-![MD-UV380 Mic mod diode removal](_media/uv380_mic_diode_remove.jpg)
+![MD-UV380 Mic mod diode removal](../_media/uv380_mic_diode_remove.jpg)
 - **Remove the C115 capacitor (SMD) entirely.** \
-![MD-UV380 Mic mod capacitor removal](_media/uv380_mic_cap_remove.jpg)
+![MD-UV380 Mic mod capacitor removal](../_media/uv380_mic_cap_remove.jpg)
 - **Cover the PCB in Kaptop tape leaving the left pad of the first capacitor you removed accessible.** \
-![MD-UV380 Mic mod adding kapton](_media/uv380_mic_kapton.jpg)
+![MD-UV380 Mic mod adding kapton](../_media/uv380_mic_kapton.jpg)
 - **Solder the 50KΩ SMD resistor on the left pad of EC151.** \
-![MD-UV380 Mic mod soldering resistor](_media/uv380_mic_resistor.jpg)
+![MD-UV380 Mic mod soldering resistor](../_media/uv380_mic_resistor.jpg)
 - **Solder a piece of Kynar wire from the right pad of the resistor you just soldered to C161 or C162 or both.** \
-![MD-UV380 Mix mod finished](_media/uv380_mic_wire.jpg)
+![MD-UV380 Mix mod finished](../_media/uv380_mic_wire.jpg)
 
 **The Mic → MCU mod is now complete, go share it on your favourite social network!**
 
@@ -107,26 +107,26 @@ Steps:
 - We need to file down the pin and create a small groove in place to avoid pinching the wire. \
 Note that on my radio for some reason the pin was removed at the factory, so you may have it or not. \
 
-![MD-UV380 Heat sink modified](_media/uv380_heat_sink.jpg)
+![MD-UV380 Heat sink modified](../_media/uv380_heat_sink.jpg)
 - Cut a section of 30AWG Kynar wire, strip and tin one end.
 - The `ADC_IVINP` is on the upper side of the HR_C6000, and the wire can be soldered on two \
   pins of a resistor and capacitor that are connected together. This makes the soldering easier and \
   gives it more mechanical strenght. \
-![MD-UV380 RF HR_C6000 wire](_media/uv380_rf_wire1.jpg)
+![MD-UV380 RF HR_C6000 wire](../_media/uv380_rf_wire1.jpg)
 - Use the tweezers to bend the wire to route it towards the notch in the PCB. 
   Make sure that the wire lays flat on the PCB. \
-![MD-UV380 RF wire bent bottom](_media/uv380_rf_wire2.jpg)
+![MD-UV380 RF wire bent bottom](../_media/uv380_rf_wire2.jpg)
 - Bend the wire on the notch toward the logic side of the PCB. \
-![MD-UV380 RF wire bent top](_media/uv380_rf_wire3.jpg)
+![MD-UV380 RF wire bent top](../_media/uv380_rf_wire3.jpg)
 - Use the tweezers to route the wire towards the left side of the STM32. \
-![MD-UV380 RF wire routed top](_media/uv380_rf_wire4.jpg)
+![MD-UV380 RF wire routed top](../_media/uv380_rf_wire4.jpg)
 - Trim and tin the other end of the wire and solder it on pin 18 of the STM32. \
-![MD-UV380 RF wire soldered top](_media/uv380_rf_wire5.jpg)
+![MD-UV380 RF wire soldered top](../_media/uv380_rf_wire5.jpg)
 - Check that the wire does not get pinched by the heat sink, in case it does, file a deeper groove.
 
 ### Results
 - The final results with both mods applied should look like this (ignore the green and blue wires).\
-![MD-UV380 after mic rf mod](_media/uv380_mod_after.jpg)
+![MD-UV380 after mic rf mod](../_media/uv380_mod_after.jpg)
 - Close the heat sink over the PCB, paying attention to the side keys PCB.
 - Make sure that the antenna connector is screwed exactly perpendicular to the rest of the radio
 - Solder the antenna connector pin
