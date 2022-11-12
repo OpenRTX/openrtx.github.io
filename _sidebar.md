@@ -4,5 +4,6 @@
 * [Users' guide](user_guide.md)
 * [Developers' guide](developers_guide.md)
 * [Hardware documentation](hardware/hardware.md)
+* [Accessibility](accessibility.md)
 * [M17 support](M17/m17.md)
 * [Documentation repository](https://github.com/OpenRTX/OpenRTX-external-docs)
