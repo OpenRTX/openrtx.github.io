@@ -87,6 +87,8 @@ This audio path however has a very narrow pass-band filter, and cannot be used a
 
 We will break the original 2T/5T path by removing R150 and re-use the STM32 pin to create a new, unfiltered path, from the demodulator output, to one of the STM32 ADCs.
 
+![MD-380 RF MCU](../_media/md380_mod_2.png)
+
 In this second part of the mod we'll be working on the lower right portion of the logic side of the PCB, in this picture you can see the unmodified portion of the radio:
 
 ![MD-380 Before the RTX Modification](../_media/md380_rtx_detail_before.jpg)
@@ -96,7 +98,7 @@ This is how the pads should look like after the resistor has been removed:
 
 ![MD-380 After having desoldered R101](../_media/md380_rtx_detail_desolder.jpg)
 
-Afterward we will bridge with some Kynar wire the left pad of the resistor (2T/5T) with pin 1 of U101, which is the demodulator output. Here is a picture of the finished modification:
+Afterward we will bridge with some Kynar wire the left pad of the resistor (2T/5T) with pin 1 of U102, which is the demodulator output. Here is a picture of the finished modification:
 
 ![MD-380 After the RTX Modification](../_media/md380_rtx_detail_after.jpg)
 
