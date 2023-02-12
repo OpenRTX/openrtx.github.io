@@ -94,7 +94,7 @@ Steps:
 **The Mic → MCU mod is now complete, go share it on your favourite social network!**
 
 ### RF → MCU
-The MD-UV380 lacks a direct path from the demodulated RF signal coming from the AT1856S
+The MD-UV380 lacks a direct path from the demodulated RF signal coming from the AT1846S
 radio-on-a-chip to the STM32 MCU.
 We are going to create it by connecting the `ADC_IVINP` of the HR_C6000 baseband to the `PC13` pin
 of the STM32 which can be configured as an ADC input.
