@@ -22,3 +22,4 @@ This table provides a glance on the underlying hardware of each of the supported
 * [GD-77 and DM-1801](hardware/gd77.md)
 * [Yaesu FT2D](hardware/ft2d.md)
 * [Ailunce HD1](hardware/hd1.md)
+* [Anytone UV878](hardware/uv878.md)
