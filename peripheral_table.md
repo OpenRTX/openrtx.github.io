@@ -1,6 +1,6 @@
 # Peripheral allocation table
 
-This page provides an overview on which harwdare peripherals are used by the OpenRTX firmware on the various platforms.
+This page provides an overview on which hardware peripherals are used by the OpenRTX firmware on the various platforms.
 
 ## STM32F405
 
@@ -22,7 +22,7 @@ This page provides an overview on which harwdare peripherals are used by the Ope
 |  TIM11         |         |          |
 |  TIM12         |         |          |
 |  TIM13         |         |          |
-|  TIM14         | USED    | Tone generator time base for CTCSS/beep sinewave generation |
+|  TIM14         | USED    | Tone generator time base for CTCSS/beep sine wave generation |
 |  USART1        |         |          |
 |  USART2        |         |          |
 |  USART3        | USED    | GPS data RX |
@@ -68,7 +68,7 @@ This page provides an overview on which harwdare peripherals are used by the Ope
 |  TIM11         | USED    | Timebase for LCD backlight dimming software PWM |
 |  TIM12         |         |          |
 |  TIM13         |         |          |
-|  TIM14         | USED    | Tone generator time base for CTCSS/beep sinewave generation |
+|  TIM14         | USED    | Tone generator time base for CTCSS/beep sine wave generation |
 |  USART1        |         |          |
 |  USART2        |         |          |
 |  USART3        | USED    | GPS data RX |

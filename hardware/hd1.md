@@ -18,7 +18,7 @@ and [can be accessed here](https://github.com/OpenRTX/OpenRTX-external-docs/raw/
 ## Flashing
 
 Support for flashing the Ailunce HD1 is implemented in [this `radio_tool` fork](https://github.com/n1zzo/radio_tool), to be merged upstream.
-You can flash a raw binary as produced by objcopy, the bootloader will write it at offset `0x4000`.
+You can flash a raw binary as produced by `objcopy`, the bootloader will write it at offset `0x4000`.
 
 ## Memory Mapping
 
@@ -40,7 +40,7 @@ You can flash a raw binary as produced by objcopy, the bootloader will write it 
 |5|PTE4|SPI_SCLK|
 |6|PTE5|SPI_MOSI|
 |7|PTE6|SPI_MISO|
-|14|ADC0_DP1|VOTAGE|
+|14|ADC0_DP1|VOLTAGE|
 |18|ADC1_DP3|VOX|
 |27|DAC0_OUT|RF_APC|
 |31|PTE24|PRA|
@@ -180,7 +180,7 @@ MK22 is supported by mainline OpenOCD, using `target/kx.cfg`.
 
 ## Bootloader
 
-The bootloaded exposes a serial terminal accessible using the programming cable.
+The bootloader exposes a serial terminal accessible using the programming cable.
 The serial port uses a 57600 baud rate.
 
 This is the prompt shown by the bootloader:

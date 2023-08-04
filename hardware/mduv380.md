@@ -46,7 +46,7 @@ PROVIDE(_stack = ORIGIN(sram) + LENGTH(sram) - 4);
 
 ### Clock tree
 * 8MHz crystal as PLL reference
-* Sytem clock frequency: 72MHz
+* System clock frequency: 72MHz
 * APB1 bus clock frequency: 36MHz
 * APB2 bus clock frequency: 72MHz
 
@@ -159,7 +159,7 @@ The SPI control interface is connected to the following GPIOs:
 * PE4 - SDO
 * PE5 - SDI
 
-These SPI connections are shared with some other chip, since the firwmare locks a semaphore/mutex before initiating any kind of data transfer through the SPI interface. The semaphore variable is at address 0x2001EFB8.
+These SPI connections are shared with some other chip, since the firmware locks a semaphore/mutex before initiating any kind of data transfer through the SPI interface. The semaphore variable is at address 0x2001EFB8.
 
 Functions identified:
 * 0x0807A3C0 - software SPI implementation for the control interface

@@ -1,4 +1,4 @@
-# Accessiblity
+# Accessibility
 
 One of the goals of OpenRTX is to make its supported platforms accessible in all senses.
 We do this not only by providing an open-source codebase on which to experiment,

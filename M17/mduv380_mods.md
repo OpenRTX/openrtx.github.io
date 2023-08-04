@@ -79,12 +79,12 @@ signal voltage range from 0-5V to 0-3.3V**
 Steps:
 - Remove the capacitor shown in the picture, you can use the hot air gun from a rework station or \
   you can melt the solder in the two contacts and rotate slightly the capacitor to remove it.
-  Be careful to not damange the PCB tracks.
+  Be careful to not damage the PCB tracks.
 - **Remove the D102 diode (SOT-23) and capacitor EC151 entirely.** \
 ![MD-UV380 Mic mod diode removal](../_media/uv380_mic_diode_remove.jpg)
 - **Remove the C115 capacitor (SMD) entirely.** \
 ![MD-UV380 Mic mod capacitor removal](../_media/uv380_mic_cap_remove.jpg)
-- **Cover the PCB in Kaptop tape leaving the left pad of the first capacitor you removed accessible.** \
+- **Cover the PCB in Kapton tape leaving the left pad of the first capacitor you removed accessible.** \
 ![MD-UV380 Mic mod adding kapton](../_media/uv380_mic_kapton.jpg)
 - **Solder the 50KΩ SMD resistor on the left pad of EC151.** \
 ![MD-UV380 Mic mod soldering resistor](../_media/uv380_mic_resistor.jpg)
@@ -111,7 +111,7 @@ Note that on my radio for some reason the pin was removed at the factory, so you
 - Cut a section of 30AWG Kynar wire, strip and tin one end.
 - The `ADC_IVINP` is on the upper side of the HR_C6000, and the wire can be soldered on two \
   pins of a resistor and capacitor that are connected together. This makes the soldering easier and \
-  gives it more mechanical strenght. \
+  gives it more mechanical strength. \
 ![MD-UV380 RF HR_C6000 wire](../_media/uv380_rf_wire1.jpg)
 - Use the tweezers to bend the wire to route it towards the notch in the PCB. 
   Make sure that the wire lays flat on the PCB. \

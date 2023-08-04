@@ -1,12 +1,20 @@
 # Building OpenRTX from sources
 
-* [Toolchain setup under Linux](#Linux-toolchain-setup)
-* [Toolchain setup under Windows](#Windows-toolchain-setup)
-* [Downloading the source code](#Getting-the-source-code)
-* [Building an image for a radio](#Compiling-for-radios)
-* [Building the linux emulator](#Compiling-for-Linux)
-* [Flashing a binary image on a radio](#Flashing-the-firmware-to-a-radio)
-* [Running the linux emulator](#Running-on-Linux)
+- [Building OpenRTX from sources](#building-openrtx-from-sources)
+  - [Linux toolchain setup](#linux-toolchain-setup)
+      - [Installing the basic tools](#installing-the-basic-tools)
+      - [Additional requirements only for linux emulator](#additional-requirements-only-for-linux-emulator)
+      - [Tools required for firmware images](#tools-required-for-firmware-images)
+  - [Windows toolchain setup](#windows-toolchain-setup)
+  - [Getting the source code](#getting-the-source-code)
+  - [Compiling for radios](#compiling-for-radios)
+  - [Compiling for Linux](#compiling-for-linux)
+      - [Compiling with address sanitizer](#compiling-with-address-sanitizer)
+      - [Compiling on Alpine Linux / PostmarketOS](#compiling-on-alpine-linux--postmarketos)
+  - [Flashing the firmware to a radio](#flashing-the-firmware-to-a-radio)
+      - [Tytera and Retevis radios](#tytera-and-retevis-radios)
+      - [GD-77 and DM-1801](#gd-77-and-dm-1801)
+  - [Running on Linux](#running-on-linux)
 
 ## Linux toolchain setup
 
@@ -38,7 +46,7 @@ sudo apt install meson
 When compiling the linux emulator version, the following additional packages are required:
 * SDL2 development package
 * Codec2 development package
-* _readline_ package
+* `readline` package
 
 The package names depend on the package manager you use. On Debian/Ubuntu and derived distributions the command is:
 
@@ -182,9 +190,9 @@ ninja -C build_linux openrtx_linux -jN
 Where N is the number of cores that you want to allocate to the build process.
 
 #### Compiling with address sanitizer
-During development it may be helpful to turn on the address sanitizer: the _asan_ tool can help you spot buffer overflow by printing extra info after crashes. Keep in mind that asan produces a slower build of OpenRTX and thus should be used only during development and testing.
+During development it may be helpful to turn on the address sanitizer: the `asan` tool can help you spot buffer overflow by printing extra info after crashes. Keep in mind that `asan` produces a slower build of OpenRTX and thus should be used only during development and testing.
 
-To compile with _asan_ delete the current _build_linux_ directory and issue the following command:
+To compile with `asan` delete the current _build_linux_ directory and issue the following command:
 ```
 meson setup build_linux -Dasan=true
 ```

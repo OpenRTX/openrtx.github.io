@@ -5,7 +5,7 @@ This page provides a brief summary of the coding style used in the OpenRTX repos
 ## General guidelines
 * Code width must not exceed the limit of 80 columns.
 * Variables' must be explicative of their role and written in camel case (i.e. `aVarInCamelCase`) when necessary.
-* Integer variables must be declared using the following data types, clearly specifying their width: `uint64_t, uint32_t, uint16_t, uint8_t, int64_t, int32_t, int16_t, int8_t`. Use of `char` and `unsigned char` for signed and unsigned 8 bit variables is not allowed. These datatypes are defined in `stdint.h` and `cstdint` C and C++ headers, respectively.
+* Integer variables must be declared using the following data types, clearly specifying their width: `uint64_t, uint32_t, uint16_t, uint8_t, int64_t, int32_t, int16_t, int8_t`. Use of `char` and `unsigned char` for signed and unsigned 8 bit variables is not allowed. These data types are defined in `stdint.h` and `cstdint` C and C++ headers, respectively.
 * When multiple conditions connected by logical operators are inside `if` and `while` body, each condition must be surrounded by round brackets
 ```C
 if((a == 0) && (b == 1))
