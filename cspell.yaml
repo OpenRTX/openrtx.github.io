@@ -2,9 +2,15 @@ version: "0.2"
 language: en-GB
 words:
   - GPIO
+  - OBCF
+  - codeplugs
+  - RTXC
   - miosix
   - DTMF
   - Retevis
+  - descr
+  - infoblock
+  - encr
   - Baofeng
   - Radioddity
   - Tytera
