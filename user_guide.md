@@ -60,7 +60,7 @@ To put the radio in bootloader mode look at the instructions for firmware flashi
 * Programming/accessory input/output
 
 #### Front
-* By presssing the buttons, the following functions can be selected:
+* By pressing the buttons, the following functions can be selected:
     * 0 n/a
     * Green book
         * Zone

@@ -125,13 +125,13 @@ set to 01) <br> 11 = not Tx any signal
 ##### 0x45
  bit  | function                          |            notes
  ---  |   ---                             |   --- 
-15:14 |  tail elimi. CTCSS phase shift    | 00 = 120 degree shift<br> 01 = 180 degree shift<br> 10 = 240 degree shift<br> 11 = reserved
+15:14 |  tail elimination CTCSS phase shift    | 00 = 120 degree shift<br> 01 = 180 degree shift<br> 10 = 240 degree shift<br> 11 = reserved
   11  |  enable CDCSS detection           |
   10  |  enable CTC/DCS detection         |
   7   |  enable CDCSS inverse code detect |
   4   |  CDCSS code selection             | 1 = 24 bit code<br>0 = 23 bit code
   3   |  CTCSS code selection             | 1 = ctcss_cmp/cdcss_cmp out via gpio<br> 0 = ctcss/cdcss sdo out vio gpio
- 2:0  |  CTC/DCS mode selection           | 000 = disable<br> 001 = inner ctcss en<br> 010 = inner cdcss en 101 = outter ctcss en<br> 110 = outter cdcss en <br> others = disable
+ 2:0  |  CTC/DCS mode selection           | 000 = disable<br> 001 = inner ctcss en<br> 010 = inner cdcss en 101 = outer ctcss en<br> 110 = outer cdcss en <br> others = disable
 
 ##### 0x48
  bit  | function                          |            notes

@@ -57,7 +57,7 @@ following table for details
 |DEV   |200Hz (5ms)|-             |2kB       |
 |RTX   |33Hz (30ms)|-             |512B      |
 
-The thread stack sizes are defined in the `openrtx/include/threads.h` file, **except for the DEV one**. The DEV taks is currently run in the ```main()``` function, whose stack size depends on a configuration parameter of the miosix kernel and is thus non modifiable. The only way to effectively change the stack size for the ```main()``` function is to recompile the miosix kernel and change the file `lib/miosix-kernel/libmiosix.a`.
+The thread stack sizes are defined in the `openrtx/include/threads.h` file, **except for the DEV one**. The DEV task is currently run in the ```main()``` function, whose stack size depends on a configuration parameter of the miosix kernel and is thus non modifiable. The only way to effectively change the stack size for the ```main()``` function is to recompile the miosix kernel and change the file `lib/miosix-kernel/libmiosix.a`.
 
 ## Interfaces Overview
 The OpenRTX firmware has been designed also with the goal of being able to be run on many different models of ham radios. To allow for this interoperability, we defined a set of **standard interfaces** providing a well-defined decoupling point between the common code (like the one for UI management) and the platform-specific one, most notably the device drivers.
@@ -108,13 +108,13 @@ In case there is need to interface with an interrupt handler from the C code, th
 * The function name is kept unchanged.
 * The function name is suffixed with `v`.
 
-As an example, take the TIM3 interrupt handler: its function name is ```TIM3_IRQHandler()```, while its C name accoding to the C++ name mangling scheme is ```_Z15TIM3_IRQHandlerv```.
+As an example, take the TIM3 interrupt handler: its function name is ```TIM3_IRQHandler()```, while its C name according to the C++ name mangling scheme is ```_Z15TIM3_IRQHandlerv```.
 
 ### Target-specific programming notes
 #### MD-380 and MD-UV380
 * Keyboard and display share some data lines, thus ```kbd_getKeys()``` **must not** be called simultaneously with ```display_renderRows() ``` or ```display_render() ```. The display driver provides a function which allows to check if rendering is in progress while, for the keyboard one, the fact that the I/O lines are taken busy by the driver is implicit in having the execution flow inside ```kbd_getKeys() ```.
 * Display framebuffer should not be written while a rendering is in progress. Framebuffer is copied to the screen through DMA and it has been observed that, if the buffer is written while a DMA transfer is in progress, following calls to ```display_renderRows() ``` or ```display_render() ``` may have no effect, due to having DMA screwed up in a wrong state.
-* Content of display framebuffer is changed inside ```display_renderRows() ``` or ```display_render() ```. Since the display controller needs to be provided with pixel data in big endian order, while the MCU is little endian, inside the two render functions the whole content of the framebuffer is byte-swapped to accomodate for the endianness of the display controller. As a consequence, writing a pixel and then reading it back returns the written value **as long as** ```display_renderRows() ``` **or** ```display_render() ``` **are not called**.
+* Content of display framebuffer is changed inside ```display_renderRows() ``` or ```display_render() ```. Since the display controller needs to be provided with pixel data in big endian order, while the MCU is little endian, inside the two render functions the whole content of the framebuffer is byte-swapped to accommodate for the endianness of the display controller. As a consequence, writing a pixel and then reading it back returns the written value **as long as** ```display_renderRows() ``` **or** ```display_render() ``` **are not called**.
 
 #### MD-380
 * SKY73210 and HR_C5000 share part of the SPI bus. SKY73210 provides ```SKY73210_spiInUse()``` function to allow high level modules determine if SPI bus is taken by PLL driver or not.

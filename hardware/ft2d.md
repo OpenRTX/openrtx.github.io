@@ -6,7 +6,7 @@
 The suffix "R" denotes the USA version, "E" denotes the european version.
 
 ## Specifications
-* Display: 160x160 1.7'' touch screen grayscale LCD
+* Display: 160x160 1.7'' touch screen greyscale LCD
 * Frequency range
     * VHF: 144.0000-146.0000
     * UHF: 430.0000-440.0000
@@ -23,7 +23,7 @@ The FT2D features three different CPUs, named MAIN, SUB and DSP:
 
 
 H8SX is supported by a GCC 4.7 fork by Renesas, no Ghidra module exists.
-RX600 is supported by a GCC 8.3.0 fork by Renesas, a [Ghidra proc module](https://github.com/ballon-rouge/rx-proc-ghidra) is available.
+RX600 is supported by a GCC 8.3.0 fork by Renesas, a [Ghidra processor module](https://github.com/ballon-rouge/rx-proc-ghidra) is available.
 
 The two Renesas CPU communicate through a serial port, connected to the RXD6 and TXD6 ports of both processors.
 The RX630 (SUB) is responsible of managing the screen and the GPS module, while the H8SX (MAIN) is responsible for all

@@ -31,7 +31,7 @@ This protocol is designed to be executed on a serial link, which depending on th
 
 ## Data Link Layer
 
-The data link layer of rtxlink is composed of frames with a variable length encoded using the SLIP protocol. Each SLIP frame must begin with an END character; incoming frames not beginning with and END character are accepted anyways, even if not strictly conformant to the specification.
+The data link layer of RTXLink is composed of frames with a variable length encoded using the SLIP protocol. Each SLIP frame must begin with an END character; incoming frames not beginning with and END character are accepted anyway, even if not strictly conformant to the specification.
 
 ### SLIP framing
 
@@ -100,7 +100,7 @@ In response to a get request the radio sends either a data response packet or, i
 #### Set Requests
 
 Set requests allow to change a specific value associated with a certain ID.
-Set requests are componsed by one command byte, 2 Bytes of symbol ID and N bytes of data.
+Set requests are composed by one command byte, 2 Bytes of symbol ID and N bytes of data.
 
 |  0  | 1  |  2 | 3 | ... | N |
 |:---:|:--:|:--:|:-:|:---:|:-:|
@@ -110,7 +110,7 @@ The radio replies to a set request with an ack response packet with either the O
 
 #### Peek Requests
 
-Peek requests allow to read the content of a the radio internal memory at a given address. Peek requests are componsed by one command byte, one byte of data length and four bytes of address.
+Peek requests allow to read the content of a the radio internal memory at a given address. Peek requests are composed by one command byte, one byte of data length and four bytes of address.
 
 |  0  |  1  |  2   |   3  |   4  |   5  |
 |:---:|:---:|:----:|:----:|:----:|:----:|
@@ -120,7 +120,7 @@ The radio replies to a peek request with a data response packet or, in case of e
 
 #### Data response
 
-A data response packet starts with a response type byte set to 0x44 (ASCII characted 'D') followed by N bytes of data.
+A data response packet starts with a response type byte set to 0x44 (ASCII character 'D') followed by N bytes of data.
 
 |   0  | 1 | ... | N |
 |:----:|:-:|:---:|:-:|
@@ -167,4 +167,4 @@ OpenRTX CAT uses symbolic values to identify controllable features of the radio,
 
 ### XMODEM
 
-File transfers are performed throught the XMODEM protocol with 16-bit CRC and 1KB blocks.
+File transfers are performed through the XMODEM protocol with 16-bit CRC and 1KB blocks.

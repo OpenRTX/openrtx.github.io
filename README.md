@@ -20,7 +20,7 @@ Currently, it targets the following devices:
 
 The development status of the project is summarised in [this page](platforms.md), while all the source code is available on the OpenRTX's [GitHub repository](https://github.com/OpenRTX/OpenRTX).
 
-A guide on how to flash the firmware on your device is available in [users' guide](user_guide.md) page, while the [developers' page](developers_guide.md) contains information about how to set up the complation toolchain, as well as some details about the firmware's internal structure.
+A guide on how to flash the firmware on your device is available in [users' guide](user_guide.md) page, while the [developers' page](developers_guide.md) contains information about how to set up the compilation toolchain, as well as some details about the firmware's internal structure.
 
 If you are interested in keeping updated with the latest news or you want to join the community chat, you can find all the coordinates in [dedicated page](get_in_touch.md).
 <br><br>
