@@ -42,7 +42,7 @@ OpenRTX is currently in active development. There will be bugs as we prioritize 
 | Tytera MD-380 / MD-390         |  ✅   |  ✅    |   ✅    |   ✅   |   ❌     |   ❌     |   ❌   |   ❌    |   ❌    |
 | Tytera MD-UV380 / Retevis RT3s |  ✅   |  ✅    |   ✅    |   ✅   |   ❌     |   ❌     |   ❌   |   ❌    |   ❌    |
 | Radioddity GD-77               |  ✅   |  ✅    |   ❌    |   ❌   |   ❌     |   ❌     |   ❌   |   ❌    |   ❌    |
-| Baeofeng DM-1801               |  ✅   |  ✅    |   ❌    |   ❌   |   ❌     |   ❌     |   ❌   |   ❌    |   ❌    |
+| Baofeng DM-1801               |  ✅   |  ✅    |   ❌    |   ❌   |   ❌     |   ❌     |   ❌   |   ❌    |   ❌    |
 | Tytera MD-9600                 |  ❌   |  ❌    |   ❌    |   ❌    |   ❌    |   ❌     |   ❌    |  ❌    |   ❌    |
 
 _Tytera MD-9600 support is not yet complete, and as a result pre-made builds are not available._
