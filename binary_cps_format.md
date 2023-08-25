@@ -19,7 +19,7 @@ The OpenRTX Binary CPS Format (OBCF) is a binary data format for storing radio c
 
 ## Version control
 
-OBCF observed [Semantic Versioning v2.0.0](https://semver.org/spec/v2.0.0.html). This document is at **v0.1.0** of the standard presently. Errata not resulting in substantially different understandings, capabilities, or definitions may be treated as un-versioned revisions of this document without incrementing the patch versions. A detailed history of changes for this document may be viewed [on GitHub](https://github.com/OpenRTX/openrtx.github.io/commits/master/binary_cps_format.md).
+OBCF observed [Semantic Versioning v2.0.0](https://semver.org/spec/v2.0.0.html). This document is at **v0.1.1** of the standard presently. Errata not resulting in substantially different understandings, capabilities, or definitions may be treated as un-versioned revisions of this document without incrementing the patch versions. A detailed history of changes for this document may be viewed [on GitHub](https://github.com/OpenRTX/openrtx.github.io/commits/master/binary_cps_format.md).
 
 ## Specification
 
@@ -77,12 +77,13 @@ This structure is the beginning of the file. The fields are laid out in the foll
 
 #### Mode lookup table
 
-|   Bits | Value    | Notes                  |
-| -----: | -------- | ---------------------- |
-| `0b00` | FM       | Only used for channels |
-| `0b01` | DMR      |                        |
-| `0b10` | M17      |                        |
-| `0b11` | Reserved |                        |
+|                     Bits | Value    | Notes                                 |
+| -----------------------: | -------- | ------------------------------------- |
+|             `0b00000000` | None     | Indeterminate state for compatibility |
+|             `0b00000001` | FM       | Only used for channels                |
+|             `0b00000010` | DMR      |                                       |
+|             `0b00000011` | M17      |                                       |
+| `0b00000100..0b11111111` | Reserved |                                       |
 
 #### DMR contact type lookup table
 
