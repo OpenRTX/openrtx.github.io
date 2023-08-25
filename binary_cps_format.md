@@ -77,12 +77,13 @@ This structure is the beginning of the file. The fields are laid out in the foll
 
 #### Mode lookup table
 
-|   Bits | Value    | Notes                  |
-| -----: | -------- | ---------------------- |
-| `0b00` | FM       | Only used for channels |
-| `0b01` | DMR      |                        |
-| `0b10` | M17      |                        |
-| `0b11` | Reserved |                        |
+|                     Bits | Value    | Notes                                 |
+| -----------------------: | -------- | ------------------------------------- |
+|             `0b00000000` | None     | Indeterminate state for compatibility |
+|             `0b00000001` | FM       | Only used for channels                |
+|             `0b00000010` | DMR      |                                       |
+|             `0b00000011` | M17      |                                       |
+| `0b00000100..0b11111111` | Reserved |                                       |
 
 #### DMR contact type lookup table
 
