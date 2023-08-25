@@ -6,4 +6,5 @@
 * [Hardware documentation](hardware/hardware.md)
 * [Accessibility](accessibility.md)
 * [M17 support](M17/m17.md)
+* [CPS specification](binary_cps_format.md)
 * [Documentation repository](https://github.com/OpenRTX/OpenRTX-external-docs)
