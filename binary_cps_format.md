@@ -98,7 +98,7 @@ This structure is the beginning of the file. The fields are laid out in the foll
 
 | Field   | Data Type  | Description                                                                                                                                          |
 | ------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | uint8_t[8] | M17 address stored in 48 bits, following their [address encoding](https://spec.m17project.org/pdf/M17_spec.pdf#appendix.A)                           |
+| address | uint8_t[6] | M17 address stored in 48 bits, following their [address encoding](https://spec.m17project.org/pdf/M17_spec.pdf#appendix.A)                           |
 
 #### dmrContact_t type description
 
