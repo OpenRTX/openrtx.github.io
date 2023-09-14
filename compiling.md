@@ -11,6 +11,7 @@
   - [Compiling for Linux](#compiling-for-linux)
       - [Compiling with address sanitizer](#compiling-with-address-sanitizer)
       - [Compiling on Alpine Linux / PostmarketOS](#compiling-on-alpine-linux--postmarketos)
+      - [Compiling a Zephyr-based target](#compiling-a-zephyr-based-target)
   - [Flashing the firmware to a radio](#flashing-the-firmware-to-a-radio)
       - [Tytera and Retevis radios](#tytera-and-retevis-radios)
       - [GD-77 and DM-1801](#gd-77-and-dm-1801)
@@ -90,6 +91,70 @@ git clone git://git.code.sf.net/p/dfu-util/dfu-util
 ./configure
 make
 make install
+```
+
+#### Compiling a Zephyr-based target
+
+You need to install the following packages (their names might vary according to your Linux distribution):
+
+- `zephyr-sdk`
+- `python-west`
+- `python-pyelftools`
+- `python-cbor2`
+- `python-intelhex`
+- `python-requests`
+
+[Dependency intructions for Fedora and other distros:](https://docs.zephyrproject.org/latest/develop/getting_started/installation_linux.html)
+
+Initialize the Zephyr SDK in a path of your choice:
+
+```
+pushd ZEPHYR_PATH
+west init .
+git checkout b6095a878c7e
+west update
+west blobs fetch hal_espressif
+source zephyr/zephyr-env.sh
+popd
+```
+
+From OpenRTX root, compile with:
+
+```
+meson setup build
+source $ZEPHYR_PATH/zephyr/zephyr-env.sh
+rm -rf build*; west build -b ttwrplus
+```
+
+Use `--sysbuild` every time you want to perform a fresh build.
+
+Flash with:
+
+```
+west flash
+```
+
+Check the USB serial console with:
+
+```
+west espressif monitor
+```
+
+You can debug a Zephyr target by installing `openocd-esp32` and placing
+[the following udev rules](https://github.com/espressif/openocd-esp32/blob/master/contrib/60-openocd.rules) in the /etc/udev/rules.d folder.
+
+You can start a GDB shell using:
+
+```
+west debug --openocd `which openocd-esp32openocd`
+```
+
+## Flash MCUBOOT to the ESP32
+```
+cd $ZEPHYR_PATH/zephyr
+source zephyr-env.sh
+west build -p always -b esp32s3_devkitm --sysbuild samples/hello_world
+west flash
 ```
 
 ---
@@ -245,6 +310,12 @@ Then, you can simply use the following command to compile and flash OpenRTX to y
 ```
 meson compile -C build_arm openrtx_MODEL_flash
 ```
+
+#### LILYGO T-TWR Plus
+
+This radio is based on ESP32 and currently is not yet integrated into `radio_tool`, therefore `west` will be used for flashing, please refer to [Compiling a Zephyr-based target](#compiling-a-zephyr-based-target) for instructions on how to install the required tools.
+
+Once you have flashed MCUBOOT on your radio and obtained an OpenRTX image, you can flash it with `west flash`.
 
 ---
 
