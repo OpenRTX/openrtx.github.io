@@ -168,7 +168,7 @@ Functions identified:
 * 0x0807A496 - function releasing exclusive ownership of the SPI GPIOs and deselecting the HR_C6000
 * 0x080545F4 - function for writing to a control RAM register
 
-### AT184S
+### AT1846S
 Most of the baseband functionalities are managed by the "radio on a chip" AT1846S IC. The STM32F405 MCU sends data and commands through an I2C interface with SDA on PC9 and SCL on PA8. The interface is managed in software through bit-banging routines and the IC slave address is 0x5C (0x5D in read mode).
 
 The functions to write and read data from the IC registers are protected by a semaphore located at 0x2001EFBC.
