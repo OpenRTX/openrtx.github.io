@@ -123,10 +123,8 @@ From OpenRTX root, compile with:
 ```
 meson setup build
 source $ZEPHYR_PATH/zephyr/zephyr-env.sh
-rm -rf build*; west build -b ttwrplus
+meson compile -C build openrtx_ttwrplus
 ```
-
-Use `--sysbuild` every time you want to perform a fresh build.
 
 Flash with:
 

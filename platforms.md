@@ -14,6 +14,7 @@
 | Radioddity GD-77 v1 / DM-1801 v1 | ❌            | ✅    | ✅      | ✅       | ✅    | N/A   | 🟡          | N/A   |
 | Tytera MD-9600                   | ❌            | ✅    | ✅      | ✅       | ❌    | ✅    | ❌          | ❌    |
 | Ailunce HD1                      | ✅            | ✅    | ❌      | ❌       | ❌    | ❌    | ❌          | ❌    |
+| LILYGO T-TWR Plus                | ✅            | ✅    | ✅      | N/A      | N/A   | ❌    | ❌          | ✅    |
 
 ### Modes
 
@@ -24,18 +25,20 @@
 | Radioddity GD-77 v1 / DM-1801 v1 | ✅    | ✅    | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
 | Tytera MD-9600                   | ❌    | ❌    | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
 | Ailunce HD1                      | ❌    | ❌    | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
+| LILYGO T-TWR Plus                | ✅    | ✅    | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
 
 ## Table of hardware
 
 This table provides a glance on the underlying hardware of each of the supported platforms, for a detailed description see the [hardware page](hardware.md).
 
-| Platform |     MCU     | DMR baseband |  RF chip | Display controller |             Non volatile memory             |   GPS     |
-|----------|:-----------:|:------------:|:--------:|:------------------:|:-------------------------------------------:|:---------:|
-| MD-3x0   | STM32F405VG |   HR-C5000   | SKY73210 |       HX8302A      |              25Q128FV SPI flash             | JS-M710   |
-| MD-UV3x0 | STM32F405VG |   HR-C6000   |  AT1846S |       HX8302A      |              25Q128FV SPI flash             | JS-H210   |
-| GDx      |  MK22FN512  |   HR-C6000   |  AT1846S |       UC1701       | 25Q80BV  SPI flash +<br>AT24C512 I2C EEPROM |    -      |
-| HD1      |  MK22FN512  |   HR-C6000   |  AT1846S |                    | 25Q80BV  SPI flash +<br>AT24C512 I2C EEPROM | ST-26-U7L |
-| MD-9600  | STM32F405VG |   HR-C6000   | SKY73210 |       ST7567       |              25Q128FV SPI flash             | JS-M710   |
+| Platform   |     MCU     |  Baseband |  RF chip | Display controller |             Non volatile memory             |   GPS     |
+|------------|:-----------:|:------------:|:--------:|:------------------:|:-------------------------------------------:|:---------:|
+| MD-3x0     | STM32F405VG |   HR-C5000   | SKY73210 |       HX8302A      |              25Q128FV SPI flash             | JS-M710   |
+| MD-UV3x0   | STM32F405VG |   HR-C6000   |  AT1846S |       HX8302A      |              25Q128FV SPI flash             | JS-H210   |
+| GDx        |  MK22FN512  |   HR-C6000   |  AT1846S |       UC1701       | 25Q80BV  SPI flash +<br>AT24C512 I2C EEPROM |    -      |
+| HD1        |  MK22FN512  |   HR-C6000   |  AT1846S |                    | 25Q80BV  SPI flash +<br>AT24C512 I2C EEPROM | ST-26-U7L |
+| MD-9600    | STM32F405VG |   HR-C6000   | SKY73210 |       ST7567       |              25Q128FV SPI flash             | JS-M710   |
+| T-TWR Plus | ESP32S3     |   SA-868S    |  AT1846S |       SH1106       |                     N/A                     | L76K      |
 
 ## Device Classification
 
