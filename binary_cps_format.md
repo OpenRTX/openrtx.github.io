@@ -1,6 +1,8 @@
 # OpenRTX Binary CPS Format
 
-Authors names go here
+Hannes Matuschek DM3MAT
+Niccolò Izzo IU2KIN
+Silvano Seva IU2KWO
 
 ## Copyright notice
 
@@ -42,8 +44,8 @@ The header contains metadata about the codeplug to ensure compatibility with int
 
 | Field Name     | Data Type | Description                                                                                                                                                     |
 | -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| magic          | uint64_t  | Number used to identify the start of a codeplug; this is always "RTXC", i.e. `0x43585452`                                                                       |
-| version_number | uint16_t  | Major and minor version of the OBCF standard, constructed as the `(CPS_VERSION_MAJOR << 8) \| CPS_VERSION_MINOR`. Refer to [Version control](#version-control). |
+| magic          | uint32_t  | Number used to identify the start of a codeplug; this is always "RTXC", i.e. `0x43585452`                                                                       |
+| version_number | uint32_t  | Major, minor and bufgix version of the OBCF standard, constructed as the `(CPS_VERSION_MAJOR << 16) \| (CPS_VERSION_MINOR << 8) \| (CPS_VERSION_FIX)`. Refer to [Version control](#version-control). |
 | author         | char[32]  | User-provided author of the codeplug                                                                                                                            |
 | desc           | char[32]  | User-provided description of the codeplug, max 32 characters                                                                                                    |
 | timestamp      | uint64_t  | Unix timestamp of when the codeplug was last edited                                                                                                             |
@@ -57,12 +59,12 @@ This structure is the beginning of the file. The fields are laid out in the foll
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<magic---------------->|<vers|<author----------
+0000 |<-magic------>|<-version->|<-author------------
 0010  -----------------------------------------------
-0020  ---------------------------->|<descr-----------
+0020  ------------------------->|<-descr-------------
 0030  -----------------------------------------------
-0040  ---------------------------->|<timestamp-------
-0050  ---->|<ct_c|<ch_c|<b_co|
+0040  ------------------------->|<-timestamp-------->
+0050 |<ct_c|<ch_c|<b_co|
 ```
 
 ### Contacts
@@ -115,18 +117,18 @@ For M17 contacts, this section is laid out in the following manner:
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<name------------------------------------------
+0000 |<-name-----------------------------------------
 0010  ---------------------------------------------->|
-0020 |<m|<address-------->|
+0020 |<m|<-address------->|
 ```
 
 For DMR contacts, this section is laid out in the following manner:
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<name------------------------------------------
+0000 |<-name-----------------------------------------
 0010  ---------------------------------------------->|
-0020 |<m|<id------->|<i|  |
+0020 |<m|<-id------>|<i|  |
 ```
 
 ### Channels
@@ -137,11 +139,9 @@ For DMR contacts, this section is laid out in the following manner:
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | mode            | uint8_t                                                                                                                       | Operating mode; refer to [Mode lookup table](#mode-lookup-table)                                                                                          |
 | traits          | uint8_t                                                                                                                       | First two bits are channel bandwidth (refer to [Bandwidth lookup table](#bandwidth-lookup-table)), then one bit indicating true if the channel is RX only |
-| power           | uint8_t                                                                                                                       | transmit power, stored as number of fifths dBm added to 10bBm (e.g. a value of 5 would represent 10+5\*0.2=11dBm)                                         |
-| rx_frequency    | uint32_t                                                                                                                      | RX frequency in Hz                                                                                                                                        |
-| tx_frequency    | uint32_t                                                                                                                      | TX frequency in Hz                                                                                                                                        |
-| scanList_index  | uint8_t                                                                                                                       | "Scan List: None, ScanList1...250"                                                                                                                        |
-| groupList_index | uint8_t                                                                                                                       | "Group List: None, GroupList1...128"                                                                                                                      |
+| power           | uint32_t                                                                                                                      | transmit power, in mW
+| rx_frequency    | uint32_t                                                                                                                      | RX frequency, in Hz                                                                                                                                        |
+| tx_frequency    | uint32_t                                                                                                                      | TX frequency, in Hz                                                                                                                                        |
 | name            | char[32]                                                                                                                      | display name for channel                                                                                                                                  |
 | descr           | char[32]                                                                                                                      | Description of the channel                                                                                                                                |
 | ch_location     | [geo_t](#geo_t-type-description)                                                                                              | transmitter location                                                                                                                                      |
@@ -162,7 +162,7 @@ For DMR contacts, this section is laid out in the following manner:
 | ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | ch_lat_int  | int8_t    | Floor of latitude (⌊x⌋; e.g. given latitude of 44.493889, this value is 44)                                                                                        |
 | ch_lat_dec  | uint16_t  | Fractional part of latitude, first rounded to the ten-thousandths, represented as a positive whole number (e.g. given latitude of 44.493889, this value is 4939)   |
-| ch_lon_int  | int8_t    | Floor of longitude (⌊x⌋; e.g. given longitude of 11.342778, this value is 11)                                                                                      |
+| ch_lon_int  | int16_t   | Floor of longitude (⌊x⌋; e.g. given longitude of 11.342778, this value is 11)                                                                                      |
 | ch_lon_dec  | uint16_t  | Fractional part of longitude, first rounded to the ten-thousandths, represented as a positive whole number (e.g. given longitude of 11.342778, this value is 3428) |
 | ch_altitude | uint16_t  | Altitude of the center of the radiator of the transmitter, stored in meters MSL offset +500 (e.g. 0m would be stored as 500)                                       |
 
@@ -276,36 +276,36 @@ For DMR channels, this section is laid out in the following manner:
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<m|<t|<p|<rx_frequen|<tx_frequen|<s|<g|<name---
+0000 |<m|<t|<-power--->|<rx_frequen|<tx_frequen|<name
 0010  -----------------------------------------------
-0020  ------------------------------------->|<descr--
+0020  ---------------------------------------->|<descr
 0030  -----------------------------------------------
-0040  ------------------------------------->|<ch_loca
-0050  tion--------->|<c|<d|<cont|  |
+0040  ---------------------------------------->|<ch_lo
+0050  cation---------------->|<c|<d|<cont|
 ```
 
 For FM channels, this section is laid out in the following manner:
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<m|<t|<p|<rx_frequen|<tx_frequen|<s|<g|<name---
+0000 |<m|<t|<-power--->|<rx_frequen|<tx_frequen|<name
 0010  -----------------------------------------------
-0020  ------------------------------------->|<descr--
+0020  ---------------------------------------->|<descr
 0030  -----------------------------------------------
-0040  ------------------------------------->|<ch_loca
-0050  tion--------->|<r|<t|        |
+0040  ---------------------------------------->|<ch_loca
+0050  tion------------------>|<r|<t
 ```
 
 For M17 channels, this section is laid out in the following manner:
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<m|<t|<p|<rx_frequen|<tx_frequen|<s|<g|<name---
+0000 |<m|<t|<-power--->|<rx_frequen|<tx_frequen|<name
 0010  -----------------------------------------------
-0020  ------------------------------------->|<descr--
+0020  ---------------------------------------->|<descr
 0030  -----------------------------------------------
-0040  ------------------------------------->|<ch_loca
-0050  tion--------->|<c|<m|<g|<cont|
+0040  ---------------------------------------->|<ch_lo
+0050  cation---------------->|<c|<m|<g|<cont|
 ```
 
 ### Bank Data Offsets
