@@ -1,16 +1,16 @@
-# OpenRTX Binary CPS Format
+# OpenRTX Binary Codeplug Format
 
-Hannes Matuschek DM3MAT
-Niccolò Izzo IU2KIN
-Silvano Seva IU2KWO
+Hannes Matuschek DM3MAT  
+Niccolò Izzo IU2KIN  
+Silvano Seva IU2KWO  
 
 ## Copyright notice
 
-Copyright (c) 2023 the persons and organizations identified as authors. All rights reserved.
+Copyright (c) 2023 the people and organizations identified as authors. All rights reserved.
 
 ## Introduction
 
-The OpenRTX Binary CPS Format (OBCF) is a binary data format for storing radio configurations in an easy-to-use and platform-agnostic way while providing support for modern amateur-radio use cases like M17. This format is utilized in radio codeplugs constructed using a customer programming software (CPS) and loaded directly to radio transceivers.
+The OpenRTX Binary Codeplug Format (OBCF) is a binary data format for storing radio configurations in an easy-to-use and platform-agnostic way while providing support for modern amateur-radio use cases like M17. This format is utilized in radio codeplugs constructed using a customer programming software (CPS) and loaded directly to radio transceivers.
 
 ### Objectives
 
@@ -47,7 +47,7 @@ The header contains metadata about the codeplug to ensure compatibility with int
 | magic          | uint32_t  | Number used to identify the start of a codeplug; this is always "RTXC", i.e. `0x43585452`                                                                       |
 | version_number | uint32_t  | Major, minor and bufgix version of the OBCF standard, constructed as the `(CPS_VERSION_MAJOR << 16) \| (CPS_VERSION_MINOR << 8) \| (CPS_VERSION_FIX)`. Refer to [Version control](#version-control). |
 | author         | char[32]  | User-provided author of the codeplug                                                                                                                            |
-| desc           | char[32]  | User-provided description of the codeplug, max 32 characters                                                                                                    |
+| desc           | char[32]  | User-provided description of the codeplug                                                                                                                       |
 | timestamp      | uint64_t  | Unix timestamp of when the codeplug was last edited                                                                                                             |
 | ct_count       | uint16_t  | Number of stored contacts, used for memory offsets                                                                                                              |
 | ch_count       | uint16_t  | Number of stored channels, used for memory offsets                                                                                                              |
@@ -107,7 +107,7 @@ This structure is the beginning of the file. The fields are laid out in the foll
 | Field            | Data Type | Description                                                                                          |
 | ---------------- | --------- | ---------------------------------------------------------------------------------------------------- |
 | id               | uint32_t  | DMR ID                                                                                               |
-| contact_settings | uint8_t   | Combination of the contact type (two bits), rx tone enable/disable (one bit), and five reserved bits |
+| contact_settings | uint8_t   | Bit 0:1 contact type. Bit 2 rx tone enable/disable. Bit 3:7 reserved                                 |
 
 #### Layout
 
@@ -168,18 +168,18 @@ For DMR contacts, this section is laid out in the following manner:
 
 #### fmInfo_t type description
 
-| Field  | Data Type | Description                                                                                                                                                                                                                                                                                                                               |
-| ------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rxTone | uint8_t   | whether a ctcss tone should be used on to control squelch on receive and at which frequency, represented by its index from [CTCSS Code Frequencies Lookup Table](#ctcss-code-frequencies-lookup-table) with a bitwise OR applied on the highest-order bit indicating enabled/disabled (e.g. disabled 173.8 Hz tone value is `0b00011111`) |
-| txTone | uint8_t   | whether a ctcss tone should be used on transmit and at which frequency, represented by its index from [CTCSS Code Frequencies Lookup Table](#ctcss-code-frequencies-lookup-table) with a bitwise OR applied on the highest-order bit indicating enabled/disabled (e.g. enabled 107.2 tone value is 0b10001110)                            |
+| Field  | Data Type | Description                                                                                                                                                              |
+| -------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| rxTone | uint8_t   | Bit 0:6 index of the CTCSS tone for receive squelch as in the [CTCSS Code Frequencies Lookup Table](#ctcss-code-frequencies-lookup-table). Bit 7 enable/disable receive tone squelch. (e.g. disabled 173.8 Hz tone value is `0b00011111`) |
+| txTone | uint8_t   | Bit 0:6 index of the CTCSS tone to be transmitted as in the [CTCSS Code Frequencies Lookup Table](#ctcss-code-frequencies-lookup-table). Bit 7 enable/disable tone transmission.(e.g. enabled 107.2 tone value is `0b10001110)` |
 
 #### dmrInfo_t type description
 
-| Field         | Data Type | Description                                                                                                                                                                                                                                                                                                    |
-| ------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| colorCode     | uint8_t   | RX and TX colour codes used, as defined by [ETSI TS 102 361-1 Table 9.18](https://www.etsi.org/deliver/etsi_ts/102300_102399/10236101/02.02.01_60/ts_10236101v020201p.pdf), with the RX value represented in the first half (e.g. RX colour code 0 and TX colour code 15 would be represented as `0b00001111`) |
-| dmr_timeslot  | uint8_t   | Timeslot being used, represented in integer form (e.g. timeslot 2 is `0b00000010`)                                                                                                                                                                                                                             |
-| contact_index | uint16_t  | Index to retrieve contact from list for reverse lookups                                                                                                                                                                                                                                                        |
+| Field         | Data Type | Description                                                                                                                                                            |
+| ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| colorCode     | uint8_t   | RX and TX colour codes used, as defined by [ETSI TS 102 361-1 Table 9.18](https://www.etsi.org/deliver/etsi_ts/102300_102399/10236101/02.02.01_60/ts_10236101v020201p.pdf). <br> Bit 0:3 RX colour code. Bit 4:7 TX colour code. (e.g. RX colour code 0 and TX colour code 15 would be represented as `0b00001111`)                                                                   |
+| dmr_timeslot  | uint8_t   | Timeslot being used, represented in integer form (e.g. timeslot 2 is `0b00000010`)                                                                                     |
+| contact_index | uint16_t  | Index to retrieve contact from list for reverse lookups                                                                                                                |
 
 #### m17Info_t type description
 
