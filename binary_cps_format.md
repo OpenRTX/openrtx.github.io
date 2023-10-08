@@ -215,6 +215,9 @@ CTCSS code frequency support is implemented as the 39 tones defined in ANSI/TIA-
 
 ##### CTCSS Code Frequencies Lookup Table
 
+<table style="border: none"> <tr style="border: none"></tr>
+<td style="border: none; vertical-align: top;">
+
 | Index | Frequency (Hz) |
 | ----: | -------------- |
 |     0 | 67.0           |
@@ -230,6 +233,10 @@ CTCSS code frequency support is implemented as the 39 tones defined in ANSI/TIA-
 |    10 | 94.8           |
 |    11 | 97.4           |
 |    12 | 100.0          |
+</td><td style="border: none; vertical-align: top;">
+
+| Index | Frequency (Hz) |
+| ----: | -------------- |
 |    13 | 103.4          |
 |    14 | 107.2          |
 |    15 | 110.9          |
@@ -243,6 +250,10 @@ CTCSS code frequency support is implemented as the 39 tones defined in ANSI/TIA-
 |    23 | 146.2          |
 |    24 | 151.4          |
 |    25 | 156.7          |
+</td><td style="border: none; vertical-align: top;">
+
+| Index | Frequency (Hz) |
+| ----: | -------------- |
 |    26 | 159.8          |
 |    27 | 162.2          |
 |    28 | 165.5          |
@@ -256,6 +267,10 @@ CTCSS code frequency support is implemented as the 39 tones defined in ANSI/TIA-
 |    36 | 189.9          |
 |    37 | 192.8          |
 |    38 | 196.6          |
+</td><td style="border: none; vertical-align: top;">
+
+| Index | Frequency (Hz) |
+| ----: | -------------- |
 |    39 | 199.5          |
 |    40 | 203.5          |
 |    41 | 206.5          |
@@ -267,6 +282,8 @@ CTCSS code frequency support is implemented as the 39 tones defined in ANSI/TIA-
 |    47 | 241.8          |
 |    48 | 250.3          |
 |    49 | 254.1          |
+</td>
+</table>
 
 #### Layout
 
