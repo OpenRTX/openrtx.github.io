@@ -71,11 +71,11 @@ This structure is the beginning of the file. The fields are laid out in the foll
 
 #### Field definition
 
-| Field name | Data Type                                                                                        | Description                                                              |
-| ---------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| name       | char[32]                                                                                         | Display name for the contact                                             |
-| mode       | uint8_t                                                                                          | Mode that the contact is intended to be used for                         |
-| info       | [m17Contact_t](#m17contact_t-type-description) or [dmrContact_t](#dmrcontact_t-type-description) | Either contains the m17 info or the dmr info, as described further below |
+| Field name | Data Type   | Description                                                                                                                       |
+| ---------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------|
+| name       | char[32]    | Display name for the contact                                                                                                      |
+| mode       | uint8_t     | Mode that the contact is intended to be used for                                                                                  |
+| info       | uint8_t[15] | Mode-specific contact info. See [m17Contact_t](#m17contact_t-type-description) and [dmrContact_t](#dmrcontact_t-type-description) |
 
 #### Mode lookup table
 
@@ -119,7 +119,7 @@ For M17 contacts, this section is laid out in the following manner:
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 0000 |<-name-----------------------------------------
 0010  ---------------------------------------------->|
-0020 |<m|<-address------->|
+0020 |<m|<-address------->|<-unused----------------->|
 ```
 
 For DMR contacts, this section is laid out in the following manner:
@@ -128,32 +128,32 @@ For DMR contacts, this section is laid out in the following manner:
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
 0000 |<-name-----------------------------------------
 0010  ---------------------------------------------->|
-0020 |<m|<-id------>|<i|  |
+0020 |<m|<-id------>|<s|<-unused-------------------->|
 ```
 
 ### Channels
 
 #### Field descriptions
 
-| Field name      | Data Type                                                                                                                     | Description                                                                                                                                               |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| mode            | uint8_t                                                                                                                       | Operating mode; refer to [Mode lookup table](#mode-lookup-table)                                                                                          |
-| traits          | uint8_t                                                                                                                       | First two bits are channel bandwidth (refer to [Bandwidth lookup table](#bandwidth-lookup-table)), then one bit indicating true if the channel is RX only |
-| power           | uint32_t                                                                                                                      | transmit power, in mW
-| rx_frequency    | uint32_t                                                                                                                      | RX frequency, in Hz                                                                                                                                        |
-| tx_frequency    | uint32_t                                                                                                                      | TX frequency, in Hz                                                                                                                                        |
-| name            | char[32]                                                                                                                      | display name for channel                                                                                                                                  |
-| descr           | char[32]                                                                                                                      | Description of the channel                                                                                                                                |
-| ch_location     | [geo_t](#geo_t-type-description)                                                                                              | transmitter location                                                                                                                                      |
-| infoblock       | [fmInfo_t](#fminfo_t-type-description), [dmrInfo_t](#dmrinfo_t-type-description), or [m17Info_t](#m17info_t-type-description) | Information block for the channel                                                                                                                         |
+| Field name      | Data Type                        | Description                                                                                                                                   |
+| --------------- | ---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------- |
+| mode            | uint8_t                          | Operating mode; refer to [Mode lookup table](#mode-lookup-table)                                                                              |
+| traits          | uint8_t                          | Bit 0:1 channel bandwidth (refer to [Bandwidth lookup table](#bandwidth-lookup-table)). Bit 2 RX only flag. Bit 3:7 reserved                  |
+| power           | uint32_t                         | transmit power, in mW                                                                                                                         |
+| rx_frequency    | uint32_t                         | RX frequency, in Hz                                                                                                                           |
+| tx_frequency    | uint32_t                         | TX frequency, in Hz                                                                                                                           |
+| name            | char[32]                         | display name for channel                                                                                                                      |
+| descr           | char[32]                         | Description of the channel                                                                                                                    |
+| ch_location     | [geo_t](#geo_t-type-description) | transmitter location                                                                                                                          |
+| infoblock       | uint8_t[9]                       | Information block for the channel, operating mode dependent. See [fmInfo_t](#fminfo_t-type-description), [dmrInfo_t](#dmrinfo_t-type-description), or [m17Info_t](#m17info_t-type-description) |
 
 #### Bandwidth lookup table
 
 | Bits | Bandwidth (kHz) |
 | ---- | --------------- |
 | 0b00 | 12.5            |
-| 0b01 | 20              |
-| 0b10 | 25              |
+| 0b01 | 25              |
+| 0b10 | Reserved        |
 | 0b11 | Reserved        |
 
 #### geo_t type description
@@ -183,12 +183,11 @@ For DMR contacts, this section is laid out in the following manner:
 
 #### m17Info_t type description
 
-| Field         | Data Type | Description                                                                                                                                                                                                                                    |
-| ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| can           | uint8_t   | RX and TX channel access numbers (CANs) used, as defined by [M17 Specification section 3.1.3](https://spec.m17project.org/), with the RXvalue represented in the first half (e.g. an RX CAN of 0 and TX CAN of 2 is represented as 0b00000010) |
-| mode_encr     | uint8_t   | Channel operation mode and encryption mode, as defined by [M17 channel modes lookup table](#m17-channel-modes-lookup-table) and [M17 channel encryption lookup table](#m17-channel-encryption-lookup-table)                                    |
-| gps_mode      | uint8_t   | Boolean whether GPS position should be embedded in transmit payload                                                                                                                                                                            |
-| contact_index | uint16_t  | Index to retrieve contact from list for reverse lookups                                                                                                                                                                                        |
+| Field         | Data Type | Description                                                                                                                                                       |
+| ------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| config        | uint8_t   | Bit 0:3 channel access number (CAN), as defined by [M17 Specification section 3.1.3](https://spec.m17project.org/). Bit 4:7 channel operation mode, as defined by [M17 channel modes lookup table](#m17-channel-modes-lookup-table) |
+| encr_gnss     | uint8_t   | Bit 0:3 encryption mode, as defined by [M17 channel encryption lookup table](#m17-channel-encryption-lookup-table). Bit 4: embed GPS position in transmit payload. Bit 5:7 reserved |
+| contact_index | uint16_t  | Index to retrieve contact from list for reverse lookups                                                                                                           |
 
 #### M17 channel modes lookup table
 
@@ -298,7 +297,7 @@ For DMR channels, this section is laid out in the following manner:
 0020  ---------------------------------------->|<descr
 0030  -----------------------------------------------
 0040  ---------------------------------------->|<ch_lo
-0050  cation---------------->|<c|<d|<cont|
+0050  cation---------------->|<c|<d|<cont|<-unused-->|
 ```
 
 For FM channels, this section is laid out in the following manner:
@@ -310,7 +309,7 @@ For FM channels, this section is laid out in the following manner:
 0020  ---------------------------------------->|<descr
 0030  -----------------------------------------------
 0040  ---------------------------------------->|<ch_loca
-0050  tion------------------>|<r|<t
+0050  tion------------------>|<r|<t|<-unused-------->|
 ```
 
 For M17 channels, this section is laid out in the following manner:
@@ -322,7 +321,7 @@ For M17 channels, this section is laid out in the following manner:
 0020  ---------------------------------------->|<descr
 0030  -----------------------------------------------
 0040  ---------------------------------------->|<ch_lo
-0050  cation---------------->|<c|<m|<g|<cont|
+0050  cation---------------->|<t|<m|<cont|<-unused-->|
 ```
 
 ### Bank Data Offsets
@@ -354,6 +353,7 @@ The Bank structure is variable in length depending on the number of channels. So
 | name     | char[32]    | The name of the bank                                     |
 | ch_count | uint16_t    | Count of all of the channels in the bank                 |
 | channels | uint16_t[n] | The indexes of the channels that are present in the bank |
+
 
 #### Layout
 
