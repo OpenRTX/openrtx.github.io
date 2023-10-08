@@ -128,6 +128,75 @@ The tables below summarizes the CAT resource identifiers with their respective s
 
 <!-- | free_space    | 0x4653 'FS' | i32 (4)       | R           | Return available space in Bytes | -->
 
+### File Management Protocol (FMP)
+
+The file management protocol is used to read/write files from the radio filesystem and to dump or restore the content of one of its nonvolatile memories. To guarantee data consistency, before doing
+any write operation, the device has to be put in file transfer mode by issuing the corresponding CAT command. The only possible way to resume back to the normal operation after the device has been
+put in file transfer mode is through a power cycle; this ensures that all the changes made either in the files or to the nonvolatile memories are properly loaded.
+
+| Command | OpCode | Request parameters   | Response arguments  | Description                                                       |
+|:--------|:-------|:---------------------|:--------------------|:------------------------------------------------------------------|
+| Meminfo | 0x01   | -                    | Array of Meminfo    | Return the descriptor of the available non volatile memories.     |
+| Dump    | 0x02   | MemIndex             | Size                | Dump the full content of a nonvolatile memory.                    |
+| Flash   | 0x03   | MemIndex, Size       | -                   | Write an image on a nonvolatile memory.                           |
+| Read    | 0x04   | Path                 | Size                | Transfer the content of the file at the specified path.           |
+| Write   | 0x05   | Path, Size           | -                   | Check if there is enough space and begin a write to the specified file, the size is mandatory. |
+| List    | 0x06   | Path                 | Array of filenames  | List the files in a path as strings.                              |
+| Move    | 0x07   | SourcePath, DestPath | -                   | Rename or move a file.                                            |
+| Copy    | 0x08   | SourcePath, DestPath | -                   | Copy a file.                                                      |
+| MkDir   | 0x09   | Path                 | -                   | Create a new directory.                                           |
+| Remove  | 0x0a   | Path                 | -                   | Delete a file or directory.                                       |
+| Reset   | 0xff   | -                    | -                   | Reset the FMP state machine, aborting the last pending operation. |
+
+Sizes are expressed in 32 bit, little endian format. The maximum length for paths is 128 characters. If there is no filesystem, only the dump and flash commands are available.
+
+#### Request Format
+
+A request frame consists of at least two bytes: the first byte specifies the command, the second one the number of parameters. After the first two bytes, the frame contains N bytes specifying the
+length of the parameters (one byte per parameter) followed by the parameters. If a command does not require parameters, the number of parameters is set to zero and the request frame consists
+of only two bytes.
+
+|  0  |    1     |       2        |  3  |       4        |    5    |  6  |    7    |
+|:---:|:--------:|:--------------:|:---:|:--------------:|:-------:|:---:|:-------:|
+| CMD | N Params | Param 1 length | ... | Param N length | Param 1 | ... | Param N | 
+
+#### Response Format
+
+A response frame consists of at least three bytes: the first byte is the command byte, followed by a status byte and then by one specifying the number of arguments. The command byte is equal to the
+one sent in the request, the status byte is set to zero to indicate a successful operation or to a POSIX error code in case of faults. A value of 0xFF indicates an unspecified error. Following the
+first three bytes, the frame contains N bytes specifying the length of the arguments (one byte per argument) followed by the arguments. If a response does not contain arguments, the number of arguments
+is set to zero and the frame is three bytes long.
+
+|  0  |    1    |     2   |       3        |  4  |       5        |    6    |  7  |    8    |
+|:---:|:-------:|:--------:---------------:|:---:|:--------------:|:-------:|:---:|:-------:|
+| CMD | Status  | NParams | Param 1 length | ... | Param N length | Param 1 | ... | Param N |
+
+#### Memory descriptor
+
+The `meminfo` command returns a list of memory descriptors, providing the information of each nonvolatile memory on the device. The memory index for the dump and flash commands is given by the order
+in which the corresponding descriptor appears in the argument list, with the first element having index 0. The memory descriptor is a binary data structure with the following format:
+
+```C
+typedef struct meminfo_t
+{
+    uint32_t size;  // Size of the memory in Bytes
+    uint8_t  flags; // Memory type and access flags
+    char name[27];  // Name of the memory
+}
+meminfo_t;          // sizeof(meminfo_t) == 32;
+```
+
+Or equivalently in Rust:
+
+```Rust
+#[derive(Copy, Clone, Debug)]
+#[repr(C, packed)]
+pub struct MemInfo {
+    size:  u32,     // Size of the memory in Bytes
+    flags: u8,      // Memory type and access flags
+    name: [u8; 27], // Name of the memory
+}
+```
 
 ### Appendix A - SLIP framing
 
