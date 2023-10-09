@@ -168,7 +168,7 @@ first three bytes, the frame contains N bytes specifying the length of the argum
 is set to zero and the frame is three bytes long.
 
 |  0  |    1    |     2   |       3        |  4  |       5        |    6    |  7  |    8    |
-|:---:|:-------:|:--------:---------------:|:---:|:--------------:|:-------:|:---:|:-------:|
+|:---:|:-------:|:-------:|:--------------:|:---:|:--------------:|:-------:|:---:|:-------:|
 | CMD | Status  | NParams | Param 1 length | ... | Param N length | Param 1 | ... | Param N |
 
 #### Memory descriptor
