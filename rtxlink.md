@@ -71,8 +71,8 @@ Following the opcode there are two bytes containing the resource ID and N bytes 
 #### Peek Requests
 
 A peek request allow the client to read the content of the host internal memory at a given address. The command frame has a fixed length of six bytes, with the opcode set to 0x50 (ASCII character 'P').
-After the command opcode, there is one byte of data length and four bytes of address. The host replies to a peek request with a data response packet or, in case of failures, an ack frame reporting an
-error code.
+The command opcode byte is followed by one byte specifiying the number of bytes to read and by the start address for the read operation. The length of the address depends on the host architecture and
+it can be either 2, 4 or 8 bytes long; any other length is considered invalid. The host replies to a peek request with a data response packet or, in case of failures, an ack frame reporting an error code.
 
 |  0  |  1  |  2   |   3  |   4  |   5  |
 |:---:|:---:|:----:|:----:|:----:|:----:|
