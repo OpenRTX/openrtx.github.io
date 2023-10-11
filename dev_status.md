@@ -28,12 +28,12 @@ OpenRTX is currently in active development. There will be bugs as we prioritize 
 ### Basic Functions
 
 | Radio model                    | Boot | Display | Keyboard | CPS | RTC | Persistence | GPS | Known Issues                                                                                                                     |
-| ------------------------------ | :--: | :-----: | :------: | :-: | :-: | :---------: | :-: | -------------------------------------------------------------------------------------------------------------------------------- |
-| Tytera MD-380 / MD-390         |  ✅  |   ✅    |    ✅    | ✅  | ✅  |     ✅      | ✅  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:"platform::md3x0","platform::all")                         |
-| Tytera MD-UV380 / Retevis RT3s |  ✅  |   ✅    |    ✅    | ✅  | ✅  |     ✅      | ✅  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:%22platform::mduv3x0%22,%22platform::all%22)               |
-| Radioddity GD-77               |  ✅  |   ✅    |    ✅    | ✅  | N/A |     ❌      | N/A | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:%22platform::gd77%22,%22platform::all%22)                  |
-| Baofeng DM-1801                |  ✅  |   ✅    |    ✅    | ✅  | N/A |     ❌      | N/A | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is%3Aopen+label%3A%22platform%3A%3Adm1801%22%2C%22platform%3A%3Aall%22+) |
-| Tytera MD-9600                 |  ✅  |   ✅    |    ✅    | ❌  | ✅  |     ❌      | ❌  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is%3Aopen+label%3A"platform%3A%3Amd9600"%2C"platform%3A%3Aall")          |
+| ------------------------------ | :--: | :-----: | :------: | :-: | :-: | :---------: | :-: | ------------------------------------------------------------------------------------ |
+| Tytera MD-380 / MD-390         |  ✅  |   ✅    |    ✅    | ✅  | ✅   |     ✅      | ✅  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:"MD-3x0","ALL")   |
+| Tytera MD-UV380 / Retevis RT3s |  ✅  |   ✅    |    ✅    | ✅  | ✅   |     ✅      | ✅  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:"MD-UV3x0","ALL") |
+| Radioddity GD-77               |  ✅  |   ✅    |    ✅    | ✅  | N/A |     ❌      | N/A | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:"GD-77","ALL")   |
+| Baofeng DM-1801                |  ✅  |   ✅    |    ✅    | ✅  | N/A |     ❌      | N/A | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:"DM-1801","ALL") |
+| Tytera MD-9600                 |  ✅  |   ✅    |    ✅    | ❌  | ✅   |     ❌      | ❌  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:"MD-9600","ALL"") |
 
 ### Modes
 
