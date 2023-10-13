@@ -106,21 +106,18 @@ You need to install the following packages (their names might vary according to 
 
 [Dependency intructions for Fedora and other distros:](https://docs.zephyrproject.org/latest/develop/getting_started/installation_linux.html)
 
-Clone a fresh copy of the OpenRTX repo, the Zephyr and associated repos will be cloned in the parent directory of the OpenRTX repo.
-
+How to clone OpenRTX and Zephyr with a single command:
 ```
-git clone git@github.com:OpenRTX/OpenRTX.git; cd OpenRTX
-west init -l --mf ./west.yml; pushd ..
+mkdir openrtx-build && cd $_
+west init -m https://github.com/OpenRTX/OpenRTX
 west update
-source zephyr/zephyr-env.sh
-popd
+source zephyr/zephyr-env.sh # You need to execute this for every new shell
 ```
 
 From OpenRTX root, compile with:
 
 ```
 meson setup build
-source $ZEPHYR_PATH/zephyr/zephyr-env.sh
 meson compile -C build openrtx_ttwrplus
 ```
 
