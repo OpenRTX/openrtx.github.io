@@ -24,22 +24,21 @@ the frame length up to the double of the original length, this needs to be taken
 
 The frames format is the following:
 
-|  0  |    1    |  ... |  N-1 |  N  |
-|:---:|:-------:|:----:|:----:|:---:|
-| END | ProtoID | Data | CRC8 | END |
+|  0  |    1    |  ... |  N-2 |  N-1 |  N  |
+|:---:|:-------:|:----:|:----:|:----:|:---:|
+| END | ProtoID | Data | CRCL | CRCH | END |
 
-After the star of frame marker, the first byte of each frame is a protocol identifier describing the frame content. The last byte of the frame, following the content and preceding the frame end
-marker contains the CRC-8 of the protocol identifier and data fields. The CRC is computed using the polynomial 0xA6 and ensures a minimum hamming distance of two for data blocks composed by more
-than 2048 bytes.
+After the star of frame marker, the first byte of each frame is a protocol identifier describing the frame content. After the payload data and preceding the frame end marker, the frame contains the
+CRC-16 of the protocol identifier and data fields: the CRC is computed using the CCITT polynomial 0x1021 (CCITT CRC-16 polynomial) and transmittend in little-endian format.
 
 The recognized protocol IDs are the following:
 
-|  ID  |    Frame content     |
-|:----:|:--------------------:|
-| 0x00 | stdio redirection    |
-| 0x01 | CAT command/response |
-| 0x02 | FMP command/response |
-| 0x03 | XMODEM command/frame |
+|  ID  |     Frame content      |
+|:----:|:----------------------:|
+| 0x00 | stdio redirection      |
+| 0x01 | CAT command/response   |
+| 0x02 | FMP command/response   |
+| 0x03 | data transfer protocol |
 
 ## Application Layer
 
