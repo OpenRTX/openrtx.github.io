@@ -117,14 +117,13 @@ source zephyr/zephyr-env.sh # You need to execute this for every new shell
 From OpenRTX root, compile with:
 
 ```
-meson setup build
-meson compile -C build openrtx_ttwrplus
+rm -rf build; meson setup build; meson compile -C build openrtx_ttwrplus_uf2
 ```
 
 Flash with:
 
 ```
-west flash
+rm -rf build; meson setup build; meson compile -C build openrtx_ttwrplus_flash
 ```
 
 Check the USB serial console with:

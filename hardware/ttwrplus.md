@@ -3,9 +3,10 @@
 ![T-TWR Plus](../_media/ttwrplus.jpg)
 
 The T-TWR Plus v2.0 is a digital radio, designed and produced by LILYGO, following suggestions from the OpenRTX team.
-This device is based on an ESP32S3 microcontroller, paired with an SA868S baseband. To enable M17 and other digital
-protocols, the SA868S module has to be flashed with [sa8x8-fw](https://github.com/OpenRTX/sa8x8-fw), a Free Software firmware that gives
-OpenRTX full control over the underlying AT1846s radio-on-a-chip.
+This device is based on an ESP32S3 microcontroller, paired with an SA868S baseband.
+
+**NOTE: To be able to use OpenRTX on the T-TWR Plus you need to flash the SA868S module with [sa8x8-fw](https://github.com/OpenRTX/sa8x8-fw), a Free Software firmware that gives
+OpenRTX full control over the underlying AT1846s radio-on-a-chip. The OEM firmware cannot be flashed back at the moment as we don't possess a copy of it.**
 
 ## Hardware Revisions
 
@@ -63,3 +64,4 @@ Once the radio has been flashed at least once you can access again the tinyuf2 b
 ## References
 
 - [T-TWR Plus Schematics](https://github.com/Xinyuan-LilyGO/T-TWR/blob/master/schematic/T-TWR-Plus_Rev2.0.pdf)
+- [T-TWR Plus Support Tracking](https://github.com/OpenRTX/OpenRTX/issues/175)
