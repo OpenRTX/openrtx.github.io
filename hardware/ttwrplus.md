@@ -61,6 +61,26 @@ If you power cycle your radio you should see a screen similar to this:
 If you connect your radio to a computer (Linux, Windows or macOS), you should see it appear as a USB block device. Drag the `openrtx_ttwrplus.uf2` file onto the device to flash the radio. Power off the radio by holding PWR (Volume +) button for 10 seconds and press the PWR button again to boot OpenRTX.
 Once the radio has been flashed at least once you can access again the tinyuf2 bootloader by pressing the BOOT (Volume -) button **right after** powering up the radio.
 
+## Flash Partitioning
+
+The flash is partitioned by the tinyuf2 bootloader.
+
+```
+# ESP-IDF Partition Table
+# Name,   Type, SubType, Offset,  Size, Flags
+# bootloader.bin,,          0x1000, 32K
+# partition table,,         0x8000, 4K
+```
+
+| Name    | Type | SubType | Offset   | Size   |
+|:-------:|:----:|:-------:|:--------:|:------:|
+| nvs     | data | nvs     | 0x9000   |    20K |
+| otadata | data | ota     | 0xe000   |     8K |
+| ota_0   | app  | ota_0   | 0x10000  |  2048K |
+| ota_1   | app  | ota_1   | 0x210000 |  2048K |
+| uf2     | app  | factory | 0x410000 |   256K |
+| ffat    | data | fat     | 0x450000 | 11968K |
+
 ## References
 
 - [T-TWR Plus Schematics](https://github.com/Xinyuan-LilyGO/T-TWR/blob/master/schematic/T-TWR-Plus_Rev2.0.pdf)
