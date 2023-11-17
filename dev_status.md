@@ -35,7 +35,7 @@ OpenRTX is currently in active development. There will be bugs as we prioritize 
 | Baofeng DM-1801                |  ✅  |   ✅     |    ✅     | ✅  | N/A |     ❌      | N/A | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:DM-1801,ALL)    |
 | Tytera MD-9600                 |  ✅  |   ✅     |    ✅     | ❌  | ✅   |     ❌      | ❌  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:MD-9600,ALL)    |
 | Module 17                      |  ✅  |   ✅     |    ✅     | ❌  | ✅   |     ❌      | ❌  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:Module17,ALL)    |
-| Lilygo T-TWR plus              |  ✅  |   ✅     |    ✅     | ❌  | ✅   |     ❌      | ✅  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:T-TWR Plus,ALL)  |
+| Lilygo T-TWR plus              |  ✅  |   ✅     |    ✅     | ❌  | ✅   |     ❌      | ✅  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:T-TWR%20Plus,ALL)|
 
 ### Modes
 
