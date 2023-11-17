@@ -111,6 +111,14 @@ words:
   - V_SCLK
   - KLED
   - TDMA
+  - LILYGO
+  - unprogrammed
+  - WROOM
+  - GNSS
+  - espressif
+  - tinyuf
+  - otadata
+  - ffat
 patterns:
   - name: markdown_code_block
     pattern: /^\s*```[\s\S]*?^\s*```/gm
