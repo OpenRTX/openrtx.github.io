@@ -45,8 +45,6 @@ The radio display is expected to be off and showing no information.
 
 Using USB -> K1 connector adapter compatible with the radio, connect the radio to your PC.
 
-
-
 # Firmware update process
 
 ## UpgradeDownload.exe - "DMR Download Software"
@@ -69,7 +67,22 @@ Procedure for upgrade:
 2. Click on *Open file upgrade' and select the firmware bin file compiled or downloaded previously.
 3. Select *Download file of upgrade* as shown below.
 
-![](../_media/uv380_flash_win_UpgradeDownloadSW_downloadFile.jpg)
+![DMR Download Software main form showing bin file in path](../_media/uv380_flash_win_UpgradeDownloadSW_downloadFile.jpg)
+
+4. Download will start as shown below
+
+![DMR Download Software showing Upgrade file is being downloaded](../_media/uv380_flash_win_UpgradeDownloadSW_downloading.jpg)
+
+5. Downloading success message shown below.
+
+![](../_media/uv380_flash_win_UpgradeDownloadSW_complete.jpg)
+
+6. Unplug USB cable and power cycle radio
+7. MD-UV380 boot message will show OpenRTX logo
+
+![Successfully flashed OpenRTX on MD-UV380 display](../_media/uv380_flash_openrtx_logo.jpg)
+
+
 
 ## Troubleshooting
 
@@ -79,33 +92,4 @@ The error shown below could indicate an incorrect driver or incorrect radio mode
 
 ![Error showing USB connection failure](../_media/uv380_flash_win_UpgradeDownloadSW_openfailed.jpg)
 
-###  Windows Drivers & DFU Mode
-
-Examples shown below of device manager showing radio in various modes.
-
-#### Device Manager with radio in DFU/Update mode
-
-The following image is the expected behavior to support firmware flashing.
-
-![Windows Device Manager showing 'Digital Radio in USB mode' to indicate correct DFU/Update mode](../_media/uv380_flash_win_devicemanager_DFU.jpg)
-
-
-#### Device Manager with radio in DFU/Update mode, incorrect driver
-
-The following image shows the Windows Device Manager with the Radio connected using the wrong driver.
-
-![Windows Device Manager showing 'Digital Radio in USB mode' to indicate incorrect DFU/Update driver](../_media/uv380_flash_win_devicemanager_incorrectDFU.jpg)
-
-#### Device Manager with radio in normal operation mode
-
-The follow image shows Windows Device Manager when the radio is in the operational mode and has correct drivers installed. This is the incorrect mode flashing firmware.
-
-![Windows Device Manager showing 'USB Serial Device (COMx)'](../_media/uv380_flash_win_devicemanager_comport.jpg)
-
-#### Device Manager with radio in normal operation mode, no device drivers
-
-The following image shows Windows Device Manager when the radio firmware drivers have not been installed.
-
-![Windows Device Manager showing 'Other Devices'->'STM32 Virtual ComPort in FS Mode' & 'Ports (COM & LPT)'->'USB Serial Device (COMx)' without drivers](../_media/uv380_flash_win_devicemanager_nodrivers.jpg)
-
-Refer to Manufacturer's website for approved device drivers.
+Refer to [Windows Drivers for STM32 DFU Mode](./win-stm32drivers.md)

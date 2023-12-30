@@ -15,6 +15,16 @@ __Model variants__
     * VHF: 136.000-174.000
     * UHF: 400.000-480.000
 
+## Firmware Flashing
+
+* [Windows](../flashing/mduv380-win.md)
+    * [Drivers & Troubleshooting](../flashing/win-stm32drivers.md)
+<!---
+ TODO 
+* Linux
+* dmr.tools
+-->
+
 ## Memory Layout
 The STM32F405 of the MD-UV380 has 128k SRAM, 64k CCM, and 1M FLASH.
 The stock bootloader resides at the first 48k of the FLASH therefore we only
