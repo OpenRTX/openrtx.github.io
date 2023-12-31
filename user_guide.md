@@ -46,39 +46,49 @@ To put the radio in bootloader mode look at the instructions for firmware flashi
 ## Operating your OpenRTX radio
 #### Left
 * Keeping the 'M' button pressed, brings up the 'macro menu'. Within the 'macro menu' you can select the following functions which are under the following keys:
-    * 1 CTCSS frequency
-    * 2 CTCSS encode/decode/off
-    * 3 Transmit power ( low / high )
-    * 4 IF filter bandwidth ( 12.5 / 20 / 25 Khz )
-    * 5 Modulation mode ( DMR / FM / _M17_ )
-    * 6 Lock
-    * 7 B+ Display brightness increase
-    * 8 B- Display brightness decrease
-    * 9 Save settings ( not implemented yet )
+
+* FM Mode
+
+    | | | |
+    |---|---|---|
+    | **1** <br> T- CTCSS <br> Frequency Step down | **2** <br> T+ CTCSS <br> Frequency Step up | **3** <br> CTCSS Mode <br> (Disable/Encode/<br>Decode/Encode+Decode) |
+    | **4** <br> IF Filter bandwidth <br> (12.5/20/25 KHz) | **5** <br> Modulation Mode <br> (DMR/FM/M17) | **6** <br> Transmitter Power <br> (high/low or 1W/5W) |
+    | **7** | **8** | **9** <br> Lock |
+
+* M17 Mode
+
+    | | | |
+    |---|---|---|
+    | **1** | **2** | **3**  |
+    | **4** | **5** <br> Modulation Mode <br> (DMR/FM/M17) | **6** <br> Transmitter Power <br> (high/low or 1W/5W) |
+    | **7** | **8**  | **9** <br> Lock |
+
+
 
 #### Right
 * Programming/accessory input/output
 
 #### Front
 * By pressing the buttons, the following functions can be selected:
-    * 0 n/a
-    * Green book
-        * Zone
-        * Channel
-        * Contacts
-        * GPS
-        * Settings
-        * Info
-        * About
-    * Red book
-        * VFO / Memory selection
-    * Up arrow
-        * step up in frequency (VFO mode) or up configured channel (memory mode)
-    * Down arrow
-        * step down in frequency (VFO mode) or up configured channel (memory mode)
-    * */lock n/a
-    * #/up arrow n/a
+
+
+|   |   |   |   |
+|---|---|---|---|
+| **Green book** <br> Menu/Settings <br> (Enter/Accept) | **Up Arrow** <br> Freq step up | **Down Arrow** <br> Freq step down | **Red Book** <br> VFO / Memory <br> (Cancel)|
+| **1** | **2** | **3** | **\* \ Lock** |
+| **4** | **5** | **6** | **0 \ \_** |
+| **7** | **8** | **9** | **# \ Shift arrow** <br> *M17 mode:* <br> - Set destination |
+
+* Green Book Menu / Settings
+    * Banks
+    * Channels
+    * Contacts
+    * GPS
+    * Settings
+    * Info
+    * About
 
 #### Top
 * Power/Volume
-* Channel/Frequency knob, on Tytera MD380/UV380 (Retevis RT3/RT3s): works as up/down arrow keys. Rotation clockwise acts as one press of the up key per step, counterclockwise as one press of the down key per step.
+* Channel/Frequency knob
+    * on Tytera MD380/UV380 (Retevis RT3/RT3s): works as up/down arrow keys. Rotation clockwise acts as one press of the up key per step, counterclockwise as one press of the down key per step.
