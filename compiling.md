@@ -52,7 +52,7 @@ When compiling the linux emulator version, the following additional packages are
 The package names depend on the package manager you use. On Debian/Ubuntu and derived distributions the command is:
 
 ```
-sudo apt install libsdl2-dev libcodec2-dev libreadline-dev
+sudo apt install libsdl2-dev codec2-dev readline
 ```
 
 #### Tools required for firmware images
