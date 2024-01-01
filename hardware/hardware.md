@@ -8,11 +8,11 @@ This table provides a glance on the underlying hardware of each of the supported
 
 | Platform   |     MCU     |   Baseband   |  RF chip | Display controller |             Non volatile memory             |   GPS     |
 |------------|:-----------:|:------------:|:--------:|:------------------:|:-------------------------------------------:|:---------:|
-| MD-3x0     | STM32F405VG |   HR-C5000   | SKY73210 |       HX8302A      |              25Q128FV SPI flash             | JS-M710   |
+| MD-3x0     | STM32F405VG |   HR-C5000   | SKY72310 |       HX8302A      |              25Q128FV SPI flash             | JS-M710   |
 | MD-UV3x0   | STM32F405VG |   HR-C6000   |  AT1846S |       HX8302A      |              25Q128FV SPI flash             | JS-H210   |
 | GDx        |  MK22FN512  |   HR-C6000   |  AT1846S |       UC1701       | 25Q80BV  SPI flash +<br>AT24C512 I2C EEPROM |    -      |
 | HD1        |  MK22FN512  |   HR-C6000   |  AT1846S |                    | 25Q80BV  SPI flash +<br>AT24C512 I2C EEPROM | ST-26-U7L |
-| MD-9600    | STM32F405VG |   HR-C6000   | SKY73210 |       ST7567       |              25Q128FV SPI flash             | JS-M710   |
+| MD-9600    | STM32F405VG |   HR-C6000   | SKY72310 |       ST7567       |              25Q128FV SPI flash             | JS-M710   |
 | T-TWR Plus | ESP32-S3    |   SA868S     |  AT1846S |       SH1106       |              optional microSD               | L76K      |
 
 ### Device documentation
