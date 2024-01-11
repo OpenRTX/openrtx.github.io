@@ -51,9 +51,9 @@ To put the radio in bootloader mode look at the instructions for firmware flashi
 
     | | | |
     |---|---|---|
-    | **1** <br> T- CTCSS <br> Frequency Step down | **2** <br> T+ CTCSS <br> Frequency Step up | **3** <br> CTCSS Mode <br> (Disable/Encode/<br>Decode/Encode+Decode) |
-    | **4** <br> IF Filter bandwidth <br> (12.5/20/25 KHz) | **5** <br> Modulation Mode <br> (DMR/FM/M17) | **6** <br> Transmitter Power <br> (high/low or 1W/5W) |
-    | **7** | **8** | **9** <br> Lock |
+    | **1** <br> T- CTCSS <br> Frequency Step down | **2** <br> T+ CTCSS <br> Frequency Step up | **3** <br> CTCSS Mode <br> (Disable / Encode /<br>Decode / Encode+Decode) |
+    | **4** <br> IF Filter bandwidth <br> (12.5 / 20 / 25 KHz) | **5** <br> Modulation Mode <br> (DMR/FM/M17) | **6** <br> Transmitter Power <br> (high / low or 1W / 5W) |
+    | **7** <br> B+ <br> Increase Display <br> Brightness| **8** <br> B- <br> Decrease Display <br> Brightness  | **9** <br> Lock |
 
 * M17 Mode
 
@@ -61,8 +61,9 @@ To put the radio in bootloader mode look at the instructions for firmware flashi
     |---|---|---|
     | **1** | **2** | **3**  |
     | **4** | **5** <br> Modulation Mode <br> (DMR/FM/M17) | **6** <br> Transmitter Power <br> (high/low or 1W/5W) |
-    | **7** | **8**  | **9** <br> Lock |
+    | **7** <br> B+ <br> Increase Display <br> Brightness| **8** <br> B- <br> Decrease Display <br> Brightness  | **9** <br> Lock |
 
+* Note: Brightness control is not available on MD-UV380. See [hwconfig.h](https://github.com/OpenRTX/OpenRTX/blob/dbe7ff470004e57b12c85243d4ca7a7664cf4f77/platform/targets/MD-UV3x0/hwconfig.h#L155) for additional details.
 
 
 #### Right
