@@ -16,7 +16,7 @@ MD-UV380, MD-380, or MD-390 radios running:
 
 Refer to the hardware manufacturer for the recommended firmware upgrade utility.
 
-For the purpose of this help file, Retevis technical support provided a direct link to download *FirmwareDownloadV3.04_EN.exe*. 
+For the purpose of this help file, Retevis technical support provided a direct link to download *FirmwareDownloadV3.04_EN.exe*.
 
 For reference, md5 hash of file provided by Retevis:
 
@@ -27,11 +27,11 @@ e561f018f1516c755741b15cdc1369fd  FirmwareDownloadV3.04_EN.exe
 
 **Note**: Exercise caution when downloading anything from unknown sources.
 
-## Open RTX firmware
+## OpenRTX firmware
 
-Building Open RTX from source is outside the scope of this section. 
+Building OpenRTX from source is outside the scope of this section.
 
-To download the latest release see [OpenRTX Github repo releases](https://github.com/OpenRTX/OpenRTX/releases) and select the 'openrtx_mduv380_v*x.x.x*.bin' file or applicable file for target device.
+To download the latest release see [OpenRTX Github repo releases](https://github.com/OpenRTX/OpenRTX/releases) and select the applicable file for target device.
 
 ## Radio Upload/DFU mode
 
