@@ -1,10 +1,12 @@
-# Windows - Flash OpenRTX to MD-UV380
+# Windows - Flash OpenRTX to MD-3x0 & MD-UV380 Radios
 
-This section describes how to flash OpenRTX onto the MD-UV380 series of hardware from Windows.
+This section describes how to flash OpenRTX onto the MD-3x0 & MD-UV380 series of hardware from Windows.
+
+This documentation was developed using an Retevis RT3S (MD-UV380 equivalent).
 
 ## Compatibility
 
-MD-UV380 series radios running:
+MD-UV380, MD-380, or MD-390 radios running:
 
 - Stock OEM firmware
 - OpenGD77 firmware
@@ -29,7 +31,7 @@ e561f018f1516c755741b15cdc1369fd  FirmwareDownloadV3.04_EN.exe
 
 Building OpenRTX from source is outside the scope of this section. 
 
-To download the latest release see [OpenRTX Github repo releases](https://github.com/OpenRTX/OpenRTX/releases) and select the 'openrtx_mduv380_v*x.x.x*.bin' file 
+To download the latest release see [OpenRTX Github repo releases](https://github.com/OpenRTX/OpenRTX/releases) and select the 'openrtx_mduv380_v*x.x.x*.bin' file or applicable file for target device.
 
 ## Radio Upload/DFU mode
 
@@ -80,7 +82,7 @@ Procedure for upgrade:
 6. Unplug USB cable and power cycle radio
 7. MD-UV380 boot message will show OpenRTX logo
 
-![Successfully flashed OpenRTX on MD-UV380 display](../_media/uv380_flash_openrtx_logo.jpg)
+    ![Successfully flashed OpenRTX on MD-UV380 display](../_media/uv380_flash_openrtx_logo.jpg)
 
 ### Troubleshooting
 
