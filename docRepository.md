@@ -13,9 +13,13 @@ This page collects all the available documentation about both radios and their i
 * [RDA1846 programming guide](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/RDA1846_programming_guide.pdf)
 * [SKY73210 datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/SKY72310.pdf)
 
+* [BK4819 datasheet](https://prkele.prk.tky.fi/~ftg/files/datasheets/BK4819_Datasheet_V1.01.pdf)
+* [BK4819 application notes](https://prkele.prk.tky.fi/~ftg/files/datasheets/BK4819(V3)%20Application%20Note%2020210428_machine_translated_English.pdf)
+* [BK4819 register list](https://prkele.prk.tky.fi/~ftg/files/datasheets/BK4819_V3_Registers_List_20201218.pdf)
 
 * [STM32F405xx datasheet](https://www.st.com/resource/en/datasheet/dm00037051.pdf)
 * [STM32F405xx reference manual](https://www.st.com/resource/en/reference_manual/dm00031020-stm32f405-415-stm32f407-417-stm32f427-437-and-stm32f429-439-advanced-arm-based-32-bit-mcus-stmicroelectronics.pdf)
+* [DP32G030 datasheet (Chinese)](https://github.com/amnemonic/Quansheng_UV-K5_Firmware/raw/main/hardware/DP32G030/DP32G030_Chinese_Datasheet.7z)
 * [MK22FN512VLL datasheet](https://www.nxp.com/docs/en/data-sheet/K22P121M120SF7.pdf)
 * [MK22FN512VLL reference manual](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/MK22FN512_refman.pdf)
 

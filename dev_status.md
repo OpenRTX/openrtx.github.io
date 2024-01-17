@@ -36,6 +36,7 @@ OpenRTX is currently in active development. There will be bugs as we prioritize 
 | Tytera MD-9600                 |  ✅  |   ✅     |    ✅     | ❌  | ✅   |     ❌      | ❌  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:MD-9600,ALL)    |
 | Module 17                      |  ✅  |   ✅     |    ✅     | ❌  | ✅   |     ❌      | ❌  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:Module17,ALL)    |
 | Lilygo T-TWR plus              |  ✅  |   ✅     |    ✅     | ❌  | ✅   |     ❌      | ✅  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:T-TWR%20Plus,ALL)|
+| Radtel RT-890                  |  ✅  |   🟡     |    ✅     | ❌  | N/A   |     ❌      | N/A  | [on GitHub](https://github.com/OpenRTX/OpenRTX/issues?q=is:open+label:RT-890,ALL)    |
 
 ### Modes
 
@@ -48,6 +49,8 @@ OpenRTX is currently in active development. There will be bugs as we prioritize 
 | Tytera MD-9600                 |  ❌   |  ❌    |   ❌    |   ❌    |   ❌    |   ❌     |   ❌    |  ❌     |   ❌    |
 | Module 17                      |  N/A |  N/A   |   ❌    |   ❌    |   N/A  |  N/A    |  N/A   |  N/A   |   N/A   |
 | Lilygo T-TWR plus              |  ✅   |  ✅    |   ❌    |   ❌    |   ❌    |   ❌     |  N/A   |  N/A   |   N/A   |
+| Radtel RT-890                  |  ❌   |  ❌    |   ❌    |   ❌    |   ❌    |   ❌     |   ❌    |  ❌     |   ❌    |
 
 
 _Tytera MD-9600 support is not yet complete, and as a result pre-made builds are not available._
+_Similarly, Radtel RT-890 support is not yet complete either, and same as above, pre-made builds are not available._
