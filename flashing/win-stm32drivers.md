@@ -42,7 +42,7 @@ The installer for this software package will install the DFU drivers into the fo
 
 1. Right click on the incorrect driver in Device Manager, click Uninstall Driver and select the 'Attempt to remove the driver for this device' checkbox in the pop-up window.
 2. Allow to uninstall.  
-3. Unplug and replug in the radio to allow to reenumerate. Look for the driver [as shown above in Radio in DFU mode with no DFU driver](#device-manager-with-radio-in-dfu-mode-no-driver)
+3. Unplug and then plug in the radio to allow to enumerate. Look for the driver [as shown above in Radio in DFU mode with no DFU driver](#device-manager-with-radio-in-dfu-mode-no-driver)
 4. Right click on the '! Digital Radio in USB Mode' and select *Update Driver*, then *Browse my computer for Drivers*. Enter the path to the driver(s), be sure to check the *Include Subfolders* box and select *Next*
 5. Driver should install as shown below with 'STM Device in DFU Mode'
 
