@@ -1,4 +1,4 @@
-#  Windows Drivers for STM32 DFU Mode
+# Windows Drivers for STM32 DFU Mode
 
 ## Device Manager Examples
 
@@ -9,7 +9,6 @@ Examples shown below of device manager showing radio in various modes.
 The following image is the expected behavior to support firmware flashing.
 
 ![Windows Device Manager showing 'Digital Radio in USB mode' to indicate correct DFU/Update mode](../_media/uv380_flash_win_devicemanager_correctDFU.jpg)
-
 
 ### Device Manager with radio in DFU/Update mode, incorrect driver
 
