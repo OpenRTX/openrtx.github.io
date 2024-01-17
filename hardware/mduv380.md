@@ -17,8 +17,8 @@ __Model variants__
 
 ## Firmware Flashing
 
-* [Windows](../flashing/mduv380-win.md)
-    * [Drivers & Troubleshooting](../flashing/win-stm32drivers.md)
+- [Windows](../flashing/md-win.md)
+  - [Drivers & Troubleshooting](../flashing/win-stm32drivers.md)
 <!---
  TODO 
 * Linux
