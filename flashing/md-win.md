@@ -27,9 +27,9 @@ e561f018f1516c755741b15cdc1369fd  FirmwareDownloadV3.04_EN.exe
 
 **Note**: Exercise caution when downloading anything from unknown sources.
 
-## OpenRTX firmware
+## Open RTX firmware
 
-Building OpenRTX from source is outside the scope of this section. 
+Building Open RTX from source is outside the scope of this section. 
 
 To download the latest release see [OpenRTX Github repo releases](https://github.com/OpenRTX/OpenRTX/releases) and select the 'openrtx_mduv380_v*x.x.x*.bin' file or applicable file for target device.
 
