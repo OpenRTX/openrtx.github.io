@@ -6,7 +6,7 @@ Examples shown below of device manager showing radio in various modes.
 
 ### Device Manager with radio in DFU/Update mode
 
-The following image is the expected behavior to support firmware flashing.
+The following image is the expected Device Manager entry to support firmware flashing.
 
 ![Windows Device Manager showing 'Digital Radio in USB mode' to indicate correct DFU/Update mode](../_media/uv380_flash_win_devicemanager_correctDFU.jpg)
 
