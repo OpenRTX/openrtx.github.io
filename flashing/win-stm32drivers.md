@@ -44,4 +44,4 @@ The installer for this software package will install the DFU drivers into the fo
 2. Allow to uninstall.  
 3. Unplug and then plug in the radio to allow to enumerate. Look for the driver [as shown above in Radio in DFU mode with no DFU driver](#device-manager-with-radio-in-dfu-mode-no-driver)
 4. Right click on the '! Digital Radio in USB Mode' and select *Update Driver*, then *Browse my computer for Drivers*. Enter the path to the driver(s), be sure to check the *Include Subfolders* box and select *Next*
-5. Driver should install and show in Device Manage [as shown at the top of thie page](#device-manager-with-radio-in-dfuupdate-mode).
+5. Driver should install and show in Device Manage [as shown at the top of this page](#device-manager-with-radio-in-dfuupdate-mode).
