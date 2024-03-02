@@ -161,15 +161,15 @@
                     "description": "Group tags to group related channels (banks)",
                     "type": "array",
                     "items": {
-                      "type": "string"
+                        "type": "string"
                     },
                     "minItems": 0,
                     "uniqueItems": true
-                  }       
+                }
             },
             "required": [
                 "mode", "traits", "power", "rx_frequency",
-                "tx_frequency", "name", "description", "location" ],
+                "tx_frequency", "name", "description" ],
             "oneOf": [
                 {
                     "properties": {
@@ -221,7 +221,8 @@
                     "maxLength": 9
                 }
             },
-            "required": [ "address" ]
+            "required": [ "address" ],
+            "unevaluatedProperties": false
         },
         "dmr_contact_t": {
             "description": "DMR Contact",
@@ -236,13 +237,10 @@
                 "dmr_type": {
                     "description": "DMR Type",
                     "enum": [ "Group", "Private", "All" ]
-                },
-                "alert_tone": {
-                    "description": "Alert Tone",
-                    "type": "boolean"
                 }
             },
-            "required": [ "dmr_id", "dmr_type", "alert_tone" ]
+            "required": [ "dmr_id", "dmr_type" ],
+            "unevaluatedProperties": false
         },
         "fmInfo_t": {
             "description": "Define analog-specific channel information such as tones",
@@ -273,7 +271,8 @@
                     "type": "boolean"
                 }
             },
-            "required": [ "bandwidth", "rx_tone_index", "rx_tone_en", "tx_tone_index", "tx_tone_en" ]
+            "required": [ "bandwidth", "rx_tone_index", "rx_tone_en", "tx_tone_index", "tx_tone_en" ],
+            "unevaluatedProperties": false
         },
         "dmrInfo_t": {
             "description": "Define all and only the information for DMR channels",
