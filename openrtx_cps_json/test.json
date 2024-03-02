@@ -58,9 +58,9 @@
       "description": "12345678901234567890123456789012",
       "info": {
         "bandwidth": 12.5,
-        "rx_tone_index": 5,
+        "rx_ctcss_tone": 77,
         "rx_tone_en": false,
-        "tx_tone_index": 5,
+        "tx_ctcss_tone": 123.0,
         "tx_tone_en": false
       }
     },
