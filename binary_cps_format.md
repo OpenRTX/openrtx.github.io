@@ -158,13 +158,11 @@ For DMR contacts, this section is laid out in the following manner:
 
 #### geo_t type description
 
-| Field       | Data Type | Description                                                                                                                                                        |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ch_lat_int  | int8_t    | Floor of latitude (⌊x⌋; e.g. given latitude of 44.493889, this value is 44)                                                                                        |
-| ch_lat_dec  | uint16_t  | Fractional part of latitude, first rounded to the ten-thousandths, represented as a positive whole number (e.g. given latitude of 44.493889, this value is 4939)   |
-| ch_lon_int  | int16_t   | Floor of longitude (⌊x⌋; e.g. given longitude of 11.342778, this value is 11)                                                                                      |
-| ch_lon_dec  | uint16_t  | Fractional part of longitude, first rounded to the ten-thousandths, represented as a positive whole number (e.g. given longitude of 11.342778, this value is 3428) |
-| ch_altitude | uint16_t  | Altitude of the center of the radiator of the transmitter, stored in meters MSL offset +500 (e.g. 0m would be stored as 500)                                       |
+| Field        | Data Type | Description                                                                                                                                                        |
+| ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ch_latitude  | int32_t   | Latitude in decimal degrees, multiplied by 1000. (e.g. given latitude of 44.493889, this value is 44493889)                                                        |
+| ch_longitude | int32_t   | Longitude in decimal degrees, multiplied by 1000. (e.g. given longitude of 110.342778, this value is 110342778)                                                    |
+| ch_altitude  | int16_t   | Altitude of the center of the radiator of the transmitter, stored in meters MSL                                                                                    |
 
 #### fmInfo_t type description
 
