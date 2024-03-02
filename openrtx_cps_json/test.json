@@ -1,0 +1,94 @@
+{
+  "version_number": 11,
+  "author": "Jae, K5JAE",
+  "description": "My awesome repeater config",
+  "timestamp": "2024-01-23T18:25:43.511Z",
+  "contact_count": 2,
+  "channel_count": 3,
+  "contacts" : [
+    {
+      "name": "Jae",
+      "mode": "M17",
+      "info" : {
+        "address": "K5JAE"
+      }
+    },
+    {
+      "name": "George",
+      "mode": "DMR",
+      "info" : {
+        "dmr_id": 1234,
+        "dmr_type": "All",
+        "alert_tone": false
+      }      
+    }
+  ],
+  "channels" : [
+    {
+      "mode": "M17",
+      "traits": {
+        "rx_only": false
+      },
+      "power": 1000,
+      "rx_frequency": 433475000,
+      "tx_frequency": 433475000,
+      "name": "Hotspot",
+      "description": "12345678901234567890123456789012",
+      "location": {
+        "latitude": -78.75,
+        "longitude": 20.4
+      },
+      "info" : {
+        "rx_can": 0,
+        "tx_can": 0,
+        "channel_mode": "Voice",
+        "encryption_mode": "Plain",
+        "gps_mode": "None"
+      },
+      "groups": ["Dallas"]
+    },
+    {
+      "mode": "FM",
+      "traits": {
+        "rx_only": false
+      },
+      "power": 1000,
+      "rx_frequency": 433475000,
+      "tx_frequency": 433475000,
+      "name": "Hotspot",
+      "description": "12345678901234567890123456789012",
+      "location": {
+        "latitude": -78.75,
+        "longitude": 20.4
+      },
+      "info" : {
+        "bandwidth": 12.5,        
+        "rx_tone_index": 5,
+        "rx_tone_en": false,
+        "tx_tone_index": 5,
+        "tx_tone_en": false
+      }
+    },
+    {
+      "mode": "DMR",
+      "traits": {
+        "rx_only": false
+      },
+      "power": 1000,
+      "rx_frequency": 433475000,
+      "tx_frequency": 433475000,
+      "name": "Hotspot",
+      "description": "12345678901234567890123456789012",
+      "location": {
+        "latitude": -78.75,
+        "longitude": 20.4
+      },
+      "info" : {
+        "rx_color_code": 0,
+        "tx_color_code": 0,
+        "dmr_timeslot": 1
+      },
+      "groups": ["Dallas"]
+    }
+  ]
+}
