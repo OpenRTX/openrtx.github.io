@@ -95,10 +95,10 @@ This structure is the beginning of the file. The fields are laid out in the foll
 
 #### dmrContact_t type description
 
-| Field            | Data Type | Description                                                                                          |
-| ---------------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| id               | uint32_t  | DMR ID                                                                                               |
-| contact_settings | uint8_t   | Bit 0:1 contact type. Bit 2 rx tone enable/disable. Bit 3:7 reserved                                 |
+| Field            | Data Type | Description                              |
+| ---------------- | --------- | ---------------------------------------- |
+| id               | uint32_t  | DMR ID                                   |
+| contact_settings | uint8_t   | Bit 0:1 contact type. Bit 2:7 reserved.  |
 
 #### DMR contact type lookup table
 
