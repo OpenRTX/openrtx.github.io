@@ -6,7 +6,7 @@ Silvano Seva IU2KWO
 
 ## Copyright notice
 
-Copyright (c) 2023 the people and organizations identified as authors. All rights reserved.
+Copyright (c) 2023 - 2024 the people and organizations identified as authors. All rights reserved.
 
 ## Introduction
 
@@ -79,22 +79,13 @@ This structure is the beginning of the file. The fields are laid out in the foll
 
 #### Mode lookup table
 
-|                     Bits | Value    | Notes                                 |
-| -----------------------: | -------- | ------------------------------------- |
-|             `0b00000000` | None     | Indeterminate state for compatibility |
-|             `0b00000001` | FM       | Only used for channels                |
-|             `0b00000010` | DMR      |                                       |
-|             `0b00000011` | M17      |                                       |
-| `0b00000100..0b11111111` | Reserved |                                       |
-
-#### DMR contact type lookup table
-
-|   Bits | Value           |
-| -----: | --------------- |
-| `0b00` | Group contact   |
-| `0b01` | Private contact |
-| `0b10` | Broadcast call  |
-| `0b11` | Reserved        |
+|   Value | Mode     | Notes                                 |
+| ------: | -------- | ------------------------------------- |
+|       0 | None     | Indeterminate state for compatibility |
+|       1 | FM       | Only used for channels                |
+|       2 | DMR      |                                       |
+|       3 | M17      |                                       |
+| 4 - 255 | Reserved |                                       |
 
 #### m17Contact_t type description
 
@@ -108,6 +99,15 @@ This structure is the beginning of the file. The fields are laid out in the foll
 | ---------------- | --------- | ---------------------------------------------------------------------------------------------------- |
 | id               | uint32_t  | DMR ID                                                                                               |
 | contact_settings | uint8_t   | Bit 0:1 contact type. Bit 2 rx tone enable/disable. Bit 3:7 reserved                                 |
+
+#### DMR contact type lookup table
+
+|   Bits | Value           |
+| -----: | --------------- |
+| `0b00` | Group contact   |
+| `0b01` | Private contact |
+| `0b10` | Broadcast call  |
+| `0b11` | Reserved        |
 
 #### Layout
 
