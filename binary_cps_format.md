@@ -177,7 +177,7 @@ For DMR contacts, this section is laid out in the following manner:
 | ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | colorCode     | uint8_t   | RX and TX colour codes used, as defined by [ETSI TS 102 361-1 Table 9.18](https://www.etsi.org/deliver/etsi_ts/102300_102399/10236101/02.02.01_60/ts_10236101v020201p.pdf). <br> Bit 0:3 RX colour code. Bit 4:7 TX colour code. (e.g. RX colour code 0 and TX colour code 15 would be represented as `0b00001111`)                                                                   |
 | dmr_timeslot  | uint8_t   | Timeslot being used, represented in integer form (e.g. timeslot 2 is `0b00000010`)                                                                                     |
-| contact_index | uint16_t  | Index to retrieve contact from list for reverse lookups                                                                                                                |
+| contact_index | uint16_t  | Index to retrieve contact info                                                                                                                                         |
 
 #### m17Info_t type description
 
@@ -185,7 +185,7 @@ For DMR contacts, this section is laid out in the following manner:
 | ------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | config        | uint8_t   | Bit 0:3 channel access number (CAN), as defined by [M17 Specification section 3.1.3](https://spec.m17project.org/). Bit 4:7 channel operation mode, as defined by [M17 channel modes lookup table](#m17-channel-modes-lookup-table) |
 | encr_gnss     | uint8_t   | Bit 0:3 encryption mode, as defined by [M17 channel encryption lookup table](#m17-channel-encryption-lookup-table). Bit 4: embed GPS position in transmit payload. Bit 5:7 reserved |
-| contact_index | uint16_t  | Index to retrieve contact from list for reverse lookups                                                                                                           |
+| contact_index | uint16_t  | Index to retrieve contact info                                                                                                                                    |
 
 #### M17 channel modes lookup table
 
