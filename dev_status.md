@@ -46,8 +46,8 @@ OpenRTX is currently in active development. There will be bugs as we prioritize 
 | Tytera MD-UV380 / Retevis RT3s |  ✅   |  ✅    |   ✅    |   ✅   |   ❌     |   ❌     |   ❌   |   ❌    |   ❌     |
 | Radioddity GD-77               |  ✅   |  ✅    |   ❌    |   ❌    |   ❌    |   ❌     |   ❌   |   ❌     |   ❌    |
 | Baofeng DM-1801                |  ✅   |  ✅    |   ❌    |   ❌    |   ❌    |   ❌     |   ❌   |   ❌     |   ❌    |
-| Tytera MD-9600                 |  ❌   |  ❌    |   ✅    |   ✅    |   ❌    |   ❌     |   ❌    |  ❌     |   ❌    |
-| Module 17                      |  N/A |  N/A   |   ❌    |   ❌    |   N/A  |  N/A    |  N/A   |  N/A   |   N/A   |
+| Tytera MD-9600                 |  ❌   |  ❌    |   ❌    |   ❌    |   ❌    |   ❌     |   ❌    |  ❌     |   ❌    |
+| Module 17                      |  N/A |  N/A   |   ✅    |   ✅    |   N/A  |  N/A    |  N/A   |  N/A   |   N/A   |
 | Lilygo T-TWR plus              |  ✅   |  ✅    |   ❌    |   ❌    |   ❌    |   ❌     |  N/A   |  N/A   |   N/A   |
 | Radtel RT-890                  |  ❌   |  ❌    |   ❌    |   ❌    |   ❌    |   ❌     |   ❌    |  ❌     |   ❌    |
 
