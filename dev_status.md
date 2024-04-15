@@ -47,7 +47,7 @@ OpenRTX is currently in active development. There will be bugs as we prioritize 
 | Radioddity GD-77               |  ✅   |  ✅    |   ❌    |   ❌    |   ❌    |   ❌     |   ❌   |   ❌     |   ❌    |
 | Baofeng DM-1801                |  ✅   |  ✅    |   ❌    |   ❌    |   ❌    |   ❌     |   ❌   |   ❌     |   ❌    |
 | Tytera MD-9600                 |  ❌   |  ❌    |   ❌    |   ❌    |   ❌    |   ❌     |   ❌    |  ❌     |   ❌    |
-| Module 17                      |  N/A |  N/A   |   ❌    |   ❌    |   N/A  |  N/A    |  N/A   |  N/A   |   N/A   |
+| Module 17                      |  N/A |  N/A   |   ✅    |   ✅    |   N/A  |  N/A    |  N/A   |  N/A   |   N/A   |
 | Lilygo T-TWR plus              |  ✅   |  ✅    |   ❌    |   ❌    |   ❌    |   ❌     |  N/A   |  N/A   |   N/A   |
 | Radtel RT-890                  |  ❌   |  ❌    |   ❌    |   ❌    |   ❌    |   ❌     |   ❌    |  ❌     |   ❌    |
 
