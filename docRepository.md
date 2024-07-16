@@ -22,6 +22,8 @@ This page collects all the available documentation about both radios and their i
 * [DP32G030 datasheet (Chinese)](https://github.com/amnemonic/Quansheng_UV-K5_Firmware/raw/main/hardware/DP32G030/DP32G030_Chinese_Datasheet.7z)
 * [MK22FN512VLL datasheet](https://www.nxp.com/docs/en/data-sheet/K22P121M120SF7.pdf)
 * [MK22FN512VLL reference manual](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/MK22FN512_refman.pdf)
+* [GD32F330CBT6 datasheet](https://www.mouser.com/datasheet/2/870/GD32F330xx_Datasheet_Rev2_3-3082872.pdf)
+* [GD32F330CBT6 programming manual](https://www.zlgmcu.com/data/upload/file/Utilitymcu/GD32F3x0_User_Manual_EN_Rev2.0.pdf)
 
 ## Radio schematics
 
