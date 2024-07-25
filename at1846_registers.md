@@ -97,7 +97,7 @@
 ##### 0x3C
  bit  | function                          |            notes
  ---  |   ---                             |   --- 
-15:14 |  voice selection                  | 00  = Tx voice signal from MIC <br> 01 = Tx inner sine tone setted by tone2 <br> 10 = Tx code from GPIO1 code_in (gpio1<1:0> must be
+15:14 |  voice selection                  | 00  = Tx voice signal from MIC <br> 01 = Tx inner sine tone set by tone2 <br> 10 = Tx code from GPIO1 code_in (gpio1<1:0> must be
 set to 01) <br> 11 = not Tx any signal
 
 ##### 0x41

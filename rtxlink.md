@@ -70,7 +70,7 @@ Following the opcode there are two bytes containing the resource ID and N bytes 
 #### Peek Requests
 
 A peek request allow the client to read the content of the host internal memory at a given address. The command frame has a fixed length of six bytes, with the opcode set to 0x50 (ASCII character 'P').
-The command opcode byte is followed by one byte specifiying the number of bytes to read and by the start address for the read operation. The length of the address depends on the host architecture and
+The command opcode byte is followed by one byte specifying the number of bytes to read and by the start address for the read operation. The length of the address depends on the host architecture and
 it can be either 2, 4 or 8 bytes long; any other length is considered invalid. The host replies to a peek request with a data response packet or, in case of failures, an ack frame reporting an error code.
 
 |  0  |  1  |  2   |   3  |   4  |   5  |
@@ -88,7 +88,7 @@ A data response frame has the opcode set to 0x44 (ASCII character 'D') followed 
 #### ACK response
 
 An ack response frame has a fixed length of two bytes: the first byte (opcode) is always set to 0x41 (ASCII character 'A'), the second one carries a status code. A status code zero means that the previous
-command has been successfully executed. Othewise, in case an error occurred, the status code field contains a POSIX error code describing the fault or 0xFF to signal a generic, unspecified error. The host
+command has been successfully executed. Otherwise, in case an error occurred, the status code field contains a POSIX error code describing the fault or 0xFF to signal a generic, unspecified error. The host
 must at least use the values 0x00 and 0xFF for the status field.
 
 |   0  |    1   |

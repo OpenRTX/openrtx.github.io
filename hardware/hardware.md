@@ -1,6 +1,6 @@
 # Hardware documentation
 
-This section collects all the informations about the hardware and the OEM firmware of the supported devices, collected either through the various documents available on the internet or by reverse engineering.
+This section collects all the information about the hardware and the OEM firmware of the supported devices, collected either through the various documents available on the internet or by reverse engineering.
 
 ### Table of hardware
 

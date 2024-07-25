@@ -104,7 +104,7 @@ You need to install the following packages (their names might vary according to 
 - `python-intelhex`
 - `python-requests`
 
-[Dependency intructions for Fedora and other distros:](https://docs.zephyrproject.org/latest/develop/getting_started/installation_linux.html)
+[Dependency instructions for Fedora and other distros:](https://docs.zephyrproject.org/latest/develop/getting_started/installation_linux.html)
 
 How to clone OpenRTX and Zephyr with a single command:
 ```
