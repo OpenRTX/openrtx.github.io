@@ -3,7 +3,7 @@
 ## Device models
 - Yaesu FT2D[RE]
 
-The suffix "R" denotes the USA version, "E" denotes the european version.
+The suffix "R" denotes the USA version, "E" denotes the European version.
 
 ## Specifications
 * Display: 160x160 1.7'' touch screen greyscale LCD
