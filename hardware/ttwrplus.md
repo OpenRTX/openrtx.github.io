@@ -12,7 +12,7 @@ OpenRTX full control over the underlying AT1846s radio-on-a-chip. The OEM firmwa
 
 ### Version 2.0
 
-This version is compatible with OpenRTX, however does not feature connections between the speaker and the MCU, as well as between
+This version is compatible with OpenRTX, however it does not feature connections between the speaker and the MCU, as well as between
 the microphone and the MCU, therefore it cannot operate digital voice protocols such as M17 voice without an external peripheral.
 
 Furthermore this version requires an external programmer to flash the SA868S baseband, the programmer can be built from a [cheap UART dongle](https://a.aliexpress.com/_EwDJlmT), two [1N5817 Schottky diodes](https://a.aliexpress.com/_EIiUAzH), and an [SH1.0 Header](https://www.amazon.it/dp/B01N6S8S21?ref_=cm_sw_r_apin_dp_0KZW8ZN1A1DGZ78AFKYZ). Instructions to build the programmer can be found on [sa8x8-fw GitHub repo](https://github.com/OpenRTX/sa8x8-fw).

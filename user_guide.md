@@ -7,7 +7,7 @@
 **Stable builds** are recommended for general use, they are well tested and include only functionality considered complete.
 Pre-built stable OpenRTX binary images are available on our [GitHub releases page](https://github.com/OpenRTX/OpenRTX/releases)
 
-**Nightly builds** are pre-build images obtained every day by compiling the latest commits on the master branch. By their nature, they are not fully tested and may contain bugs or regressions: use them only if you want to develop or try a feature not yet released.\
+**Nightly builds** are pre-built images obtained every day by compiling the latest commits on the master branch. By their nature, they are not fully tested and may contain bugs or regressions: use them only if you want to develop or try a feature not yet released.\
 OpenRTX nightly builds are available at these places:
 * at Phil DF5PMF's [page](https://openrtx.schinken-radio.de/nightly/) (thanks for building and hosting them!);
 * on OpenRTX [page](https://files.openrtx.org/nightly/).
@@ -17,7 +17,7 @@ Finally, you can compile OpenRTX from the sources by following [these instructio
 ## Flashing OpenRTX to your radio
 To flash the OpenRTX firmware on your radio, follow these steps:
 
-* **Backup your codeplug using your favourite codeplug editor.** Flashing OpenRTX will just replace your firmware without erasing your codeplug or other settings, however is safer to have a backup.
+* **Backup your codeplug using your favourite codeplug editor.** Flashing OpenRTX will just replace your firmware without erasing your codeplug or other settings, however it is safer to have a backup.
 
 * **Put the radio in firmware upgrade mode**. To do this you have to turn off the radio and turn it back on while pressing a combination of keys that depends on your specific model, the firmware upgrade mode will be indicated by the screen being off and a blinking or steady LED:
     * For MD3x0 radios you have to press the PTT button and the side button above it.

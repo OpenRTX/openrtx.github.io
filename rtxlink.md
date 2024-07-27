@@ -28,7 +28,7 @@ The frames format is the following:
 |:---:|:-------:|:----:|:----:|:----:|:---:|
 | END | ProtoID | Data | CRCL | CRCH | END |
 
-After the star of frame marker, the first byte of each frame is a protocol identifier describing the frame content. After the payload data and preceding the frame end marker, the frame contains the
+After the start of frame marker, the first byte of each frame is a protocol identifier describing the frame content. After the payload data and preceding the frame end marker, the frame contains the
 CRC-16 of the protocol identifier and data fields: the CRC is computed using the CCITT polynomial 0x1021 (CCITT CRC-16 polynomial) and transmittend in little-endian format.
 
 The recognized protocol IDs are the following:
@@ -42,7 +42,7 @@ The recognized protocol IDs are the following:
 
 ## Application Layer
 
-The application layer of rtxlink consists of two command different protocols: the Computer Aided Transceiver (CAT) protocol and the File Management Protocol (FMP).
+The application layer of rtxlink consists of two different command protocols: the Computer Aided Transceiver (CAT) protocol and the File Management Protocol (FMP).
 
 ### Computer Aided Transceiver (CAT)
 
@@ -51,7 +51,7 @@ commands and their arguments are encoded in little-endian format. The first byte
 
 #### Get Requests
 
-A get request is used by the rtxlink client to request the value of given entity. The command frame has a fixed length of three bytes, with the opcode set to 0x47 (ASCII character 'D'). Following
+A get request is used by the rtxlink client to request the value of given entity. The command frame has a fixed length of three bytes, with the opcode set to 0x47 (ASCII character 'G'). Following
 the opcode there are two bytes containing the resource ID. In response to a get request the host sends either a data response frame or, in case of failures, an ack frame reporting an error code.
 
 |  0  |  1 |  2 |
@@ -70,7 +70,7 @@ Following the opcode there are two bytes containing the resource ID and N bytes 
 #### Peek Requests
 
 A peek request allow the client to read the content of the host internal memory at a given address. The command frame has a fixed length of six bytes, with the opcode set to 0x50 (ASCII character 'P').
-The command opcode byte is followed by one byte specifiying the number of bytes to read and by the start address for the read operation. The length of the address depends on the host architecture and
+The command opcode byte is followed by one byte specifying the number of bytes to read and by the start address for the read operation. The length of the address depends on the host architecture and
 it can be either 2, 4 or 8 bytes long; any other length is considered invalid. The host replies to a peek request with a data response packet or, in case of failures, an ack frame reporting an error code.
 
 |  0  |  1  |  2   |   3  |   4  |   5  |
@@ -88,7 +88,7 @@ A data response frame has the opcode set to 0x44 (ASCII character 'D') followed 
 #### ACK response
 
 An ack response frame has a fixed length of two bytes: the first byte (opcode) is always set to 0x41 (ASCII character 'A'), the second one carries a status code. A status code zero means that the previous
-command has been successfully executed. Othewise, in case an error occurred, the status code field contains a POSIX error code describing the fault or 0xFF to signal a generic, unspecified error. The host
+command has been successfully executed. Otherwise, in case an error occurred, the status code field contains a POSIX error code describing the fault or 0xFF to signal a generic, unspecified error. The host
 must at least use the values 0x00 and 0xFF for the status field.
 
 |   0  |    1   |

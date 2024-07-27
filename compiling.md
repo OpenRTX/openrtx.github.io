@@ -3,7 +3,7 @@
 - [Building OpenRTX from sources](#building-openrtx-from-sources)
   - [Linux toolchain setup](#linux-toolchain-setup)
       - [Installing the basic tools](#installing-the-basic-tools)
-      - [Additional requirements only for linux emulator](#additional-requirements-only-for-linux-emulator)
+      - [Additional requirements only for Linux emulator](#additional-requirements-only-for-linux-emulator)
       - [Tools required for firmware images](#tools-required-for-firmware-images)
   - [Windows toolchain setup](#windows-toolchain-setup)
   - [Getting the source code](#getting-the-source-code)
@@ -23,7 +23,7 @@ The basic tools required to compile OpenRTX from the sources are _git_ and the _
 
 #### Installing the basic tools
 
-To install the basic tools required to compile both the linux emulator and the firmware images, you can use the package manager provided with your linux distribution. E.g. on Debian/Ubuntu and derived distributions you can use:
+To install the basic tools required to compile both the Linux emulator and the firmware images, you can use the package manager provided with your Linux distribution. E.g. on Debian/Ubuntu and derived distributions you can use:
 
 ```
 sudo apt update && sudo apt install git pkg-config build-essential
@@ -42,9 +42,9 @@ Alternatively, you can use the package manager of your distribution. For example
 sudo apt install meson
 ```
 
-#### Additional requirements only for linux emulator
+#### Additional requirements only for Linux emulator
 
-When compiling the linux emulator version, the following additional packages are required:
+When compiling the Linux emulator version, the following additional packages are required:
 * SDL2 development package
 * Codec2 development package
 * `readline` package
@@ -104,7 +104,7 @@ You need to install the following packages (their names might vary according to 
 - `python-intelhex`
 - `python-requests`
 
-[Dependency intructions for Fedora and other distros:](https://docs.zephyrproject.org/latest/develop/getting_started/installation_linux.html)
+[Dependency instructions for Fedora and other distros:](https://docs.zephyrproject.org/latest/develop/getting_started/installation_linux.html)
 
 How to clone OpenRTX and Zephyr with a single command:
 ```
@@ -153,7 +153,7 @@ west flash
 
 ## Windows toolchain setup
 
-On Windows is possible only to compile the binary images for the radios, the linux emulator will not work. To set up the toolchain follow these steps:
+On Windows is possible only to compile the binary images for the radios, the Linux emulator will not work. To set up the toolchain follow these steps:
 
 - Install _git_ from [here](https://git-scm.com/download/win)
 - Install _perl_ from [here](https://strawberryperl.com/)
@@ -265,7 +265,7 @@ sudo apk add git meson build-base sdl2-dev
 ## Flashing the firmware to a radio
 
 #### Tytera and Retevis radios
-To flash either a locally compiled firmware or a pre-build image to a Tytera or Retevis radio, the _radio\_tool_ program is used. To use it from your non-root Linux user, you need to provide the correct permissions for user-space USB access:
+To flash either a locally compiled firmware or a pre-built image to a Tytera or Retevis radio, the _radio\_tool_ program is used. To use it from your non-root Linux user, you need to provide the correct permissions for user-space USB access:
 
 ```
 sudo cp 99-openrtx.rules /etc/udev/rules.d

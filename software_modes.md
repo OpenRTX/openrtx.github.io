@@ -3,8 +3,8 @@
 Ham radios supporting digital modes like DMR or D-Star usually perform the decoding and encoding of
 these modes by using a digital signal processing (or DSP) chip.
 
-The DSP chip found in DMR radios from Tytera, Retevis, Baofeng or Radioddity is the Hongrui HR_C6000
-is specialized for DMR digital mode and cannot be repurposed for other modes.
+The DSP chip found in DMR radios from Tytera, Retevis, Baofeng or Radioddity is the Hongrui HR_C6000,
+it is specialized for DMR digital mode and cannot be repurposed for other modes.
 
 OpenRTX opens the possibility of decoding digital radio modes which the radio does not support with
 the factory firmware. \

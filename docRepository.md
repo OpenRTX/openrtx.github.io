@@ -5,8 +5,8 @@ This page collects all the available documentation about both radios and their i
 ## Datasheets
 
 * [HR_C5000 datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/HR_C5000.pdf). Chinese language!
-* [HR_C6000 "base" datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/HR_C6000_minimal.pdf). English translation from chinese language, credits: the OpenGD77 development team.
-* [HR_C56000 "extended" datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/HR_C6000_translated.pdf). English translation from chinese language, credits: the OpenGD77 development team.
+* [HR_C6000 "base" datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/HR_C6000_minimal.pdf). English translation from Chinese language, credits: the OpenGD77 development team.
+* [HR_C56000 "extended" datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/HR_C6000_translated.pdf). English translation from Chinese language, credits: the OpenGD77 development team.
 
 
 * [RDA1846 datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/RDA1846_datasheet.pdf)
