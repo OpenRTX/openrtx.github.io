@@ -31,6 +31,10 @@ OpenRTX software architecture documentation
 
 * **Module17** platform, compilation target `hd1`
    * Module17 board
+ 
+* **Talkpod** family
+   * **A36plus Platform**
+        * Talkpod A36plus MAX (8W), compilation target `a36plus`
 
 ## Threading Model
 OpenRTX employs a **multi-threaded** architecture. \
