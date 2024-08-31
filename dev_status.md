@@ -56,7 +56,6 @@ OpenRTX is currently in active development. There will be bugs as we prioritize 
 | Connect Systems CS7000-M17     |  ✅   |  ✅    |   ✅    |   ✅   |   ❌     |   ❌     |   ❌   |   ❌    |   ❌     |
 | Connect Systems CS7000-M17 Plus|  ✅   |  ✅    |   ✅    |   ✅   |   ❌     |   ❌     |   ❌   |   ❌    |   ❌     |
 
-### Notes:
 * _Tytera MD-9600 support is not yet complete, and as a result pre-made builds are not available._
 * _Similarly, Radtel RT-890 support is not yet complete either, and same as above, pre-made builds are not available._
 * _Semi-regular pre-made builds for the Talkpod A36plus can be found [here.](https://github.com/VR2TE/Talkpod-A36plus-Firmware/tree/main/A36plus%20MAX/OpenRTX)_
