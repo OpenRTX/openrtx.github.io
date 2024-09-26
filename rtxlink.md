@@ -121,11 +121,25 @@ The tables below summarizes the CAT resource identifiers with their respective s
 | info          | 0x494E 'IN' | String (16)   | R           | Return radio identifier |
 | rx_frequency  | 0x5246 'RF' | i32 (4)       | RW          | Get or set the current VFO receive frequency |
 | tx_frequency  | 0x5446 'TF' | i32 (4)       | RW          | Get or set the current VFO transmit frequency |
+| op_mode       | 0x4F4D 'OM' | i8 (1)        | RW          | Get or set the current operating mode |
+| m17_callsign  | 0x4D43 'MC' | String (10)   | RW          | Get or set the M17 callsign |
+| m17_dest      | 0x4D44 'MD' | String (10)   | RW          | Get or set the M17 destination address |
 | baud_rate     | 0x4252 'BR' | i32 (4)       | W           | Set the baud rate of the rtxlink interface |
 | power_cycle   | 0x5043 'PC' | None          | W           | Reboot radio              |
 | file_transfer | 0x4654 'FT' | None          | W           | Enable File Transfer Mode |
 
 <!-- | free_space    | 0x4653 'FS' | i32 (4)       | R           | Return available space in Bytes | -->
+
+#### Operating Modes
+
+| Value | Operating Mode        |
+|:------|:----------------------|
+| 0x00  | No mode set           |
+| 0x01  | FM 25.0 kHz bandwidth |
+| 0x02  | FM 20.0 kHz bandwidth |
+| 0x03  | FM 12.5 kHz bandwidth |
+| 0x04  | DMR                   |
+| 0x05  | M17                   |
 
 ### File Management Protocol (FMP)
 
@@ -157,7 +171,7 @@ of only two bytes.
 
 |  0  |    1     |       2        |  3  |       4        |    5    |  6  |    7    |
 |:---:|:--------:|:--------------:|:---:|:--------------:|:-------:|:---:|:-------:|
-| CMD | N Params | Param 1 length | ... | Param N length | Param 1 | ... | Param N | 
+| CMD | N Params | Param 1 length | ... | Param N length | Param 1 | ... | Param N |
 
 #### Response Format
 
