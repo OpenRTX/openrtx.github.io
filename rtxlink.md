@@ -122,7 +122,6 @@ The tables below summarizes the CAT resource identifiers with their respective s
 | rx_frequency  | 0x5246 'RF' | i32 (4)       | RW          | Get or set the current VFO receive frequency |
 | tx_frequency  | 0x5446 'TF' | i32 (4)       | RW          | Get or set the current VFO transmit frequency |
 | op_mode       | 0x4F4D 'OM' | i8 (1)        | RW          | Get or set the current operating mode |
-| bandwidth     | 0x4257 'BW' | i8 (1)        | RW          | Get or set the current bandwidth |
 | m17_callsign  | 0x4D43 'MC' | String (10)   | RW          | Get or set the M17 callsign |
 | m17_dest      | 0x4D44 'MD' | String (10)   | RW          | Get or set the M17 destination address |
 | baud_rate     | 0x4252 'BR' | i32 (4)       | W           | Set the baud rate of the rtxlink interface |
@@ -133,20 +132,14 @@ The tables below summarizes the CAT resource identifiers with their respective s
 
 #### Operating Modes
 
-| Value | Operating Mode |
-|:------|:---------------|
-| 0x00  | No mode set    |
-| 0x01  | FM             |
-| 0x02  | DMR            |
-| 0x03  | M17            |
-
-#### Bandwidth Codes
-
-| Value | Bandwidth |
-|:------|:----------|
-| 0x00  | 12.5 kHz  |
-| 0x01  | 20.0 kHz  |
-| 0x02  | 25.0 kHz  |
+| Value | Operating Mode        |
+|:------|:----------------------|
+| 0x00  | No mode set           |
+| 0x01  | FM 25.0 kHz bandwidth |
+| 0x02  | FM 20.0 kHz bandwidth |
+| 0x03  | FM 12.5 kHz bandwidth |
+| 0x04  | DMR                   |
+| 0x05  | M17                   |
 
 ### File Management Protocol (FMP)
 
