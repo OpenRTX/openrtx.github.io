@@ -122,6 +122,7 @@ The tables below summarizes the CAT resource identifiers with their respective s
 | rx_frequency  | 0x5246 'RF' | i32 (4)       | RW          | Get or set the current VFO receive frequency |
 | tx_frequency  | 0x5446 'TF' | i32 (4)       | RW          | Get or set the current VFO transmit frequency |
 | op_mode       | 0x4F4D 'OM' | i8 (1)        | RW          | Get or set the current operating mode |
+| ptt           | 0x5054 'PT' | i8 (1)        | RW          | Get or set the PTT status |
 | m17_callsign  | 0x4D43 'MC' | String (10)   | RW          | Get or set the M17 callsign |
 | m17_dest      | 0x4D44 'MD' | String (10)   | RW          | Get or set the M17 destination address |
 | baud_rate     | 0x4252 'BR' | i32 (4)       | W           | Set the baud rate of the rtxlink interface |
