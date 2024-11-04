@@ -125,6 +125,7 @@ The tables below summarizes the CAT resource identifiers with their respective s
 | ptt           | 0x5054 'PT' | i8 (1)        | RW          | Get or set the PTT status |
 | m17_callsign  | 0x4D43 'MC' | String (10)   | RW          | Get or set the M17 callsign |
 | m17_dest      | 0x4D44 'MD' | String (10)   | RW          | Get or set the M17 destination address |
+| m17_can	| 0x4341 'CA' | i8 (1)        | RW          | Get or set the M17 channel access number |
 | baud_rate     | 0x4252 'BR' | i32 (4)       | W           | Set the baud rate of the rtxlink interface |
 | power_cycle   | 0x5043 'PC' | None          | W           | Reboot radio              |
 | file_transfer | 0x4654 'FT' | None          | W           | Enable File Transfer Mode |
