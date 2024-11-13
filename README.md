@@ -16,6 +16,7 @@ Currently, it targets the following devices:
 * Radioddity GD-77
 * Baofeng DM-1801
 * M17 project's Module17
+* Talkpod A36Plus MAX
 
 
 The development status of the project is summarised in [this page](dev_status.md), while all the source code is available on the OpenRTX's [GitHub repository](https://github.com/OpenRTX/OpenRTX).
