@@ -22,6 +22,7 @@ To flash the OpenRTX firmware on your radio, follow these steps:
 * **Put the radio in firmware upgrade mode**. To do this you have to turn off the radio and turn it back on while pressing a combination of keys that depends on your specific model, the firmware upgrade mode will be indicated by the screen being off and a blinking or steady LED:
     * For MD3x0 radios you have to press the PTT button and the side button above it.
     * For GDx radios you have to press the two side buttons below it.
+    * For MD9600 you have to press the red button and the P1 button on the radio.
 
 
 * **Flash OpenRTX**
