@@ -6,6 +6,7 @@
       - [Additional requirements only for Linux emulator](#additional-requirements-only-for-linux-emulator)
       - [Tools required for firmware images](#tools-required-for-firmware-images)
   - [Windows toolchain setup](#windows-toolchain-setup)
+  - [MacOS toolchain setup](#macos-toolchain-setup)
   - [Getting the source code](#getting-the-source-code)
   - [Compiling for radios](#compiling-for-radios)
   - [Compiling for Linux](#compiling-for-linux)
@@ -176,6 +177,50 @@ To verify that radio_tool is in PATH, this should not return an error
 
 ```
  get-command radio_tool
+```
+
+---
+
+## MacOS toolchain setup
+
+The MacOS toolchain setup is similar to that for Linux. Currently, neither the Linux emulator or the Zephyr-based tagets can be built on MacOS. The basic tools required to compile OpenRTX from the sources are _git_ and the _meson_ build system. To build the firmware for one of the radio targets, you'll require also the GCC toolchain for the miosix kernel. In this latter case, also _cmake_ and _libusb_ are required for compiling the external tools for flashing the radio.
+
+#### Installing the basic tools
+
+To install the basic tools required to compile both the Linux emulator and the firmware images, you can use [Homebrew](https://brew.sh/). Most developers will already have it installed, otherwise follow the instructions at the link.
+
+You will already have Git and the Xcode tools from the Homebrew installation process.
+
+```
+brew install pkg-config meson
+```
+
+#### Tools required for firmware images
+
+To build the firmware images ready to be flashed on the radios, the miosix kernel GCC toolchain is required, as well as some additional tools used to encrypt and flash the binary files obtained at the end of the compilation process.
+
+There is no miosix package in Homebrew, so to install the toolchain, download and run the MacOS installer for your Mac's architecture (Intel or ARM) from https://miosix.org/wiki/index.php?title=Miosix_Toolchain#Latest_Stable_version_of_the_Miosix_Toolchain.
+
+The tool used to encrypt and flash the binary executables is called [radio_tool](https://github.com/v0l/radio_tool). The compilation script will automatically detect if _radio\_tool_ is already installed in the system and, if this is not the case, it will download the sources and compile automatically a local copy of the program. For the compilation process to succeed _cmake_ and _libusb_ must be present in the system. 
+
+```
+brew install cmake libusb
+```
+
+Finally, if you are targeting the *Module 17* or *CS7000* platform, _dfu-util_ is required to flash the binary image on the microcontroller's flash memory. 
+
+```
+brew install dfu-util
+```
+
+Once these prerequisites are complete, you should be able to [compile](#compiling-for-radios) and [flash](#flashing-the-firmware-to-a-radio) radio firmware following the instructions below.
+
+#### MacOS Notes
+
+The gd77 and dm1801 targets use `bin2sgl`. In order to run it on Apple Silicon Macs, you may need to install Rosetta 2 with the following command:
+
+```
+softwareupdate --install-rosetta --agree-to-license
 ```
 
 ---
