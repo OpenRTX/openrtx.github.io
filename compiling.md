@@ -183,7 +183,7 @@ To verify that radio_tool is in PATH, this should not return an error
 
 ## MacOS toolchain setup
 
-The MacOS toolchain setup is similar to that for Linux. Currently, neither the Linux emulator or the Zephyr-based tagets can be built on MacOS. The basic tools required to compile OpenRTX from the sources are _git_ and the _meson_ build system. To build the firmware for one of the radio targets, you'll require also the GCC toolchain for the miosix kernel. In this latter case, also _cmake_ and _libusb_ are required for compiling the external tools for flashing the radio.
+The MacOS toolchain setup is similar to that for Linux. Currently, the Zephyr-based tagets can't be built on MacOS. The basic tools required to compile OpenRTX from the sources are _git_ and the _meson_ build system. To build the firmware for one of the radio targets, you'll require also the GCC toolchain for the miosix kernel. In this latter case, also _cmake_ and _libusb_ are required for compiling the external tools for flashing the radio.
 
 #### Installing the basic tools
 
@@ -193,6 +193,17 @@ You will already have Git and the Xcode tools from the Homebrew installation pro
 
 ```
 brew install pkg-config meson
+```
+
+#### Additional requirements only for the Emulator
+
+When compiling the Linux emulator version, the following additional packages are required:
+* SDL2 development package
+* Codec2 development package
+* `readline` package
+
+```
+brew install sdl2 codec2 readline
 ```
 
 #### Tools required for firmware images
@@ -273,13 +284,20 @@ Where N is the number of cores that you want to allocate to the build process.
 
 ---
 
-## Compiling for Linux
+## Compiling the Emulator for Linux
 
 The software can be compiled with:
 
 ```
 meson setup build_linux
 meson compile -C build_linux openrtx_linux
+```
+
+## Compiling the Emulator for MacOS
+
+```
+MACOSX_DEPLOYMENT_TARGET=11 meson setup build_darwin
+MACOSX_DEPLOYMENT_TARGET=11 meson compile -C build_darwin openrtx_linux
 ```
 
 **NOTE: if you are using a version of Meson older than v0.55.0, the above command will fail. To compile, use the following command:**
@@ -359,3 +377,7 @@ Once you have flashed MCUBOOT on your radio and obtained an OpenRTX image, you c
 ## Running on Linux
 
 To run OpenRTX on Linux you simply have to execute the binary `build_linux/openrtx_linux`, which was compiled with the instructions above.
+
+## Running on MacOS
+
+To run OpenRTX on MacOS you simply have to execute the binary `build_darwin/openrtx_linux`, which was compiled with the instructions above.
