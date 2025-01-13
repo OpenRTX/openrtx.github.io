@@ -7,7 +7,7 @@ Friday, January 31 just before FOSDEM.
 
 |Name	|Callsign   |
 |:-----|:----------|
-|Silvano "Redman" Seva    | IU2KWO
-|Marc "The Dude" Balmer | HB9SSB
-|Daniel "Harzi" Harzenmoser | HB9GVD
-|Marco | DM4ARCO
+|Silvano "Redman" Seva    | IU2KWO |
+|Marc "The Dude" Balmer | HB9SSB |
+|Daniel "Harzi" Harzenmoser | HB9GVD | 
+|Marco | DM4ARCO |
