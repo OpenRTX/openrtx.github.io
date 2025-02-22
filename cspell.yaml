@@ -120,6 +120,11 @@ words:
   - otadata
   - ffat
   - Radtel
+  - KEYOUT
+  - KEYIN
+  - NRST
+  - BACKLED
+  - APCOUT
 patterns:
   - name: markdown_code_block
     pattern: /^\s*```[\s\S]*?^\s*```/gm
