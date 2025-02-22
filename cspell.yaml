@@ -119,6 +119,7 @@ words:
   - tinyuf
   - otadata
   - ffat
+  - Radtel
 patterns:
   - name: markdown_code_block
     pattern: /^\s*```[\s\S]*?^\s*```/gm
