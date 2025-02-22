@@ -25,3 +25,4 @@ This table provides a glance on the underlying hardware of each of the supported
 * [Ailunce HD1](hardware/hd1.md)
 * [Anytone UV878](hardware/uv878.md)
 * [LILYGO T-TWR Plus](hardware/ttwrplus.md)
+* [Radtel RT-4D](hardware/rt4d.md)
