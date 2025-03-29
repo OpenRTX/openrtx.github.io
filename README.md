@@ -17,6 +17,7 @@ Currently, it targets the following devices:
 * Baofeng DM-1801
 * M17 project's Module17
 * Talkpod A36Plus MAX
+* Connect Systems CS7000-M17 and CS7000-M17 Plus
 
 
 The development status of the project is summarised in [this page](dev_status.md), while all the source code is available on the OpenRTX's [GitHub repository](https://github.com/OpenRTX/OpenRTX).
@@ -39,5 +40,6 @@ Also thanks for donating hardware to the project to:
 * M17 Project
 * laurivosandi
 * Ronald PD1ACF
+* smeegle5000
 
 And, last but not least, thanks to everyone who donated via [LiberaPay](https://liberapay.com/OpenRTX/donate).
