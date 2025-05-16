@@ -76,7 +76,7 @@ signal voltage range from 0-5V to 0-3.3V**
 **And here is a diagram showing how it appears on the radio:** \
 ![MD-UV380 Mic mod](../_media/uv380_mic_mod.jpg)
 
-If you're on a UV390 Plus, your board layout may look a little different. The adjustments have been marked here:
+**If you're on a UV390 Plus, your board layout may look a little different. The adjustments have been marked here:** \
 ![MD-UV390Plus Mic mod](../_media/uv390plus_mic_mod.png)
 
 Steps:
