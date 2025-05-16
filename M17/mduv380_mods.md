@@ -1,4 +1,4 @@
-## M17 on the MD-UV380
+## M17 on the MD-UV380, MD-UV390, and MD-UV390Plus
 The Tytera MD-UV380 uses a HR_C6000 DMR baseband, that cannot be repurposed to run M17.
 M17 can be encoded and decoded by using the radio MCU, to do so we need to ensure to have the
 necessary audio paths between MCU, RF part, speaker and microphone.
@@ -75,6 +75,9 @@ signal voltage range from 0-5V to 0-3.3V**
 
 **And here is a diagram showing how it appears on the radio:** \
 ![MD-UV380 Mic mod](../_media/uv380_mic_mod.jpg)
+
+**If you're on a UV390 Plus, your board layout may look a little different. The adjustments have been marked here:** \
+![MD-UV390Plus Mic mod](../_media/uv390plus_mic_mod.jpg)
 
 Steps:
 - Remove the capacitor shown in the picture, you can use the hot air gun from a rework station or \
