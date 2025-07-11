@@ -207,10 +207,24 @@ The package names depend on the package manager you use. On Debian/Ubuntu and de
 sudo apt install libsdl2-dev libcodec2-dev libreadline-dev
 ```
 
-while on MacOs is:
+while on MacOS it is:
 
 ```
 brew install sdl2 codec2 readline
+```
+
+On MacOS you may also need to define some or all of the following environment variables (assuming Homebrew is configured to install into `/opt/homebrew`):
+
+```
+CFLAGS=-I/opt/homebrew/include
+CPATH=/opt/homebrew/include
+CPPFLAGS=-I/opt/homebrew/include
+DYLD_FALLBACK_LIBRARY_PATH=/usr/local/lib:/opt/homebrew/lib:/usr/lib
+HOMEBREW_CELLAR=/opt/homebrew/Cellar
+HOMEBREW_PREFIX=/opt/homebrew
+HOMEBREW_REPOSITORY=/opt/homebrew
+LDFLAGS=-L/opt/homebrew/lib
+LIBRARY_PATH=/opt/homebrew/lib
 ```
 
 Once the required packages are installed, on Linux the emulator program can be compiled using the following command:
