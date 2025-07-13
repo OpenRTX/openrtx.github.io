@@ -213,20 +213,6 @@ while on MacOS it is:
 brew install sdl2 codec2 readline
 ```
 
-On MacOS you may also need to define some or all of the following environment variables (assuming Homebrew is configured to install into `/opt/homebrew`):
-
-```
-CFLAGS=-I/opt/homebrew/include
-CPATH=/opt/homebrew/include
-CPPFLAGS=-I/opt/homebrew/include
-DYLD_FALLBACK_LIBRARY_PATH=/usr/local/lib:/opt/homebrew/lib:/usr/lib
-HOMEBREW_CELLAR=/opt/homebrew/Cellar
-HOMEBREW_PREFIX=/opt/homebrew
-HOMEBREW_REPOSITORY=/opt/homebrew
-LDFLAGS=-L/opt/homebrew/lib
-LIBRARY_PATH=/opt/homebrew/lib
-```
-
 Once the required packages are installed, on Linux the emulator program can be compiled using the following command:
 
 ```
@@ -239,6 +225,20 @@ On MacOS, the build command is similar to the one for Linux, but with an additio
 ```
 MACOSX_DEPLOYMENT_TARGET=11 meson setup build_darwin
 MACOSX_DEPLOYMENT_TARGET=11 meson compile -C build_darwin openrtx_linux
+```
+
+On MacOS you may also need to define some or all of the following environment variables (assuming Homebrew is configured to install into `/opt/homebrew`):
+
+```
+CFLAGS=-I/opt/homebrew/include
+CPATH=/opt/homebrew/include
+CPPFLAGS=-I/opt/homebrew/include
+DYLD_FALLBACK_LIBRARY_PATH=/usr/local/lib:/opt/homebrew/lib:/usr/lib
+HOMEBREW_CELLAR=/opt/homebrew/Cellar
+HOMEBREW_PREFIX=/opt/homebrew
+HOMEBREW_REPOSITORY=/opt/homebrew
+LDFLAGS=-L/opt/homebrew/lib
+LIBRARY_PATH=/opt/homebrew/lib
 ```
 
 We successfully compiled OpenRTX also on a Pine64 PinePhone running PostmarketOS (based on Alpine Linux). To install the build dependencies on PostmarketOS run the following command:
