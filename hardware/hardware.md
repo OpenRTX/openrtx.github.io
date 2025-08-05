@@ -16,6 +16,7 @@ This table provides a glance on the underlying hardware of each of the supported
 | T-TWR Plus     | ESP32-S3    |   SA868S     |  AT1846S |       SH1106       |              optional microSD               | L76K       |
 | CS7000-M17     | STM32F405VG |   HR-C6000   | SKY72310 |       HX8302A      |              25Q128FV SPI flash             | MC-1010-2RE|
 | CS7000-M17 Plus| STM32H743VI |   HR-C6000   | SKY72310 |       HX8302A      |              25Q128FV SPI flash             | MC-1010-2RE|
+| C62            | CSK6011B    |   -          |  BK4819  |       TBD          |              TBD                            | -          |
 
 ### Device documentation
 
@@ -28,3 +29,5 @@ This table provides a glance on the underlying hardware of each of the supported
 * [Anytone UV878](hardware/uv878.md)
 * [LILYGO T-TWR Plus](hardware/ttwrplus.md)
 * [Radtel RT-4D](hardware/rt4d.md)
+* [Connect Systems CS7000-M17 and CS7000-M17 Plus](hardware/cs7000.md)
+* [Retevis C62](hardware/c62.md)
