@@ -125,6 +125,10 @@ words:
   - NRST
   - BACKLED
   - APCOUT
+  - armv
+  - cskburn
+  - Superhetrodyne
+  - Varactor
 patterns:
   - name: markdown_code_block
     pattern: /^\s*```[\s\S]*?^\s*```/gm
