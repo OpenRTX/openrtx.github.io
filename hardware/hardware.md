@@ -16,7 +16,7 @@ This table provides a glance on the underlying hardware of each of the supported
 | T-TWR Plus     | ESP32-S3    |   SA868S     |  AT1846S |       SH1106       |              optional microSD               | L76K       |
 | CS7000-M17     | STM32F405VG |   HR-C6000   | SKY72310 |       HX8302A      |              25Q128FV SPI flash             | MC-1010-2RE|
 | CS7000-M17 Plus| STM32H743VI |   HR-C6000   | SKY72310 |       HX8302A      |              25Q128FV SPI flash             | MC-1010-2RE|
-| C62            | CSK6011B    |   -          |  BK4819  |       TBD          |              TBD                            | -          |
+| C62            | CSK6011B    |   -          |  BK4819  |       ST7735R      |              PY25Q40HB SPI flash            | -          |
 
 ### Device documentation
 
