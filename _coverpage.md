@@ -2,7 +2,7 @@
 
 ![logo](_media/openrtx_logo.svg)
 
-# OpenRTX <small>0.3</small>
+# OpenRTX <small>0.4</small>
 
 > Free and Open Source Firmware for Digital Ham Radios
 
