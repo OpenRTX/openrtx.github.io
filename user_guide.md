@@ -96,3 +96,11 @@ To put the radio in bootloader mode look at the instructions for firmware flashi
 * Power/Volume
 * Channel/Frequency knob
     * on Tytera MD380/UV380 (Retevis RT3/RT3s): works as up/down arrow keys. Rotation clockwise acts as one press of the up key per step, counterclockwise as one press of the down key per step.
+
+#### Front
+
+* FM Mode
+**#** is used to send a 1750 Hz repeater tone ("tone burst") while pressing PTT.
+
+* M17 Mode
+**#** is used to change the destination call. Tap **#**, then use the keypad to enter the call, with ultimately the **Green Book** or **OK** button being used to confirm entry. Note that when entering a callsign, **\*** may be used to add a "/" or "-" char, and **0** may be used to add a space.
