@@ -128,3 +128,27 @@ As an example, take the TIM3 interrupt handler: its function name is ```TIM3_IRQ
 
 #### GD-77 and DM-1801
 * The EEPROM memory module and the AT1846S chip share the same I2C bus. The I2C0 driver module provides an API to get exclusive access to the bus by locking a dedicated mutex, however application code has to explicitly call the ```i2c0_lockDevice()```/ ```i2c0_lockDeviceBlocking()``` and ```i2c0_releaseDevice()``` functions, respectively before and after committing a transaction on the I2C bus.
+
+## Debugging with COM port
+
+Devices using the `STM32F4` series MCU (e.g. TYT MD UV380) are able to print to a com terminal for debugging. In order to include this in your build, update `meson.build` to define a `ENABLE_STDIO` constant. For example, see the patch below:
+
+```meson
+--- a/meson.build
++++ b/meson.build
+@@ -9,7 +9,7 @@ project('OpenRTX', ['c', 'cpp'],
+ ## Optional defines, common to all souces (e.g. to enable debugging)
+ ##
+ 
+-openrtx_def = {}
++openrtx_def = {'ENABLE_STDIO': ''}
+ 
+ ##
+ ## UI font configuration, only one uncommented at a time
+```
+
+Once this is in place, add `printf()` statements to the source code in order to send messages to the debug virtual COM port.
+
+From the host machine, when the device is running you should see a COM port created. STM says from Windows 10 and on, the built-in drivers will work; mainstream linux distributions also shouldn't have any special requirements. For example, for opening the debug port from Linux, use `screen /dev/ttyACM0 115200`.
+
+Note that printf uses a lot of stack, so debugging may benefit from increasing the stack size for the relevant thread in `openrtx/include/core/threads.h`.
