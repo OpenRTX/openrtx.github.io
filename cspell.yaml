@@ -129,6 +129,14 @@ words:
   - cskburn
   - Superhetrodyne
   - Varactor
+  - behavior
+  - Tarandeep
+  - Romana
+  - Imostlylurk
+  - Buchegger
+  - Grzegorz
+  - Kaczmarek
+  - CICD
 patterns:
   - name: markdown_code_block
     pattern: /^\s*```[\s\S]*?^\s*```/gm
