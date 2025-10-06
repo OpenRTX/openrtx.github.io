@@ -1,5 +1,6 @@
 * [OpenRTX](/)
 * [Get in touch](get_in_touch.md)
+* [Posts](posts/index.md)
 * [Development status](dev_status.md)
 * [Users' guide](user_guide.md)
 * [Developers' guide](developers_guide.md)
