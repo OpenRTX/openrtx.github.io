@@ -329,6 +329,7 @@ mkdir openrtx-build && cd $_
 west init -m https://github.com/OpenRTX/OpenRTX
 west update
 source zephyr/zephyr-env.sh # You need to execute this for every new shell
+cd OpenRTX # This is from where we will build the firmware
 ```
 
 To compile the firmware, run the following command from the OpenRTX root folder:
