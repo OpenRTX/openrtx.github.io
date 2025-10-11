@@ -49,8 +49,8 @@ connect it to your pc, and install [tinyuf2](https://github.com/adafruit/tinyuf2
 
 ```
 mkdir tinyuf2; cd tinyuf2
-wget https://github.com/adafruit/tinyuf2/releases/download/0.16.0/tinyuf2-lilygo_ttgo_t_twr_plus-0.16.0.zip
-unzip tinyuf2-lilygo_ttgo_t_twr_plus-0.16.0.zip
+wget https://github.com/adafruit/tinyuf2/releases/download/0.35.0/tinyuf2-lilygo_ttgo_t_twr_plus-0.35.0.zip
+unzip tinyuf2-lilygo_ttgo_t_twr_plus-0.35.0.zip
 esptool.py --chip auto write_flash 0x0 combined.bin
 ```
 
