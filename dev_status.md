@@ -4,9 +4,8 @@ OpenRTX is currently in active development. There will be bugs as we prioritize 
 
 ## Upcoming Milestones
 
-- Firmware release v0.4.0 with support for CS7000-M17 (Plus) and DM-1701
+- Firmware release v0.5.0 with persistence of settings and radio state on all the devices
 - Backup and restore of external flash memory
-- Persistence of settings and radio state where missing
 - Codeplug support for FM and M17 operating modes
 
 ### Future
