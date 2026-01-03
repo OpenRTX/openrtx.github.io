@@ -110,6 +110,3 @@ The filter can be removed by **desoldering the C556 capacitor from the RF side P
 ### Results
 
 You can put some drops of hot glue to ensure that the resistor and the Kynar wire stay in place.
-
-Now your radio is ready to modulate M17 and other digital protocols, stay tuned on our [community chat](get_in_touch.md) and [Twitter](https://twitter.com/OpenRtx)
-to know when firmware support will be available!
