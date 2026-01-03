@@ -10,7 +10,6 @@ Top-down designed with modularity, flexibility and performance in mind.
 
 [GitHub](https://github.com/OpenRTX/OpenRTX/)
 <a rel="me" href="https://mastodon.radio/@openrtx">Mastodon</a>
-[X](https://x.com/OpenRtx)
 [Matrix](https://matrix.to/#/#openrtx:matrix.org)
 [Discord](https://discord.com/invite/jZ9t8XTbmd)
 [Get Started](#the-openrtx-project)
