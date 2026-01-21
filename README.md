@@ -34,7 +34,7 @@ All this was made possible by the huge reverse engineering effort of Travis Good
 
 Thanks to Roger Clark VK3KYY and all the contributors of the [OpenGD77](http://opengd77.com/) project which both inspired this project and, as a precursor, provided a working code example for the GD77 radio family.
 
-A warm thank goes also to SP5WWP and the [M17](https://m17project.org) community for support given during the long process of implementing the M17 protocol in our firmware.
+A warm thank goes also to Wojciech Kaczmarski SP5WWP and the [M17](https://m17project.org) community for collaboration and support given during the long process of implementing the M17 protocol in our firmware.
 
 Also thanks for donating hardware to the project to:
 * M17 Project
