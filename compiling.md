@@ -165,29 +165,29 @@ The sources can also be downloaded as a zip file from the main page of the repos
 To build the firmware binary issue the following commands:
 
 ```
-meson setup --cross-file CROSS_FILE build_arm
-meson compile -C build_arm openrtx_TARGET
+meson setup --cross-file CROSS_FILE BUILD_DIR
+meson compile -C BUILD_DIR openrtx_TARGET
 ```
 
-Where `CROSS_FILE` and `TARGET` have to be properly selected basing on the radio model:
+Where `CROSS_FILE`, `BUILD_DIR` and `TARGET` have to be properly selected basing on the radio model:
 
-| Radio model                                  | `CROSS_FILE`  | `TARGET`  |
-| ---------------------------------------------|:-------------:|:--------: |
-| TYT MD-380, MD-390, Retevis RT3, Retevis RT8 | cross_arm.txt | `md3x0`   |
-| TYT MD-UV380, MD-UV390, Retevis RT3s         | cross_arm.txt | `mduv3x0` |
-| TYT MD-9600                                  | cross_arm.txt | `md9600`  |
-| Radioddity GD-77                             | cross_arm.txt | `gd77`    |
-| Baofeng DM1801                               | cross_arm.txt | `dm1801`  |
-| Module17                                     | cross_arm.txt | `mod17`   |
-| Connect Systems CS7000-M17                   | cross_arm.txt | `cs7000`  |
-| Connect Systems CS7000-M17 Plus              | cross_cm7.txt | `cs7000p` |
+| Radio model                                  | `CROSS_FILE`  | `BUILD_DIR` |`TARGET`   |
+| ---------------------------------------------|:-------------:|:-----------:|:---------:|
+| TYT MD-380, MD-390, Retevis RT3, Retevis RT8 | cross_cm4.txt | build_cm4   | `md3x0`   |
+| TYT MD-UV380, MD-UV390, Retevis RT3s         | cross_cm4.txt | build_cm4   | `mduv3x0` |
+| TYT MD-9600                                  | cross_cm4.txt | build_cm4   | `md9600`  |
+| Radioddity GD-77                             | cross_cm4.txt | build_cm4   | `gd77`    |
+| Baofeng DM1801                               | cross_cm4.txt | build_cm4   | `dm1801`  |
+| Module17                                     | cross_cm4.txt | build_cm4   | `mod17`   |
+| Connect Systems CS7000-M17                   | cross_cm4.txt | build_cm4   | `cs7000`  |
+| Connect Systems CS7000-M17 Plus              | cross_cm7.txt | build_cm7   | `cs7000p` |
 
 
 **NOTE: if you are using a version of Meson older than v0.55.0, the above command will fail. To compile, use the following command:**
 
 ```
-meson setup --cross-file cross_arm.txt build_arm
-ninja -C build_arm openrtx_MODEL -jN
+meson setup --cross-file CROSS_FILE BUILD_DIR
+ninja -C BUILD_DIR openrtx_MODEL -jN
 ```
 
 Where N is the number of cores that you want to allocate to the build process.
@@ -265,7 +265,7 @@ Then follow the same compilation procedure listed above for a plain build.
 To flash the newly compiled binary image connect the radio to the computer using the USB programming cable, put it in firmware upgrade mode and issue the following command:
 
 ```
-meson compile -C build_arm openrtx_MODEL_flash
+meson compile -C build_cm4 openrtx_MODEL_flash
 ```
 
 where `MODEL` is the same radio model used to compile the firmware, as listed in the table at point 2.
@@ -284,7 +284,7 @@ Substituting `new_firmware.bin` with the name of the binary image you want to fl
 
 Currently, the Radioddity GD77 and Baofeng DM1801 devices are not supported by `radio_tool`. However, the required tools used to flash the firmware are already included in the main OpenRTX repository. To flash the firmware, you just need to connect the radio to the computer, put it in firmware update mode and issue the following command:
 ```
-meson compile -C build_arm openrtx_MODEL_flash
+meson compile -C build_cm4 openrtx_MODEL_flash
 ```
 
 where `MODEL` is the same radio model used to compile the firmware, as listed in the table at point 2.
@@ -294,7 +294,7 @@ where `MODEL` is the same radio model used to compile the firmware, as listed in
 The *Module17* and the *CS7000-M17* use the `dfu-util` tool to manage the firmware updates. To write a new firmware, put the target in firmware update mode, connect it to the computer and issue the following command:
 
 ```
-meson compile -C build_arm openrtx_MODEL_flash
+meson compile -C build_cm4 openrtx_MODEL_flash
 ```
 
 where `MODEL` is the same radio model used to compile the firmware, as listed in the table at point 2.
@@ -303,10 +303,10 @@ To write a new firmware on *CS7000-M17 Plus*, you have to use the Connect System
 by issuing the command:
 
 ```
-meson compile -C build_arm openrtx_cs7000p_wrap
+meson compile -C build_cm7 openrtx_cs7000p_wrap
 ```
 
-the resulting file will be located in the `build_arm` folder inside the main OpenRTX folder and will be named `openrtx_cs7000p_wrap.bin`
+the resulting file will be located in the `build_cm7` folder inside the main OpenRTX folder and will be named `openrtx_cs7000p_wrap.bin`
 
 ---
 
