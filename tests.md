@@ -15,24 +15,24 @@ rm -rf build_*
 ```
 * Setup the new build folder for flashing on your radio
 ```
-meson setup --cross-file cross_arm.txt build_arm
+meson setup --cross-file cross_cm4.txt build_cm4
 ```
 * Specify the test you want to compile, omitting the `.c` extension.
 For example to execute the `OpenRTX/tests/platform/mytestname.c` type:
 ```
-meson configure -Dtest=mytestname build_arm
+meson configure -Dtest=mytestname build_cm4
 ```
 * Compile and flash the test you selected.
 Note that you have to choose the target corresponding to your radio model as explained in the [compilation instructions](https://openrtx.org/#/compiling)
 ```
-meson compile -C build_arm openrtx_mytarget_flash
+meson compile -C build_cm4 openrtx_mytarget_flash
 ```
 * Done!
 
 ## Switch from test to OpenRTX
 To go back to compiling standard OpenRTX instead of a platform test you can type this command
 ```
-meson configure -Dtest= build_arm
+meson configure -Dtest= build_cm4
 ```
 Or simply delete your build folder with
 ```
