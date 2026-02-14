@@ -1,7 +1,7 @@
 
 # Office Hours for OpenRTX meeting, 13 February 2026
 
-Held on 2026-02-13T17:00Z in [https://meet.jit.si/openrtx](https://meet.jit.si/openrtx), facilitated by Morgan and Silvano.  
+Held on 2026-02-13T17:00Z in [https://meet.jit.si/OpenRTX](https://meet.jit.si/OpenRTX), facilitated by Morgan and Silvano.  
 
 **Participants:**
  
@@ -10,11 +10,11 @@ Held on 2026-02-13T17:00Z in [https://meet.jit.si/openrtx](https://meet.jit.si/o
  * Marc HB9SSB
  * Marco DM4RCO
  * Morgan ON4MOD
- * Niccolo IU2KIN
+ * Niccolò IU2KIN
  * Rick KD0OSS
  * Ryan K0RET
  * Ryan N2BP
- * Silvano IUKWO
+ * Silvano IU2KWO
 
 **Discussion topics:**
 
@@ -45,7 +45,7 @@ Held on 2026-02-13T17:00Z in [https://meet.jit.si/openrtx](https://meet.jit.si/o
         * NVM, flash driver; Silvano/Morgan as collaborators, landing straight to master
         * Settings and VFO state persistence; Silvano plans to restructure settings overall, shift vfo state outside of chunks
             * Open question: in memory device or external, this shapes the approach that we need to take?
-            * Lots of overlap here between VFO datastructures and codeplug datastructures 
+            * Lots of overlap here between VFO data structures and codeplug data structures 
             * Reminder of OpenRTX principle: we should be able to rollback to manufacturer's firmware
             * Decision: we need to refactor the backup tool for it to work well and we don't have time for this, so we are avoiding overwriting used sectors for the time being.
                 * Silvano determining the proper place to store on DM1701 and DM1801 given this constraint
@@ -57,33 +57,33 @@ Held on 2026-02-13T17:00Z in [https://meet.jit.si/openrtx](https://meet.jit.si/o
 
 ### Lean coffee
 * *[IU2KWO] Path to codeplug feature*
-    * Future refactor of CAT to add an aditional text based commands via serial
+    * Future refactor of CAT to add an additional text based commands via serial
     * v0.6+ is when we would revisit this and try to improve backup/restore tooling
 * *[IU2KWO] Voice prompts issue*
-* *[IU2KIN] TTWR 2.1 support*
+* *[IU2KIN] T-TWR 2.1 support*
     * RTX works, GPS works, display works, flashing ?? firmware works
     * Remaining goal: M17 support, APRS; but hardware limitations need resolving
         * E.g. baseband input is on an ADC pin where DMA channel doesn't work; if we don't modify the hardware, to enable M17 would need to use other CPU as makeshift DMA
-    * Nicco is intermittently working on this w/ Edgetriggered
+    * Niccolò is intermittently working on this w/ Edgetriggered
     * Next updates will continue to be in Discord
 * *[HB9SSB] CAT interface, RTXLink*
     * Continuing to work towards this slowly, goal is to have this work with his other existing software (e.g. [https://trx-control.msys.ch)](https://trx-control.msys.ch))
-* *[HB9SSB] adding lua to openrtx*
-    * Current experiment: could the radio be scriptable, could lua be added to openrtx?
+* *[HB9SSB] adding lua to OpenRTX*
+    * Current experiment: could the radio be scriptable, could lua be added to OpenRTX?
     * Constraint: lua memory footprint is 256kb flash, VM is 64kb in ram; unclear which platforms could support this aside from CS7000M17+
     * See lua.msys.ch for info re lua C integration more broadly
     * Next step would be determine how scripts would be managed
-    * Potential memory cutting step: exclude the compiler from the ortx build, at the expense of risking loading arbitrary bytecode
+    * Potential memory cutting step: exclude the compiler from the OpenRTX build, at the expense of risking loading arbitrary bytecode
     * Perhaps this is a good Google Summer of Code project? By way of lab lua sponsorship
 * *[N1ADJ] Status of C62 porting?*
     * Unfortunately there are both a tech roadblock and dev resourcing constraints
-    * Andrej (author of this change) had some big issues on audiopath; C62 has audio dsp with separate firmware; without loading that firmware, it appears to be impossible to access; how do you start up the DSP? Using a forked zephyr kernel, and the public version doesn't match the official firmware and neither appear to work for us
+    * Andrej (author of this change) had some big issues on audio path; C62 has audio dsp with separate firmware; without loading that firmware, it appears to be impossible to access; how do you start up the DSP? Using a forked zephyr kernel, and the public version doesn't match the official firmware and neither appear to work for us
     * Stalled here as some of the contributors have moved on from the project
     * Open question: how should we balance supporting this platform, especially given that linht now is many people's interest in this platform?
     * Opportunity for C62 remains having an M17-capable radio that requires no hardware mods
 * *[IU2KWO] Eventually, we need new hardware platform support*
     * Some of our supported radios are already out of production
-    * Our supported ones are aging and at risk of EOL
+    * Our supported ones are ageing and at risk of EOL
     * Risk: in some markets these radios are not compliant and users can get fined for importing these; we have some platforms that are compliant, why aren't we focusing on those
 * *[HB9SSB] Funding models for OpenRTX*
     * What sort of support from hardware manufacturers can we get?
@@ -105,7 +105,7 @@ Held on 2026-02-13T17:00Z in [https://meet.jit.si/openrtx](https://meet.jit.si/o
     * Action: Ryan to setup a fork that shows this behavior and review with maintainers - Update: pr made 2026-02-13
 * *[K0RET] Development on OpenRTX is hard; how can we make contributors more successful?*
     * A couple of ideas based on past feedback: apply clang-format to the whole project despite its shortcomings, migration from meson to cmake, Integration of testing library (e.g. catch2), better linux platform drivers (e.g. pulseaudio support, writing baseband output to file), add static analysis (e.g. clang-tidy, cppcheck) 
-    * More documentation about the entire structure is needed; we have some AI generated docs that are good! Niccolo and Silvano are due to review the materials and consider integrating it to the dev site; also adding a dedicated page on the site about coding style, dev workflow hints (e.g. utilizing git `--fixup`)
+    * More documentation about the entire structure is needed; we have some AI generated docs that are good! Niccolò and Silvano are due to review the materials and consider integrating it to the dev site; also adding a dedicated page on the site about coding style, dev workflow hints (e.g. utilizing git `--fixup`)
     * Action: Ryan to share where in Github to auto-enable running GH Actions on external PRs - Update: Done 2026-02-13
 * *[IU2KWO] Is the website still the best place for dev docs?*
     * Should we split to a wiki for dev docs? Static `docs` folder in the main repo?
@@ -114,6 +114,6 @@ Held on 2026-02-13T17:00Z in [https://meet.jit.si/openrtx](https://meet.jit.si/o
     * Still work required; nobody is actively working on this though
     * Silvano previously researched, seems like troubleshooting on other side of HC5000
     * Unclear how valuable this is at this point given that these devices are EOL
-* *[???] Please add some information on a public website about the APRS development timelime*
+* *[???] Please add some information on a public website about the APRS development timeline*
     * Please refer to the release planning section at the top of the notes
     * No specific timeframe for APRS TX possible, need to look to community to contribute this as the core contributors are focusing on persistence
