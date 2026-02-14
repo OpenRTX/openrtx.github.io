@@ -71,7 +71,7 @@ Below is provided a list of the interfaces files with a short description: the c
 - `delays.h`: Interface for adding time delays in the code
 - `gpio.h`: Interface for configuring and using GPIO pins
 - `graphics.h`: Interface for drawing and writing on a screen
-- `nvmem.h`: Interface for reading and writing to the external non volatile memory
+- `nvmem.h`: Interface for reading and writing to the external non volatile memory, documented [here](./NVM.md).
 - `radio.h`: Interface to interact with RF hardware
 - `display.h`: Interface for low-level display setup and access
 - `gps.h`: Interface for reading location data from GPS modules
