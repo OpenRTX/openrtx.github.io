@@ -137,6 +137,16 @@ words:
   - Grzegorz
   - Kaczmarek
   - CICD
+  - Edgetriggered
+  - IU2KWO
+  - T-TWR
+  - Andrej
+  - msys
+  - LinHT
+  - IARU
+  - OpenCollective
+  - Pulseaudio
+  - cppcheck
 patterns:
   - name: markdown_code_block
     pattern: /^\s*```[\s\S]*?^\s*```/gm
