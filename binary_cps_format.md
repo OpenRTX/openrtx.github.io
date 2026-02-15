@@ -1,14 +1,16 @@
-# OpenRTX Binary CPS Format
+# OpenRTX Binary Codeplug Format
 
-Authors names go here
+Hannes Matuschek DM3MAT  
+Niccolò Izzo IU2KIN  
+Silvano Seva IU2KWO  
 
 ## Copyright notice
 
-Copyright (c) 2023 the persons and organizations identified as authors. All rights reserved.
+Copyright (c) 2023 - 2024 the people and organizations identified as authors. All rights reserved.
 
 ## Introduction
 
-The OpenRTX Binary CPS Format (OBCF) is a binary data format for storing radio configurations in an easy-to-use and platform-agnostic way while providing support for modern amateur-radio use cases like M17. This format is utilized in radio codeplugs constructed using a customer programming software (CPS) and loaded directly to radio transceivers.
+The OpenRTX Binary Codeplug Format (OBCF) is a binary data format for storing radio configurations in an easy-to-use and platform-agnostic way while providing support for modern amateur-radio use cases like M17. This format is utilized in radio codeplugs constructed using a customer programming software (CPS) and loaded directly to radio transceivers.
 
 ### Objectives
 
@@ -42,10 +44,10 @@ The header contains metadata about the codeplug to ensure compatibility with int
 
 | Field Name     | Data Type | Description                                                                                                                                                     |
 | -------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| magic          | uint64_t  | Number used to identify the start of a codeplug; this is always "RTXC", i.e. `0x43585452`                                                                       |
-| version_number | uint16_t  | Major and minor version of the OBCF standard, constructed as the `(CPS_VERSION_MAJOR << 8) \| CPS_VERSION_MINOR`. Refer to [Version control](#version-control). |
+| magic          | uint32_t  | Number used to identify the start of a codeplug; this is always "RTXC", i.e. `0x43585452`                                                                       |
+| version_number | uint32_t  | Major, minor and bufgix version of the OBCF standard, constructed as the `(CPS_VERSION_MAJOR << 16) \| (CPS_VERSION_MINOR << 8) \| (CPS_VERSION_FIX)`. Refer to [Version control](#version-control). |
 | author         | char[32]  | User-provided author of the codeplug                                                                                                                            |
-| desc           | char[32]  | User-provided description of the codeplug, max 32 characters                                                                                                    |
+| desc           | char[32]  | User-provided description of the codeplug                                                                                                                       |
 | timestamp      | uint64_t  | Unix timestamp of when the codeplug was last edited                                                                                                             |
 | ct_count       | uint16_t  | Number of stored contacts, used for memory offsets                                                                                                              |
 | ch_count       | uint16_t  | Number of stored channels, used for memory offsets                                                                                                              |
@@ -57,33 +59,46 @@ This structure is the beginning of the file. The fields are laid out in the foll
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<magic---------------->|<vers|<author----------
+0000 |<-magic------>|<-version->|<-author------------
 0010  -----------------------------------------------
-0020  ---------------------------->|<descr-----------
+0020  ------------------------->|<-descr-------------
 0030  -----------------------------------------------
-0040  ---------------------------->|<timestamp-------
-0050  ---->|<ct_c|<ch_c|<b_co|
+0040  ------------------------->|<-timestamp-------->
+0050 |<ct_c|<ch_c|<b_co|
 ```
 
 ### Contacts
 
 #### Field definition
 
-| Field name | Data Type                                                                                        | Description                                                              |
-| ---------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| name       | char[32]                                                                                         | Display name for the contact                                             |
-| mode       | uint8_t                                                                                          | Mode that the contact is intended to be used for                         |
-| info       | [m17Contact_t](#m17contact_t-type-description) or [dmrContact_t](#dmrcontact_t-type-description) | Either contains the m17 info or the dmr info, as described further below |
+| Field name | Data Type   | Description                                                                                                                       |
+| ---------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------|
+| name       | char[32]    | Display name for the contact                                                                                                      |
+| mode       | uint8_t     | Mode that the contact is intended to be used for                                                                                  |
+| info       | uint8_t[15] | Mode-specific contact info. See [m17Contact_t](#m17contact_t-type-description) and [dmrContact_t](#dmrcontact_t-type-description) |
 
 #### Mode lookup table
 
-|                     Bits | Value    | Notes                                 |
-| -----------------------: | -------- | ------------------------------------- |
-|             `0b00000000` | None     | Indeterminate state for compatibility |
-|             `0b00000001` | FM       | Only used for channels                |
-|             `0b00000010` | DMR      |                                       |
-|             `0b00000011` | M17      |                                       |
-| `0b00000100..0b11111111` | Reserved |                                       |
+|   Value | Mode     | Notes                                 |
+| ------: | -------- | ------------------------------------- |
+|       0 | None     | Indeterminate state for compatibility |
+|       1 | FM       | Only used for channels                |
+|       2 | DMR      |                                       |
+|       3 | M17      |                                       |
+| 4 - 255 | Reserved |                                       |
+
+#### m17Contact_t type description
+
+| Field   | Data Type  | Description                                                                                                                                          |
+| ------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| address | uint8_t[6] | M17 address stored in 48 bits, following their [address encoding](https://spec.m17project.org/pdf/M17_spec.pdf#appendix.A)                           |
+
+#### dmrContact_t type description
+
+| Field            | Data Type | Description                              |
+| ---------------- | --------- | ---------------------------------------- |
+| id               | uint32_t  | DMR ID                                   |
+| contact_settings | uint8_t   | Bit 0:1 contact type. Bit 2:7 reserved.  |
 
 #### DMR contact type lookup table
 
@@ -94,19 +109,6 @@ This structure is the beginning of the file. The fields are laid out in the foll
 | `0b10` | Broadcast call  |
 | `0b11` | Reserved        |
 
-#### m17Contact_t type description
-
-| Field   | Data Type  | Description                                                                                                                                          |
-| ------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| address | uint8_t[6] | M17 address stored in 48 bits, following their [address encoding](https://spec.m17project.org/pdf/M17_spec.pdf#appendix.A)                           |
-
-#### dmrContact_t type description
-
-| Field            | Data Type | Description                                                                                          |
-| ---------------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| id               | uint32_t  | DMR ID                                                                                               |
-| contact_settings | uint8_t   | Combination of the contact type (two bits), rx tone enable/disable (one bit), and five reserved bits |
-
 #### Layout
 
 If there are contacts, this portion will be the second portion of the file. The memory locations listed below are relative to the end of the previous block, being either the header or a previous contact. The fields depend on the type of contact.
@@ -115,80 +117,75 @@ For M17 contacts, this section is laid out in the following manner:
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<name------------------------------------------
+0000 |<-name-----------------------------------------
 0010  ---------------------------------------------->|
-0020 |<m|<address-------->|
+0020 |<m|<-address------->|<-unused----------------->|
 ```
 
 For DMR contacts, this section is laid out in the following manner:
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<name------------------------------------------
+0000 |<-name-----------------------------------------
 0010  ---------------------------------------------->|
-0020 |<m|<id------->|<i|  |
+0020 |<m|<-id------>|<s|<-unused-------------------->|
 ```
 
 ### Channels
 
 #### Field descriptions
 
-| Field name      | Data Type                                                                                                                     | Description                                                                                                                                               |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| mode            | uint8_t                                                                                                                       | Operating mode; refer to [Mode lookup table](#mode-lookup-table)                                                                                          |
-| traits          | uint8_t                                                                                                                       | First two bits are channel bandwidth (refer to [Bandwidth lookup table](#bandwidth-lookup-table)), then one bit indicating true if the channel is RX only |
-| power           | uint8_t                                                                                                                       | transmit power, stored as number of fifths dBm added to 10bBm (e.g. a value of 5 would represent 10+5\*0.2=11dBm)                                         |
-| rx_frequency    | uint32_t                                                                                                                      | RX frequency in Hz                                                                                                                                        |
-| tx_frequency    | uint32_t                                                                                                                      | TX frequency in Hz                                                                                                                                        |
-| scanList_index  | uint8_t                                                                                                                       | "Scan List: None, ScanList1...250"                                                                                                                        |
-| groupList_index | uint8_t                                                                                                                       | "Group List: None, GroupList1...128"                                                                                                                      |
-| name            | char[32]                                                                                                                      | display name for channel                                                                                                                                  |
-| descr           | char[32]                                                                                                                      | Description of the channel                                                                                                                                |
-| ch_location     | [geo_t](#geo_t-type-description)                                                                                              | transmitter location                                                                                                                                      |
-| infoblock       | [fmInfo_t](#fminfo_t-type-description), [dmrInfo_t](#dmrinfo_t-type-description), or [m17Info_t](#m17info_t-type-description) | Information block for the channel                                                                                                                         |
+| Field name      | Data Type                        | Description                                                                                                                                   |
+| --------------- | ---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------- |
+| mode            | uint8_t                          | Operating mode; refer to [Mode lookup table](#mode-lookup-table)                                                                              |
+| traits          | uint8_t                          | Bit 0:1 channel bandwidth (refer to [Bandwidth lookup table](#bandwidth-lookup-table)). Bit 2 RX only flag. Bit 3:7 reserved                  |
+| power           | uint32_t                         | transmit power, in mW                                                                                                                         |
+| rx_frequency    | uint32_t                         | RX frequency, in Hz                                                                                                                           |
+| tx_frequency    | uint32_t                         | TX frequency, in Hz                                                                                                                           |
+| name            | char[32]                         | display name for channel                                                                                                                      |
+| descr           | char[32]                         | Description of the channel                                                                                                                    |
+| ch_location     | [geo_t](#geo_t-type-description) | transmitter location                                                                                                                          |
+| infoblock       | uint8_t[9]                       | Information block for the channel, operating mode dependent. See [fmInfo_t](#fminfo_t-type-description), [dmrInfo_t](#dmrinfo_t-type-description), or [m17Info_t](#m17info_t-type-description) |
 
 #### Bandwidth lookup table
 
 | Bits | Bandwidth (kHz) |
 | ---- | --------------- |
 | 0b00 | 12.5            |
-| 0b01 | 20              |
-| 0b10 | 25              |
+| 0b01 | 25              |
+| 0b10 | Reserved        |
 | 0b11 | Reserved        |
 
 #### geo_t type description
 
-| Field       | Data Type | Description                                                                                                                                                        |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ch_lat_int  | int8_t    | Floor of latitude (⌊x⌋; e.g. given latitude of 44.493889, this value is 44)                                                                                        |
-| ch_lat_dec  | uint16_t  | Fractional part of latitude, first rounded to the ten-thousandths, represented as a positive whole number (e.g. given latitude of 44.493889, this value is 4939)   |
-| ch_lon_int  | int8_t    | Floor of longitude (⌊x⌋; e.g. given longitude of 11.342778, this value is 11)                                                                                      |
-| ch_lon_dec  | uint16_t  | Fractional part of longitude, first rounded to the ten-thousandths, represented as a positive whole number (e.g. given longitude of 11.342778, this value is 3428) |
-| ch_altitude | uint16_t  | Altitude of the center of the radiator of the transmitter, stored in meters MSL offset +500 (e.g. 0m would be stored as 500)                                       |
+| Field        | Data Type | Description                                                                                                                                                        |
+| ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ch_latitude  | int32_t   | Latitude in decimal degrees, multiplied by 1000. (e.g. given latitude of 44.493889, this value is 44493889)                                                        |
+| ch_longitude | int32_t   | Longitude in decimal degrees, multiplied by 1000. (e.g. given longitude of 110.342778, this value is 110342778)                                                    |
+| ch_altitude  | int16_t   | Altitude of the center of the radiator of the transmitter, stored in meters MSL                                                                                    |
 
 #### fmInfo_t type description
 
-| Field  | Data Type | Description                                                                                                                                                                                                                                                                                                                               |
-| ------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| rxTone | uint8_t   | whether a ctcss tone should be used on to control squelch on receive and at which frequency, represented by its index from [CTCSS Code Frequencies Lookup Table](#ctcss-code-frequencies-lookup-table) with a bitwise OR applied on the highest-order bit indicating enabled/disabled (e.g. disabled 173.8 Hz tone value is `0b00011111`) |
-| txTone | uint8_t   | whether a ctcss tone should be used on transmit and at which frequency, represented by its index from [CTCSS Code Frequencies Lookup Table](#ctcss-code-frequencies-lookup-table) with a bitwise OR applied on the highest-order bit indicating enabled/disabled (e.g. enabled 107.2 tone value is 0b10001110)                            |
+| Field  | Data Type | Description                                                                                                                                                              |
+| -------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| rxTone | uint8_t   | Bit 0:6 index of the CTCSS tone for receive squelch as in the [CTCSS Code Frequencies Lookup Table](#ctcss-code-frequencies-lookup-table). Bit 7 enable/disable receive tone squelch. (e.g. disabled 173.8 Hz tone value is `0b00011111`) |
+| txTone | uint8_t   | Bit 0:6 index of the CTCSS tone to be transmitted as in the [CTCSS Code Frequencies Lookup Table](#ctcss-code-frequencies-lookup-table). Bit 7 enable/disable tone transmission.(e.g. enabled 107.2 tone value is `0b10001110)` |
 
 #### dmrInfo_t type description
 
-| Field         | Data Type | Description                                                                                                                                                                                                                                                                                                    |
-| ------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| colorCode     | uint8_t   | RX and TX colour codes used, as defined by [ETSI TS 102 361-1 Table 9.18](https://www.etsi.org/deliver/etsi_ts/102300_102399/10236101/02.02.01_60/ts_10236101v020201p.pdf), with the RX value represented in the first half (e.g. RX colour code 0 and TX colour code 15 would be represented as `0b00001111`) |
-| dmr_timeslot  | uint8_t   | Timeslot being used, represented in integer form (e.g. timeslot 2 is `0b00000010`)                                                                                                                                                                                                                             |
-| contact_index | uint16_t  | Index to retrieve contact from list for reverse lookups                                                                                                                                                                                                                                                        |
+| Field         | Data Type | Description                                                                                                                                                            |
+| ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| colorCode     | uint8_t   | RX and TX colour codes used, as defined by [ETSI TS 102 361-1 Table 9.18](https://www.etsi.org/deliver/etsi_ts/102300_102399/10236101/02.02.01_60/ts_10236101v020201p.pdf). <br> Bit 0:3 RX colour code. Bit 4:7 TX colour code. (e.g. RX colour code 0 and TX colour code 15 would be represented as `0b00001111`)                                                                   |
+| dmr_timeslot  | uint8_t   | Timeslot being used, represented in integer form (e.g. timeslot 2 is `0b00000010`)                                                                                     |
+| contact_index | uint16_t  | Index to retrieve contact info                                                                                                                                         |
 
 #### m17Info_t type description
 
-| Field         | Data Type | Description                                                                                                                                                                                                                                    |
-| ------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| can           | uint8_t   | RX and TX channel access numbers (CANs) used, as defined by [M17 Specification section 3.1.3](https://spec.m17project.org/), with the RXvalue represented in the first half (e.g. an RX CAN of 0 and TX CAN of 2 is represented as 0b00000010) |
-| mode_encr     | uint8_t   | Channel operation mode and encryption mode, as defined by [M17 channel modes lookup table](#m17-channel-modes-lookup-table) and [M17 channel encryption lookup table](#m17-channel-encryption-lookup-table)                                    |
-| gps_mode      | uint8_t   | Boolean whether GPS position should be embedded in transmit payload                                                                                                                                                                            |
-| contact_index | uint16_t  | Index to retrieve contact from list for reverse lookups                                                                                                                                                                                        |
+| Field         | Data Type | Description                                                                                                                                                       |
+| ------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| config        | uint8_t   | Bit 0:3 channel access number (CAN), as defined by [M17 Specification section 3.1.3](https://spec.m17project.org/). Bit 4:7 channel operation mode, as defined by [M17 channel modes lookup table](#m17-channel-modes-lookup-table) |
+| encr_gnss     | uint8_t   | Bit 0:3 encryption mode, as defined by [M17 channel encryption lookup table](#m17-channel-encryption-lookup-table). Bit 4: embed GPS position in transmit payload. Bit 5:7 reserved |
+| contact_index | uint16_t  | Index to retrieve contact info                                                                                                                                    |
 
 #### M17 channel modes lookup table
 
@@ -215,6 +212,9 @@ CTCSS code frequency support is implemented as the 39 tones defined in ANSI/TIA-
 
 ##### CTCSS Code Frequencies Lookup Table
 
+<table style="border: none"> <tr style="border: none"></tr>
+<td style="border: none; vertical-align: top;">
+
 | Index | Frequency (Hz) |
 | ----: | -------------- |
 |     0 | 67.0           |
@@ -230,6 +230,10 @@ CTCSS code frequency support is implemented as the 39 tones defined in ANSI/TIA-
 |    10 | 94.8           |
 |    11 | 97.4           |
 |    12 | 100.0          |
+</td><td style="border: none; vertical-align: top;">
+
+| Index | Frequency (Hz) |
+| ----: | -------------- |
 |    13 | 103.4          |
 |    14 | 107.2          |
 |    15 | 110.9          |
@@ -243,6 +247,10 @@ CTCSS code frequency support is implemented as the 39 tones defined in ANSI/TIA-
 |    23 | 146.2          |
 |    24 | 151.4          |
 |    25 | 156.7          |
+</td><td style="border: none; vertical-align: top;">
+
+| Index | Frequency (Hz) |
+| ----: | -------------- |
 |    26 | 159.8          |
 |    27 | 162.2          |
 |    28 | 165.5          |
@@ -256,6 +264,10 @@ CTCSS code frequency support is implemented as the 39 tones defined in ANSI/TIA-
 |    36 | 189.9          |
 |    37 | 192.8          |
 |    38 | 196.6          |
+</td><td style="border: none; vertical-align: top;">
+
+| Index | Frequency (Hz) |
+| ----: | -------------- |
 |    39 | 199.5          |
 |    40 | 203.5          |
 |    41 | 206.5          |
@@ -267,6 +279,8 @@ CTCSS code frequency support is implemented as the 39 tones defined in ANSI/TIA-
 |    47 | 241.8          |
 |    48 | 250.3          |
 |    49 | 254.1          |
+</td>
+</table>
 
 #### Layout
 
@@ -276,36 +290,36 @@ For DMR channels, this section is laid out in the following manner:
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<m|<t|<p|<rx_frequen|<tx_frequen|<s|<g|<name---
+0000 |<m|<t|<-power--->|<rx_frequen|<tx_frequen|<name
 0010  -----------------------------------------------
-0020  ------------------------------------->|<descr--
+0020  ---------------------------------------->|<descr
 0030  -----------------------------------------------
-0040  ------------------------------------->|<ch_loca
-0050  tion--------->|<c|<d|<cont|  |
+0040  ---------------------------------------->|<ch_lo
+0050  cation---------------->|<c|<d|<cont|<-unused-->|
 ```
 
 For FM channels, this section is laid out in the following manner:
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<m|<t|<p|<rx_frequen|<tx_frequen|<s|<g|<name---
+0000 |<m|<t|<-power--->|<rx_frequen|<tx_frequen|<name
 0010  -----------------------------------------------
-0020  ------------------------------------->|<descr--
+0020  ---------------------------------------->|<descr
 0030  -----------------------------------------------
-0040  ------------------------------------->|<ch_loca
-0050  tion--------->|<r|<t|        |
+0040  ---------------------------------------->|<ch_loca
+0050  tion------------------>|<r|<t|<-unused-------->|
 ```
 
 For M17 channels, this section is laid out in the following manner:
 
 ```
       00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
-0000 |<m|<t|<p|<rx_frequen|<tx_frequen|<s|<g|<name---
+0000 |<m|<t|<-power--->|<rx_frequen|<tx_frequen|<name
 0010  -----------------------------------------------
-0020  ------------------------------------->|<descr--
+0020  ---------------------------------------->|<descr
 0030  -----------------------------------------------
-0040  ------------------------------------->|<ch_loca
-0050  tion--------->|<c|<m|<g|<cont|
+0040  ---------------------------------------->|<ch_lo
+0050  cation---------------->|<t|<m|<cont|<-unused-->|
 ```
 
 ### Bank Data Offsets
@@ -337,6 +351,7 @@ The Bank structure is variable in length depending on the number of channels. So
 | name     | char[32]    | The name of the bank                                     |
 | ch_count | uint16_t    | Count of all of the channels in the bank                 |
 | channels | uint16_t[n] | The indexes of the channels that are present in the bank |
+
 
 #### Layout
 
