@@ -12,7 +12,7 @@ This page describes `rtxlink`, the communication protocol used by the OpenRTX fi
 
 The physical layer of the rtxlink protocol is a serial communication, which may either be based on a physical link (UART) or a Virtual COM over USB.
 In case a physical link is used, its configuration is 8 data bits, no parity and either EIA hardware flow control, or CLOCAL mode (3-wire null-modem).
-The default baud rate is 115200 bit per second but the change to a different datarate can be requested by the client device. The support for datarates
+The default baud rate is 115200 bit per second but the change to a different data rate can be requested by the client device. The support for data rates
 other than the default one is not mandatory, although an rtxlink host must support at least 115200 bit per second. The protocol tolerates buffering and
 fragmentation of the transmitted data.
 
@@ -29,7 +29,7 @@ The frames format is the following:
 | END | ProtoID | Data | CRCL | CRCH | END |
 
 After the start of frame marker, the first byte of each frame is a protocol identifier describing the frame content. After the payload data and preceding the frame end marker, the frame contains the
-CRC-16 of the protocol identifier and data fields: the CRC is computed using the CCITT polynomial 0x1021 (CCITT CRC-16 polynomial) and transmittend in little-endian format.
+CRC-16 of the protocol identifier and data fields: the CRC is computed using the CCITT polynomial 0x1021 (CCITT CRC-16 polynomial) and transmitted in little-endian format.
 
 The recognized protocol IDs are the following:
 

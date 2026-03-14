@@ -16,7 +16,7 @@ Each nvmDescriptor contains a name, a pointer to an nvmDevice, a base address us
 It also implements the following functions defined in interfaces/nvmem.h
  * the nvm_init, nvm_terminate that initialize or terminate the nvm subsystem. It initializes all the NVM devices used by the platform.
  * the nvm_getDesc that returns an nvmDescriptor given a device number
- * the nvm_readCalib that populates a given buffer with the cailbration data
+ * the nvm_readCalib that populates a given buffer with the calibration data
  * the nvm_readHwInfo that populates a hwInfo_t structure using data stored in nvm devices
  * int nvm_readVFOChannelData that reads the last saved VFO state
  * nvm_readSettings/nvm_writeSettings that reads/writes the device settings (callsign, accessibility settings, ...)
@@ -44,4 +44,4 @@ The info structure is defined in interfaces/nvmem.h as nvmInfo and contains:
 
 ## Low-level driver
 
-This layer implements the low-level drivers required to use the memory device. Those drivers are often not exclusive to the NVM sybsystem. This can be an SPI driver, I2C driver, ... . Those should be initialized in the init function of the memory device.
+This layer implements the low-level drivers required to use the memory device. Those drivers are often not exclusive to the NVM subsystem. This can be an SPI driver, I2C driver, ... . Those should be initialized in the init function of the memory device.

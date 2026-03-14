@@ -114,7 +114,7 @@ To flash the firmware on the *Module 17* and *CS7000-M17* (non Plus) platforms, 
 
 #### MacOS toolchain setup
 
-The MacOS toolchain setup is similar to that for Linux. Currently, the Zephyr-based tagets can't be built on MacOS. 
+The MacOS toolchain setup is similar to that for Linux. Currently, the Zephyr-based targets can't be built on MacOS.
 
 To install the basic tools required to compile both the Linux emulator and the firmware images, you can use [Homebrew](https://brew.sh/). Most developers will already have it installed, otherwise follow the instructions at the link. Git and the Xcode tools are automatically installed during the Homebrew installation process, while `meson` needs to be installed separately with the following command:
 

@@ -38,4 +38,4 @@ In this example, a receive screen with callsign OPNRTX is expected.
 
 ### Going Further
 
-In theory, you could create a named pipe at `/tmp/baseband.raw` and write to it useing GNU Radio. Something like a source, with resampling to 24kHz if required, then float to short, then a file sink should work.
+In theory, you could create a named pipe at `/tmp/baseband.raw` and write to it using GNU Radio. Something like a source, with resampling to 24kHz if required, then float to short, then a file sink should work.
