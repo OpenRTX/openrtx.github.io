@@ -135,7 +135,14 @@ words:
   - Imostlylurk
   - Buchegger
   - Grzegorz
+  - Wojciech
   - Kaczmarek
+  - Kaczmarski
+  - Redman
+  - Balmer
+  - Harzi
+  - Harzenmoser
+  - smeegle5000
   - CICD
   - Edgetriggered
   - IU2KWO
@@ -147,6 +154,22 @@ words:
   - OpenCollective
   - Pulseaudio
   - cppcheck
+  - nvm
+  - nvmem
+  - nvm_readCalib
+  - nonvolatile
+  - Talkpod
+  - rtxlink
+  - callsign
+  - MCUBOOT
+  - hwconfig
+  - OPNRTX
+  - Nitter
+  - CRCL
+  - CRCH
+  - CCITT
+  - nord
+  - priv
 patterns:
   - name: markdown_code_block
     pattern: /^\s*```[\s\S]*?^\s*```/gm
