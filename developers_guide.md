@@ -8,3 +8,4 @@
 * [Code style guidelines](coding_style.md)
 * [Peripheral allocation table](peripheral_table.md)
 * [OpenRTX Communication Protocol](rtxlink.md)
+* [Contributing to the website](website.md)
