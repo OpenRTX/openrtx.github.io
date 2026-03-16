@@ -19,22 +19,42 @@ The `tests/unit/assets` directory contains the following baseband recordings:
 | `M17_test_baseband.raw`    | Runtime demodulation; src callsign only |
 | `M17_test_baseband_dc.raw` | Runtime demodulation; src callsign only |
 
+**Note:** These test samples have a sample rate of 48kHz, and must be decimated to 24kHz before they can be demodulated with OpenRTX on Linux. See [below](#decimation) for details.
 
 ### Demodulating a raw baseband file with OpenRTX Linux
 
-The Linux build uses a file source driver that reads, on loop, a raw 16-bit, little-endian, mono, 24 kHz file from `/tmp/baseband.raw`. Simply place the sample file in this location and launch the application in order for it to demodulate. Note that since the linux build has no audio driver, it is not expected that received audio can be heard.
+The Linux build uses a file source driver that reads, on loop, a raw 16-bit, little-endian, mono, 24 kHz file from `/tmp/baseband.raw`. 
+
+#### Decimation
+
+The OpenRTX M17 modulator works at a sample rate of 48 kHz, but the demodulator works at a sample rate of 24 kHz. Because the sample baseband files have a sample rate of 48 kHz, they must be decimated to 24 kHz first in order to be demodulated. This can be done easily using the `sox` audio utility, available in most packagers. To decimate a sample baseband file, run:
+
+```bash
+# Convert the sample baseband recording from 48 kHz to 24 kHz
+sox -r 48000 -e signed-integer -b 16 -c 1 tests/unit/assets/M17_test_baseband.raw \
+    -r 24000 -e signed-integer -b 16 -c 1 M17_test_baseband_24k.raw \
+    rate -v
+```
+
+Simply move the decimated file to `/tmp/baseband.raw` and launch the application in order for it to demodulate. Alternatively, you can set the output file path in `sox` to `/tmp/baseband.raw` directly and skip the copy step. 
 
 ```bash
 # Copy the sample to the path the file-source driver reads from:
-cp tests/unit/assets/M17_test_baseband.raw /tmp/baseband.raw
+cp M17_test_baseband_24k.raw /tmp/baseband.raw
+
 # Build
 meson setup build_linux
 meson compile -C build_linux openrtx_linux
+
 # Launch
 ./build_linux/openrtx_linux
 ```
 
-In this example, a receive screen with callsign OPNRTX is expected.
+In this example, a receive screen with callsign OPNRTX is expected:
+
+![Example demodulation](../_media/linux_emulator_baseband_demod.png)
+
+**Note:** Since the Linux build has no audio driver, it is not expected that received audio can be heard.
 
 ### Going Further
 
