@@ -18,10 +18,10 @@
     
 ## 1. Installing the basic tools
 
-As a general rule, the basic tools required to compile OpenRTX from the sources are: `git`, `python`, the `meson` build system and the GCC toolchain for the miosix kernel.
+As a general rule, the basic tools required to compile OpenRTX from the sources are: `git`, `python`, the `meson` build system and the GCC toolchain for the **Miosix** kernel.
 This rule has two exceptions:
 1. the linux emulator, which doesn't the miosix GCC toolchain since the compiler shipped with your distribution is sufficient;
-2. the T-TWR Plus, which requires the Zephyr RTOS build system.
+2. the T-TWR Plus, which requires the **Zephyr** RTOS build system.
 
 #### Linux toolchain setup
 
@@ -40,12 +40,14 @@ sudo apt install python-pip3
 pip3 install --user meson ninja
 ```
 
-The miosix kernel GCC toolchain is required, comes with its own installation program: download the installer and run it. The installer will ask for your root password to copy the compiler to the `/opt/arm-miosix-eabi` directory, and put symlinks to `/usr/bin`. 
+The miosix kernel GCC toolchain (`9.2.0mp3.2`) is required, comes with its own installation program: download the installer and run it. The installer will ask for your root password to copy the compiler to the `/opt/arm-miosix-eabi` directory, and put symlinks to `/usr/bin`.
+
 
 ```
-wget https://miosix.org/toolchain/MiosixToolchainInstaller.run
+wget https://miosix.org/toolchain/MiosixToolchainInstaller9.2.0mp3.2.run
 sh MiosixToolchainInstaller.run
 ```
+
 **WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!**
 
 The toolchain also provides an uninstall script, which can be found in the installation directory.
