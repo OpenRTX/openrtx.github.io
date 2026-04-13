@@ -42,20 +42,21 @@ OpenRTX is currently in active development. There will be bugs as we prioritize 
 
 ### Modes
 
-| Radio model                    | FM RX | FM TX | M17 RX | M17 TX | APRS RX | APRS TX | DMR RX | DMR TX | DMR SMS |
-| ------------------------------ | :---: | :---: | :----: | :----: | :-----: | :-----: | :----: | :----: | :-----: |
-| Tytera MD-380 / MD-390         | ✅    | ✅    | ✅     | ✅     | ❌      | ❌      | ❌     | ❌     | ❌      |
-| Tytera MD-UV380 / Retevis RT3s | ✅    | ✅    | ✅     | ✅     | ❌      | ❌      | ❌     | ❌     | ❌      |
-| Radioddity GD-77               | ✅    | ✅    | N/A    | N/A    | ❌      | ❌      | ❌     | ❌     | ❌      |
-| Baofeng DM-1801                | ✅    | ✅    | N/A    | N/A    | ❌      | ❌      | ❌     | ❌     | ❌      |
-| Tytera MD-9600                 | ❌    | ❌    | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
-| Module 17                      | N/A   | N/A   | ✅     | ✅     | N/A     | N/A     | N/A    | N/A    | N/A     |
-| Lilygo T-TWR plus              | ✅    | ✅    | ❌     | ❌     | ❌      | ❌      | N/A    | N/A    | N/A     |
-| Radtel RT-890                  | ❌    | ❌    | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
-| Talkpod A36plus                | ✅    | ✅    | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
-| Retevis C62                    | ✅    | ❌    | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
-| Connect Systems CS7000-M17     | ✅    | ✅    | ✅     | ✅     | ❌      | ❌      | ❌     | ❌     | ❌      |
-| Connect Systems CS7000-M17 Plus| ✅    | ✅    | ✅     | ✅     | ❌      | ❌      | ❌     | ❌     | ❌      |
+| Radio model                                    |FM RX | FM TX | AM RX | M17 RX | M17 TX | APRS RX | APRS TX | DMR RX | DMR TX | DMR SMS |
+| -----------------------------------------------|:---: | :---: | :---: | :----: | :----: | :-----: | :-----: | :----: | :----: | :-----: |
+| Tytera MD-380 / MD-390 / Retevis RT3 **(VHF)** |✅    | ✅    | N/A   | ✅     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
+| Tytera MD-380 / MD-390 / Retevis RT3 **(UHF)** |✅    | ✅    | N/A   | ✅     | ✅     | ❌      | ❌      | ❌     | ❌     | ❌      |
+| Tytera MD-UV380 / Retevis RT3s                 |✅    | ✅    | N/A   | ✅     | ✅     | ❌      | ❌      | ❌     | ❌     | ❌      |
+| Radioddity GD-77                               |✅    | ✅    | N/A   | N/A    | N/A    | ❌      | ❌      | ❌     | ❌     | ❌      |
+| Baofeng DM-1801                                |✅    | ✅    | N/A   | N/A    | N/A    | ❌      | ❌      | ❌     | ❌     | ❌      |
+| Tytera MD-9600                                 |❌    | ❌    | N/A   | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
+| Module 17                                      |N/A   | N/A   | N/A   | ✅     | ✅     | N/A     | N/A     | N/A    | N/A    | N/A     |
+| Lilygo T-TWR plus                              |✅    | ✅    | N/A   | ❌     | ❌     | ❌      | ❌      | N/A    | N/A    | N/A     |
+| Radtel RT-890                                  |❌    | ❌    | N/A   | ❌     | ❌     | ❌      | ❌      | N/A    | N/A    | N/A     |
+| Talkpod A36plus                                |✅    | ✅    | 🟡    | ❌     | ❌     | ❌      | ❌      | N/A    | N/A    | N/A     |
+| Retevis C62                                    |✅    | ❌    | N/A   | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
+| Connect Systems CS7000-M17                     |✅    | ✅    | N/A   | ✅     | ✅     | ❌      | ❌      | ❌     | ❌     | ❌      |
+| Connect Systems CS7000-M17 Plus                |✅    | ✅    | N/A   | ✅     | ✅     | ❌      | ❌      | ❌     | ❌     | ❌      |
 
 
 ### Notes:
