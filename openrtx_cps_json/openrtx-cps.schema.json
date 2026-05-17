@@ -1,0 +1,339 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "openrtx-cps.schema.json",
+    "title": "OpenRTXConfig",
+    "description": "The OpenRTX JSON config format",
+    "type": "object",
+    "properties": {
+        "version_number": {
+            "description": "Major, minor and bufgix version of the OBCF standard",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 2147483647
+        },
+        "author": {
+            "description": "User-provided author of the config",
+            "type": "string",
+            "maxLength": 32
+        },
+        "description": {
+            "description": "User-provided description of the config",
+            "type": "string",
+            "maxLength": 32
+        },
+        "timestamp": {
+            "description": "ISO 8601 timestamp of when the config was last edited",
+            "type": "string"
+        },
+        "contact_count": {
+            "description": "Number of stored contacts",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+        },
+        "channel_count": {
+            "description": "Number of stored channels",
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 65535
+        },
+        "contacts": {
+            "description": "Contacts",
+            "type": "array",
+            "items": { "$ref": "#/$defs/contact" },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "channels": {
+            "description": "Channels",
+            "type": "array",
+            "items": { "$ref": "#/$defs/channel" },
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "description", "timestamp", "contact_count",
+        "channel_count", "contacts", "channels"
+    ],
+    "unevaluatedProperties": false,
+
+
+    "$defs": {
+        "contact": {
+            "description": "Contact",
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "Display name for the contact",
+                    "type": "string",
+                    "maxLength": 32
+                },
+                "mode": {
+                    "description": "Mode the contact is used",
+                    "enum": [ "None", "DMR", "M17" ]
+                }
+            },
+            "required": [ "name", "mode" ],
+            "oneOf": [
+                {
+                    "properties": {
+                        "mode": { "const": "M17" },
+                        "info": {
+                            "description": "Mode-specific M17 contact info",
+                            "$ref": "#/$defs/m17_contact_t"
+                        }
+                    },
+                    "required": [ "info" ]
+                },
+                {
+                    "properties": {
+                        "mode": { "const": "DMR" },
+                        "info": {
+                            "description": "Mode-specific DMR contact info",
+                            "$ref": "#/$defs/dmr_contact_t"
+                        }
+                    },
+                    "required": [ "info" ]
+                },
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [ "None", "FM" ]
+                        }
+                    }
+                }
+            ],
+            "unevaluatedProperties": false
+        },
+        "channel": {
+            "description": "Channel",
+            "type": "object",
+            "properties": {
+                "mode": {
+                    "description": "Mode the channel is used",
+                    "enum": [ "None", "FM", "DMR", "M17" ]
+                },
+                "traits": {
+                    "description": "Channel traits",
+                    "type": "object",
+                    "properties": {
+                        "rx_only": {
+                            "description": "RX-only channel",
+                            "type": "boolean"
+                        }
+                    },
+                    "unevaluatedProperties": false
+                },
+                "power": {
+                    "description": "Transmit power, in mW",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                },
+                "rx_frequency": {
+                    "description": "RX frequency, in Hz",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                },
+                "tx_frequency": {
+                    "description": "TX frequency, in Hz",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 2147483647
+                },
+                "name": {
+                    "description": "Display name for channel",
+                    "type": "string",
+                    "maxLength": 32
+                },
+                "description": {
+                    "description": "Description of the channel",
+                    "type": "string",
+                    "maxLength": 32
+                },
+                "location": {
+                    "description": "Transmitter location",
+                    "$ref": "geographical-location.schema.json"
+                },
+                "groups": {
+                    "description": "Group tags to group related channels (banks)",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 0,
+                    "uniqueItems": true
+                }
+            },
+            "required": [
+                "mode", "traits", "power", "rx_frequency",
+                "tx_frequency", "name", "description" ],
+            "oneOf": [
+                {
+                    "properties": {
+                        "mode": { "const": "FM" },
+                        "info": {
+                            "description": "Mode-specific FM channel info",
+                            "$ref": "#/$defs/fmInfo_t"
+                        }
+                    },
+                    "required": [ "info" ]
+                },
+                {
+                    "properties": {
+                        "mode": { "const": "DMR" },
+                        "info": {
+                            "description": "Mode-specific DMR channel info",
+                            "$ref": "#/$defs/dmrInfo_t"
+                        }
+                    },
+                    "required": [ "info" ]
+                },
+                {
+                    "properties": {
+                        "mode": { "const": "M17" },
+                        "info": {
+                            "description": "Mode-specific M17 channel info",
+                            "$ref": "#/$defs/m17Info_t"
+                        }
+                    },
+                    "required": [ "info" ]
+                },
+                {
+                    "properties": {
+                        "mode": {
+                            "enum": [ "None" ]
+                        }
+                    }
+                }
+            ],
+            "unevaluatedProperties": false
+        },
+        "m17_contact_t": {
+            "description": "M17 Contact",
+            "type": "object",
+            "properties": {
+                "address": {
+                    "description": "Callsign",
+                    "type": "string",
+                    "maxLength": 9
+                }
+            },
+            "required": [ "address" ],
+            "unevaluatedProperties": false
+        },
+        "dmr_contact_t": {
+            "description": "DMR Contact",
+            "type": "object",
+            "properties": {
+                "dmr_id": {
+                    "description": "DMR ID",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 65535
+                },
+                "dmr_type": {
+                    "description": "DMR Type",
+                    "enum": [ "Group", "Private", "All" ]
+                }
+            },
+            "required": [ "dmr_id", "dmr_type" ],
+            "unevaluatedProperties": false
+        },
+        "fmInfo_t": {
+            "description": "Define analog-specific channel information such as tones",
+            "type": "object",
+            "properties": {
+                "bandwidth": {
+                    "description": "bandwidth of RF in kHz",
+                    "enum": [ 12.5, 25 ]
+                },
+                "rx_ctcss_tone": {
+                    "description": "RX CTCSS tone in Hz",
+                    "$ref": "#/$defs/ctcss_tones"
+                },
+                "rx_tone_en": {
+                    "description": "RX CTCSS tone enable",
+                    "type": "boolean"
+                },
+                "tx_ctcss_tone": {
+                    "description": "TX CTCSS tone in Hz",
+                    "$ref": "#/$defs/ctcss_tones"
+                },
+                "tx_tone_en": {
+                    "description": "TX CTC/DCS tone enable",
+                    "type": "boolean"
+                }
+            },
+            "required": [ "bandwidth", "rx_ctcss_tone", "rx_tone_en", "tx_ctcss_tone", "tx_tone_en" ],
+            "unevaluatedProperties": false
+        },
+        "dmrInfo_t": {
+            "description": "Define all and only the information for DMR channels",
+            "type": "object",
+            "properties": {
+                "rx_color_code": {
+                    "description": "Color code for RX squelch opening",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 15
+                },
+                "tx_color_code": {
+                    "description": "Color code sent during transmission",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 15
+                },
+                "dmr_timeslot": {
+                    "description": "MR timeslot, either 1 or 2",
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 2
+                }
+            },
+            "required": [ "rx_color_code", "tx_color_code", "dmr_timeslot" ]
+        },
+        "m17Info_t": {
+            "description": "Define all and only the information for M17 channels",
+            "type": "object",
+            "properties": {
+                "rx_can": {
+                    "description": "Channel Access Number for RX",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 7
+                },
+                "tx_can": {
+                    "description": "Channel Access Number for TX",
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 7
+                },
+                "channel_mode": {
+                    "description": "Channel operation mode",
+                    "enum": [ "Voice", "Data", "VoiceData" ]
+                },
+                "encryption_mode": {
+                    "description": "Channel encryption mode",
+                    "enum": [ "Plain", "Scrambler", "AES" ]
+                },
+                "gps_mode": {
+                    "description": "Channel gps mode",
+                    "enum": [ "None", "GpsMeta" ]
+                }
+            },
+            "required": [ "rx_can", "tx_can", "channel_mode",
+                "encryption_mode", "gps_mode" ]
+        },
+        "ctcss_tones": {
+            "description": "CTCSS code frequency support is implemented as the 39 tones defined in ANSI/TIA-603-E-2016 1.3.5.2 plus 11 additional non-standard tones.",
+            "enum": [67.0, 69.3, 71.9, 74.4, 77.0, 79.7, 82.5, 85.4, 88.5, 91.5,
+            94.8, 97.4, 100.0, 103.4, 107.2, 110.9, 114.8, 118.8, 123.0, 127.3,
+            131.8, 136.5, 141.3, 146.2, 151.4, 156.7, 159.8, 162.2, 165.5, 167.9,
+            171.3, 173.8, 177.3, 179.9, 183.5, 186.2, 189.9, 192.8, 196.6, 199.5,
+            203.5, 206.5, 210.7, 218.1, 225.7, 229.1, 233.6, 241.8, 250.3, 254.1]
+        }
+    }
+}
