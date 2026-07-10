@@ -176,6 +176,13 @@ words:
   - opmode
   - opmodes
   - HRAIJ
+  - Quansheng
+  - Kenwood
+  - FTDI
+  - Flytek
+  - Xtensa
+  - FLIX
+  - teardown
 patterns:
   - name: markdown_code_block
     pattern: /^\s*```[\s\S]*?^\s*```/gm
