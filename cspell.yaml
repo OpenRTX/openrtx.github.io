@@ -183,6 +183,8 @@ words:
   - Xtensa
   - FLIX
   - teardown
+  - AMBE
+  - DVSI
 patterns:
   - name: markdown_code_block
     pattern: /^\s*```[\s\S]*?^\s*```/gm
