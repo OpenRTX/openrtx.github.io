@@ -24,10 +24,10 @@ In order to build and run the website locally, you must have the following packa
 - `nodejs`
 - `npm`
 
-Once you have these installed, you will need to use `npm` to install the `docsify` npm package:
+Once you have these installed, you will need to use `npm` to install the `docsify-cli` npm package, which provides the `docsify` command:
 
 ```bash
-npm i docsify -g
+npm i docsify-cli -g
 ```
 
 You can also install the `cspell` package to check your changes for any spelling errors:

@@ -1,11 +1,10 @@
 
 ## M17 on the MD-380
-We are bringing experimental M17 support to the TYT MD-380 DMR radio. However, due to technical limitations of the underlying hardware, transmitting M17 audio on the radio requires two small hardware modifications.
+We are bringing experimental M17 support to the TYT MD-380 DMR radio. However, due to technical limitations of the underlying hardware, transmitting and receiving M17 on the radio requires two small hardware modifications.
 
 # __WARNING__
-This guide has been updated on **01/06/2022**, if you already performed the mod before the update, you will have to perform a small modification to update your mod! \
-The changes between the old and the new mod are **highlighted in yellow**, so check if they match the state of your hardware.
-What has changed between the old mod and the new mod is the value and position of the resistor, and the additional removal of a capacitor.
+This guide has been updated on **1 June 2022**, if you already performed the mod before the update, you will have to perform a small modification to update your mod! \
+What has changed is the additional removal of the C556 capacitor from the RF side of the PCB, described at the end of the RF → MCU section.
 For questions join our [community chat](get_in_touch.md), or write us an [email](https://openrtx.org/#/?id=the-openrtx-project).
 
 ### Equipment required
@@ -96,7 +95,7 @@ In this second part of the mod we'll be working on the lower right portion of th
 First we will desolder R150: put some flux, heat one side of the resistor, slide it away on one side, heat the other side and slide it away on the other side, heat the pads to clean them up.
 This is how the pads should look like after the resistor has been removed:
 
-![MD-380 After having desoldered R101](../_media/md380_rtx_detail_desolder.jpg)
+![MD-380 After having desoldered R150](../_media/md380_rtx_detail_desolder.jpg)
 
 Afterward we will bridge with some Kynar wire the left pad of the resistor (2T/5T) with pin 1 of U102, which is the demodulator output. Here is a picture of the finished modification:
 
@@ -109,4 +108,8 @@ The filter can be removed by **desoldering the C556 capacitor from the RF side P
 
 ### Results
 
-You can put some drops of hot glue to ensure that the resistor and the Kynar wire stay in place.
+- You can put some drops of hot glue to ensure that the resistor and the Kynar wire stay in place.
+- Close the heat sink over the PCB, paying attention to the side keys PCB.
+- Make sure that the antenna connector is screwed exactly perpendicular to the rest of the radio.
+- Solder the antenna connector pin.
+- Reassemble the radio by following the disassembly instructions backwards.

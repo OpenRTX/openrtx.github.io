@@ -31,7 +31,7 @@ This version is not released yet and should come with a few improvements:
 - VHF OpenEdition (134-174MHz)
 - UHF OpenEdition (400-480MHz)
 
-OpenEdition devices come with an unprogrammed SA868S, even though you can also reprogram non-OpenEdition modules, these SKU can show the manufacturer the size of the community interest towards this device.
+OpenEdition devices come with an unprogrammed SA868S, even though you can also reprogram non-OpenEdition modules, these SKUs can show the manufacturer the size of the community interest towards this device.
 
 ## Specifications
 

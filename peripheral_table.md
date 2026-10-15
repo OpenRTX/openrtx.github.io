@@ -69,9 +69,9 @@ This page provides an overview on which hardware peripherals are used by the Ope
 |  TIM12         |         |          |
 |  TIM13         |         |          |
 |  TIM14         | USED    | Tone generator time base for CTCSS/beep sine wave generation |
-|  USART1        |         |          |
+|  USART1        | USED    | GPS data RX |
 |  USART2        |         |          |
-|  USART3        | USED    | GPS data RX |
+|  USART3        |         |          |
 |  SPI1          | USED    | External flash memory |
 |  SPI2          |         |          |
 |  SPI3          |         |          |

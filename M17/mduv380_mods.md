@@ -10,8 +10,8 @@ There are two audio paths that require some hardware modifications:
 - RF → MCU: Requires hardware mod
 
 # __WARNING__
-This guide has been updated on **18/09/2021**, if you already performed the mod before the update, you will have to perform a small modification to update your mod! \
-The changes between the old and the new mod are **highlighted in yellow**, so check if they match the state of your hardware.
+This guide has been updated on **18 September 2021**, if you already performed the mod before the update, you will have to perform a small modification to update your mod! \
+The changes between the old and the new mod are **highlighted in bold**, so check if they match the state of your hardware.
 What has changed between the old mod and the new mod is the value and position of the resistor, and the additional removal of a capacitor.
 For questions join our [community chat](get_in_touch.md), or write us an [email](https://openrtx.org/#/?id=the-openrtx-project).
 
@@ -19,7 +19,7 @@ For questions join our [community chat](get_in_touch.md), or write us an [email]
 To perform the Mic → MCU and RF → MCU mods you need:
 - Screwdrivers: Torx T6, Torx T8, Phillips #0
 - Plastic spudger like [this](https://it.aliexpress.com/item/32834353313.html) or similar
-- 1x **50 kΩ SMD (Surface Mount Device)** resistor with at least 5% tolerance
+- 1x **50 kΩ SMD (Surface Mount Device)** resistor with tolerance of 5% or better
 - some 30AWG Kynar wire
 - A small tip soldering iron
 - A desoldering pump or solder wick
