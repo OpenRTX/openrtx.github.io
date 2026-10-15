@@ -112,7 +112,7 @@ Held on 2026-02-13T17:00Z in [https://meet.jit.si/OpenRTX](https://meet.jit.si/O
     * Morgan to think about this alongside other actions post as part of his next big task
 * *[???] Please make it possible to use M17 TX on the TYT VHF 380 radio.*
     * Still work required; nobody is actively working on this though
-    * Silvano previously researched, seems like troubleshooting on other side of HC5000
+    * Silvano previously researched, seems like troubleshooting on other side of HR_C5000
     * Unclear how valuable this is at this point given that these devices are EOL
 * *[???] Please add some information on a public website about the APRS development timeline*
     * Please refer to the release planning section at the top of the notes

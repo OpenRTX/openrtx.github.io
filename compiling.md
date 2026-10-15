@@ -20,7 +20,7 @@
 
 As a general rule, the basic tools required to compile OpenRTX from the sources are: `git`, `python`, the `meson` build system and the GCC toolchain for the **Miosix** kernel.
 This rule has two exceptions:
-1. the linux emulator, which doesn't the miosix GCC toolchain since the compiler shipped with your distribution is sufficient;
+1. the linux emulator, which doesn't need the miosix GCC toolchain since the compiler shipped with your distribution is sufficient;
 2. the T-TWR Plus, which requires the **Zephyr** RTOS build system.
 
 #### Linux toolchain setup

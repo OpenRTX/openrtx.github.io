@@ -164,7 +164,7 @@ USB cable is a serial adaptor, this log appears even without radio.
 
 ## CHORD U306
 
-This chip is the voice synthesize from the baofeng radio
+This chip is the voice synthesizer from the baofeng radio
 
 86 -> "Channel Mode"  
 85 -> "Frequency Mode"  

@@ -12,7 +12,7 @@ This page discusses the basic setup for contributing to the OpenRTX website.
 
 The OpenRTX website is a _static site_. This means that content is pre-built and packaged for viewing in a browser without the need for a complex webserver or database configuration. This makes contributing to the website relatively simple, and only requires installing a few packages, many of which you may already have if you have done any kind of development before.
 
-OpenRTX uses the `docsify` static site generator, which converts convert Markdown files into HTML that can be rendered in a browser. This generated output is hosted on GitHub Pages.
+OpenRTX uses the `docsify` static site generator, which converts Markdown files into HTML that can be rendered in a browser. This generated output is hosted on GitHub Pages.
 
 ---
 
@@ -66,7 +66,7 @@ You can now make changes to the website by editing any of the Markdown (`.md`) f
 ---
 
 ## Checking your changes for typos
-To check for spelling errors, you can run use the `cspell` command installed earlier. For example, to check for spelling errors in the file you are reading right now, you can run the following command inside the `openrtx.github.io/` directory:
+To check for spelling errors, you can use the `cspell` command installed earlier. For example, to check for spelling errors in the file you are reading right now, you can run the following command inside the `openrtx.github.io/` directory:
 
 ```bash
 cspell website.md

@@ -6,12 +6,12 @@ This page collects all the available documentation about both radios and their i
 
 * [HR_C5000 datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/HR_C5000.pdf). Chinese language!
 * [HR_C6000 "base" datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/HR_C6000_minimal.pdf). English translation from Chinese language, credits: the OpenGD77 development team.
-* [HR_C56000 "extended" datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/HR_C6000_translated.pdf). English translation from Chinese language, credits: the OpenGD77 development team.
+* [HR_C6000 "extended" datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/HR_C6000_translated.pdf). English translation from Chinese language, credits: the OpenGD77 development team.
 
 
 * [RDA1846 datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/RDA1846_datasheet.pdf)
 * [RDA1846 programming guide](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/RDA1846_programming_guide.pdf)
-* [SKY73210 datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/SKY72310.pdf)
+* [SKY72310 datasheet](https://raw.githubusercontent.com/OpenRTX/OpenRTX-external-docs/main/Datasheets%20and%20refmans/SKY72310.pdf)
 
 * [BK4819 datasheet](https://prkele.prk.tky.fi/~ftg/files/datasheets/BK4819_Datasheet_V1.01.pdf)
 * [BK4819 application notes](https://prkele.prk.tky.fi/~ftg/files/datasheets/BK4819(V3)%20Application%20Note%2020210428_machine_translated_English.pdf)

@@ -18,7 +18,7 @@ It also implements the following functions defined in interfaces/nvmem.h
  * the nvm_getDesc that returns an nvmDescriptor given a device number
  * the nvm_readCalib that populates a given buffer with the calibration data
  * the nvm_readHwInfo that populates a hwInfo_t structure using data stored in nvm devices
- * int nvm_readVFOChannelData that reads the last saved VFO state
+ * the nvm_readVFOChannelData that reads the last saved VFO state
  * nvm_readSettings/nvm_writeSettings that reads/writes the device settings (callsign, accessibility settings, ...)
  * nvm_writeSettingsAndVfo that writes the current vfo states as well as the device settings
 
@@ -28,7 +28,7 @@ These functions use the functions nvm_read/nvm_write/nvm_erase defined in nvmem_
 
 This layer implements the driver for a particular non-volatile memory device.
 
-An NVM device is represented by an nvmDevice structure. This structure contains pointers to an information structure and an ops structure. It also contains a priv pointer that is differently by each driver.
+An NVM device is represented by an nvmDevice structure. This structure contains pointers to an information structure and an ops structure. It also contains a priv pointer that is used differently by each driver.
 
 ### ops structure
 

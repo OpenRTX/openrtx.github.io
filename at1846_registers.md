@@ -67,7 +67,7 @@
   6  | dtmf_idle interrupt enable           |
   5  | ctcss phase shift detect int. enable |
   4  | idle state time out int. enable      |
-  3  | rxon_rf timerout interrupt enable    |
+  3  | rxon_rf timeout interrupt enable    |
   2  | sq interrupt enable                  |
   1  | txon_rf time out interrupt enable    |
   0  | vox interrupt enable                 |
@@ -130,7 +130,7 @@ set to 01) <br> 11 = not Tx any signal
   10  |  enable CTC/DCS detection         |
   7   |  enable CDCSS inverse code detect |
   4   |  CDCSS code selection             | 1 = 24 bit code<br>0 = 23 bit code
-  3   |  CTCSS code selection             | 1 = ctcss_cmp/cdcss_cmp out via gpio<br> 0 = ctcss/cdcss sdo out vio gpio
+  3   |  CTCSS code selection             | 1 = ctcss_cmp/cdcss_cmp out via gpio<br> 0 = ctcss/cdcss sdo out via gpio
  2:0  |  CTC/DCS mode selection           | 000 = disable<br> 001 = inner ctcss en<br> 010 = inner cdcss en 101 = outer ctcss en<br> 110 = outer cdcss en <br> others = disable
 
 ##### 0x48

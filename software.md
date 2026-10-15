@@ -85,7 +85,7 @@ By design, low level drivers (display, keyboard, ...) are **not** written to be 
 
 In any case, the low level drivers provide a means to determine if the controlled device is busy, thus allowing for concurrent access management. As said above, since the low level drivers are **not** thread safe, these functions should be preceded by ```__disable_irq()``` and followed by ```__enable_irq()```, which are the CMSIS functions for interrupt disabling and enabling, respectively. Disabling the interrupts prevents any kind of unwanted preemption, either from the RTOS or from the hardware peripherals. However, it also has an impact on the real-time performance of the overall system, thus each critical section has to be as short as possible.
 
-As an example, let consider the display driver's function to check if rendering is in progress:
+As an example, let us consider the display driver's function to check if rendering is in progress:
 
 ```C
 
@@ -121,7 +121,7 @@ As an example, take the TIM3 interrupt handler: its function name is ```TIM3_IRQ
 * Content of display framebuffer is changed inside ```display_renderRows() ``` or ```display_render() ```. Since the display controller needs to be provided with pixel data in big endian order, while the MCU is little endian, inside the two render functions the whole content of the framebuffer is byte-swapped to accommodate for the endianness of the display controller. As a consequence, writing a pixel and then reading it back returns the written value **as long as** ```display_renderRows() ``` **or** ```display_render() ``` **are not called**.
 
 #### MD-380
-* SKY73210 and HR_C5000 share part of the SPI bus. SKY73210 provides ```SKY73210_spiInUse()``` function to allow high level modules determine if SPI bus is taken by PLL driver or not.
+* SKY72310 and HR_C5000 share part of the SPI bus. The SKY72310 driver provides ```SKY73210_spiInUse()``` function to allow high level modules determine if SPI bus is taken by PLL driver or not.
 
 #### MD-9600
 * The external flash memory and the display driver share the same SPI bus. The SPI2 driver module provides an API to get exclusive access to the bus by locking a dedicated mutex, however application code has to explicitly call the ```spi2_lockDevice()```/ ```spi2_lockDeviceBlocking()``` and ```spi2_releaseDevice()``` functions, respectively before and after committing a transaction on the SPI bus.

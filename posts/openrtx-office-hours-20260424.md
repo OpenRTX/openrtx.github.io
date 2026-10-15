@@ -22,7 +22,7 @@ Held on 2026-04-24T17:00Z in [https://meet.jit.si/OpenRTX](https://meet.jit.si/O
 
  * v0.4.4: incoming release
     * all features are landed, we're ready to cut the release.
-    * investigating the off-frequency bug on CS7000, the fix may part of the release.
+    * investigating the off-frequency bug on CS7000, the fix may be part of the release.
 
  * v0.5.0: next release
     * re-scoping of the release: we have M17 SMS, APRS RX, and spectrum scan all close to go
@@ -81,7 +81,7 @@ Held on 2026-04-24T17:00Z in [https://meet.jit.si/OpenRTX](https://meet.jit.si/O
 
 * *[Jeff KF0CSJ] T-TWR?*
     * What's the current status? Interested in buying a new radio, but trying to decide between C62 or T-TWR because they're not requiring mods to run M17
-    * [IU2KWO] Nico and Edgetriggered made a working POC for the ADC (in order to compensate for a hardware issue in teh current revision); edgetriggered has adjustments that need to be merged now
+    * [IU2KWO] Nico and Edgetriggered made a working POC for the ADC (in order to compensate for a hardware issue in the current revision); edgetriggered has adjustments that need to be merged now
     * We need to prove the DAC is capable for M17 transmission and get M17 reception working through the ADC support. Some UI changes would benefit the unusual hardware interface on this platform.
     * Persistence would be very helpful for configuring pre-defined channels to work around limitations of the physical interface.
 

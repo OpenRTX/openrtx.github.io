@@ -19,7 +19,7 @@ fragmentation of the transmitted data.
 ## Data Link Layer
 
 The data link layer of the rtxlink protocol consists of variable-length frames encoded using the [Serial Line Internet Protocol (SLIP)](https://en.wikipedia.org/wiki/Serial_Line_Internet_Protocol).
-Each SLIP frame must begin with an END character: incoming frames not beginning with and END character are accepted anyway, even if not strictly conformant to the specification. SLIP can extend
+Each SLIP frame must begin with an END character: incoming frames not beginning with an END character are accepted anyway, even if not strictly conformant to the specification. SLIP can extend
 the frame length up to the double of the original length, this needs to be taken into account when sizing buffers during the protocol implementation.
 
 The frames format is the following:
@@ -69,7 +69,7 @@ Following the opcode there are two bytes containing the resource ID and N bytes 
 
 #### Peek Requests
 
-A peek request allow the client to read the content of the host internal memory at a given address. The command frame has a fixed length of six bytes, with the opcode set to 0x50 (ASCII character 'P').
+A peek request allows the client to read the content of the host internal memory at a given address. The command frame has a fixed length of six bytes, with the opcode set to 0x50 (ASCII character 'P').
 The command opcode byte is followed by one byte specifying the number of bytes to read and by the start address for the read operation. The length of the address depends on the host architecture and
 it can be either 2, 4 or 8 bytes long; any other length is considered invalid. The host replies to a peek request with a data response packet or, in case of failures, an ack frame reporting an error code.
 
@@ -108,7 +108,7 @@ must at least use the values 0x00 and 0xFF for the status field.
 
 #### Get/set resource IDs
 
-The tables below summarizes the CAT resource identifiers with their respective size, semantic and permissions.
+The tables below summarize the CAT resource identifiers with their respective size, semantic and permissions.
 
 | Permissions    | Symbol |
 |:---------------|:-------|
