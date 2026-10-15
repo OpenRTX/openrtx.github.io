@@ -185,6 +185,12 @@ words:
   - teardown
   - AMBE
   - DVSI
+  - openrtx
+  - Hannes
+  - Friedrichshafen
+  - Tmes
+  - littlefs
+  - Gigadevices
 patterns:
   - name: markdown_code_block
     pattern: /^\s*```[\s\S]*?^\s*```/gm
