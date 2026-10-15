@@ -18,4 +18,4 @@ Alternatively to the Matrix space, you can join our [Discord server](https://dis
 
 We try to bridge together the Discord server and the Matrix space, but these things tend to be fragile. As Discord was the original community chat, it is still where most of the discussions take place.
 
-Finally, if don't have a Matrix account nor a Discord one and you want to join our community, we strongly encourage you to choose the Matrix way! :smiley:
+Finally, if you don't have a Matrix account nor a Discord one and you want to join our community, we strongly encourage you to choose the Matrix way! :smiley:

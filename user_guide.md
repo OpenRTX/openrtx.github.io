@@ -54,7 +54,7 @@ To put the radio in bootloader mode look at the instructions for firmware flashi
     |---|---|---|---|
     | **Green Book** | **Up Arrow** <br> Squelch step up | **Down Arrow** <br> Squelch step down | **Red Book** |
     | **1** <br> T- CTCSS <br> Frequency Step down | **2** <br> T+ CTCSS <br> Frequency Step up | **3** <br> CTCSS Mode <br> (Disable / Encode /<br>Decode / Encode+Decode) | **\* \ Lock** |
-    | **4** <br> IF Filter bandwidth <br> (12.5 / 20 / 25 KHz) | **5** <br> Modulation Mode <br> (DMR/FM/M17) | **6** <br> Transmitter Power <br> (high / low or 1W / 5W) | **0 \ \_** |
+    | **4** <br> IF Filter bandwidth <br> (12.5 / 20 / 25 kHz) | **5** <br> Modulation Mode <br> (DMR/FM/M17) | **6** <br> Transmitter Power <br> (high / low or 1W / 5W) | **0 \ \_** |
     | **7** <br> B+ <br> Increase Display <br> Brightness| **8** <br> B- <br> Decrease Display <br> Brightness  | **9** <br> Lock | **# \ Shift arrow** |
 
 * M17 Mode

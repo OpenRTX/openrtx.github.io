@@ -14,7 +14,7 @@ The encoding and decoding digital modes with a DSP has its own advantages becaus
 that the radio manufacturer will not have to implement it in the radio firmware, also the baseband follows the protocol
 timings and fires an interrupt to the microcontroller when a certain protocol event happens (like the start of a DMR timeslot).
 
-Unfortunately decoding digital modes in software has an hardware requirements: it requires the target radio to have some 
+Unfortunately decoding digital modes in software has a hardware requirement: it requires the target radio to have some 
 __audio paths__ which are mandatory:
 - RF to MCU: Used to receive signal to be decoded
 - MCU to RF: Used to transmit encoded signal

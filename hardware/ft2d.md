@@ -26,7 +26,7 @@ H8SX is supported by a GCC 4.7 fork by Renesas, no Ghidra module exists.
 RX600 is supported by a GCC 8.3.0 fork by Renesas, a [Ghidra processor module](https://github.com/ballon-rouge/rx-proc-ghidra) is available.
 
 The two Renesas CPU communicate through a serial port, connected to the RXD6 and TXD6 ports of both processors.
-The RX630 (SUB) is responsible of managing the screen and the GPS module, while the H8SX (MAIN) is responsible for all
+The RX630 (SUB) is responsible for managing the screen and the GPS module, while the H8SX (MAIN) is responsible for all
 the main radio features.
 
 The OpenRTX firmware will run on the MAIN CPU, with full multi-threading support, the SUB CPU will run a single OpenRTX-compatible

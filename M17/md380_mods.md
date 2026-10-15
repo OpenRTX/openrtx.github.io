@@ -10,9 +10,9 @@ For questions join our [community chat](get_in_touch.md), or write us an [email]
 
 ### Equipment required
 To perform the Mic → MCU and RF → MCU mods you need:
-- Screwdrivers: Torx T6, Torx T8, Philips #0
+- Screwdrivers: Torx T6, Torx T8, Phillips #0
 - Plastic spudger like [this](https://it.aliexpress.com/item/32834353313.html) or similar
-- 1x 50KΩ SMD (Surface Mount Device) resistor with at least 5% tolerance
+- 1x 50 kΩ SMD (Surface Mount Device) resistor with tolerance of 5% or better.
 - some 30AWG Kynar wire
 - A small tip soldering iron
 - A desoldering pump or solder wick
@@ -36,7 +36,7 @@ To perform the Mic → MCU and RF → MCU mods you need:
 The **RF → MCU mod requires also accessing the RF side of the PCB**,
 the one which faces the heat sink.
 
-- Remove the 11 Philips #0 screws from the logic side of the PCB \
+- Remove the 11 Phillips #0 screws from the logic side of the PCB \
 - Remove the 2 Torx T6 screws from the side button PCB \
 - Desolder the antenna connector \
 The antenna connector is fixed to the heat sink with two screws,
@@ -71,8 +71,8 @@ After the modification:
 
 Lastly, since STM32 ADCs can only measure positive voltages, to be able to capture the full audio signal we need a DC biased microphone signal.
 We are going to take the microphone signal at R158 which is DC biased in the range 0-5V and bridge it to R118 where we want an input range of 0-3.3V.
-We recommend to do so by applying a 50KΩ resistor between *C161 or C162 or both* and the microphone signal path, accessible on one of the pads of the EC151 capacitor we just removed.
-If you don't have a 50KΩ resistor, anything in the range [40-60]KΩ will work.
+We recommend to do so by applying a 50 kΩ resistor between *C161 or C162 or both* and the microphone signal path, accessible on one of the pads of the EC151 capacitor we just removed.
+If you don't have a 50 kΩ resistor, anything in the range [40-60] kΩ will work.
 Finally, remove the C115 capacitor.
 
 Here is a picture of the applied modification:

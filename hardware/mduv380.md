@@ -184,7 +184,7 @@ Functions identified:
 
 ## Memory mapping
 There are two Linux tools for writing the codeplug that can be used as a reference
-- [dmrconfig uc380.c](https://github.com/sergev/dmrconfig/blob/master/uv380.c): Some addresses seems
+- [dmrconfig uv380.c](https://github.com/sergev/dmrconfig/blob/master/uv380.c): Some addresses seem
   to be incorrect
 - [qdmr uv390_codeplug.hh](https://github.com/hmatuschek/qdmr/blob/master/lib/uv390_codeplug.hh):
   Detailed UV380 codeplug reverse engineering
@@ -238,5 +238,5 @@ Body address | Stack address | ID  | Priority |
 -------------|:-------------:|:---:|:--------:|
  0x0806B05C  |  0x200186CC   |  6  |    6     |
 
-This task controls is in charge of managing the AT1846S baseband chip, setting the TX and RX frequencies and other functionalities to be discovered. Upon startup, the task calls the function at 0x0806B05C to perform the initial configuration of the AT1846S registers. Then it enters in an infinite loop which waits for new data on the mailbox at address 0x2001EFAC; this data is the processed in the function at 0x0804B5D4.
+This task is in charge of managing the AT1846S baseband chip, setting the TX and RX frequencies and other functionalities to be discovered. Upon startup, the task calls the function at 0x0806B05C to perform the initial configuration of the AT1846S registers. Then it enters in an infinite loop which waits for new data on the mailbox at address 0x2001EFAC; this data is then processed in the function at 0x0804B5D4.
 

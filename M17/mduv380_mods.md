@@ -17,9 +17,9 @@ For questions join our [community chat](get_in_touch.md), or write us an [email]
 
 ### Equipment required
 To perform the Mic → MCU and RF → MCU mods you need:
-- Screwdrivers: Torx T6, Torx T8, Philips #0
+- Screwdrivers: Torx T6, Torx T8, Phillips #0
 - Plastic spudger like [this](https://it.aliexpress.com/item/32834353313.html) or similar
-- 1x **50KΩ SMD (Surface Mount Device)** resistor with at least 5% tolerance
+- 1x **50 kΩ SMD (Surface Mount Device)** resistor with at least 5% tolerance
 - some 30AWG Kynar wire
 - A small tip soldering iron
 - A desoldering pump or solder wick
@@ -46,7 +46,7 @@ To perform the Mic → MCU and RF → MCU mods you need:
 Both mods (Mic → MCU and RF → MCU) require accessing the RF side of the PCB, 
 the one which faces the heat sink.
 
-- Remove the 11 Philips #0 screws from the logic side of the PCB \
+- Remove the 11 Phillips #0 screws from the logic side of the PCB \
 ![MD-UV380 back screws](../_media/uv380_back_screws.jpg)
 - Remove the 2 Torx T6 screws from the side button PCB \
 ![MD-UV380 side screws](../_media/uv380_side_screws.jpg)
@@ -89,10 +89,10 @@ Steps:
 ![MD-UV380 Mic mod capacitor removal](../_media/uv380_mic_cap_remove.jpg)
 - **Cover the PCB in Kapton tape leaving the left pad of the first capacitor you removed accessible.** \
 ![MD-UV380 Mic mod adding kapton](../_media/uv380_mic_kapton.jpg)
-- **Solder the 50KΩ SMD resistor on the left pad of EC151.** \
+- **Solder the 50 kΩ SMD resistor on the left pad of EC151.** \
 ![MD-UV380 Mic mod soldering resistor](../_media/uv380_mic_resistor.jpg)
 - **Solder a piece of Kynar wire from the right pad of the resistor you just soldered to C161 or C162 or both.** \
-![MD-UV380 Mix mod finished](../_media/uv380_mic_wire.jpg)
+![MD-UV380 Mic mod finished](../_media/uv380_mic_wire.jpg)
 
 **The Mic → MCU mod is now complete, go share it on your favourite social network!**
 
