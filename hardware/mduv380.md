@@ -140,7 +140,7 @@ GPIO  | Mode     | Function             | Notes
  PE2  | output   | HR_C6000 chip select |
  PE3  | output   | HR_C6000 SCK         |
  PE4  | output   | HR_C6000 SDO         | MCU  -> chip
- PE5  | output   | HR_C6000 SDI         | chip -> MCU
+ PE5  | input    | HR_C6000 SDI         | chip -> MCU
  PE6  | output   | HR_C6000 power down  |
  PE7  | input/AF | LCD_D4 - keyboard    | FSMC
  PE8  | input/AF | LCD_D5 - keyboard    | FSMC

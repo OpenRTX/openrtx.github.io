@@ -23,11 +23,11 @@ The `tests/unit/assets` directory contains the following baseband recordings:
 
 ### Demodulating a raw baseband file with OpenRTX Linux
 
-The Linux build uses a file source driver that reads, on loop, a raw 16-bit, little-endian, mono, 24 kHz file from `/tmp/baseband.raw`. 
+The Linux build uses a file source driver that reads, in a loop, a raw 16-bit, little-endian, mono, 24 kHz file from `/tmp/baseband.raw`. 
 
 #### Decimation
 
-The OpenRTX M17 modulator works at a sample rate of 48 kHz, but the demodulator works at a sample rate of 24 kHz. Because the sample baseband files have a sample rate of 48 kHz, they must be decimated to 24 kHz first in order to be demodulated. This can be done easily using the `sox` audio utility, available in most packagers. To decimate a sample baseband file, run:
+The OpenRTX M17 modulator works at a sample rate of 48 kHz, but the demodulator works at a sample rate of 24 kHz. Because the sample baseband files have a sample rate of 48 kHz, they must be decimated to 24 kHz first in order to be demodulated. This can be done easily using the `sox` audio utility, available in most package managers. To decimate a sample baseband file, run:
 
 ```bash
 # Convert the sample baseband recording from 48 kHz to 24 kHz

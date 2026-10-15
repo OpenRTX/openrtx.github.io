@@ -160,7 +160,7 @@ USB cable is a serial adaptor, this log appears even without radio.
 | 7    | 3v3      | 3v3           |
 | 8    | SWD_IO   | SWDIO         |
 
-![HD1 SWD Detail](_media/hd1_swd_detail.JPEG)
+![HD1 SWD Detail](../_media/hd1_swd_detail.JPEG)
 
 ## CHORD U306
 

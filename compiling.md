@@ -1,20 +1,20 @@
 # Building OpenRTX from sources
 
 
-1. [Installing the basic tools](#installing-the-basic-tools)
+1. [Installing the basic tools](#_1-installing-the-basic-tools)
     - [Linux toolchain setup](#linux-toolchain-setup)
     - [Windows toolchain setup](#windows-toolchain-setup)
     - [MacOS toolchain setup](#macos-toolchain-setup)
-2. [Obtaining the source code](#obtaining-the-source-code)
-3. [Compiling the firmware](#compiling-the-firmware)
+2. [Obtaining the source code](#_2-obtaining-the-source-code)
+3. [Compiling the firmware](#_3-compiling-the-firmware)
     - [Compiling for a radio](#compiling-for-a-radio)
     - [Compiling the emulator](#compiling-the-emulator)
-4. [Flashing the firmware to a radio](#flashing-the-firmware-to-a-radio)
+4. [Flashing the firmware to a radio](#_4-flashing-the-firmware-to-a-radio)
     - [Tytera and Retevis radios](#tytera-and-retevis-radios)
     - [GD-77 and DM-1801](#gd-77-and-dm-1801)
     - [Other radios](#other-radios)
 
-[Appendix: compiling for a Zephyr-based target](#Compiling-for-a-Zephyr--based-target)
+[Appendix: compiling for a Zephyr-based target](#compiling-for-a-zephyr-based-target)
     
 ## 1. Installing the basic tools
 
@@ -36,7 +36,7 @@ sudo apt update && sudo apt install git pkg-config build-essential meson
 Alternatively to the package manager, `meson` and `ninja` can be installed also using pip:
 
 ```
-sudo apt install python-pip3
+sudo apt install python3-pip
 pip3 install --user meson ninja
 ```
 
@@ -45,7 +45,7 @@ The miosix kernel GCC toolchain (`9.2.0mp3.2`) is required, comes with its own i
 
 ```
 wget https://miosix.org/toolchain/MiosixToolchainInstaller9.2.0mp3.2.run
-sh MiosixToolchainInstaller.run
+sh MiosixToolchainInstaller9.2.0mp3.2.run
 ```
 
 **WARNING: since the latest release, the GCC toolchain for miosix kernel is compatible only with x64 systems!**
@@ -58,7 +58,7 @@ If you're targeting a TYT or Retevis radio, (i.e. the MD-380, MD-UV380, RT3, ...
 sudo apt install cmake libusb-1.0-0 libusb-1.0-0-dev
 ```
 
-To use `radio_tool` from your non-root Linux user, you need to provide the correct permissions for user-space USB access:
+To use `radio_tool` from your non-root Linux user, you need to provide the correct permissions for user-space USB access. The `99-openrtx.rules` file is in the root folder of the OpenRTX repository (see [Obtaining the source code](#_2-obtaining-the-source-code)); run these commands from there:
 ```
 sudo cp 99-openrtx.rules /etc/udev/rules.d
 sudo udevadm control --reload-rules
@@ -73,12 +73,13 @@ sudo apt install dfu-util
 Alternatively, it can be compiled from source with the following commands:
 
 ```
-sudo apt install autoconf
+sudo apt install autoconf automake pkg-config libusb-1.0-0-dev
 git clone git://git.code.sf.net/p/dfu-util/dfu-util
+cd dfu-util
 ./autogen.sh
 ./configure
 make
-make install
+sudo make install
 ```
 
 ---
@@ -138,14 +139,6 @@ To flash the firmware on the *Module 17* and *CS7000-M17* (non Plus) platforms, 
 brew install dfu-util
 ```
 
-**Additional notes:**
-
-The gd77 and dm1801 targets use `bin2sgl`. In order to run it on Apple Silicon Macs, you may need to install Rosetta 2 with the following command:
-
-```
-softwareupdate --install-rosetta --agree-to-license
-```
-
 ---
 
 ## 2. Obtaining the source code
@@ -183,13 +176,15 @@ Where `CROSS_FILE`, `BUILD_DIR` and `TARGET` have to be properly selected basing
 | Module17                                     | cross_cm4.txt | build_cm4   | `mod17`   |
 | Connect Systems CS7000-M17                   | cross_cm4.txt | build_cm4   | `cs7000`  |
 | Connect Systems CS7000-M17 Plus              | cross_cm7.txt | build_cm7   | `cs7000p` |
+| Baofeng DM-1701                              | cross_cm4.txt | build_cm4   | `dm1701`  |
+| Radtel RT-4D                                 | cross_cm4.txt | build_cm4   | `rt4d`    |
 
 
 **NOTE: if you are using a version of Meson older than v0.55.0, the above command will fail. To compile, use the following command:**
 
 ```
 meson setup --cross-file CROSS_FILE BUILD_DIR
-ninja -C BUILD_DIR openrtx_MODEL -jN
+ninja -C BUILD_DIR openrtx_TARGET -jN
 ```
 
 Where N is the number of cores that you want to allocate to the build process.
@@ -267,10 +262,10 @@ Then follow the same compilation procedure listed above for a plain build.
 To flash the newly compiled binary image connect the radio to the computer using the USB programming cable, put it in firmware upgrade mode and issue the following command:
 
 ```
-meson compile -C build_cm4 openrtx_MODEL_flash
+meson compile -C build_cm4 openrtx_TARGET_flash
 ```
 
-where `MODEL` is the same radio model used to compile the firmware, as listed in the table at point 2.
+where `TARGET` is the same target used to compile the firmware, as listed in the table in [section 3](#compiling-for-a-radio).
 
 Once the flashing process terminated without errors, you can power cycle your radio and enjoy the OpenRTX firmware!
 
@@ -286,20 +281,20 @@ Substituting `new_firmware.bin` with the name of the binary image you want to fl
 
 Currently, the Radioddity GD77 and Baofeng DM1801 devices are not supported by `radio_tool`. However, the required tools used to flash the firmware are already included in the main OpenRTX repository. To flash the firmware, you just need to connect the radio to the computer, put it in firmware update mode and issue the following command:
 ```
-meson compile -C build_cm4 openrtx_MODEL_flash
+meson compile -C build_cm4 openrtx_TARGET_flash
 ```
 
-where `MODEL` is the same radio model used to compile the firmware, as listed in the table at point 2.
+where `TARGET` is the same target used to compile the firmware, as listed in the table in [section 3](#compiling-for-a-radio).
 
 #### Other radios
 
 The *Module17* and the *CS7000-M17* use the `dfu-util` tool to manage the firmware updates. To write a new firmware, put the target in firmware update mode, connect it to the computer and issue the following command:
 
 ```
-meson compile -C build_cm4 openrtx_MODEL_flash
+meson compile -C build_cm4 openrtx_TARGET_flash
 ```
 
-where `MODEL` is the same radio model used to compile the firmware, as listed in the table at point 2.
+where `TARGET` is the same target used to compile the firmware, as listed in the table in [section 3](#compiling-for-a-radio).
 
 To write a new firmware on *CS7000-M17 Plus*, you have to use the Connect Systems' firmware update tool to write a "wrapped" binary image. This "wrapped" binary image can be obtained directly from the OpenRTX build system
 by issuing the command:
@@ -308,7 +303,7 @@ by issuing the command:
 meson compile -C build_cm7 openrtx_cs7000p_wrap
 ```
 
-the resulting file will be located in the `build_cm7` folder inside the main OpenRTX folder and will be named `openrtx_cs7000p_wrap.bin`
+the resulting file will be located in the `build_cm7` folder inside the main OpenRTX folder and will be named `openrtx_cs7000p_wrap`
 
 ---
 

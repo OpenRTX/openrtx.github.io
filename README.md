@@ -30,11 +30,11 @@ If you are interested in keeping updated with the latest news or you want to joi
 
 #### Acknowledgments:
 
-All this was made possible by the huge reverse engineering effort of Travis Goodspeed and of all the contributors of [md380tools](https://github.com/travisgoodspeed/md380tools), which provided a valuable starting point when we moved our first steps with the MD-380.
+All this was made possible by the huge reverse engineering effort of Travis Goodspeed and of all the contributors of [md380tools](https://github.com/travisgoodspeed/md380tools), which provided a valuable starting point when we took our first steps with the MD-380.
 
 Thanks to Roger Clark VK3KYY and all the contributors of the [OpenGD77](http://opengd77.com/) project which both inspired this project and, as a precursor, provided a working code example for the GD77 radio family.
 
-A warm thank goes also to Wojciech Kaczmarski SP5WWP and the [M17](https://m17project.org) community for collaboration and support given during the long process of implementing the M17 protocol in our firmware.
+Warm thanks also go to Wojciech Kaczmarski SP5WWP and the [M17](https://m17project.org) community for collaboration and support given during the long process of implementing the M17 protocol in our firmware.
 
 Also thanks for donating hardware to the project to:
 * M17 Project

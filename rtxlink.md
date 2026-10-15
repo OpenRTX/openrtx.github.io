@@ -69,7 +69,7 @@ Following the opcode there are two bytes containing the resource ID and N bytes 
 
 #### Peek Requests
 
-A peek request allows the client to read the content of the host internal memory at a given address. The command frame has a fixed length of six bytes, with the opcode set to 0x50 (ASCII character 'P').
+A peek request allows the client to read the content of the host internal memory at a given address. The command frame is 4, 6 or 10 bytes long, depending on the address length, with the opcode set to 0x50 (ASCII character 'P').
 The command opcode byte is followed by one byte specifying the number of bytes to read and by the start address for the read operation. The length of the address depends on the host architecture and
 it can be either 2, 4 or 8 bytes long; any other length is considered invalid. The host replies to a peek request with a data response packet or, in case of failures, an ack frame reporting an error code.
 
@@ -102,9 +102,9 @@ must at least use the values 0x00 and 0xFF for the status field.
 | Request  | Get     | 0x47 'G' | ID             | 3        | Gets the N Byte word corresponding to the specified ID. |
 | Response | Data    | 0x44 'D' | Value          | Variable | The N Byte word which was requested. |
 | Request  | Set     | 0x53 'S' | ID, Value      | Variable | Sets a N Byte word to the specified ID. |
-| Response | Ack     | 0x41 'A' | Status         | 1        | Status of the previous Set command, success or error. |
-| Request  | Peek    | 0x50 'P' | Address        | 5        | Gets the 32bit word corresponding to the specified 32-bit address. |
-| Response | Data    | 0x44 'D' | Value          | 5        | The 32bit word which was requested. |
+| Response | Ack     | 0x41 'A' | Status         | 2        | Status of the previous command, success or error. |
+| Request  | Peek    | 0x50 'P' | Length, Address | 4, 6 or 10 | Reads Length bytes starting at the specified address (2, 4 or 8 bytes long). |
+| Response | Data    | 0x44 'D' | Value          | Variable | The memory content which was requested. |
 
 #### Get/set resource IDs
 

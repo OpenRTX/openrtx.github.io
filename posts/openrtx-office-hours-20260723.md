@@ -34,7 +34,7 @@ Held on 2026-07-23T17:00Z in [https://meet.jit.si/OpenRTX](https://meet.jit.si/O
  * Persistence:
      * Considered integrating the slicer and memory savings bits together, decided against this because the group believed that the slicer may have standalone value for special cases
      * Proposal that slicer should be able to take a map for variable slice size: e.g. one slice with M17, one with FM; decided instead that intentionally positioning high vs low churn entries would be enough
-     * Morgan working on VFO structure, current approach is funky and coupled to md380 + their CPS expectations; going to reimagine this to be more consistent with
+     * Morgan working on VFO structure, current approach is funky and coupled to md380 + their CPS expectations; going to reimagine this to be more consistent with [unfinished in the original notes]
      * We \_don't\_ expect that every setting present in the codeplug should be editable via UI; e.g. Tmes, calibration editing would clutter the UI
      * Planning two CPS: one for constrained radios that will have read-only codeplug to the UI, another that will have littlefs and full editing capabilities
 
@@ -43,7 +43,7 @@ Held on 2026-07-23T17:00Z in [https://meet.jit.si/OpenRTX](https://meet.jit.si/O
      * Computer-aided transceivers (CAT interface)
          * Working on the new implementation currently based on some past learnings from a hackathon
          * Yaesu/kenwood compatible approach is being chosen
-         * If a radio has USB, there is will be one with CAT (serial mode) and one with file transfer (file mode) (either way, CAT must enable file transfer)
+         * If a radio has USB, there will be one with CAT (serial mode) and one with file transfer (file mode) (either way, CAT must enable file transfer)
          * Mass storage may be hard for qDMR based on the existing work done, dual port challenges too; maybe another approach like dfu would work more easily? To be researched
 
  * Github bot checking for stale issues:

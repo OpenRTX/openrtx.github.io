@@ -18,8 +18,10 @@ OpenRTX software architecture documentation
         * Tytera MD-UV390
         * Tytera MD-UV390G
         * Retevis RT3s (with or without GPS)
-        * Baofeng DM-1701 (not tested)
         * Tytera MD-2017 (not tested)
+
+    * **DM-1701** platform, compilation target `dm1701`
+        * Baofeng DM-1701
 
     * **MD-9600** platform, compilation target `md9600`
         * Tytera MD-9600 (with or without GPS)
@@ -29,12 +31,24 @@ OpenRTX software architecture documentation
         * Radioddity GD-77, compilation target `gd77`
         * Baofeng DM-1801,  compilation target `dm1801`
 
-* **Module17** platform, compilation target `hd1`
+* **Module17** platform, compilation target `mod17`
    * Module17 board
  
 * **Talkpod** family
    * **A36plus Platform**
-        * Talkpod A36plus MAX (8W), compilation target `a36plus`
+        * Talkpod A36plus MAX (8W), compilation target `a36plus` (maintained outside the main OpenRTX repository)
+
+* **CS7000** family
+    * Connect Systems CS7000-M17, compilation target `cs7000`
+    * Connect Systems CS7000-M17 Plus, compilation target `cs7000p`
+
+* **T-TWR Plus** platform, compilation target `ttwrplus`
+    * LILYGO T-TWR Plus
+
+* **RT-4D** platform, compilation target `rt4d`
+    * Radtel RT-4D
+
+* **Linux** emulator, compilation targets `linux`, `linux_smallscreen` and `linux_mod17`
 
 ## Threading Model
 OpenRTX employs a **multi-threaded** architecture. \
@@ -45,6 +59,8 @@ The current implementation uses three threads:
 - **UI Thread**: Draws the User Interface and handles button behaviour
 - **DEV Thread**: Updates the device parameters (e.g. battery voltage) and handles parsing of GPS sentences
 - **RTX Thread**: Controls the RF section and handles the protocol management, executing requests from the UI Thread
+
+Additional threads are created on demand: the audio codec spawns a **Codec2 thread** while encoding or decoding voice (stack size `CODEC2_THREAD_STKSIZE`, 16kB), and the audio drivers of the MDx and CS7000 targets spawn an **audio thread** (stack size `AUDIO_THREAD_STKSIZE`, 512B).
 
 The OpenRTX threads communicate between them by using _event queues_ and _shared state_ data structures.
 
@@ -61,7 +77,7 @@ following table for details
 |DEV   |200Hz (5ms)|-             |2kB       |
 |RTX   |33Hz (30ms)|-             |512B      |
 
-The thread stack sizes are defined in the `openrtx/include/threads.h` file, **except for the DEV one**. The DEV task is currently run in the ```main()``` function, whose stack size depends on a configuration parameter of the miosix kernel and is thus non modifiable. The only way to effectively change the stack size for the ```main()``` function is to recompile the miosix kernel and change the file `lib/miosix-kernel/libmiosix.a`.
+The thread stack sizes are defined in the `openrtx/include/core/threads.h` file, **except for the DEV one**. The DEV task is currently run in the ```main()``` function, whose stack size depends on a configuration parameter of the miosix kernel and is thus non modifiable. The only way to effectively change the stack size for the ```main()``` function is to recompile the miosix kernel and change the file `lib/miosix-kernel/libmiosix.a`.
 
 ## Interfaces Overview
 The OpenRTX firmware has been designed also with the goal of being able to be run on many different models of ham radios. To allow for this interoperability, we defined a set of **standard interfaces** providing a well-defined decoupling point between the common code (like the one for UI management) and the platform-specific one, most notably the device drivers.
@@ -103,8 +119,8 @@ __enable_irq();
 
 ### Parts with C++ code in the codebase
 As the miosix kernel is completely written in C++ and designed primarily to be coupled to C++ sources, some points of the OpenRTX codebase have to be adapted to be able to interface with the kernel. In particular, all the names for the interrupt handler functions are subjected to the **C++ name mangling scheme**, thus all the C code written for handling interrupts must have the handler name matched with the C++ mangled one. Affected modules are:
-* The `HX8353_MDx` file, providing the low-level display driver for MDx targets.
-* The `GPS_MDx` file, providing the low-level GPS driver for MDx targets.
+* The `HX8353_MD3x` file, providing the low-level display driver for MDx targets.
+* The `gps_stm32` file, providing the low-level GPS driver for STM32-based targets.
 * The `toneGenerator_MDx` file, providing an implementation of a tone generator for system "beeps" and CTC/DCS.
 
 In case there is need to interface with an interrupt handler from the C code, the general name mangling scheme is the following:

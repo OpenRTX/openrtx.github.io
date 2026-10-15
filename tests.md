@@ -1,4 +1,4 @@
-When working on OpenRTX we often find in need to test some features or to execute some standalone programs without running the main OpenRTX code.
+When working on OpenRTX we often need to test some features or to execute some standalone programs without running the main OpenRTX code.
 To do so we use the so called **platform tests** that can be used for example to dump the calibration data of a radio.
 
 This page shows how to compile and run platform tests on your radio.

@@ -18,7 +18,7 @@
 ##### 0x0A
  bit | function                          |            notes
  --- |   ---                             |   --- 
- 5:0 |  PA bias voltage                  | 000000: 1.01V<br>000001:1.05V<br>000010:1.09V<br>000100: 1.18V<br>001000: 1.34V<br>010000: 1.68V<br>100000: 2.45V<br>1111111:3.13V
+ 5:0 |  PA bias voltage                  | 000000: 1.01V<br>000001:1.05V<br>000010:1.09V<br>000100: 1.18V<br>001000: 1.34V<br>010000: 1.68V<br>100000: 2.45V<br>111111: 3.13V
 
 
 ##### 0x0F
@@ -29,7 +29,7 @@
 ##### 0x1F
  bit  | function                          |            notes
  ---  |   ---                             |   --- 
-14:15 |  GPIO7 mode                       | 00 = hi-z<br> 01 = vox<br> 10 = low<br> 11 = high
+15:14 |  GPIO7 mode                       | 00 = hi-z<br> 01 = vox<br> 10 = low<br> 11 = high
 13:12 |  GPIO6 mode                       | 00 = hi-z<br> 01 = squelch or squelch & CTC/DCS when sq_out_sel = 1<br> 10 = low<br> 11 = high
 11:10 |  GPIO5 mode                       | 00 = hi-z<br> 01 = txon_rf<br> 10 = low<br> 11 = high
  9:8  |  GPIO4 mode                       | 00 = hi-z<br> 01 = rxon_rf<br> 10 = low<br> 11 = high
@@ -51,12 +51,12 @@
 ##### 0x2B
  bit | function                          |            notes
  --- |   ---                             |   --- 
-15:0 |  reference clock frequency in kHz | 12\~14MHz: crystal freq1000 <br> 24\~ 28MHz: (crystal freq/2)1000
+15:0 |  reference clock frequency in kHz | 12\~14MHz: crystal freq (MHz) × 1000 <br> 24\~28MHz: (crystal freq (MHz) / 2) × 1000
 
 ##### 0x2C
  bit | function                          |            notes
  --- |   ---                             |  --- 
-15:0 |  ADC clock frequency in kHz       | 12\~14MHz: crystal freq1000 <br> 24\~ 28MHz: (crystal freq/2)1000
+15:0 |  ADC clock frequency in kHz       | 12\~14MHz: (crystal freq (MHz) / 2) × 1000 <br> 24\~28MHz: (crystal freq (MHz) / 4) × 1000
 
 ##### 0x2D
  bit | function                             |            notes
@@ -87,12 +87,12 @@
 ##### 0x35
  bit  | function                          |            notes
  ---  |   ---                             |   --- 
-15:0  |  DTMF tone freq 1                 | register_value = freq  (2^12)
+15:0  |  DTMF tone freq 1                 | register_value = freq (kHz) × 2^12
 
 ##### 0x36
  bit  | function                          |            notes
  ---  |   ---                             |   --- 
-15:0  |  DTMF tone freq 2                 | register_value = freq  (2^12)
+15:0  |  DTMF tone freq 2                 | register_value = freq (kHz) × 2^12
 
 ##### 0x3C
  bit  | function                          |            notes
@@ -131,7 +131,7 @@ set to 01) <br> 11 = not Tx any signal
   7   |  enable CDCSS inverse code detect |
   4   |  CDCSS code selection             | 1 = 24 bit code<br>0 = 23 bit code
   3   |  CTCSS code selection             | 1 = ctcss_cmp/cdcss_cmp out via gpio<br> 0 = ctcss/cdcss sdo out via gpio
- 2:0  |  CTC/DCS mode selection           | 000 = disable<br> 001 = inner ctcss en<br> 010 = inner cdcss en 101 = outer ctcss en<br> 110 = outer cdcss en <br> others = disable
+ 2:0  |  CTC/DCS mode selection           | 000 = disable<br> 001 = inner ctcss en<br> 010 = inner cdcss en<br> 101 = outer ctcss en<br> 110 = outer cdcss en <br> others = disable
 
 ##### 0x48
  bit  | function                          |            notes
@@ -146,17 +146,17 @@ set to 01) <br> 11 = not Tx any signal
 ##### 0x4A
  bit  | function                          |            notes
  ---  |   ---                             |   --- 
-15:0  |  CTCSS frequency                  | CTCSS freq = reg_value2^16 khz.<br> It must be set to 134.4Hz when use standard cdcss mode.<br> When use ctcss/cdcss, this register must be set both in rx and tx state
+15:0  |  CTCSS frequency                  | register_value = CTCSS freq (kHz) × 2^16 (e.g. 97.4 Hz → 0.0974 × 2^16 = 6383).<br> It must be set to 134.4Hz when use standard cdcss mode.<br> When use ctcss/cdcss, this register must be set both in rx and tx state
 
 ##### 0x4B
  bit  | function                          |            notes
  ---  |   ---                             |   --- 
  7:0  |  CDCSS code [23:16]               | MSB sent first
 
-##### 0x4A
+##### 0x4C
  bit  | function                          |            notes
  ---  |   ---                             |   --- 
-15:0  |  CDCSS code [23:16]               |
+15:0  |  CDCSS code [15:0]                |
 
 ##### 0x54
  bit  | function                          |            notes
@@ -198,8 +198,8 @@ set to 01) <br> 11 = not Tx any signal
  bit  | function                          |            notes
  ---  |   ---                             |   --- 
  9:8  |  DTMF mode                        | 11 = transmit or receive Dtmf single tone2<br> 01 =transmit or receive Dtmf dual tone1+tone2<br> others = disable
- 7:4  |  DTMF time 1                      | Time interval for dual tone transmission. Time = register_value5ms
- 3:0  |  DTMF time 2                      | Time interval for DTMF idle state. Time = register_value5ms
+ 7:4  |  DTMF time 1                      | Time interval for dual tone transmission. Time = register_value × 5ms
+ 3:0  |  DTMF time 2                      | Time interval for DTMF idle state. Time = register_value × 5ms
 
 ##### 0x66
  bit | function                           |            notes
