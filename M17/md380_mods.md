@@ -11,7 +11,7 @@ For questions join our [community chat](get_in_touch.md), or write us an [email]
 To perform the Mic → MCU and RF → MCU mods you need:
 - Screwdrivers: Torx T6, Torx T8, Phillips #0
 - Plastic spudger like [this](https://it.aliexpress.com/item/32834353313.html) or similar
-- 1x 50 kΩ SMD (Surface Mount Device) resistor with tolerance of 5% or better.
+- 1x 50 kΩ SMD (Surface Mount Device) resistor with tolerance of 5% or better (size and wattage do not matter)
 - some 30AWG Kynar wire
 - A small tip soldering iron
 - A desoldering pump or solder wick
