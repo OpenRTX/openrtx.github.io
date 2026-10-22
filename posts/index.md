@@ -4,3 +4,4 @@
 - [Office Hours for OpenRTX meeting, 13 February 2026](posts/openrtx-office-hours-20260213)
 - [Office Hours for OpenRTX meeting, 24 April 2026](posts/openrtx-office-hours-20260424)
 - [Office Hours for OpenRTX meeting, 23 July 2026](posts/openrtx-office-hours-20260723)
+- [Office Hours for OpenRTX meeting, 19 October 2026](posts/openrtx-office-hours-20261019)
