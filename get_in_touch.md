@@ -5,6 +5,11 @@ We post our latest updates on our [Mastodon](https://mastodon.radio/@openrtx) an
 
 For some reason we were not able to understand, the posts on X are visible only after logging in with a valid account; however, contents can be accessed without an account using [Nitter](https://nitter.net/OpenRtx).
 
+### Mailing lists
+The project self-hosts a mailing list service at [lists.openrtx.org](https://lists.openrtx.org/), with the following lists:
+ * users@lists.openrtx.org for general users' discussions (questions, help, announcements, ...)
+ * dev@lists.openrtx.org for development discussions
+
 ### Community chat
 If you need help, you want to ask questions or you just want to join the discussion you can enter in our [Matrix space](https://matrix.to/#/#openrtx:matrix.org) or [Discord server](https://discord.gg/jZ9t8XTbmd).
 
