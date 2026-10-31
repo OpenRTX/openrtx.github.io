@@ -54,7 +54,7 @@ OpenRTX is currently in active development. There will be bugs as we prioritize 
 | Lilygo T-TWR plus                              |✅    | ✅    | N/A   | ❌     | ❌     | ❌      | ❌      | N/A    | N/A    | N/A     |
 | Radtel RT-890                                  |❌    | ❌    | N/A   | ❌     | ❌     | ❌      | ❌      | N/A    | N/A    | N/A     |
 | Talkpod A36plus                                |✅    | ✅    | 🟡    | ❌     | ❌     | ❌      | ❌      | N/A    | N/A    | N/A     |
-| Retevis C62                                    |✅    | ❌    | N/A   | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
+| Retevis C62                                    |✅    | ✅    | N/A   | ❌     | ❌     | ❌      | ❌      | ❌     | ❌     | ❌      |
 | Connect Systems CS7000-M17                     |✅    | ✅    | N/A   | ✅     | ✅     | ❌      | ❌      | ❌     | ❌     | ❌      |
 | Connect Systems CS7000-M17 Plus                |✅    | ✅    | N/A   | ✅     | ✅     | ❌      | ❌      | ❌     | ❌     | ❌      |
 
